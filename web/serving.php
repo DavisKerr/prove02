@@ -1,3 +1,3 @@
 <?php
-echo "Today is " . date("Y/m/d") . "<br>" . "The time is " . localtime(); 
+echo "Today is " . date("Y/m/d") . "<br>" . date("h:i:sa"); 
 ?>
