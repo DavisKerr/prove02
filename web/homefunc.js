@@ -6,6 +6,8 @@ $(function(){
   $("#closeBtn").click(function(){
     $("#menu").css("width", "0%");
   });
+
+
 });
 
 function showDate()

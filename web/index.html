@@ -13,9 +13,9 @@
   <body>
     <div class="sidemenu" id="menu"> <!--Menu-->
       <a href="javascript:void(0)" id="closeBtn">&times;</a>
-      <a href='#'>Link Name</a>
-      <a href='#'>Link Name</a>
-      <a href='#'>Link Name</a>
+      <a href='navigator.php'>Class Projects Navigation</a>
+      <a href='https://recreate.idaho.gov/?gclid=CjwKCAjwh7H7BRBBEiwAPXjadgiEz6tQmO7sz7zwfJ2t0F1VOp-_o5yH80YQntqarp38zlAFqNs0ZRoCAjcQAvD_BwE'>Idaho recreation website</a>
+      <a href='https://web.byui.edu/'>BYU_I</a>
       <button id="timeBtn" onclick="showDate()" class="btn btn-light">Display Date</button>
       <p id="timeStamp"></p>
     </div> <!--Menu-->
@@ -85,6 +85,34 @@
           <img src="Images/waterfall.jpg" id="pic">
         </div> <!--Pic Box-->
       </div> <!--Info box4-->
+
+      <div class="info row-sm">
+        <div class="textBox col-sm-8"> <!--Text Box-->
+          <h3>Take the things to do in rexburg survey!</h3>
+
+          <form action="survey.php">
+
+            <label>Are you a student?</label>
+            <input type="radio" id="no" name="student" value="no">
+            <label for="no">no</label><br>
+            <input type="radio" id="yes" name="student" value="yeas">
+            <label for="yes">Yes</label><br>
+
+            <label for="quantity">How many times have you been to yellowstone?</label>
+            <input type="number" id="quantity" name="quantity" min="0" max="100">
+
+            <label>Do you enjoy hiking?</label>
+            <input type="radio" id="no" name="hiking" value="no">
+            <label for="no">no</label><br>
+            <input type="radio" id="yes" name="hiking" value="yeas">
+            <label for="yes">Yes</label><br>
+
+          </form>
+        </div> <!--Text Box-->
+        <div class="picBox col-sm-4" id="surveyResults"> <!--Pic Box-->
+          
+        </div> <!--Pic Box-->
+      </div>
 
       <footer>
 
