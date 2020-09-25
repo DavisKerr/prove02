@@ -16,7 +16,7 @@
       <a href='navigator.php'>Class Projects Navigation</a>
       <a href='https://recreate.idaho.gov/?gclid=CjwKCAjwh7H7BRBBEiwAPXjadgiEz6tQmO7sz7zwfJ2t0F1VOp-_o5yH80YQntqarp38zlAFqNs0ZRoCAjcQAvD_BwE'>Idaho recreation website</a>
       <a href='https://web.byui.edu/'>BYU_I</a>
-      <button id="timeBtn" onclick="showDate()" class="btn btn-light">Display Date</button>
+      <button id="timeBtn" onclick="showDate()" class="btn btn-light">Display Server Date</button>
       <p id="timeStamp"></p>
     </div> <!--Menu-->
     <div id="openBtn">
