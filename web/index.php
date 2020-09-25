@@ -86,34 +86,6 @@
         </div> <!--Pic Box-->
       </div> <!--Info box4-->
 
-      <div class="info row-sm">
-        <div class="textBox col-sm-8"> <!--Text Box-->
-          <h3>Take the things to do in rexburg survey!</h3>
-
-          <form action="survey.php" method="GET">
-
-            <label>Are you a student?</label><br>
-            <input type="radio" id="no" name="student" value="no">
-            <label for="no">no</label><br>
-            <input type="radio" id="yes" name="student" value="yes">
-            <label for="yes">Yes</label><br>
-
-            <label for="quantity">How many times have you been to yellowstone?</label>
-            <input type="number" id="quantity" name="quantity" min="0" max="100"><br>
-
-            <label>Do you enjoy hiking?</label><br>
-            <input type="radio" id="no" name="hiking" value="no">
-            <label for="no">no</label><br>
-            <input type="radio" id="yes" name="hiking" value="yes">
-            <label for="yes">Yes</label><br>
-
-            <input type="submit">
-          </form>
-        </div> <!--Text Box-->
-        <div class="picBox col-sm-4" id="surveyResults"> <!--Pic Box-->
-          
-        </div> <!--Pic Box-->
-      </div>
 
       <footer>
 
