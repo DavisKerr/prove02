@@ -1,4 +1,5 @@
 <?php
+/*
 $datafile = fopen("data.txt", "r+");
 $datatxt = fread($datafile, filesize("data.txt"));
 $data = json_decode($datatxt);
@@ -22,5 +23,6 @@ fwrite($datafile, $toSave);
 fclose($datafile)
 
 echo $toSave;
-
+*/
+echo "Thank you!"
 ?>

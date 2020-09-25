@@ -95,7 +95,7 @@
             <label>Are you a student?</label><br>
             <input type="radio" id="no" name="student" value="no">
             <label for="no">no</label><br>
-            <input type="radio" id="yes" name="student" value="yeas">
+            <input type="radio" id="yes" name="student" value="yes">
             <label for="yes">Yes</label><br>
 
             <label for="quantity">How many times have you been to yellowstone?</label>
@@ -104,7 +104,7 @@
             <label>Do you enjoy hiking?</label><br>
             <input type="radio" id="no" name="hiking" value="no">
             <label for="no">no</label><br>
-            <input type="radio" id="yes" name="hiking" value="yeas">
+            <input type="radio" id="yes" name="hiking" value="yes">
             <label for="yes">Yes</label><br>
 
             <input type="submit">
