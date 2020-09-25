@@ -1,11 +1,7 @@
 <?php
 
-$datafile = fopen("data.txt", "r+");
-$datatxt = fread($datafile, filesize("data.txt"));
-$datatxt = $datatxt . "\n" . $GET["student"] . " " . $GET["quantity"] . " " . $GET["hiking"];
-fwrite($datafile, $datatxt);
-fclose($datafile);
-echo "Thank you!";
+$datatxt = "\n" . $GET["student"] . " " . $GET["quantity"] . " " . $GET["hiking"];
+echo "You said" . $datatxt;
 
 /*$data = json_decode($datatxt);
 
@@ -29,5 +25,5 @@ fclose($datafile)
 
 echo $toSave;*/
 
-echo "Thank you!"
+echo "\n Thank you!"
 ?>
