@@ -14,11 +14,11 @@ function showDate()
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      time = this.responseText;
+      document.getElementById("timeStamp").innerHTML = this.responseText;
     }
   };
 
   xmlhttp.open("GET", "serving.php", true);
   xmlhttp.send();
-  document.getElementById("timeStamp").innerHTML = time;
+  
 }
