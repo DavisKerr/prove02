@@ -90,7 +90,7 @@
         <div class="textBox col-sm-8"> <!--Text Box-->
           <h3>Take the things to do in rexburg survey!</h3>
 
-          <form action="survey.php">
+          <form action="survey.php" method="GET">
 
             <label>Are you a student?</label><br>
             <input type="radio" id="no" name="student" value="no">
