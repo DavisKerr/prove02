@@ -16,7 +16,7 @@
       <a href='#'>Link Name</a>
       <a href='#'>Link Name</a>
       <a href='#'>Link Name</a>
-      <button id="timeBtn" onclick="">Display Time</button>
+      <button id="timeBtn" onclick="showDate()">Display Time</button>
       <p id="timeStamp"></p>
     </div> <!--Menu-->
     <div id="openBtn">
