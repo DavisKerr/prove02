@@ -1,8 +1,5 @@
 <?php
 
-$datatxt = "\n" . $GET["student"] . " " . $GET["quantity"] . " " . $GET["hiking"];
-echo "You said" . $datatxt;
-
 /*$data = json_decode($datatxt);
 
 $student = 0;
@@ -25,5 +22,5 @@ fclose($datafile)
 
 echo $toSave;*/
 
-echo "\n Thank you!"
+echo "\n Thank you!" . "<a href=\"index.php\"> Return to previous page. </a>"
 ?>
