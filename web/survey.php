@@ -1,26 +1,6 @@
 <?php
 
-/*$data = json_decode($datatxt);
+echo "You said: " . $GET[0] . $GET[1] . $GET[2];
 
-$student = 0;
-
-if($GET["student"] == "yes")
-{
-  $student = 1;
-}
-
-$times_visited = $GET["quantity"];
-$hiking = 0;
-if($GET["hiking"] == "yes")
-{
-  $student = 1;
-}
-$json_code = array("Student"=> $data[0] + $student, "Times_Visited"=> $data[1] + $times_visited, "Hiking"=> $data[2] + $hiking);
-$toSave = json_encode($json_code);
-fwrite($datafile, $toSave);
-fclose($datafile)
-
-echo $toSave;*/
-
-echo "\n Thank you!" . "<a href=\"index.php\"> Return to previous page. </a>"
+echo "\n Thank you!" . "\n<a href=\"index.php\"> Return to previous page. </a>"
 ?>
