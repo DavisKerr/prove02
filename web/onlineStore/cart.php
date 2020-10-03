@@ -4,11 +4,11 @@ session_start();
 
 <?php
 /* PHP to remove items */
-try 
+/*try 
 {
   if(isset($_GET["rsku"]))
   {
-    /*$new_sku = array(0); 
+    $new_sku = array(0); 
     $new_name = array("Blank");
     $new_qnt = array(0);
     $new_cost = array(0.0);
@@ -30,20 +30,20 @@ try
     $_SESSION["sku"] = $new_sku ;
     $_SESSION["name"] = $new_name;
     $_SESSION["cost"] = $new_cost;
-    $_SESSION["qnt"] = $new_cost*/
+    $_SESSION["qnt"] = $new_cost
 
     
 }
 catch (Exception $e)
 {
   echo 'Caught exception: ', $e->getMessage();
-}
+}*/
 ?>
 
 <!DOCTYPE html>
 <html lang="en-US">
 <?php
-print_r($_SESSION["sku"]);
+//print_r($_SESSION["sku"]);
 ?>
   <!--
     TODO:
