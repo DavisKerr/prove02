@@ -13,34 +13,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["name"]);
   }
+}
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["strtadd"])) {
-      $strtaddErr = "Street Address is required";
-    } else {
-      $strtadd = test_input($_POST["strtadd"]);
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["strtadd"])) {
+    $strtaddErr = "Street Address is required";
+  } else {
+    $strtadd = test_input($_POST["strtadd"]);
+  }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (empty($_POST["city"])) {
-        $cityErr = "City is required";
-      } else {
-        $city = test_input($_POST["city"]);
-      }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["city"])) {
+    $cityErr = "City is required";
+  } else {
+    $city = test_input($_POST["city"]);
+  }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (empty($_POST["state"])) {
-        $stateErr = "State is required";
-      } else {
-        $state = test_input($_POST["state"]);
-      }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["state"])) {
+    $stateErr = "State is required";
+  } else {
+    $state = test_input($_POST["state"]);
+  }
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (empty($_POST["zip"])) {
-        $zipErr = "Zip is required";
-      } else {
-        $zip = test_input($_POST["zip"]);
-      }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["zip"])) {
+    $zipErr = "Zip is required";
+  } else {
+    $zip = test_input($_POST["zip"]);
+  }
+}
 
 function test_input($data) {
   $data = trim($data);
