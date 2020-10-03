@@ -12,7 +12,7 @@ function addItemToCart(sku, cost, name, num)
   xmlhttp.send();
 }
 
-function removeFromCart(sku)
+/*function removeFromCart(sku)
 {
   var str = "?sku=" + sku;
   var xmlhttp = new XMLHttpRequest();
@@ -26,4 +26,4 @@ function removeFromCart(sku)
   xmlhttp.send();
   location.reload();
   return false;
-}
+}*/
