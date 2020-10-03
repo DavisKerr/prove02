@@ -6,15 +6,20 @@ header
 #cartContent
 {
   position: relative;
-  width: 80%;
+  width: 60%;
   margin-top: 10px;
   padding: 10px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   background-color: #d1d1d1;
 }
 
 #cart li
 {
   margin-top: 1%;
+}
+
+.cartBtns
+{
+  margin-right: 5px;
 }

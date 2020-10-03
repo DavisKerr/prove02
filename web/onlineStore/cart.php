@@ -3,13 +3,8 @@
   <!--
     TODO:
     - Most important:
-      * Fix the Navbar so the Navbar is mine, not bootstraps.
-      * Format the page so all the items in the cart are visible. 
-      * Format the page so the total is visable.
-      * Convert to php 
-      * Link back to browse page for continue shopping.
+      * Generate the cart in php
       * Add functionality to remove individual items from cart.
-      * Have a button for checking out
     - Extra
       * Add quantity adjuster.
   -->
@@ -34,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./browse.php">Back to Browse<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./browse.php">Browse<span class="sr-only">(current)</span></a>
           </li>
          <!-- <li class="nav-item">
             <a class="nav-link" href="#">blank</a>
@@ -59,19 +54,28 @@
     </header>
     <hr>
 
-    <div id="cartContent" class="">
+    <div id="cartContent" class="d-flex flex-column justify-content-center align-items-center">
 
       <h3>Your Cart:</h3>
 
       <!--Generate Actual list using PHP-->
       <ul id="cart">
-        <li>Laptop - $10.00 <button class="btn btn-danger removeBtn">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger removeBtn">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger removeBtn">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger removeBtn">Remove</button></li>
+        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
+        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
+        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
+        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
       </ul>
-
+      <span> Total: $100.00</span>
+      <!--End generate-->
+      <br>
+      <div id="cartOptions">
+      <button class="btn btn-lg btn-primary cartBtns">Return to Browse</button>
+      <button class="btn btn-lg btn-warning cartBtns">Check Out</button>
+      
     </div>
+    </div>
+    
 
+    
   </body>
 </html>

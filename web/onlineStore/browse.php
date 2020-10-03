@@ -5,7 +5,6 @@
     - Most important:
       * Add sessions and variables.
       * Add functionality to the add to cart button
-      * Link to cart like amazon does
     - Extra
       * Add a search feature that lets users search by key word
       * Add quantity sliders
