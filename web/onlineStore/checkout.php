@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
       $usernameErr = "Only letters and white space allowed";
+      $isValid = FALSE;
+    }
   }
 }
 
@@ -36,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = test_input($_POST["city"]);
     if (!preg_match("/^[a-zA-Z-' ]*$/" ,$city)) {
       $cityErr = "Only letters and white space allowed";
+      $isValid = FALSE;
+    }
   }
 }
 
@@ -47,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $state = test_input($_POST["state"]);
     if (!preg_match("/^[a-zA-Z-' ]*$/", $state)) {
       $stateErr = "Only letters and white space allowed";
+      $isValid = FALSE;
+    }
   }
 }
 
@@ -59,6 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if (!preg_match("/^[0-9]*$/",$zip)) {
     $zip = "Only numbers are allowed";
+    $isValid = FALSE;
+  }
 }
 
 function test_input($data) {
