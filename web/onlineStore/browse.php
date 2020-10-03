@@ -31,7 +31,7 @@ session_start();
   <body>
 
   <?php
-  if(isset($_SESSION["sku"]) != TRUE)
+  if(isset($_SESSION["sku"]) != TRUE or isset($_GET["empty"]))
   {
     $_SESSION["sku"] = array(0); 
     $_SESSION["name"] = array("Blank");

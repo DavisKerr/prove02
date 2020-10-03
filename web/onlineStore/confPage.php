@@ -83,12 +83,15 @@ session_start();
       </ul>
       <span> Total: <?php $_SESSION["total"]; ?></span>
       <span>Ship to:</span>
-      <span><!--Address here-->2678 new court, spain</span>
+      <span><?php 
+        echo "Ship to: " . $_SESSION["username"] . " at " . $_SESSION["strtadd"] . ", " . $_SESSION["city"] . "<br>";
+        echo $_SESSION["state"] . " " . $_SESSION["zip"];
+      ?></span>
       <!--End generate-->
       <br>
       <div id="cartOptions">
       <a type="button" href="./cart.php" class="btn btn-lg btn-danger cartBtns">No, return to cart</a>
-      <a type="button" href="./browse.php" class="btn btn-lg btn-success cartBtns">confirm</a>
+      <a type="button" href="./browse.php?empty=TRUE" class="btn btn-lg btn-success cartBtns">confirm</a>
       
       </div>
     </div>
