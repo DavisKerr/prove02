@@ -3,8 +3,6 @@
   <!--
     TODO:
     - Most important:
-      * Add links to go back to cart.
-      * Add a submit button the the form to complete purchase.
       * Convert the page to php.
       * Add security measures. 
     - Extra
@@ -111,7 +109,7 @@
 
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-lg btn-primary cartBtns">Return to Cart</button>
+              <a type="button" href="cart.php" class="btn btn-lg btn-primary cartBtns">Return to Cart</a>
               <button type="submit" value="Complete Purchase" class="btn btn-lg btn-warning cartBtns">Complete Purchase</button>
             </div>
           </div>

@@ -69,7 +69,7 @@
       <!--End generate-->
       <br>
       <div id="cartOptions">
-      <button class="btn btn-lg btn-primary cartBtns">Return to Browse</button>
+      <a type="button" href="./browse.php" class="btn btn-lg btn-primary cartBtns">Return to Browse</a>
       <button class="btn btn-lg btn-warning cartBtns">Check Out</button>
       
     </div>
