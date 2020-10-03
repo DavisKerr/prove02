@@ -6,10 +6,11 @@ try
 {
   if(isset($_GET["sku"]))
   {
+    echo "adding to array..."
     array_push($_SESSION["sku"], $_GET["sku"]);
   }
 
-  echo "All data =  " . print_r($_SESSION["sku"]);
+  echo print_r($_SESSION["sku"]);
 }
 catch (Exception $e)
 {
