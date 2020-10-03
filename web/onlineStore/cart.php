@@ -30,7 +30,7 @@ try
     $_SESSION["sku"] = $new_sku;
     $_SESSION["name"] = $new_name;
     $_SESSION["cost"] = $new_cost;
-    $_SESSION["qnt"] = $new_cost;
+    $_SESSION["qnt"] = $new_qnt;
 
   }
 }
@@ -104,6 +104,7 @@ catch (Exception $e)
         <?php
 
         $_SESSION["total"] = 0.0;
+
         try 
         {
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
