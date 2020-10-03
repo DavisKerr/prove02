@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +67,7 @@ session_start();
         <?php
         try 
         {
+          echo 'ARRRRG!';
           for ($i = 1; $i < count($sku); $i++)
           {
             $_SESSION["total"] += $_SESSION["cost"][$i];
