@@ -9,8 +9,6 @@ session_start();
   <!--
     TODO:
     - Most important:
-      * Add sessions and variables.
-      * Add functionality to the add to cart button
     - Extra
       * Add a search feature that lets users search by key word
       * Add quantity sliders

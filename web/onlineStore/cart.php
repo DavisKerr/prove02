@@ -62,25 +62,26 @@ session_start();
     <div id="cartContent" class="d-flex flex-column justify-content-center align-items-center">
 
       <h3>Your Cart:</h3>
-      <?php
-      try 
-      {
-        foreach($_SESSION["sku"])
-        {
-          
-        }
-      }
-      catch (Exception $e)
-      {
-        echo 'Caught exception: ', $e->getMessage();
-      }
-      ?>
+      
       <!--Generate Actual list using PHP-->
       <ul id="cart">
-        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
-        <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>
+        <?php
+        try 
+        {
+          for ($i = 1; $i < count($sku); $i++)
+          {
+            $_SESSION["sku"] = array(0); 
+            $_SESSION["name"] = array("Blank");
+            $_SESSION["qnt"] = array(0);
+            $_SESSION["cost"] = array(0.0);
+            echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>"; 
+          }
+        }
+        catch (Exception $e)
+        {
+          echo 'Caught exception: ', $e->getMessage();
+        }
+        ?>
       </ul>
       <span> Total: $100.00</span>
       <!--End generate-->
