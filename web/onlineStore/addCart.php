@@ -10,7 +10,7 @@ try
     array_push($_SESSION["sku"], "Blue");
   }
 
-  echo print_r($_SESSION["sku"]);
+  print_r($_SESSION["sku"]);
 }
 catch (Exception $e)
 {
