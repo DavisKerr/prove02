@@ -34,10 +34,10 @@ session_start();
 
   <?php
 
-  $_SESSION["skus"] = array[];
-  $_SESSION["name"] = array[];
-  $_SESSION["cost"] = array[];
-  $_SESSION["qnt"] = array[];
+  $_SESSION["skus"] = array();
+  $_SESSION["name"] = array();
+  $_SESSION["cost"] = array();
+  $_SESSION["qnt"] = array();
 
   ?>
 
