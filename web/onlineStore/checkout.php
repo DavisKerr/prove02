@@ -130,20 +130,27 @@ function test_input($data) {
               <label for="name">Full Name:</label>
               <input type="text" value="" id="name" name="name" placeholder="Full Name" class="field">
             </div>
-          </div>  
+          </div>
+
+          <span class="error"><?php echo $nameErr; ?></span>
+
           <div class="row">
             <div class="col">
               <label for="strtadd">Street Address:</label>
               <input type="text" value="" id="strtadd" name="strtadd" placeholder="Street Address" class="field">
             </div>
           </div>
-          <span class="error"><?php echo $nameErr; ?></span>
+
+          <span class="error"><?php echo $strtaddErr; ?></span>
+          
           <div class="row">
             <div class="col">
               <label for="city">City:</label>
               <input type="text" value="" id="city" name="city" class="field" placeholder="City">
             </div>
           </div>
+
+          <span class="error"><?php echo $cityErr; ?></span>
           
           <div class="row">
             <div class="col">
@@ -152,18 +159,23 @@ function test_input($data) {
             </div>
           </div>
 
+          <span class="error"><?php echo $stateErr; ?></span>
+
           <div class="row">
             <div class="col">
               <label for="zip">Zip/Postal Code</label>
               <input type="text" value="" id="zip" name="zip" class="field" placeholder="Zip/Postal Code">
             </div>
           </div>
+
+          <span class="error"><?php echo $zipErr; ?></span>
           
           <div class="row">
             <div class="col">
             <span id="total">Total - <?php echo $_SESSION["total"];?></span>
             </div>
           </div>
+
 
           <div class="row">
             <div class="col">

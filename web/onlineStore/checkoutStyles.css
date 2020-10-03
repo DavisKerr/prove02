@@ -35,3 +35,8 @@ form div
 {
   margin-top: 5px;
 }
+
+.error
+{
+  color: #AA1221;
+}
