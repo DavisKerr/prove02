@@ -4,6 +4,9 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en-US">
+<?php
+print_r($_SESSION["sku"]);
+?>
   <!--
     TODO:
     - Most important:
@@ -82,7 +85,7 @@ session_start();
         }
         ?>
       </ul>
-      <span>Total - <?php echo $_SESSION["total"];?></span>
+      <span id="total">Total - <?php echo $_SESSION["total"];?></span>
       <!--End generate-->
       <br>
       <div id="cartOptions">
@@ -92,24 +95,6 @@ session_start();
     </div>
   </div>
     
-
-    <script>
-      function removeFromCart(sku)
-      {
-        var str = "?sku=" + sku;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-          }
-        };
-        console.log(str);
-        xmlhttp.open("GET", "removeCart.php" + str, true);
-        xmlhttp.send();
-        location.reload();
-        return false;
-      }
-    </script>
 
   </body>
 </html>
