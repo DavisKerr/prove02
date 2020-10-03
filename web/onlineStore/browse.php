@@ -34,7 +34,7 @@ session_start();
 
   <?php
 
-  $_SESSION["cart"] = array[];
+  $_SESSION["cart"] = "Hello!";
 
   ?>
 
@@ -86,7 +86,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" onclick="<?php array_push($_SESSION["cart"], "Under the sea")?>" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
