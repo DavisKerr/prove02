@@ -43,7 +43,7 @@ catch (Exception $e)
 <!DOCTYPE html>
 <html lang="en-US">
 <?php
-//print_r($_SESSION["sku"]);
+print_r($_SESSION["sku"]);
 ?>
   <!--
     TODO:
@@ -109,7 +109,6 @@ catch (Exception $e)
         $_SESSION["total"] = 0;
         try 
         {
-          echo 'ARRRRG!';
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
