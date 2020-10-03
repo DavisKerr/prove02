@@ -47,9 +47,8 @@ session_start();
 
         if($exists)
         {
-          echo "Already here";
           $i = $exists;
-          $_SESSION["qnt"][$i] += 1;
+          $_SESSION["qnt"][$i] += $_GET['quantity'];
         }
         else
         {
@@ -58,7 +57,7 @@ session_start();
           array_push($_SESSION["cost"], $_GET['cost']);
           array_push($_SESSION["qnt"], $_GET['quantity']);
         }
-        echo count($_SESSION['sku']);
+        
       }
     }
       catch (Exception $e)
