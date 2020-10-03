@@ -34,7 +34,10 @@ session_start();
 
   <?php
 
-  $_SESSION["cart"] = "Hello!";
+  $_SESSION["skus"] = array[];
+  $_SESSION["name"] = array[];
+  $_SESSION["cost"] = array[];
+  $_SESSION["qnt"] = array[];
 
   ?>
 
@@ -282,9 +285,6 @@ session_start();
     <br>
     <br>
 
-    <?php
-    echo $_SESSION["cart"];
-    ?>
 
   </body>
 </html>
