@@ -8,30 +8,38 @@ try
 {
   if(isset($_GET["rsku"]))
   {
-    $new_sku = array(0); 
-    $new_name = array("Blank");
-    $new_qnt = array(0);
-    $new_cost = array(0.0);
-
-    $i = array_search($_GET["rsku"], $_SESSION["sku"]);
-
-    for($x = 1; $x < count($_SESSION["sku"]); $x++)
+    if($_GET["quantity"] <= 0)
     {
-      if($x != $i)
+    
+      $new_sku = array(0); 
+      $new_name = array("Blank");
+      $new_qnt = array(0);
+      $new_cost = array(0.0);
+
+      $i = array_search($_GET["rsku"], $_SESSION["sku"]);
+
+      for($x = 1; $x < count($_SESSION["sku"]); $x++)
       {
-        array_push($new_sku, $_SESSION["sku"][$x]);
-        array_push($new_name, $_SESSION["name"][$x]);
-        array_push($new_qnt, $_SESSION["qnt"][$x]);
-        array_push($new_cost, $_SESSION["cost"][$x]);
+        if($x != $i)
+        {
+          array_push($new_sku, $_SESSION["sku"][$x]);
+          array_push($new_name, $_SESSION["name"][$x]);
+          array_push($new_qnt, $_SESSION["qnt"][$x]);
+          array_push($new_cost, $_SESSION["cost"][$x]);
+        }
+      
       }
-     
+
+      $_SESSION["sku"] = $new_sku;
+      $_SESSION["name"] = $new_name;
+      $_SESSION["cost"] = $new_cost;
+      $_SESSION["qnt"] = $new_qnt;
     }
-
-    $_SESSION["sku"] = $new_sku;
-    $_SESSION["name"] = $new_name;
-    $_SESSION["cost"] = $new_cost;
-    $_SESSION["qnt"] = $new_qnt;
-
+    else
+    {
+      $i = array_search($_GET["rsku"], $_SESSION["sku"]);
+      $_SESSION["qnt"][$i] = $_GET["quantity"]
+    }
   }
 }
 catch (Exception $e)
@@ -98,6 +106,11 @@ catch (Exception $e)
     <div id="cartContent" class="d-flex flex-column justify-content-center align-items-center">
 
       <h3>Your Cart:</h3>
+
+      <h5>
+        To adjust the amount of an item, enter the new quantity and push 'change.'<br>
+        To remove an item, set the quantity to 0 and hit 'change.'
+    </h5>
       
       <!--Generate Actual list using PHP-->
       <ul id="cart">
@@ -114,7 +127,7 @@ catch (Exception $e)
             echo "\n<form action=\"" . htmlspecialchars($_SERVER["PHP_SELF"]) . "\" method='get'>\n";
             echo "<input type='number' name='quantity' id='qunatity' value='" . $_SESSION["qnt"] ."'>\n";
             echo "<input type='number' hidden value='" . $_SESSION["sku"][$i] . "' name='rsku' id='rsku'>";
-            echo "<button type='submit' value='" . $_SESSION["sku"][$i] . "' class='btn btn-danger btn-sm'>Remove</button></li>\n";
+            echo "<button type='submit' value='" . $_SESSION["sku"][$i] . "' class='btn btn-danger btn-sm'>Change</button></li>\n";
             echo "\n</form>\n"; 
           }
         }
