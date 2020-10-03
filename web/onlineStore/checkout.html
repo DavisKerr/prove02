@@ -3,10 +3,6 @@
   <!--
     TODO:
     - Most important:
-      * Fix the menu.
-      * Format the page so the form looks nice.
-      * Format the page to display the total.
-      * Create the form.
       * Add links to go back to cart.
       * Add a submit button the the form to complete purchase.
       * Convert the page to php.
@@ -17,13 +13,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cartStyle.css">
+    <link rel="stylesheet" href="checkoutStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="homefunc.js"></script>
-    <title>Exploring America</title>
+    <title>Checkout</title>
   </head>
   <body>
 
@@ -64,6 +60,67 @@
       <h1>Shop.Net</h1>
     </header>
     <hr>
+
+    <div id="checkoutContent" class="d-flex flex-column justify-content-center align-items-center">
+
+      <h3>Checkout</h3>
+
+      <h5>Please fill out all information completely.</h5>
+      
+      <div id="checkoutForm">
+        <form action="" method="post">
+          <div class="row">
+            <div class="col">
+              <label for="name">Full Name:</label>
+              <input type="text" value="" id="name" name="name" placeholder="Full Name" class="field">
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+              <label for="strtadd">Street Address:</label>
+              <input type="text" value="" id="strtadd" name="strtadd" placeholder="Street Address" class="field">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="city">City:</label>
+              <input type="text" value="" id="city" name="city" class="field" placeholder="City">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col">
+              <label for="state">State/Province:</label>
+              <input type="text" value="" id="state" name="state" class="field" placeholder="State/Province">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="zip">Zip/Postal Code</label>
+              <input type="text" value="" id="zip" name="zip" class="field" placeholder="Zip/Postal Code">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col">
+              Total = <span id="total">$10.00<!--PHP here--></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-lg btn-primary cartBtns">Return to Cart</button>
+              <button type="submit" value="Complete Purchase" class="btn btn-lg btn-warning cartBtns">Complete Purchase</button>
+            </div>
+          </div>
+          
+        </form>
+
+      
+    </div>
+    </div>
 
   </body>
 </html>
