@@ -66,6 +66,9 @@ session_start();
       try 
       {
         foreach($_SESSION["sku"])
+        {
+          
+        }
       }
       catch (Exception $e)
       {

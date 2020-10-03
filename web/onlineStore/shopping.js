@@ -1,6 +1,6 @@
-function addItemToCart(sku)
+function addItemToCart(sku, cost, name, num)
 {
-  var str = sku;
+  var str = "?sku=" + sku + "&name=" + name + "&cost=" + cost + "&num=" + num;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -8,6 +8,6 @@ function addItemToCart(sku)
     }
   };
   console.log(str);
-  xmlhttp.open("GET", "addCart.php?sku=" + str, true);
+  xmlhttp.open("GET", "addCart.php" + str, true);
   xmlhttp.send();
 }
