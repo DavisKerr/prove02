@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <!--
@@ -5,6 +9,7 @@
     - Most important:
       * Convert the page to php.
       * Add security measures. 
+      * Add form handling.
     - Extra
       * 
   -->

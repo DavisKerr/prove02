@@ -7,7 +7,6 @@ session_start();
   <!--
     TODO:
     - Most important:
-      * Generate the cart in php
       * Add functionality to remove individual items from cart.
     - Extra
       * Add quantity adjuster.
@@ -65,6 +64,8 @@ session_start();
       <!--Generate Actual list using PHP-->
       <ul id="cart">
         <?php
+
+        $_SESSION["total"] = 0;
         try 
         {
           echo 'ARRRRG!';
@@ -72,7 +73,7 @@ session_start();
           {
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
-            echo "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n"; 
+            echo "<button onclick='" . "removeFromCart(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n"; 
           }
         }
         catch (Exception $e)
@@ -81,7 +82,7 @@ session_start();
         }
         ?>
       </ul>
-      <span>Total<?php echo $_SESSION["total"];?></span>
+      <span>Total - <?php echo $_SESSION["total"];?></span>
       <!--End generate-->
       <br>
       <div id="cartOptions">
