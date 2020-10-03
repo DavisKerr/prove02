@@ -101,3 +101,18 @@ footer
 {
   color: #FFFFFF;
 }
+
+#projects
+{
+  margin-left: 32%; 
+  background-color:aliceblue; 
+  float: left; 
+  padding-left: 10%; 
+  padding-right: 10%
+}
+
+#projectLinks
+{
+  text-align: center; 
+  list-style-position: inside;
+}
