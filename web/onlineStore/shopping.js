@@ -4,7 +4,7 @@ function addItemToCart(sku, name, cost, qnt)
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.onreadystatechange == 4 && this.status == 200){
-      console.log("Retrieved!");
+      console.log(this.responseText);
     }
   };
   xmlhttp.open("GET", "addCart.php" + extension, true);
