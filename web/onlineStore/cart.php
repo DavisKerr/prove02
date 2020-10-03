@@ -112,10 +112,11 @@ print_r($_SESSION["sku"]);
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
+            echo "\n \n The total is " . $_SESSION["total"];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
-           // echo "\n<form action='cart.php?rsku='" . $_SESSION["sku"][$i] . "method='get'>\n";
+            echo "\n<form action='cart.php?rsku='" . $_SESSION["sku"][$i] . "method='get'>\n";
             echo "<button type='submit' onclick='" . "removeFromCart(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n";
-            //echo "\n</form>\n"; 
+            echo "\n</form>\n"; 
           }
         }
         catch (Exception $e)
