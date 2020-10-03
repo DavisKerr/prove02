@@ -36,6 +36,35 @@ session_start();
     $_SESSION["qnt"] = array(0);
     $_SESSION["cost"] = array(0.0);
   }
+
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+    try 
+    {
+      if(isset($_GET["sku"]))
+      {
+        $exists = array_search($_GET["sku"], $_SESSION["sku"]);
+
+        if($exists)
+        {
+          echo "Already here";
+          $i = $exists;
+          $_SESSION["qnt"][$i] += 1;
+        }
+        else
+        {
+          array_push($_SESSION["sku"], $_GET['sku']);
+          array_push($_SESSION["name"], $_GET['name']);
+          array_push($_SESSION["cost"], $_GET['cost']);
+          array_push($_SESSION["qnt"], $_GET['qnt']);
+        }
+      }
+    }
+      catch (Exception $e)
+    {
+      echo 'Caught exception: ', $e->getMessage();
+    }
+  }
   
   $prices = array(14.39, 1200.99, 123.69, 34.26, 2999999.99, 353.77, 16000.98, 95.32,
   0.50, 132.22, 1.10 ,500.01, 1300.21, 430.20, 10.00,
@@ -110,6 +139,7 @@ session_start();
       }
     ?>
 
+    
       <div class= "item">
         <img src="Images/20000leagues.jpg" alt="#">
         <br>
