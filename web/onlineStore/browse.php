@@ -56,8 +56,9 @@ session_start();
           array_push($_SESSION["sku"], $_GET['sku']);
           array_push($_SESSION["name"], $_GET['name']);
           array_push($_SESSION["cost"], $_GET['cost']);
-          array_push($_SESSION["qnt"], $_GET['qnt']);
+          array_push($_SESSION["qnt"], $_GET['quantity']);
         }
+        echo count($_SESSION['sku']);
       }
     }
       catch (Exception $e)
@@ -132,14 +133,13 @@ session_start();
         echo "<input type='number' name='quantity' id='quantity' min='1' max='5' value='1'>\n";
         echo "<input hidden value='" . $x . "' id='sku' name='sku'>\n";
         echo "<input hidden value='" . $names[$x] . "' id='name' name='name'>\n";
-        echo "<input hidden value='" . $prices[$x] . "' id='sku' name='sku'>\n";
+        echo "<input hidden value='" . $prices[$x] . "' id='cost' name='cost'>\n";
         echo "<button type='submit' class='cartBtn btn btn-warning'>Add to Cart </button>\n";
         echo "</form></div>";
 
       }
     ?>
 
-    
       <div class= "item">
         <img src="Images/20000leagues.jpg" alt="#">
         <br>
