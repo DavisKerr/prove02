@@ -206,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           
           <div class="row">
             <div class="col">
-            <span id="total">Total - <?php echo $_SESSION["total"];?></span>
+            <span id="total">Total - <?php echo "$" . $_SESSION["total"];?></span>
             </div>
           </div>
 

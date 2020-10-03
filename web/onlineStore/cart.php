@@ -137,7 +137,7 @@ catch (Exception $e)
         }
         ?>
       </ul>
-      <span id="total">Total - <?php echo $_SESSION["total"];?></span>
+      <span id="total">Total - <?php echo "$" . $_SESSION["total"];?></span>
       <!--End generate-->
       <br>
       <div id="cartOptions">

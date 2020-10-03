@@ -76,7 +76,7 @@ session_start();
         }
         ?>
       </ul>
-      <span> Total: <?php echo $_SESSION["total"]; ?></span>
+      <span> Total: <?php echo "$" . $_SESSION["total"]; ?></span>
       <span>Ship to:</span>
       <span><?php 
         echo "Ship to: " . $_SESSION["username"] . " at " . $_SESSION["strtadd"] . ", " . $_SESSION["city"] . "<br>";
