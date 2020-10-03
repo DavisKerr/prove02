@@ -70,7 +70,7 @@ session_start();
           echo 'ARRRRG!';
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
-            $_SESSION["total"] += $_SESSION["cost"][$i];
+            $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
             echo "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n"; 
           }
@@ -81,7 +81,7 @@ session_start();
         }
         ?>
       </ul>
-      <span> Total: $100.00</span>
+      <span>Total<?php echo $_SESSION["total"];?></span>
       <!--End generate-->
       <br>
       <div id="cartOptions">

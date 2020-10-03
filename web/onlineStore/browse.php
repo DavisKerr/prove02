@@ -94,9 +94,9 @@ session_start();
         <p class="description">
           20,000 Leagues Under the Sea by Jules Verne 
           <br>
-          $10.00
+          $14.39
         </p>
-        <button type="button" onclick="addItemToCart(1, 10.00,'20,000 Leagues Under the Sea', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(1, 14.39,'20,000 Leagues Under the Sea', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -105,9 +105,9 @@ session_start();
         <p class="description">
           Alienware gaming Laptop
           <br>
-          $10.00
+          $1200.99
         </p>
-        <button type="button" onclick="addItemToCart(002)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(2, 1200.99,'Alienware gaming Laptop', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -116,9 +116,9 @@ session_start();
         <p class="description">
           Lenovo Chromebook
           <br>
-          $10.00
+          $123.69
         </p>
-        <button type="button" onclick="addItemToCart(003)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(3, 123.69,'Lenovo Chromebook', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -127,9 +127,9 @@ session_start();
         <p class="description">
           Dark Souls 3
           <br>
-          $10.00
+          $34.26
         </p>
-        <button type="button" onclick="addItemToCart(004)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(4, 34.26,'Dark Souls 3', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -138,9 +138,9 @@ session_start();
         <p class="description">
           Ferari
           <br>
-          $10.00
+          $2,999,999.99
         </p>
-        <button type="button" onclick="addItemToCart(005)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(5, 2999999.99,'Ferari', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
       
       <div class= "item">
@@ -149,9 +149,9 @@ session_start();
         <p class="description">
           Classic Electric Guitar
           <br>
-          $10.00
+          $353.77
         </p>
-        <button type="button" onclick="addItemToCart(006)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(6, 353.77,'Classic Electric Guitar', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -160,9 +160,9 @@ session_start();
         <p class="description">
           Kia Soul
           <br>
-          $10.00
+          $16000.98
         </p>
-        <button type="button" onclick="addItemToCart(007)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(7, 16000.98,'Kia Soul', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -171,9 +171,9 @@ session_start();
         <p class="description">
           Lord of the Rings bluray box set - Extended
           <br>
-          $10.00
+          $95.32
         </p>
-        <button type="button" onclick="addItemToCart(008)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(8, 95.32,'Lord of the Rings bluray box set - Extended', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -182,9 +182,9 @@ session_start();
         <p class="description">
           Mask
           <br>
-          $10.00
+          $0.50
         </p>
-        <button type="button" onclick="addItemToCart(009)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(9, 0.50,'Mask', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -193,9 +193,9 @@ session_start();
         <p class="description">
           Men's Peacoat
           <br>
-          $10.00
+          $132.22
         </p>
-        <button type="button" onclick="addItemToCart(010)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(10, 132.22,'Men's Peacoat', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -204,9 +204,9 @@ session_start();
         <p class="description">
           Penut M&M's
           <br>
-          $10.00
+          $1.10
         </p>
-        <button type="button" onclick="addItemToCart(011)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(11, 1.10,'Penut M&M\'s', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -215,9 +215,9 @@ session_start();
         <p class="description">
           Playstation 5
           <br>
-          $10.00
+          $500.01
         </p>
-        <button type="button" onclick="addItemToCart(012)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(12, 500.01,'Playstation 5', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -226,9 +226,9 @@ session_start();
         <p class="description">
           NVIDIA RTX 3090
           <br>
-          $10.00
+          $1300.21
         </p>
-        <button type="button" onclick="addItemToCart(013)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(13, 1300.21,'NVIDIA RTX 3090', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -237,9 +237,9 @@ session_start();
         <p class="description">
           Men's Suit
           <br>
-          $10.00
+          $430.20
         </p>
-        <button type="button" onclick="addItemToCart(014)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(14, 430.20,'Men\'s Suit', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -250,7 +250,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" onclick="addItemToCart(015)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(15, 10.00,'Necktie', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -259,9 +259,9 @@ session_start();
         <p class="description">
           Totinos Pizza
           <br>
-          $10.00
+          $5.40
         </p>
-        <button type="button" onclick="addItemToCart(016)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(16, 5.40,'Totinos Pizza', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -270,9 +270,9 @@ session_start();
         <p class="description">
           The Way of Kings by Brandon Sanderson
           <br>
-          $10.00
+          $16.70
         </p>
-        <button type="button" onclick="addItemToCart(017)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(17, 16.70,'The Way of Kings', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -281,9 +281,9 @@ session_start();
         <p class="description">
           Xbox Series X
           <br>
-          $10.00
+          $510.04
         </p>
-        <button type="button" onclick="addItemToCart(018)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(18, 510.04,'Xbox Series X', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <a type="button" id="cartBtn" href="./cart.php" class="cartBtn btn btn-success">Go to Cart</a>
