@@ -37,7 +37,6 @@ session_start();
     $_SESSION["name"] = array("Blank");
     $_SESSION["qnt"] = array(0);
     $_SESSION["cost"] = array(0.0);
-    $_SESSION["total"] = 0;
   }
   
   /*$_SESSION["price_key"] = array(1=>10.5, 2=>10.5, 3=>10.5, 4=>10.5, 5=>10.5, 6=>10.5, 7=>10.5, 8=>10.5,
