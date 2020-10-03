@@ -4,15 +4,15 @@ session_start();
 
 <?php
 // define variables and set to empty values
-$nameErr = $strtaddErr = $cityErr = $stateErr = $zipErr = "";
-$name = $strtadd = $city = $state = $zip = "";
+$usernameErr = $strtaddErr = $cityErr = $stateErr = $zipErr = "";
+$username = $strtadd = $city = $state = $zip = "";
 $isValid = TRUE;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+  if (empty($_POST["username"])) {
+    $usernameErr = "Name is required";
     $isValid = FALSE;
   } else {
-    $name = test_input($_POST["name"]);
+    $username = test_input($_POST["username"]);
   }
 }
 
@@ -61,7 +61,7 @@ function test_input($data) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
 {
-  $_SESSION["name"] = $name;
+  $_SESSION["username"] = $username;
   $_SESSION["strtadd"] = $strtadd;
   $_SESSION["city"] = $city;
   $_SESSION["state"] = $state;
@@ -144,12 +144,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="row">
             <div class="col">
-              <label for="name">Full Name:</label>
-              <input type="text" value="" id="name" name="name" placeholder="Full Name" class="field">
+              <label for="username">Full Name:</label>
+              <input type="text" value="" id="username" name="username" placeholder="Full Name" class="field">
             </div>
           </div>
 
-          <span class="error"><?php echo $nameErr; ?></span>
+          <span class="error"><?php echo $usernameErr; ?></span>
 
           <div class="row">
             <div class="col">
