@@ -6,7 +6,8 @@ session_start();
 /* PHP to remove items */
 try 
 {
-  if(isset($_GET["rsku"]))
+  echo "hello";
+  /*if(isset($_GET["rsku"]))
   {
     $new_sku = array(0); 
     $new_name = array("Blank");
@@ -32,7 +33,7 @@ try
     $_SESSION["cost"] = $new_cost;
     $_SESSION["qnt"] = $new_cost
 
-  }  
+  }*/  
 }
 catch (Exception $e)
 {
