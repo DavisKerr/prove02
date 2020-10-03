@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <!--
@@ -57,7 +62,16 @@
     <div id="cartContent" class="d-flex flex-column justify-content-center align-items-center">
 
       <h3>Your Cart:</h3>
-
+      <?php
+      try 
+      {
+        foreach($_SESSION["sku"])
+      }
+      catch (Exception $e)
+      {
+        echo 'Caught exception: ', $e->getMessage();
+      }
+      ?>
       <!--Generate Actual list using PHP-->
       <ul id="cart">
         <li>Laptop - $10.00 <button class="btn btn-danger btn-sm">Remove</button></li>

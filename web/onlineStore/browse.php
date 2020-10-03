@@ -35,6 +35,14 @@ session_start();
   <?php
 
   $_SESSION["sku"] = array(0) 
+  $_SESSION["price_key"] = array(1=>10.5, 2=>10.5, 3=>10.5, 4=>10.5, 5=>10.5, 6=>10.5, 7=>10.5, 8=>10.5,
+                                 9=>10.5, 10=>10.5, 11=>10.5, 12=>10.5, 13=>10.5, 14=>10.5,
+                                 15=>10.5, 16=>10.5, 17=>10.5, 18=>10.5);
+  $_SESSION["name_key"] = array(1=>"20,000 Leagues Under the Sea", 2=>"Alienware Gaming Laptop", 3=>"Lenovo Chromebook",
+                                4=>"Dark Souls 3", 5=>"Ferrari", 6=>"Classic Electric Guitar", 7=>"Kia Soul", 
+                                8=>"Lord of the Rings Bluray Box Set - Extended", 9=>"Mask", 10=>"Men's Peacoat", 
+                                11=>"Penut M&Ms", 12=>"PS5", 13=>"NVIDIA RTX 3090", 14=>"Men's Suit",
+                                15=>"Necktie", 16=>"Totinos pizza", 17=>"The Way of Kings", 18=>"Xbox Series X");
 
   ?>
 
@@ -126,7 +134,7 @@ session_start();
         <img src="Images/ferari.jpg" alt="#">
         <br>
         <p class="description">
-          Blue Ferari
+          Ferari
           <br>
           $10.00
         </p>
