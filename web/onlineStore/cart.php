@@ -71,7 +71,8 @@ session_start();
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
             $_SESSION["total"] += $_SESSION["cost"][$i];
-            echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>"; 
+            echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
+            echo "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n"; 
           }
         }
         catch (Exception $e)
