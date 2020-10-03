@@ -6,7 +6,7 @@ try
 {
   if(isset($_GET["sku"]))
   {
-    echo "adding to array..."
+    echo "adding to array...";
     array_push($_SESSION["sku"], $_GET["sku"]);
   }
 
