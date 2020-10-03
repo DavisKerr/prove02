@@ -1,3 +1,3 @@
 <?php
-echo "running";
+echo $_GET["sku"];
 ?>

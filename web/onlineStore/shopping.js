@@ -6,10 +6,6 @@ function addItemToCart(sku)
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);
     }
-    else
-    {
-      console.log("Failed!");
-    }
   };
   console.log(str);
   xmlhttp.open("GET", "addCart.php?sku=" + str, true);
