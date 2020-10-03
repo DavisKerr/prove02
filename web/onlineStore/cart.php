@@ -8,13 +8,12 @@ try
 {
   if(isset($_GET["rsku"]))
   {
-    echo $_GET["rsku"];
-    /*$new_sku = array(0); 
+    $new_sku = array(0); 
     $new_name = array("Blank");
     $new_qnt = array(0);
     $new_cost = array(0.0);
 
-    $i = array_search($_GET["sku"], $_SESSION["sku"]);
+    $i = array_search($_GET["rsku"], $_SESSION["sku"]);
 
     for($x = 1; $x < count($_SESSION["sku"]); $x++)
     {
@@ -31,7 +30,7 @@ try
     $_SESSION["sku"] = $new_sku ;
     $_SESSION["name"] = $new_name;
     $_SESSION["cost"] = $new_cost;
-    $_SESSION["qnt"] = $new_cost*/
+    $_SESSION["qnt"] = $new_cost
 
   }
   else
