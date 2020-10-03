@@ -14,7 +14,7 @@ function addItemToCart(sku, cost, name, num)
 
 function removeFromCart(sku)
 {
-  var str = "?sku=" + sku;
+  /*var str = "?sku=" + sku;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -25,5 +25,5 @@ function removeFromCart(sku)
   xmlhttp.open("GET", "removeCart.php" + str, true);
   xmlhttp.send();
   location.reload();
-  return false;
+  return false;*/
 }

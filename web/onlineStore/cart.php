@@ -2,6 +2,44 @@
 session_start();
 ?>
 
+<?php
+/* PHP to remove items */
+try 
+{
+  if(isset($_GET["rsku"]))
+  {
+    $new_sku = array(0); 
+    $new_name = array("Blank");
+    $new_qnt = array(0);
+    $new_cost = array(0.0);
+
+    $i = array_search($_GET["sku"], $_SESSION["sku"]);
+
+    for($x = 1; $x < count($_SESSION["sku"]); $x++)
+    {
+      if($x != $i)
+      {
+        array_push($new_sku, $_SESSION["sku"][$x]);
+        array_push($new_name, $_SESSION["name"][$x]);
+        array_push($new_qnt, $_SESSION["qnt"][$x]);
+        array_push($new_cost, $_SESSION["cost"][$x]);
+      }
+     
+    }
+
+    $_SESSION["sku"] = $new_sku ;
+    $_SESSION["name"] = $new_name;
+    $_SESSION["cost"] = $new_cost;
+    $_SESSION["qnt"] = $new_cost
+
+    
+}
+catch (Exception $e)
+{
+  echo 'Caught exception: ', $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <?php
@@ -76,7 +114,9 @@ print_r($_SESSION["sku"]);
           {
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
-            echo "<button onclick='" . "removeFromCart(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n"; 
+            echo "\n<form action='cart.php?rsku='" . $_SESSION["sku"][$i] . "method='get'>"
+            echo "<button type='submit' onclick='" . "removeFromCart(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n";
+            echo "\n</form>\n"; 
           }
         }
         catch (Exception $e)

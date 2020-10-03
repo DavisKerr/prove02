@@ -2,7 +2,7 @@
 
 session_start();
 
-try 
+/*try 
 {
   if(isset($_GET["sku"]))
   {
@@ -35,6 +35,6 @@ try
 catch (Exception $e)
 {
   echo 'Caught exception: ', $e->getMessage();
-}
+}*/
 
 ?>
