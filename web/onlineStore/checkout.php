@@ -6,10 +6,11 @@ session_start();
 // define variables and set to empty values
 $nameErr = $strtaddErr = $cityErr = $stateErr = $zipErr = "";
 $name = $strtadd = $city = $state = $zip = "";
-
+$isValid = TRUE;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";
+    $isValid = FALSE;
   } else {
     $name = test_input($_POST["name"]);
   }
@@ -18,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["strtadd"])) {
     $strtaddErr = "Street Address is required";
+    $isValid = FALSE;
   } else {
     $strtadd = test_input($_POST["strtadd"]);
   }
@@ -26,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["city"])) {
     $cityErr = "City is required";
+    $isValid = FALSE;
   } else {
     $city = test_input($_POST["city"]);
   }
@@ -34,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["state"])) {
     $stateErr = "State is required";
+    $isValid = FALSE;
   } else {
     $state = test_input($_POST["state"]);
   }
@@ -42,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["zip"])) {
     $zipErr = "Zip is required";
+    $isValid = FALSE;
   } else {
     $zip = test_input($_POST["zip"]);
   }
@@ -53,6 +58,18 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
+{
+  $_SESSION["name"] = $name;
+  $_SESSION["strtadd"] = $strtadd;
+  $_SESSION["city"] = $city;
+  $_SESSION["state"] = $state;
+  $_SESSION["zip"] = $zip;
+  header("Location: ./confPage.php");
+  exit;
+}
+
 ?>
 
 <!DOCTYPE html>
