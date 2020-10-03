@@ -1,0 +1,41 @@
+header
+{
+  text-align: center;
+}
+
+#storeContent
+{
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.item
+{
+   padding: 10px;
+   margin: 1%;
+   background-color: #d1d1d1;
+   font-size: small;
+   text-align: center;
+}
+
+.cartBtn
+{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;;
+}
+
+#description
+{
+  padding: 10px;
+  font-size: 5%;
+  margin: 2px;
+}
+
+.item img
+{
+  width: 295px; 
+  height: 236px;
+}
