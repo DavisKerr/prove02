@@ -89,7 +89,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" onclick="addItemToCart(001, '20,000LeaguesUndertheSea', 10.00, 1)" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(001)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">

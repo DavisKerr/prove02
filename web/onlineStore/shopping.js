@@ -1,6 +1,6 @@
-function addItemToCart(sku, name, cost, qnt)
+function addItemToCart(sku)
 {
-  var extension = "?sku=" + sku + "&name=" + name + "&cost=" + cost + "&qnt" + qnt;
+  var str = sku;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.onreadystatechange == 4 && this.status == 200){
@@ -8,9 +8,10 @@ function addItemToCart(sku, name, cost, qnt)
     }
     else
     {
-      console.log("Failed!")
+      console.log("Failed!");
     }
   };
-  xmlhttp.open("GET", "addCart.php" + extension, true);
-  xmlhttp.send()
+  console.log(str);
+  xmlhttp.open("GET", "addCart.php?sku=" + str, true);
+  xmlhttp.send();
 }
