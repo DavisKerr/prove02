@@ -100,7 +100,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(002)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -111,7 +111,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(003)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -122,7 +122,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(004)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -133,7 +133,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(005)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
       
       <div class= "item">
@@ -144,7 +144,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(006)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -155,7 +155,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(007)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -166,7 +166,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(008)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -177,7 +177,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(009)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -188,7 +188,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(010)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -199,7 +199,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(011)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -210,7 +210,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(012)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -221,7 +221,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(013)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -232,7 +232,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(014)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -243,7 +243,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(015)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -254,7 +254,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(016)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -265,7 +265,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(017)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -276,7 +276,7 @@ session_start();
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="addItemToCart(018)" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <a type="button" id="cartBtn" href="./cart.php" class="cartBtn btn btn-success">Go to Cart</a>
