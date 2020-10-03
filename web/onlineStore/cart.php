@@ -112,6 +112,7 @@ catch (Exception $e)
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
             echo "\n<form action=\"" . htmlspecialchars($_SERVER["PHP_SELF"]) . "\" method='get'>\n";
+            echo "<input type='number' name='quantity' id='qunatity' value='" . $_SESSION["qnt"] ."'>\n";
             echo "<input type='number' hidden value='" . $_SESSION["sku"][$i] . "' name='rsku' id='rsku'>";
             echo "<button type='submit' value='" . $_SESSION["sku"][$i] . "' class='btn btn-danger btn-sm'>Remove</button></li>\n";
             echo "\n</form>\n"; 
