@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $zip = test_input($_POST["zip"]);
   }
   if (!preg_match("/^[0-9]*$/",$zip)) {
-    $zip = "Only numbers are allowed";
+    $zipError = "Only numbers are allowed";
     $isValid = FALSE;
   }
 }

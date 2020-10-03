@@ -8,13 +8,11 @@ session_start();
 <html lang="en-US">
   <!--
     TODO:
-    - Most important:
     - Extra
       * Add a search feature that lets users search by key word
       * Add quantity sliders
       * Move the navbar to a seperate php file.
       * Add security for the search bar.
-      * Add or remove welcome message based on sessions.
       * Add PHP to generate my items in alphabetical order
   -->
   <head>
@@ -41,12 +39,12 @@ session_start();
   
   /*$_SESSION["price_key"] = array(1=>10.5, 2=>10.5, 3=>10.5, 4=>10.5, 5=>10.5, 6=>10.5, 7=>10.5, 8=>10.5,
                                  9=>10.5, 10=>10.5, 11=>10.5, 12=>10.5, 13=>10.5, 14=>10.5,
-                                 15=>10.5, 16=>10.5, 17=>10.5, 18=>10.5);
-  $_SESSION["name_key"] = array(1=>"20,000 Leagues Under the Sea", 2=>"Alienware Gaming Laptop", 3=>"Lenovo Chromebook",
-                                4=>"Dark Souls 3", 5=>"Ferrari", 6=>"Classic Electric Guitar", 7=>"Kia Soul", 
-                                8=>"Lord of the Rings Bluray Box Set - Extended", 9=>"Mask", 10=>"Men's Peacoat", 
-                                11=>"Penut M&Ms", 12=>"PS5", 13=>"NVIDIA RTX 3090", 14=>"Men's Suit",
-                                15=>"Necktie", 16=>"Totinos pizza", 17=>"The Way of Kings", 18=>"Xbox Series X");*/
+                                 15=>10.5, 16=>10.5, 17=>10.5, 18=>10.5);*/
+  $names = array("20,000 Leagues Under the Sea", "Alienware Gaming Laptop", 3=>"Lenovo Chromebook",
+                                "Dark Souls 3", "Ferrari", "Classic Electric Guitar", "Kia Soul", 
+                                "Lord of the Rings Bluray Box Set - Extended", "Mask", "Men's Peacoat", 
+                                "Penut M&Ms", "PS5", "NVIDIA RTX 3090", "Men's Suit",
+                                "Necktie", "Totinos pizza","The Way of Kings", "Xbox Series X");
 
   ?>
 
@@ -98,7 +96,15 @@ session_start();
           <br>
           $14.39
         </p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" min="1" max="50" value="1">
+          <input hidden value="1" id="sku" name="sku">
+          <input hidden value="14.39" id="sku" name="sku">
+          <input hidden value="20,000 Leagues Under the Sea" id="sku" name="sku">
+        </form>
         <button type="button" onclick="addItemToCart(1, 14.39,'20,000 Leagues Under the Sea', 1)" class="cartBtn btn btn-warning">Add to Cart</button>
+        
       </div>
 
       <div class= "item">

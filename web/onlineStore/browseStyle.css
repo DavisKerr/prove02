@@ -40,3 +40,9 @@ header
   height: 236px;
 }
 
+input
+{
+  position: relative;
+  margin-bottom: 10px;
+}
+
