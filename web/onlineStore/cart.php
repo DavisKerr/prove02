@@ -4,7 +4,7 @@ session_start();
 
 <?php
 /* PHP to remove items */
-/*try 
+try 
 {
   if(isset($_GET["rsku"]))
   {
@@ -32,12 +32,12 @@ session_start();
     $_SESSION["cost"] = $new_cost;
     $_SESSION["qnt"] = $new_cost
 
-    
+  }  
 }
 catch (Exception $e)
 {
   echo 'Caught exception: ', $e->getMessage();
-}*/
+}
 ?>
 
 <!DOCTYPE html>
