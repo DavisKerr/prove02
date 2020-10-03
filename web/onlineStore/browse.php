@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <!--
@@ -21,9 +27,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="shopping.js"></script>
     <title>Browse</title>
   </head>
   <body>
+
+  <?php
+
+  $_SESSION["cart"] = array[];
+
+  ?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="../navigator.php">Home</a>
@@ -73,7 +86,7 @@
           <br>
           $10.00
         </p>
-        <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
+        <button type="button" onclick="<?php array_push($_SESSION["cart"], "Under the sea")?>" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
       <div class= "item">
@@ -269,7 +282,9 @@
     <br>
     <br>
 
-
+    <?php
+    echo $_SESSION["cart"];
+    ?>
 
   </body>
 </html>
