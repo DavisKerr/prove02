@@ -8,7 +8,6 @@ session_start();
   <!--
     TODO:
     - Most important:
-      * Convert to PHP
       * Fix Security issues. 
     - Extra
       * 
