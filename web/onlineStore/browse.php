@@ -10,10 +10,7 @@ session_start();
     TODO:
     - Extra
       * Add a search feature that lets users search by key word
-      * Add quantity sliders
-      * Move the navbar to a seperate php file.
       * Add security for the search bar.
-      * Add PHP to generate my items in alphabetical order
   -->
   <head>
     <meta charset="utf-8">

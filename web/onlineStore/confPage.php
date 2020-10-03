@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -64,13 +63,10 @@ session_start();
       <ul id="cart">
         <?php
 
-        $_SESSION["total"] = 0.0;
-
         try 
         {
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
-            $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i] . "</li>";
           }
         }
