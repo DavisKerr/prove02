@@ -37,14 +37,20 @@ session_start();
     $_SESSION["cost"] = array(0.0);
   }
   
-  /*$_SESSION["price_key"] = array(1=>10.5, 2=>10.5, 3=>10.5, 4=>10.5, 5=>10.5, 6=>10.5, 7=>10.5, 8=>10.5,
-                                 9=>10.5, 10=>10.5, 11=>10.5, 12=>10.5, 13=>10.5, 14=>10.5,
-                                 15=>10.5, 16=>10.5, 17=>10.5, 18=>10.5);*/
-  $names = array("20,000 Leagues Under the Sea", "Alienware Gaming Laptop", 3=>"Lenovo Chromebook",
+  $prices = array(14.39, 1200.99, 123.69, 34.26, 2999999.99, 353.77, 16000.98, 95.32,
+  0.50, 132.22, 1.10 ,500.01, 1300.21, 430.20, 10.00,
+  5.40, 16.70, 510.04);
+  $names = array("20,000 Leagues Under the Sea", "Alienware Gaming Laptop", "Lenovo Chromebook",
                                 "Dark Souls 3", "Ferrari", "Classic Electric Guitar", "Kia Soul", 
                                 "Lord of the Rings Bluray Box Set - Extended", "Mask", "Men's Peacoat", 
                                 "Penut M&Ms", "PS5", "NVIDIA RTX 3090", "Men's Suit",
                                 "Necktie", "Totinos pizza","The Way of Kings", "Xbox Series X");
+                                
+  $pictures = array("20000leagues.jpg", "alien.jpg", "chrome.jpg",
+                "ds3.jpg", "ferari.jpg", "guitar.jpg", "kia.jpg", 
+                "lotr.jpg", "mask.jpg", "peacoat.jpg", 
+                "penutmms.jpg", "ps5.jpg", "rtx.jpg", "suit.jpg",
+                "tie.jpg", "totinos.jpg","wayofkings.jpg", "xbox.jpg");
 
   ?>
 
@@ -87,6 +93,22 @@ session_start();
     <hr>
 
     <div id="storeContent" class="d-flex flex-row justify-content-center flex-wrap">
+
+    <?php 
+      for ($x = 1; $x < count($names); $x++)
+      {
+        echo "<div class='item'>\n" . "<img src='" . $pictures[$x] . "><br>";
+        echo "\n <p class='description'> " . $names[$x] . "</p>\n";
+        echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='get'> \n";
+        echo "<input type='number' name='quantity' id='quantity' min='1' max='5' value='1'>\n";
+        echo "<input hidden value='" . $x . "' id='sku' name='sku'>\n";
+        echo "<input hidden value='" . $names[$x] . "' id='name' name='name'>\n";
+        echo "<input hidden value='" . $prices[$x] . "' id='sku' name='sku'>\n";
+        echo "<button type='submit' class='cartBtn btn btn-warning'>Add to Cart </button>\n";
+        echo "</form></div>";
+
+      }
+    ?>
 
       <div class= "item">
         <img src="Images/20000leagues.jpg" alt="#">
