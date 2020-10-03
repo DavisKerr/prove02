@@ -120,7 +120,7 @@ print_r($_SESSION["sku"]);
             echo "\n \n The total is " . $_SESSION["total"];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
             echo "\n<form action=\"cart.php?rsku=" . $_SESSION["sku"][$i] . "\" method='get'>\n";
-            echo "<button type='submit' onclick='" . "removeFromCart(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>\n";
+            echo "<button type='submit' value='" . $_SESSION["sku"][$i] . "' class='btn btn-danger btn-sm'>Remove</button></li>\n";
             echo "\n</form>\n"; 
           }
         }
