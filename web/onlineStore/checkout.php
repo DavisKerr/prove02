@@ -13,6 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isValid = FALSE;
   } else {
     $username = test_input($_POST["username"]);
+
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
+      $usernameErr = "Only letters and white space allowed";
   }
 }
 
@@ -31,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isValid = FALSE;
   } else {
     $city = test_input($_POST["city"]);
+    if (!preg_match("/^[a-zA-Z-' ]*$/" ,$city)) {
+      $cityErr = "Only letters and white space allowed";
   }
 }
 
@@ -40,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isValid = FALSE;
   } else {
     $state = test_input($_POST["state"]);
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $state)) {
+      $stateErr = "Only letters and white space allowed";
   }
 }
 
@@ -50,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $zip = test_input($_POST["zip"]);
   }
+  if (!preg_match("/^[0-9]*$/",$zip)) {
+    $zip = "Only numbers are allowed";
 }
 
 function test_input($data) {
@@ -145,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           <div class="row">
             <div class="col">
               <label for="username">Full Name:</label>
-              <input type="text" value="" id="username" name="username" placeholder="Full Name" class="field">
+              <input type="text" value="<?php echo $username; ?>" id="username" name="username" placeholder="Full Name" class="field">
             </div>
           </div>
 
@@ -154,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           <div class="row">
             <div class="col">
               <label for="strtadd">Street Address:</label>
-              <input type="text" value="" id="strtadd" name="strtadd" placeholder="Street Address" class="field">
+              <input type="text" value="<?php echo $strtadd; ?>" id="strtadd" name="strtadd" placeholder="Street Address" class="field">
             </div>
           </div>
 
@@ -163,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           <div class="row">
             <div class="col">
               <label for="city">City:</label>
-              <input type="text" value="" id="city" name="city" class="field" placeholder="City">
+              <input type="text" value="<?php echo $city; ?>" id="city" name="city" class="field" placeholder="City">
             </div>
           </div>
 
@@ -172,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           <div class="row">
             <div class="col">
               <label for="state">State/Province:</label>
-              <input type="text" value="" id="state" name="state" class="field" placeholder="State/Province">
+              <input type="text" value="<?php echo $state; ?>" id="state" name="state" class="field" placeholder="State/Province">
             </div>
           </div>
 
@@ -181,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
           <div class="row">
             <div class="col">
               <label for="zip">Zip/Postal Code</label>
-              <input type="text" value="" id="zip" name="zip" class="field" placeholder="Zip/Postal Code">
+              <input type="text" value="<?php echo $zip; ?>" id="zip" name="zip" class="field" placeholder="Zip/Postal Code">
             </div>
           </div>
 
