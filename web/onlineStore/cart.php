@@ -33,6 +33,10 @@ try
     $_SESSION["cost"] = $new_cost;
     $_SESSION["qnt"] = $new_cost*/
 
+  }
+  else
+  {
+    echo "\n try again \n";
   }  
 }
 catch (Exception $e)
