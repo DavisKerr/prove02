@@ -97,7 +97,7 @@ session_start();
     <?php 
       for ($x = 1; $x < count($names); $x++)
       {
-        echo "<div class='item'>\n" . "<img src='" . $pictures[$x] . "><br>";
+        echo "<div class='item'>\n" . "<img src='Images/" . $pictures[$x] . "><br>";
         echo "\n <p class='description'> " . $names[$x] . "</p>\n";
         echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='get'> \n";
         echo "<input type='number' name='quantity' id='quantity' min='1' max='5' value='1'>\n";
