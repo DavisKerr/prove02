@@ -7,10 +7,10 @@ try
   if(isset($_GET["sku"]))
   {
     echo "adding to array...";
-    array_push($_SESSION["sku"], "Blue");
+    array_push($_SESSION["sku"], $_GET['sku']);
   }
 
-  print_r($_SESSION["sku"]);
+  echo count($_SESSION['sku']);
 }
 catch (Exception $e)
 {
