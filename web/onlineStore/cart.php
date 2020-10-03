@@ -38,7 +38,7 @@ try
     else
     {
       $i = array_search($_GET["rsku"], $_SESSION["sku"]);
-      $_SESSION["qnt"][$i] = $_GET["quantity"]
+      $_SESSION["qnt"][$i] = $_GET["quantity"];
     }
   }
 }
