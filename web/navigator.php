@@ -17,7 +17,7 @@
     <hr>
     <div id="projects">
       <ul id="projectLinks">
-        <li><a href="./onlineStore/browse.html">E-Store - Week03</a></li>>
+        <li><a href="./onlineStore/browse.php">E-Store - Week03</a></li>
       </ul>
     </div>
   </body>

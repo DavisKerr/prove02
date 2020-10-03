@@ -3,7 +3,6 @@
   <!--
     TODO:
     - Most important:
-      * Convert this file to PHP.
       * Add sessions and variables.
       * Add functionality to the add to cart button
       * Link to cart like amazon does
