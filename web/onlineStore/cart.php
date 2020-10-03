@@ -70,10 +70,7 @@ session_start();
         {
           for ($i = 1; $i < count($sku); $i++)
           {
-            $_SESSION["sku"] = array(0); 
-            $_SESSION["name"] = array("Blank");
-            $_SESSION["qnt"] = array(0);
-            $_SESSION["cost"] = array(0.0);
+            $_SESSION["total"] += $_SESSION["cost"][$i];
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . "<button onclick='" . "remove(" . $i . ")" . "'class='btn btn-danger btn-sm'>Remove</button></li>"; 
           }
         }
