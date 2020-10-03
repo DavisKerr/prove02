@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -62,12 +63,25 @@ session_start();
 
       <!--Generate Actual list using PHP-->
       <ul id="cart">
-        <li>Laptop - $10.00 </li>
-        <li>Laptop - $10.00 </li>
-        <li>Laptop - $10.00 </li>
-        <li>Laptop - $10.00 </li>
+        <?php
+
+        $_SESSION["total"] = 0.0;
+
+        try 
+        {
+          for ($i = 1; $i < count($_SESSION["sku"]); $i++)
+          {
+            $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
+            echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i] . "</li>";
+          }
+        }
+        catch (Exception $e)
+        {
+          echo 'Caught exception: ', $e->getMessage();
+        }
+        ?>
       </ul>
-      <span> Total: $100.00</span>
+      <span> Total: <?php $_SESSION["total"]; ?></span>
       <span>Ship to:</span>
       <span><!--Address here-->2678 new court, spain</span>
       <!--End generate-->
