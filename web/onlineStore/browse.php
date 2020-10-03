@@ -31,12 +31,15 @@ session_start();
   <body>
 
   <?php
-
-  $_SESSION["sku"] = array(0); 
-  $_SESSION["name"] = array("Blank");
-  $_SESSION["qnt"] = array(0);
-  $_SESSION["cost"] = array(0.0);
-  $_SESSION["total"] = 0;
+  if(isset($_SESSION["sku"]) != TRUE)
+  {
+    $_SESSION["sku"] = array(0); 
+    $_SESSION["name"] = array("Blank");
+    $_SESSION["qnt"] = array(0);
+    $_SESSION["cost"] = array(0.0);
+    $_SESSION["total"] = 0;
+  }
+  
   /*$_SESSION["price_key"] = array(1=>10.5, 2=>10.5, 3=>10.5, 4=>10.5, 5=>10.5, 6=>10.5, 7=>10.5, 8=>10.5,
                                  9=>10.5, 10=>10.5, 11=>10.5, 12=>10.5, 13=>10.5, 14=>10.5,
                                  15=>10.5, 16=>10.5, 17=>10.5, 18=>10.5);
