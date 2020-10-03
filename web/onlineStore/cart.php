@@ -73,7 +73,7 @@
       <a type="button" href="./checkout.php" class="btn btn-lg btn-warning cartBtns">Check Out</a>
       
     </div>
-    </div>
+  </div>
     
 
     

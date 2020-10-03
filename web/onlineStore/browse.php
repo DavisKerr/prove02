@@ -263,8 +263,11 @@
         <button type="button" class="cartBtn btn btn-warning">Add to Cart</button>
       </div>
 
-      <a type="button" href="./cart.php" class="cartBtn btn btn-success">Go to Cart</a>
+      <a type="button" id="cartBtn" href="./cart.php" class="cartBtn btn btn-success">Go to Cart</a>
     </div>
+    <br>
+    <br>
+    <br>
 
 
 
