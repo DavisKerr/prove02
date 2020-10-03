@@ -70,7 +70,7 @@
       <br>
       <div id="cartOptions">
       <a type="button" href="./browse.php" class="btn btn-lg btn-primary cartBtns">Return to Browse</a>
-      <button class="btn btn-lg btn-warning cartBtns">Check Out</button>
+      <a type="button" href="./checkout.php" class="btn btn-lg btn-warning cartBtns">Check Out</a>
       
     </div>
     </div>
