@@ -25,4 +25,5 @@ function removeFromCart(sku)
   xmlhttp.open("GET", "removeCart.php" + str, true);
   xmlhttp.send();
   location.reload();
+  return false;
 }
