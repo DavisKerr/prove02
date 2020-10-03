@@ -37,7 +37,7 @@ session_start();
     $_SESSION["cost"] = array(0.0);
   }
 
-  if($_SERVER["REQUEST_METHOD"] == "POST")
+  if($_SERVER["REQUEST_METHOD"] == "GET")
   {
     try 
     {
