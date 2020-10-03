@@ -110,7 +110,6 @@ catch (Exception $e)
           for ($i = 1; $i < count($_SESSION["sku"]); $i++)
           {
             $_SESSION["total"] += $_SESSION["cost"][$i] * $_SESSION["qnt"][$i];
-            echo "\n \n The total is " . $_SESSION["total"] . "\n";
             echo "<li>" . $_SESSION["name"][$i] . " - $" . $_SESSION["cost"][$i] . " X " . $_SESSION["qnt"][$i];
             echo "\n<form action=\"cart.php?rsku=" . $_SESSION["sku"][$i] . "\" method='get'>\n";
             echo "<input type='number' hidden value='" . $_SESSION["sku"][$i] . "' name='rsku' id='rsku'>";

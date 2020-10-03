@@ -2,6 +2,54 @@
 session_start();
 ?>
 
+<?php
+// define variables and set to empty values
+$nameErr = $strtaddErr = $cityErr = $stateErr = $zipErr = "";
+$name = $strtadd = $city = $state = $zip = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["strtadd"])) {
+      $strtaddErr = "Street Address is required";
+    } else {
+      $strtadd = test_input($_POST["strtadd"]);
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["city"])) {
+        $cityErr = "City is required";
+      } else {
+        $city = test_input($_POST["city"]);
+      }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["state"])) {
+        $stateErr = "State is required";
+      } else {
+        $state = test_input($_POST["state"]);
+      }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if (empty($_POST["zip"])) {
+        $zipErr = "Zip is required";
+      } else {
+        $zip = test_input($_POST["zip"]);
+      }
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <!--
@@ -71,7 +119,7 @@ session_start();
       <h5>Please fill out all information completely.</h5>
       
       <div id="checkoutForm">
-        <form action="" method="post">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="row">
             <div class="col">
               <label for="name">Full Name:</label>
@@ -84,7 +132,7 @@ session_start();
               <input type="text" value="" id="strtadd" name="strtadd" placeholder="Street Address" class="field">
             </div>
           </div>
-
+          <span class="error"><?php echo $nameErr; ?></span>
           <div class="row">
             <div class="col">
               <label for="city">City:</label>
@@ -108,7 +156,7 @@ session_start();
           
           <div class="row">
             <div class="col">
-              Total = <span id="total">$10.00<!--PHP here--></span>
+            <span id="total">Total - <?php echo $_SESSION["total"];?></span>
             </div>
           </div>
 
