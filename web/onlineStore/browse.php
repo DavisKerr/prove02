@@ -125,7 +125,7 @@ session_start();
       {
         echo "<div class='item'>\n" . "<img src='Images/" . $pictures[$x] . "'><br>";
         echo "\n <p class='description'> " . $names[$x] . "</p>\n";
-        echo "\n <p class='cost'> " . 'Price: ' . $prices[$x] . "</p>\n";
+        echo "\n <p class='cost'> " . 'Price: $' . $prices[$x] . "</p>\n";
         echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='get'> \n";
         echo "<label for='quantity'>Quantity:</label>\n";
         echo "<input type='number' name='quantity' id='quantity' min='1' max='50' value='1'>\n";
