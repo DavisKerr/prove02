@@ -25,22 +25,14 @@ catch (PDOException $ex)
 echo "Success!\n";
 
 echo "Now trying to query the db...\n";
-$id = 1;
-$name = 'john';
 
-$stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
-$stmt->execute(array(':name' => $name, ':id' => $id));
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $k=>$v) {
-  echo $v;
-}
-/*
+
 foreach ($db->query('SELECT username, password FROM note_user') as $row)
 {
   echo 'user: ' . $row['username'];
   echo ' password: ' . $row['password'];
   echo '<br>';
 }
-*/
+
 ?>
