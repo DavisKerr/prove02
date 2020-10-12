@@ -32,14 +32,9 @@ $stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
 $stmt->execute(array(':name' => $name, ':id' => $id));
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-echo print_r($rows);
-
-foreach($rows as $row)
-{
-  echo 'user: ' . $row['username'];
-  echo '<br>';
+foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $k=>$v) {
+  echo $v;
 }
-
 /*
 foreach ($db->query('SELECT username, password FROM note_user') as $row)
 {
