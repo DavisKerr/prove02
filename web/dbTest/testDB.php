@@ -33,13 +33,14 @@ $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-/*
+
+
 foreach($rows as $row)
 {
   echo 'user: ' . $row['username'];
   echo '<br>';
 }
-*/
+
 /*
 foreach ($db->query('SELECT username, password FROM note_user') as $row)
 {
