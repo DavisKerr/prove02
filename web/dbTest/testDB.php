@@ -34,6 +34,7 @@ $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+echo print_r($rows);
 
 foreach($rows as $row)
 {
