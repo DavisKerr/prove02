@@ -25,6 +25,8 @@ catch (PDOException $ex)
 echo "Success!\n";
 
 echo "Now trying to query the db...\n";
+$id = 1;
+$name = 'john';
 
 $stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
