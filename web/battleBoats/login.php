@@ -47,7 +47,7 @@
       $isloggedIn = FALSE;
     } else 
     {
-      $passwd = test_input($_POST["strtadd"]);
+      $passwd = test_input($_POST["password"]);
 
       if (!preg_match("/^[a-zA-Z-' ]*$/", $passwd)) 
       {
