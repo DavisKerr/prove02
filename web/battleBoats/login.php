@@ -29,7 +29,7 @@
       }
     }
   }
-/*  
+  
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["passwd"])) {
       $passwdErr = "Street Address is required";
@@ -43,7 +43,7 @@
     }
   }
   
-  
+  /*
   function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
