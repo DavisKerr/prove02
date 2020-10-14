@@ -115,15 +115,17 @@
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
-        <form>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-            <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+              <span><?php echo $usernameErr; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
               <input type="password" name="password" id="password" placeholder="Password" class="loginField">
+              <span><?php echo $passwdErr; ?></span>
             </div>
             <button type="submit" class="btn btn-success" id="confirmBtn">Login</button>
           </div>

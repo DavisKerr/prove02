@@ -19,6 +19,9 @@ CREATE TABLE public.user
 CREATE TABLE public.game
 ( id SERIAL NOT NULL PRIMARY KEY
 , game_owner INT NOT NULL
+, game_name VARCHAR(100) NOT NULL
+, game_code VARCHAR(100) NOT NULL UNIQUE
+, game_type VARCHAR(10) NOT NULL
 , opponent INT
 , grid_owner VARCHAR(100) NOT NULL
 , grid_opponent VARCHAR(100) NOT NULL
@@ -66,9 +69,9 @@ INSERT INTO public.user
 , date_created
 )
 VALUES
-( 'my_username'
-, 'my_password'
-, 'my_display_name'
+( 'myusername'
+, 'mypassword'
+, 'mydisplayname'
 , (SELECT CURRENT_TIMESTAMP)
 );
 
@@ -79,9 +82,9 @@ INSERT INTO public.user
 , date_created
 )
 VALUES
-( 'my_username2'
-, 'my_password2'
-, 'my_display_name2'
+( 'myusername2'
+, 'mypassword2'
+, 'mydisplay_name2'
 , (SELECT CURRENT_TIMESTAMP)
 );
 
@@ -92,15 +95,18 @@ INSERT INTO public.user
 , date_created
 )
 VALUES
-( 'my_username3'
-, 'my_password3'
-, 'my_display_name3'
+( 'myusername3'
+, 'mypassword3'
+, 'mydisplay_name3'
 , (SELECT CURRENT_TIMESTAMP)
 );
 
 INSERT INTO public.game
 ( game_owner
 , opponent
+, game_name
+, game_code
+, game_type
 , grid_owner
 , grid_opponent
 , is_active
@@ -109,6 +115,9 @@ INSERT INTO public.game
 VALUES
 ( 1
 , 2
+, 'Battle Boats 2.0'
+, '2FGH59KJD3'
+, 'PUBLIC'
 , '* * * * * * * * * *'
 , '* * * * * * * * * *'
 , 1
@@ -118,6 +127,9 @@ VALUES
 INSERT INTO public.game
 ( game_owner
 , opponent
+, game_name
+, game_code
+, game_type
 , grid_owner
 , grid_opponent
 , is_active
@@ -126,15 +138,21 @@ INSERT INTO public.game
 VALUES
 ( 1
 , 3
+, 'Battle Boats 2.5'
+, 'ABCD3FG'
+, 'PUBLIC'
 , '* * * * * * * * * *'
 , '* * * * * * * * * *'
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
 
-
 INSERT INTO public.game
 ( game_owner
+, opponent
+, game_name
+, game_code
+, game_type
 , grid_owner
 , grid_opponent
 , is_active
@@ -142,6 +160,31 @@ INSERT INTO public.game
 )
 VALUES
 ( 3
+, 2
+, 'Battle Boats 2.0'
+, 'CDEF574389'
+, 'PRIVATE'
+, '* * * * * * * * * *'
+, '* * * * * * * * * *'
+, 1
+, (SELECT CURRENT_TIMESTAMP)
+);
+
+INSERT INTO public.game
+( game_owner
+, game_name
+, game_code
+, game_type
+, grid_owner
+, grid_opponent
+, is_active
+, date_created
+)
+VALUES
+( 1
+, 'Battle Boats 3.0'
+, 'CODE7'
+, 'PRIVATE'
 , '* * * * * * * * * *'
 , '* * * * * * * * * *'
 , 0
