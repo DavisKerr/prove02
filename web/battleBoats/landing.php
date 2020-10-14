@@ -42,13 +42,13 @@
             <a class="nav-link" href="./login.html">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./register.html">Register</a>
+            <a class="nav-link" href="./register.html">Register</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap align-items-center">
+    <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Welcome to Battle Boats!</h2>
         <p class="btnLabel">Create an account!</p>
