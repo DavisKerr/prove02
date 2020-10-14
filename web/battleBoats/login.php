@@ -20,22 +20,25 @@
     if (empty($_POST["username"])) {
       $usernameErr = "Username is required";
       $isValid = FALSE;
+      $isloggedIn = FALSE;
     } else {
       $username = test_input($_POST["username"]);
   
       if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
         $usernameErr = "Only letters and white space allowed";
         $isValid = FALSE;
+        $isloggedIn = FALSE;
       }
     }
   }
   
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
-    if (empty($_POST["passwd"])) 
+    if (empty($_POST["password"])) 
     {
       $passwdErr = "Street Address is required";
       $isValid = FALSE;
+      $isloggedIn = FALSE;
     } else 
     {
       $passwd = test_input($_POST["strtadd"]);
@@ -44,6 +47,7 @@
       {
         $passwdErr = "Only letters and white space allowed";
         $isValid = FALSE;
+        $isloggedIn = FALSE;
       }
     }
   }
