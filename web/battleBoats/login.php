@@ -3,14 +3,14 @@
 
   session_start();
 
-  /*function queryDatabase($v_username, $v_passwrd, $database)
+  function queryDatabase($v_username, $v_passwrd, $database)
   {
     $stmt = $database->prepare('SELECT username, password FROM public.user WHERE username=:username AND password=:password');
     $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     print_r($rows);
   }
-
+  /*
   $usernameErr = $passwdErr =  "";
   $username = $passwd =  "";
   $isValid = TRUE;
