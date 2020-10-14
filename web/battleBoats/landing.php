@@ -2,6 +2,11 @@
   session_start();
   require 'getDB.php';
 
+  if(isset($db))
+  {
+    echo 'HURRAY!';
+  }
+
   if(isset($_SESSION["loggedIn"]))
   {
     if($_SESSION["loggedIn"])
@@ -31,7 +36,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="./landing.html">Home</a>
+      <a class="navbar-brand" href="./landing.php">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,10 +44,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="./login.html">Login</a>
+            <a class="nav-link" href="./login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./register.html">Register</a>
+            <a class="nav-link" href="./register.php">Register</a>
           </li>
         </ul>
       </div>
