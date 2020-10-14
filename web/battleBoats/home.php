@@ -11,17 +11,17 @@
   {
     $_SESSION["loggedIn"] = false;
   }
-/*
+
   function queryDatabaseForGames()
   {
-    $stmt = $database->prepare(
-      'SELECT g.game_name, g.date_created, u.display_name 
+    $stmt = $database->prepare("SELECT g.game_name, g.date_created, u.display_name \ 
     FROM public.game AS g
-    JOIN public.user AS u
-    ON g.game_owner = u.id
-    WHERE g.is_active = 0
+    JOIN public.user AS u 
+    ON g.game_owner = u.id 
+    WHERE g.is_active = 0 
     AND g.game_type = 'PUBLIC'
-    ORDER BY g.date_created;');
+    ORDER BY g.date_created;");
+    
     $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
     $db_data = array("db_username"=>'', "db_password"=>'');
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
@@ -30,7 +30,7 @@
       $db_data["db_password"] = $row["password"];
     }
     return $db_data;
-  }*/
+  }
 
 ?>
 
