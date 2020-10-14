@@ -12,7 +12,7 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  function queryDatabaseForGames()
+  function queryDatabaseForPublicGames()
   {
     $stmt = $database->prepare("SELECT g.id, g.game_name, g.date_created, u.display_name 
     FROM public.game AS g
@@ -106,9 +106,17 @@
           </div>
         </form>
         <div class="gameFinderArea">
-          <?php
-            echo "<table class='gameTable'\n";
-          ?>
+          <table class="gameTable">
+            <tr>
+              <th>Game Name</th>
+              <th>Date Created</th>
+              <th>Owner</th>
+              <th>Join game</th>
+            </tr>
+            <?php 
+             $data = queryDatabaseForPublicGames();
+            ?>
+          </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
