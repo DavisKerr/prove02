@@ -65,7 +65,7 @@
   {
     $_SESSION["username"] = $username;
     $db_data = queryDatabase($username, $passwd, $db);
-    if (!empty($db_data["username"]) && !empty($db_data["password"]))
+    if (!empty($db_data["db_username"]) && !empty($db_data["db_password"]))
     {
       echo "We are working!";
       $_SESSION["loggedIn"] = TRUE;
