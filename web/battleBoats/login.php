@@ -9,7 +9,7 @@
     $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     print_r($rows);
-  }*/
+  }
 
   $usernameErr = $passwdErr =  "";
   $username = $passwd =  "";
@@ -62,7 +62,7 @@
   if(isset($_POST["username"]) && isset($_POST("password")))
   {
     
-  }
+  }*/
 
   if(isset($_SESSION["loggedIn"]))
   {
