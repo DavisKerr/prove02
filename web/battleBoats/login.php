@@ -13,26 +13,24 @@
       $db_data["db_username"] = $row["username"];
       $db_data["db_password"] = $row["password"];
     }
-    
+    return $db_data;
   }
   
   $usernameErr = $passwdErr =  "";
   $username = $passwd =  "";
   $isValid = TRUE;
-  $isloggedIn = TRUE;
+  $isloggedIn = FALSE;
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
       $usernameErr = "Username is required";
       $isValid = FALSE;
-      $isloggedIn = FALSE;
     } else {
       $username = test_input($_POST["username"]);
   
       if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
         $usernameErr = "Only letters and white space allowed";
         $isValid = FALSE;
-        $isloggedIn = FALSE;
       }
     }
   }
@@ -43,7 +41,6 @@
     {
       $passwdErr = "Street Address is required";
       $isValid = FALSE;
-      $isloggedIn = FALSE;
     } else 
     {
       $passwd = test_input($_POST["password"]);
@@ -52,7 +49,6 @@
       {
         $passwdErr = "Only letters and white space allowed";
         $isValid = FALSE;
-        $isloggedIn = FALSE;
       }
     }
   }
@@ -68,8 +64,12 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
   {
     $_SESSION["username"] = $username;
-    queryDatabase($username, $passwd, $db);
-
+    $db_data = queryDatabase($username, $passwd, $db);
+    if (!empty($db_data["username"]) && !empty($db_data["password"]))
+    {
+      $_SESSION["loggedIn"] = TRUE;
+      $_SESSION["username"] = $db_data["username"];
+    }
 
   }
 
