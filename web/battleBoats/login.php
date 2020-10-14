@@ -15,7 +15,7 @@
   $username = $passwd =  "";
   $isValid = TRUE;
   $isloggedIn = TRUE;
-/*
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
       $usernameErr = "Username is required";
@@ -29,7 +29,7 @@
       }
     }
   }
-  
+/*  
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["passwd"])) {
       $passwdErr = "Street Address is required";
