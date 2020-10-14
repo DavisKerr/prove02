@@ -51,9 +51,9 @@
       <div id="login_menu">
         <h2 id="formTitle">Welcome to Battle Boats!</h2>
         <p class="btnLabel">Create an account!</p>
-        <a href="register.html" class="btn btn-success" id="confirmBtn">Register</a>
+        <a href="./register.php" class="btn btn-success" id="confirmBtn">Register</a>
         <p class="btnLabel">Already have an account?</p>
-        <a href="login.html" class="btn btn-info" id="changeBtn">Log in</a>
+        <a href="./login.php" class="btn btn-info" id="changeBtn">Log in</a>
         
       </div>
     </div>
