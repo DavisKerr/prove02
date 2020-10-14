@@ -5,16 +5,15 @@
 
   function queryDatabase($v_username, $v_passwrd, $database)
   {
-    echo $v_username . '\n' . $v_passwrd;
     $stmt = $database->prepare('SELECT username, password FROM public.user WHERE username=:username AND password=:password');
     $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
-    $db_username = $db_password = '';
+    $db_data = array("db_username"=>'' "db_password"=>'');
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-      $db_username = $row["username"];
-      $db_password = $row["password"];
+      $db_data["db_username"] = $row["username"];
+      $db_data["db_password"] = $row["password"];
     }
-    echo $db_username . '\n' . $db_password;
+    
   }
   
   $usernameErr = $passwdErr =  "";
