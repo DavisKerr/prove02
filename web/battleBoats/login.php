@@ -10,12 +10,12 @@
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     print_r($rows);
   }
-  /*
+  
   $usernameErr = $passwdErr =  "";
   $username = $passwd =  "";
   $isValid = TRUE;
   $isloggedIn = TRUE;
-
+/*
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
       $usernameErr = "Username is required";
