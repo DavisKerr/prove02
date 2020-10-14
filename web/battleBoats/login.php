@@ -1,3 +1,84 @@
+<?php
+  require 'getDB.php';
+
+  session_start();
+
+  function queryDatabase($v_username, $v_passwrd, $database)
+  {
+    $stmt = $database->prepare('SELECT username, password FROM public.user WHERE username=:username AND password=:password');
+    $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    print_r($rows);
+  }
+
+  $usernameErr = $passwdErr =  "";
+  $username = $passwd =  "";
+  $isValid = TRUE;
+  $isloggedIn = TRUE;
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["username"])) {
+      $usernameErr = "Username is required";
+      $isValid = FALSE;
+    } else {
+      $username = test_input($_POST["username"]);
+  
+      if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
+        $usernameErr = "Only letters and white space allowed";
+        $isValid = FALSE;
+      }
+    }
+  }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["passwd"])) {
+      $passwdErr = "Street Address is required";
+      $isValid = FALSE;
+    } else {
+      $passwd = test_input($_POST["strtadd"]);
+
+      if (!preg_match("/^[a-zA-Z-' ]*$/", $passwd)) {
+        $passwdErr = "Only letters and white space allowed";
+        $isValid = FALSE;
+    }
+  }
+  
+  
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
+  {
+    $_SESSION["username"] = $username;
+
+
+
+  }
+
+  if(isset($_POST["username"]) && isset($_POST("password")))
+  {
+    
+  }
+
+  if(isset($_SESSION["loggedIn"]))
+  {
+    if($_SESSION["loggedIn"])
+    {
+      header("location: ./home");
+      exit;
+    }
+    
+  }
+  else
+  {
+    $_SESSION["loggedIn"] = false;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -13,7 +94,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="./landing.html">Home</a>
+      <a class="navbar-brand" href="./landing.php">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,10 +102,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="./login.html">Login</a>
+            <a class="nav-link active" href="./login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./register.html">Register</a>
+            <a class="nav-link" href="./register.php">Register</a>
           </li>
         </ul>
       </div>

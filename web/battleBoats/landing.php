@@ -1,11 +1,5 @@
 <?php
   session_start();
-  require 'getDB.php';
-
-  if(isset($db))
-  {
-    echo 'HURRAY!';
-  }
 
   if(isset($_SESSION["loggedIn"]))
   {
