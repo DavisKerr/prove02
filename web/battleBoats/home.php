@@ -11,7 +11,7 @@
   {
     $_SESSION["loggedIn"] = false;
   }
-
+/*
   function queryDatabaseForGames()
   {
     $stmt = $database->prepare(
@@ -30,7 +30,7 @@
       $db_data["db_password"] = $row["password"];
     }
     return $db_data;
-  }
+  }*/
 
 ?>
 
