@@ -30,16 +30,21 @@
     }
   }
   
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["passwd"])) {
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
+    if (empty($_POST["passwd"])) 
+    {
       $passwdErr = "Street Address is required";
       $isValid = FALSE;
-    } else {
+    } else 
+    {
       $passwd = test_input($_POST["strtadd"]);
 
-      if (!preg_match("/^[a-zA-Z-' ]*$/", $passwd)) {
+      if (!preg_match("/^[a-zA-Z-' ]*$/", $passwd)) 
+      {
         $passwdErr = "Only letters and white space allowed";
         $isValid = FALSE;
+      }
     }
   }
   
