@@ -1,8 +1,6 @@
 <?php
-  require 'getDB.php';
-
   session_start();
-
+  require 'getDB.php';
   function queryDatabase($v_username, $v_passwrd, $database)
   {
     $stmt = $database->prepare('SELECT username, password FROM public.user WHERE username=:username AND password=:password');

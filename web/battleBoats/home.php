@@ -1,3 +1,39 @@
+<?php
+  session_start();
+
+  require 'getDB.php';
+
+  if(isset($_SESSION["loggedIn"]))
+  {
+    
+  }
+  else
+  {
+    $_SESSION["loggedIn"] = false;
+  }
+
+  function queryDatabaseForGames()
+  {
+    $stmt = $database->prepare(
+      'SELECT g.game_name, g.date_created, u.display_name 
+    FROM public.game AS g
+    JOIN public.user AS u
+    ON g.game_owner = u.id
+    WHERE g.is_active = 0
+    AND g.game_type = 'PUBLIC'
+    ORDER BY g.date_created;');
+    $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
+    $db_data = array("db_username"=>'', "db_password"=>'');
+    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
+    {
+      $db_data["db_username"] = $row["username"];
+      $db_data["db_password"] = $row["password"];
+    }
+    return $db_data;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -13,7 +49,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="./home.html">Home</a>
+      <a class="navbar-brand" href="./home.php">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,7 +87,9 @@
           </div>
         </form>
         <div class="gameFinderArea">
+          <?php
 
+          ?>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 

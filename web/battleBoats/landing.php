@@ -5,7 +5,7 @@
   {
     if($_SESSION["loggedIn"])
     {
-      header("location: ./home");
+      header("location: ./home.php");
     }
     
   }

@@ -84,7 +84,7 @@ INSERT INTO public.user
 VALUES
 ( 'myusername2'
 , 'mypassword2'
-, 'mydisplay_name2'
+, 'mydisplayname2'
 , (SELECT CURRENT_TIMESTAMP)
 );
 
@@ -97,7 +97,7 @@ INSERT INTO public.user
 VALUES
 ( 'myusername3'
 , 'mypassword3'
-, 'mydisplay_name3'
+, 'mydisplayname3'
 , (SELECT CURRENT_TIMESTAMP)
 );
 
@@ -181,10 +181,52 @@ INSERT INTO public.game
 , date_created
 )
 VALUES
+( 2
+, 'Battle Boats 4.0'
+, 'QDEF574389'
+, 'PUBLIC'
+, '* * * * * * * * * *'
+, '* * * * * * * * * *'
+, 0
+, (SELECT CURRENT_TIMESTAMP)
+);
+
+INSERT INTO public.game
+( game_owner
+, game_name
+, game_code
+, game_type
+, grid_owner
+, grid_opponent
+, is_active
+, date_created
+)
+VALUES
 ( 1
 , 'Battle Boats 3.0'
 , 'CODE7'
 , 'PRIVATE'
+, '* * * * * * * * * *'
+, '* * * * * * * * * *'
+, 0
+, (SELECT CURRENT_TIMESTAMP)
+);
+
+INSERT INTO public.game
+( game_owner
+, game_name
+, game_code
+, game_type
+, grid_owner
+, grid_opponent
+, is_active
+, date_created
+)
+VALUES
+( 2
+, 'Battle Boats 3.0'
+, 'CODE75'
+, 'PUBLIC'
 , '* * * * * * * * * *'
 , '* * * * * * * * * *'
 , 0
@@ -330,5 +372,15 @@ AND   g.id = t.game_id
 AND   g.id = m.game_id
 AND   g.opponent = u2.id
 GROUP BY u.id, u.username, u2.id, u2.username, g.id, g.is_active;
+
+/* Query to get data for the game display */
+
+SELECT g.game_name, g.date_created, u.display_name
+FROM public.game AS g
+JOIN public.user AS u
+ON g.game_owner = u.id
+WHERE g.is_active = 0
+AND g.game_type = 'PUBLIC'
+ORDER BY g.date_created;
 
 
