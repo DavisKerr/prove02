@@ -5,6 +5,7 @@
 
   function queryDatabase($v_username, $v_passwrd, $database)
   {
+    echo $v_username . '\n' . $v_passwrd;
     $stmt = $database->prepare('SELECT username, password FROM public.user WHERE username=:username AND password=:password');
     $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
     $db_username = $db_password = '';
