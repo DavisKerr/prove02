@@ -48,7 +48,7 @@
     }
   }
   
-  /*
+  
   function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -59,15 +59,11 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
   {
     $_SESSION["username"] = $username;
-
+    queryDatabase($username, $passwd, $db);
 
 
   }
 
-  if(isset($_POST["username"]) && isset($_POST("password")))
-  {
-    
-  }*/
 
   if(isset($_SESSION["loggedIn"]))
   {
