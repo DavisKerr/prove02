@@ -14,23 +14,27 @@
 
   function queryDatabaseForGames()
   {
-    $stmt = $database->prepare("SELECT g.game_name, g.date_created, u.display_name \ 
+    $stmt = $database->prepare("SELECT g.id, g.game_name, g.date_created, u.display_name 
     FROM public.game AS g
     JOIN public.user AS u 
     ON g.game_owner = u.id 
     WHERE g.is_active = 0 
     AND g.game_type = 'PUBLIC'
     ORDER BY g.date_created;");
-    
-    $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
-    $db_data = array("db_username"=>'', "db_password"=>'');
+
+    $stmt->execute();
+    $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-      $db_data["db_username"] = $row["username"];
-      $db_data["db_password"] = $row["password"];
+      $db_data["id"] = $row["game_name"];
+      $db_data["game_name"] = $row["date_created"];
+      $db_data["date_created"] = $row["date_created"];
+      $db_data["owner"] = $row["game_owner"];
     }
     return $db_data;
   }
+
+
 
 ?>
 
@@ -102,7 +106,9 @@
           </div>
         </form>
         <div class="gameFinderArea">
-
+          <?php
+            echo "<table class='gameTable'\n";
+          ?>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
