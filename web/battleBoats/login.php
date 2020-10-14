@@ -69,7 +69,7 @@
     {
       echo "We are working!";
       $_SESSION["loggedIn"] = TRUE;
-      $_SESSION["username"] = $db_data["username"];
+      $_SESSION["username"] = $db_data["db_username"];
     }
 
   }
@@ -79,7 +79,7 @@
   {
     if($_SESSION["loggedIn"])
     {
-      header("location: ./home");
+      header("location: ./home.php");
       exit;
     }
     
