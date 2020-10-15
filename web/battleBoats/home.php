@@ -50,11 +50,11 @@
       ON g.game_owner = u.id
       JOIN public.user AS u2
       ON g.opponent = u2.id
-      WHERE g.opponent =:player_id
-      or g.game_owner =:player_id
+      WHERE g.opponent = 1
+      or g.game_owner = 1
       AND g.is_active = 1
-      AND LOWER(g.game_name) LIKE LOWER(:search)
-      ORDER BY g.date_created
+      AND LOWER(g.game_name) LIKE LOWER('%battle boats 2.0%')
+      ORDER BY g.date_created;
       ";
 
       $stmt = $database->prepare($query);
