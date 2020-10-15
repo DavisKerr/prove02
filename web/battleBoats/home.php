@@ -24,14 +24,18 @@
 
     $stmt->execute();
     $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
-    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+    /*foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
       $db_data["id"] = $row["game_name"];
       $db_data["game_name"] = $row["date_created"];
       $db_data["date_created"] = $row["date_created"];
       $db_data["owner"] = $row["game_owner"];
     }
-    return $db_data;
+    return $db_data;*/
   }
 
 
@@ -114,8 +118,8 @@
               <th>Join game</th>
             </tr>
             <?php
-              
-            ?>
+              foreach()
+            ?>  
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
