@@ -3,14 +3,7 @@
 
   require 'getDB.php';
 
-  if(isset($_SESSION["loggedIn"]))
-  {
-    
-  }
-  else
-  {
-    $_SESSION["loggedIn"] = false;
-  }
+
 
   
 
@@ -25,8 +18,8 @@
     AND g.game_type = 'PUBLIC' 
     ORDER BY g.date_created
     ";
-    
-    $stmt = $database->query($query);
+
+    $stmt = $db->query($query);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     /*$stmt->execute();
@@ -38,6 +31,15 @@
       echo "Owned by " .  $row["u.display_name"] . "\t";
       echo "Id is " . $row["g.id"] . "\n";
     }*/
+  }
+
+  if(isset($_SESSION["loggedIn"]))
+  {
+    
+  }
+  else
+  {
+    $_SESSION["loggedIn"] = false;
   }
 
   queryDatabaseForPublicGames();
