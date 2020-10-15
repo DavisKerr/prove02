@@ -88,7 +88,7 @@
         }
         
       ?>
-      <form>
+      <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <input hidden value="true" id="logout" name="logout">
         <button type="submit" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
       </form>
