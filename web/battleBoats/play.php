@@ -10,13 +10,12 @@
     exit;
   }
 
-  echo $_SESSION["current_game_id"];
 
   function queryDatabaseForMessages($database)
   {
     try
     {
-      /*$query = "    
+      $query = "    
       SELECT body, sent_by, time_sent
       FROM public.messages
       WHERE game_id =:game_id
@@ -25,7 +24,7 @@
 
       $stmt = $database->prepare($query);
       $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
     catch (Exception $ex)
@@ -36,7 +35,7 @@
 
     return $rows;
   }
-  $messages = '';
+
   $messages = queryDatabaseForMessages($db);
   
 ?>
@@ -348,7 +347,14 @@
         </div> 
         <br>
         <form>
-          <textarea id="newMessage" placeholder="Enter Message" name="newMessage"></textarea>
+          <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
+            <?php
+              foreach($messages as $message)
+              {
+                
+              }
+            ?>
+          </textarea>
           <br>
           <button type="submit"  class="btn btn-success" id="sendMessageBtn">Send</button>
         </form>
