@@ -14,24 +14,56 @@
   <body>
   <?php 
     $board = '
-    * * * * * * * * * * /
-    * * * * * * * * * * / 
-    * * * * * * * * * * / 
-    * * O * * X * * * * / 
-    * * * * * V * * * * /
-    * * O * * V * * * * / 
-    * * * * * * * * * * / 
-    * V V V V V * * * * /
-    * * * * * * * * * * / 
-    * * * * * * * * * * /
+      * * * * * * * * * *
+    / * * * * * * * * * * 
+    / * * * * * * * * * * 
+    / * * O * * X * * * * 
+    / * * * * * V * * * *
+    / * * O * * V * * * * 
+    / * * * * * * * * * * 
+    / * V V V V V * * * *
+    / * * * * * * * * * * 
+    / * * * * * * * * * *
     ';
     $array = str_split($board);
-    echo "<table>\n";
+    echo "<table class='gameBoard'>\n";
     echo "<tr>\n";
-    for($i = 1; $i <= 10, $i++ )
+    for($i = 1; $i <= 10; $i++ )
     {
       echo "<th>" . $i . "/<th>\n";
     }
+    echo "<tr>\n";
+    $count = 1;
+    for($array as $item)
+    {
+      if(!empty($item))
+      {
+        if($item == '/')
+        {
+          echo '</tr>\n<tr>';
+          echo "<td>" . $count . "</td>";
+          $count++;
+        }
+        if($item == '*')
+        {
+          echo "<td class='blankSpace'></td>";
+        }
+        if($item == 'V')
+        {
+          echo "<td class='shipSpace'></td>";
+        }
+        if($item == 'O')
+        {
+          echo "<td class='missSpace'></td>";
+        }
+        if($item == 'X')
+        {
+          echo "<td class='hitSpace'></td>";
+        }
+      }
+    }
+
+    echo "</tr>\n"
 
     echo "</table>\n";
   ?>
