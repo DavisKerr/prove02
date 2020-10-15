@@ -1,5 +1,5 @@
 <?php 
-/*
+
 if($_SERVER["REQUEST_METHOD"] == "POST") 
 {
   if(isset($_POST["logout"]))
@@ -15,5 +15,5 @@ if(!isset($_SESSION["loggedIn"]))
   $_SESSION["loggedIn"] = false;
   header("location: ./landing.php");
   exit;
-}*/
+}
 ?>

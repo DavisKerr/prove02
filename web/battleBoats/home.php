@@ -2,7 +2,7 @@
   session_start();
 
   require 'getDB.php';
-  require 'auth.php'
+  require 'auth.php';
 
 
   function queryDatabaseForPublicGames($database)
