@@ -2,6 +2,7 @@
   session_start();
 
   require 'getDB.php';
+  require 'auth.php'
 
 
   function queryDatabaseForPublicGames($database)
@@ -68,16 +69,6 @@
 
     return $rows;
     
-  }
-
-
-  if(isset($_SESSION["loggedIn"]))
-  {
-    
-  }
-  else
-  {
-    $_SESSION["loggedIn"] = false;
   }
 
   $public_data = queryDatabaseForPublicGames($db);

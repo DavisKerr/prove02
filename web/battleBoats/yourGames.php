@@ -2,6 +2,7 @@
   session_start();
 
   require 'getDB.php';
+  require 'auth.php';
 
 
   function queryDatabaseForPendingUserGames($database)

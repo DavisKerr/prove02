@@ -2,6 +2,8 @@
   session_start();
 
   require 'getDB.php';
+  require 'auth.php';
+ 
 
 
   function queryDatabaseForUserInfo($database)
@@ -30,14 +32,7 @@
   }
 
 
-  if(isset($_SESSION["loggedIn"]))
-  {
-    
-  }
-  else
-  {
-    $_SESSION["loggedIn"] = false;
-  }
+  
 
   $user_data = queryDatabaseForUserInfo($db);
 
