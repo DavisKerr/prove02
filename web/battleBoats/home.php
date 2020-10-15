@@ -14,7 +14,7 @@
 
   function queryDatabaseForPublicGames()
   {
-    $stmt = $database->prepare("SELECT g.id, g.game_name, g.date_created, u.display_name 
+    /*$stmt = $database->prepare("SELECT g.id, g.game_name, g.date_created, u.display_name 
     FROM public.game AS g
     JOIN public.user AS u 
     ON g.game_owner = u.id 
@@ -25,11 +25,11 @@
 
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-      /*echo "Game name" . $row["g.game_name"] . "\t";
+      echo "Game name" . $row["g.game_name"] . "\t";
       echo "game created " . $row["g.date_created"] . "\t";
       echo "Owned by " .  $row["u.display_name"] . "\t";
-      echo "Id is " . $row["g.id"] . "\n";*/
-    }
+      echo "Id is " . $row["g.id"] . "\n";
+    }*/
   }
 
   queryDatabaseForPublicGames();
