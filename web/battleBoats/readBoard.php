@@ -13,62 +13,74 @@
   </head>
   <body>
   <?php 
+    $is_player_board = FALSE;
     $board = '
-      * * * * * * * * * *
-    / * * * * * * * * * * 
-    / * * * * * * * * * * 
-    / * * O * * X * * * * 
-    / * * * * * V * * * *
-    / * * O * * V * * * * 
-    / * * * * * * * * * * 
-    / * V V V V V * * * *
-    / * * * * * * * * * * 
-    / * * * * * * * * * *
-    ';
-    $array = str_split($board);
-    echo "<table class='gameBoard'>\n";
-    echo "<tr>\n";
-
-    for($i = 1; $i <= 10; $i++ )
-    {
-      echo "<th>" . $i . "</th>\n";
-    }
-
-    echo "<tr>\n";
-    $count = 1;
-    /*
-    for($array as $item)
-    {
-      if(!empty($item))
-      {
-        if($item == '/')
+        / * * * * * * * * * *
+        / * * * * * * * * * * 
+        / * * * * * * * * * * 
+        / * * O * * X * * * * 
+        / * * * * * V * * * *
+        / * * O * * V * * * * 
+        / * * * * * * * * * * 
+        / * V V V V V * * * *
+        / * * * * * * * * * * 
+        / * * * * * * * * * *
+        ';
+        $array = str_split($board);
+        echo "<table class='gameBoard'>\n";
+        echo "<tr>\n";
+      echo "<td></td>";
+        for($i = 1; $i <= 10; $i++ )
         {
-          echo '</tr>\n<tr>';
-          echo "<td>" . $count . "</td>";
-          $count++;
+          echo "<th>" . $i . "</th>\n";
         }
-        elseif($item == '*')
+        
+        echo "</tr>";
+    
+        $count = 1;
+        foreach($array as $item)
         {
-          echo "<td class='blankSpace'></td>";
+          if(!empty($item))
+          {
+            if($item == '/')
+            {
+              if($count != 1)
+                {
+                  echo "</tr>\n";
+                }
+    
+              echo "<td>" . $count . "</td>";
+              $count++;
+            }
+            elseif($item == '*')
+            {
+              echo "<td class='blankSpace'>*</td>";
+            }
+            elseif($item == 'V')
+            {
+              if($is_player_board)
+                {
+                  echo "<td class='shipSpace'>V</td>";
+                }
+                else
+                {
+                  echo "<td class='blankSpace'>*</td>";
+                }
+            }
+            elseif($item == 'O')
+            {
+              echo "<td class='missSpace'>O</td>";
+            }
+            elseif($item == 'X')
+            {
+              echo "<td class='hitSpace'>X</td>";
+            }
+          }
         }
-        elseif($item == 'V')
-        {
-          echo "<td class='shipSpace'></td>";
-        }
-        elseif($item == 'O')
-        {
-          echo "<td class='missSpace'></td>";
-        }
-        elseif($item == 'X')
-        {
-          echo "<td class='hitSpace'></td>";
-        }
-      }
-    }*/
-
-    echo "</tr>\n";
-
-    echo "</table>\n";
+    
+        echo "</tr>\n";
+    
+        echo "</table>\n";
   ?>
       
 
