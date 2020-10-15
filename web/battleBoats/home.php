@@ -23,11 +23,11 @@
     ON g.game_owner = u.id 
     WHERE g.is_active = 0 
     AND g.game_type = 'PUBLIC' 
-    ORDER BY g.date_created;
+    ORDER BY g.date_created
     ";
-    echo $query;
-    /*$stmt = $database->query($query);
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+    
+    $stmt = $database->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     /*$stmt->execute();
 
