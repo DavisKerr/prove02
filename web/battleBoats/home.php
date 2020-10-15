@@ -52,7 +52,7 @@
       WHERE g.opponent =:player_id
       or g.game_owner =:player_id
       AND g.is_active = 1
-      AND g.game_name = :search
+      AND g.game_name = ':search'
       ORDER BY g.date_created
       ";
 
@@ -106,7 +106,6 @@
 
   if(isset($_POST["myGameSearch"]) && $allowSearch)
   {
-    echo "Searching<br>";
     $user_data = queryDatabaseForMySearch($db, $myGameSearch);
     $public_data = queryDatabaseForPublicGames($db);
   }

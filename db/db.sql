@@ -421,3 +421,15 @@ ON m.sent_by = u.id
 WHERE game_id = 1 
 ORDER BY time_sent;
 
+SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      FROM public.game AS g
+      JOIN public.user AS u 
+      ON g.game_owner = u.id
+      JOIN public.user AS u2
+      ON g.opponent = u2.id
+      WHERE g.opponent = 1
+      or g.game_owner = 1
+      AND g.is_active = 1
+      AND g.game_name = 'Battle Boats 2.0'
+      ORDER BY g.date_created;
+
