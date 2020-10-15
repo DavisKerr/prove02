@@ -49,7 +49,8 @@
       " AND g.is_active = 1
       ORDER BY g.date_created
       ";
-
+      echo $query;
+/*
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -65,7 +66,7 @@
       die();
     }
 
-    return $results;
+    return $results;*/
     
   }
 
