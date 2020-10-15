@@ -9,7 +9,6 @@
   $public_data = array();
   $private_data = array();
   $user_data = array();
-  $search = '%';
 
   require 'processSearch.php';
 
@@ -76,7 +75,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db);
-  $user_data = queryDatabaseForUserGames($db, $search);
+  $user_data = queryDatabaseForUserGames($db, $myGameSearch);
 
 ?>
 
