@@ -21,10 +21,18 @@
     WHERE g.is_active = 0 
     AND g.game_type = 'PUBLIC'
     ORDER BY g.date_created;");
-
-    $stmt->execute();
-    $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    try
+    {
+      $stmt->execute();
+      $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch (PDOException $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    } 
+    
 
 
 
