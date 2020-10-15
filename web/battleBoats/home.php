@@ -123,9 +123,6 @@
     $user_data = queryDatabaseForUserGames($db);
   }
 
-  $public_data = queryDatabaseForPublicGames($db);
-  $user_data = queryDatabaseForUserGames($db);
-
 ?>
 
 <!DOCTYPE html>
