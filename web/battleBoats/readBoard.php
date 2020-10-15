@@ -13,7 +13,7 @@
   </head>
   <body>
   <?php 
-    /*$board = '
+    $board = '
     * * * * * * * * * * /
     * * * * * * * * * * / 
     * * * * * * * * * * / 
@@ -25,7 +25,7 @@
     * * * * * * * * * * / 
     * * * * * * * * * * /
     ';
-    $array = str_split($board);*/
+    /*$array = str_split($board);*/
     /*echo "<table>\n";
     echo "<tr>\n";
     for($i = 1; $i <= 10, $i++ )
