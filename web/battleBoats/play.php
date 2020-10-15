@@ -16,10 +16,12 @@
     try
     {
       $query = "    
-      SELECT body, sent_by, time_sent
-      FROM public.messages
+      SELECT m.body, m.time_sent, u.display_name
+      FROM public.messages AS m
+      JOIN public.user AS u
+      ON m.sent_by = u.id
       WHERE game_id =:game_id
-      ORDER BY time_sent
+      ORDER BY time_sent;
       ";
 
       $stmt = $database->prepare($query);
@@ -347,7 +349,7 @@
         <?php
               foreach($messages as $message)
               {
-                echo "<p><strong>" . $message["sent_by"] . "</strong>: " . $message["body"] . "</p>";
+                echo "<p><strong>" . $message["display_name"] . "</strong>: " . $message["body"] . "</p>";
               }
             ?>
         </div> 
