@@ -147,7 +147,7 @@
                 echo "<td>";
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success' type='submit'>Join Game</button>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
               }
