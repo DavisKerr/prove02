@@ -26,15 +26,14 @@
 
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-      $db_data["id"] = $row["game_name"];
-      $db_data["game_name"] = $row["date_created"];
-      $db_data["date_created"] = $row["date_created"];
-      $db_data["owner"] = $row["game_owner"];
+      echo "Game name" . $row["game_name"] . "\t";
+      echo "game created " . $row["date_created"] . "\t";
+      echo "Owned by " .  $row["display_name"] . "\t";
+      echo "Id is " . $row["id"] . "\n";
     }
-    return $db_data;
   }
 
-  $db_arr = queryDatabaseForPublicGames();
+  queryDatabaseForPublicGames();
 
 
 
