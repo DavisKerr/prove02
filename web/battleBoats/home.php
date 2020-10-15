@@ -138,7 +138,7 @@
           </div>
         </form>
         <div class="gameFinderArea">
-        <table class="gameTable">
+          <table class="gameTable">
             <tr>
               <th>Game Name</th>
               <th>Date Created</th>
