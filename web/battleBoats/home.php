@@ -34,7 +34,7 @@
 
 
   function queryDatabaseForUserGames($database)
-  {
+  {/*
     try
     {
       $query = "
@@ -66,18 +66,8 @@
       die();
     }
 
-    return $results;
+    return $results;*/
     
-
-    /*$stmt->execute();
-
-    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
-    {
-      echo "Game name" . $row["g.game_name"] . "\t";
-      echo "game created " . $row["g.date_created"] . "\t";
-      echo "Owned by " .  $row["u.display_name"] . "\t";
-      echo "Id is " . $row["g.id"] . "\n";
-    }*/
   }
 
 
