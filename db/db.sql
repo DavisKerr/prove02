@@ -182,7 +182,7 @@ INSERT INTO public.game
 )
 VALUES
 ( 2
-, 'Battle Boats 4.0'
+, 'Battle Boats 5.0'
 , 'QDEF574389'
 , 'PUBLIC'
 , '* * * * * * * * * *'
@@ -224,7 +224,7 @@ INSERT INTO public.game
 )
 VALUES
 ( 2
-, 'Battle Boats 3.0'
+, 'Battle Boats 4.0'
 , 'CODE75'
 , 'PUBLIC'
 , '* * * * * * * * * *'
@@ -430,6 +430,6 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       WHERE g.opponent = 1
       or g.game_owner = 1
       AND g.is_active = 1
-      AND g.game_name = 'Battle Boats 2.0'
+      AND g.game_name = battle boats 2.0
       ORDER BY g.date_created;
 
