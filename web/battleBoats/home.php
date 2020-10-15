@@ -6,6 +6,10 @@
   require 'gameRequest.php';
   require 'processSearch.php';
 
+  $public_data = array();
+  $private_data = array();
+  $user_data = array();
+
   function queryDatabaseForPublicGames($database)
   {
     try
@@ -22,6 +26,39 @@
 
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $results;
+    
+  }
+
+  function queryDatabaseForMySearch($database, $search)
+  {
+    try
+    {
+      $query = "
+      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      FROM public.game AS g
+      JOIN public.user AS u 
+      ON g.game_owner = u.id
+      JOIN public.user AS u2
+      ON g.opponent = u2.id
+      WHERE g.opponent =:player_id
+      or g.game_owner =:player_id
+      AND g.is_active = 1
+      AND g.game_name = :search
+      ORDER BY g.date_created
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':search'=>$search));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
     catch (Exception $ex)
@@ -65,6 +102,25 @@
 
     return $rows;
     
+  }
+
+  if(isset($_POST["myGameSearch"]) && $allowSearch)
+  {
+    $user_data = queryDatabaseFormySearch($db, $myGameSearch);
+    $public_data = queryDatabaseForPublicGames($db);
+  }
+  elseif(isset($_POST["publicGameSearch"]) && $allowSearch)
+  {
+
+  }
+  elseif(isset($_POST["privateGameSearch"]))
+  {
+
+  }
+  else
+  {
+    $public_data = queryDatabaseForPublicGames($db);
+    $user_data = queryDatabaseForUserGames($db);
   }
 
   $public_data = queryDatabaseForPublicGames($db);
@@ -159,7 +215,7 @@
 
       <div class="gameSearchWindow">
         <h3>Public Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="publicGameSearch" name="publicGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -196,7 +252,7 @@
 
       <div class="gameSearchWindow">
         <h3>Enter Private Game Code:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Game Code" aria-label="Game Code" id="privateGameSearch" name="privateGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
