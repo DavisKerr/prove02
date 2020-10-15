@@ -28,12 +28,15 @@
     $array = str_split($board);
     echo "<table class='gameBoard'>\n";
     echo "<tr>\n";
+
     for($i = 1; $i <= 10; $i++ )
     {
       echo "<th>" . $i . "/<th>\n";
     }
+
     echo "<tr>\n";
     $count = 1;
+    /*
     for($array as $item)
     {
       if(!empty($item))
@@ -63,7 +66,7 @@
       }
     }
 
-    echo "</tr>\n";
+    echo "</tr>\n";*/
 
     echo "</table>\n";
   ?>
