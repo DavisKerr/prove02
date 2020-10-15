@@ -1,7 +1,8 @@
 <?php
   
   $myGameSearchErr = $publicGameSearchErr = $privateGameSearchErr =  "";
-  $myGameSearch = $publicGameSearch = $privateGameSearch = "%";
+  $myGameSearch = $publicGameSearch =  "%";
+  $privateGameSearch = '';
   $isValid = TRUE;
   $allowSearch = FALSE;
 
@@ -35,7 +36,7 @@
     }
   }
     
-/*
+
   if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
     if(isset($_POST["privateGameSearch"]))
@@ -49,7 +50,7 @@
         $privateGameSearch = test_input($_POST["privateGameSearch"]);
       }
     }
-  }*/
+  }
   
   
   

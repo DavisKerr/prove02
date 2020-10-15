@@ -42,6 +42,36 @@
     
   }
 
+  function queryDatabaseForPrivateGames($database, $search)
+  {
+    try
+    {
+      $query = "
+      SELECT g.id, g.game_name, g.date_created, u.display_name 
+      FROM public.game AS g 
+      JOIN public.user AS u 
+      ON g.game_owner = u.id 
+      WHERE g.is_active = 0 
+      AND g.game_type = 'PRIVATE' 
+      AND LOWER(g.game_code) LIKE LOWER(:search)
+      ORDER BY g.date_created
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':search'=>$search));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $rows;
+    
+  }
+
 
   function queryDatabaseForUserGames($database, $search)
   {
@@ -77,6 +107,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db, $publicGameSearch);
+  $private_data = queryDatabaseForPrivateGames($db, $privateGameSearch);
   $user_data = queryDatabaseForUserGames($db, $myGameSearch);
 
 ?>
