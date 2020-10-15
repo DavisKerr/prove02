@@ -40,7 +40,7 @@
       }
     }
   }
-/*
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
     if(isset($_POST["finishedGameSearch"]))
@@ -67,7 +67,7 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
   {
     $allowSearch = True;
-  }*/
+  }
 
 
   function queryDatabaseForPendingUserGames($database, $search)
