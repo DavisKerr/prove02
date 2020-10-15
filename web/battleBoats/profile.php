@@ -10,7 +10,7 @@
     {
       $query = "
       SELECT username, display_name, date_created 
-      public.user 
+      FROM public.user 
       WHERE id = :player_id 
       ";
 
