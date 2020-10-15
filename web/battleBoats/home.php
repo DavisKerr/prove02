@@ -35,7 +35,7 @@
 
   function queryDatabaseForUserGames($database)
   {
-    try
+    /*try
     {
       $query = "
       SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -49,8 +49,7 @@
       "AND g.is_active = 1
       ORDER BY g.date_created
       ";
-    echo $query;
-     /* $stmt = $database->prepare($query);
+      $stmt = $database->prepare($query);
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
