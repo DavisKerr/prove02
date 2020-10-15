@@ -108,16 +108,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="./yourGames.html">My Games</a>
+            <a class="nav-link" href="./yourGames.php">My Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="./home.html">Home</a>
+            <a class="nav-link active" href="./home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./howto.html">How to Play</a>
+            <a class="nav-link" href="./howto.php">How to Play</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./profile.html">Account</a>
+            <a class="nav-link" href="./profile.php">Account</a>
           </li>
         </ul>
       </div>
