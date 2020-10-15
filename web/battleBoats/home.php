@@ -35,7 +35,7 @@
 
   function queryDatabaseForUserGames($database)
   {
-    /*try
+    try
     {
       $query = "
       SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -51,14 +51,14 @@
       ";
       echo $query;
 
-      $stmt = $database->query($query);
+      /*$stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       foreach($results as $row)
       {
         print_r($row);
         echo "<br>";
-      }
+      }*/
     }
     catch (Exception $ex)
     {
@@ -66,7 +66,7 @@
       die();
     }
 
-    return $results;*/
+    //return $results;
     
   }
 
