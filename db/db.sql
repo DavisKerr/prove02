@@ -383,4 +383,13 @@ WHERE g.is_active = 0
 AND g.game_type = 'PUBLIC'
 ORDER BY g.date_created;
 
+SELECT g.game_name, g.date_created, g.is_active, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+FROM public.game AS g
+JOIN public.user AS u 
+ON g.game_owner = u.id
+JOIN public.user AS u2
+ON g.opponent = u2.id
+WHERE g.opponent = 1
+or g.game_owner = 1
+ORDER BY g.date_created;
 

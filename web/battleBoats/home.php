@@ -21,6 +21,39 @@
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $results;
+    
+  }
+
+
+  function queryDatabaseForUserGames($database)
+  {
+    try
+    {
+      $query = "
+      SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      FROM public.game AS g
+      JOIN public.user AS u 
+      ON g.game_owner = u.id
+      JOIN public.user AS u2
+      ON g.opponent = u2.id
+      WHERE g.opponent = :player_id
+      or g.game_owner = :player_id
+      AND g.is_active = 1
+      ORDER BY g.date_created
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id' => $_SESSION["user_id"]))
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
       foreach($results as $row)
       {
         print_r($row);
@@ -47,6 +80,7 @@
     }*/
   }
 
+
   if(isset($_SESSION["loggedIn"]))
   {
     
@@ -56,8 +90,8 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  $data = queryDatabaseForPublicGames($db);
-
+  $public_data = queryDatabaseForPublicGames($db);
+  $user_data = queryDatabaseForUserGames($db);
 
 ?>
 
@@ -114,9 +148,31 @@
           </div>
         </form>
         <div class="gameFinderArea">
-          <?php
+        <table class="gameTable">
+            <tr>
+              <th>Game Name</th>
+              <th>Date Created</th>
+              <th>Owner</th>
+              <th>Join game</th>
+            </tr>
+            <?php
 
-          ?>
+              foreach($user_data as $row)
+              {
+                echo "<tr>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["date_created"] . "</td>\n";
+                echo "<td>" .  $row["display_name"] . "</td>\n";
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<input hidden value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
+                echo "</form>"; 
+                echo "</tr>\n";
+              }
+
+            ?>  
+          </table> 
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
@@ -138,7 +194,7 @@
             </tr>
             <?php
 
-              foreach($data as $row)
+              foreach($public_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
