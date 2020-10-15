@@ -12,7 +12,7 @@
 
   require 'processSearch.php';
 
-  function queryDatabaseForPublicGames($database)
+  function queryDatabaseForPublicGames($database, $search)
   {
     try
     {
@@ -23,11 +23,13 @@
       ON g.game_owner = u.id 
       WHERE g.is_active = 0 
       AND g.game_type = 'PUBLIC' 
+      AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";
 
-      $stmt = $database->query($query);
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
     catch (Exception $ex)
@@ -36,7 +38,7 @@
       die();
     }
 
-    return $results;
+    return $rows;
     
   }
 
@@ -74,7 +76,7 @@
     
   }
 
-  $public_data = queryDatabaseForPublicGames($db);
+  $public_data = queryDatabaseForPublicGames($db, $publicGameSearch);
   $user_data = queryDatabaseForUserGames($db, $myGameSearch);
 
 ?>
