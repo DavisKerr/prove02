@@ -59,7 +59,7 @@
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id'],)':search'=>$search);
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
     }
