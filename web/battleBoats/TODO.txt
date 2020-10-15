@@ -2,10 +2,7 @@ Home Page
   Add searchbar functionality to home.
   Have buttons link to games.
   Add searchbar for private games.
-  Add an item telling you if it is your turn or not.
-
-Account
-  Have the logut button work.
+  Not now - Add an item telling you if it is your turn or not.
 
 How to play:
   Not now -Add information about how to play.
