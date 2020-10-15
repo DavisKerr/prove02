@@ -25,22 +25,22 @@
       }
     }
   }
-/*
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
-    if(isset($_POST["activeGameSearch"]))
+    if(isset($_POST["pendingGameSearch"]))
     {
-      if (empty($_POST["activeGameSearch"])) 
+      if (empty($_POST["pendingGameSearch"])) 
       {
-        $activeGameSearchErr  = "Nothing Searched";
+        $pendingGameSearchErr  = "Nothing Searched";
         $isValid = FALSE;
       } else 
       {
-        $activeGameSearch = '%' . test_input($_POST["activeGameSearch"]) . '%';
+        $pendingGameSearch = '%' . test_input($_POST["pendingGameSearch"]) . '%';
       }
     }
   }
-
+/*
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
     if(isset($_POST["finishedGameSearch"]))
