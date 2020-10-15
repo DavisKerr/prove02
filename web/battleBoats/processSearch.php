@@ -15,7 +15,7 @@
         $isValid = FALSE;
       } else 
       {
-        $myGameSearch = '%' . test_input($_POST["myGameSearch"]) . "%";
+        $myGameSearch = test_input($_POST["myGameSearch"]);
       }
     }
   }
