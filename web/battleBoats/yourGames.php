@@ -22,6 +22,7 @@
       } else 
       {
         $activeGameSearch = '%' . test_input($_POST["activeGameSearch"]) . '%';
+        echo $activeGameSearch;
       }
     }
   }
