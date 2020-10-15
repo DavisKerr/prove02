@@ -40,6 +40,7 @@
 
   function queryDatabaseForMySearch($database, $search)
   {
+    echo $search;
     try
     {
       $query = "
