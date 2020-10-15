@@ -146,7 +146,7 @@
               <th>Join game</th>
             </tr>
             <?php
-
+              /*
               foreach($user_data as $row)
               {
                 echo "<tr>\n";
@@ -159,7 +159,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }
+              }*/
 
             ?>  
           </table> 
