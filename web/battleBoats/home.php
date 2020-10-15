@@ -23,21 +23,15 @@
     ORDER BY g.date_created;");
     $stmt->execute();
     $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $data;
 
-    
-
-
-
-    /*foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
+    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
       $db_data["id"] = $row["game_name"];
       $db_data["game_name"] = $row["date_created"];
       $db_data["date_created"] = $row["date_created"];
       $db_data["owner"] = $row["game_owner"];
     }
-    return $db_data;*/
+    return $db_data;
   }
 
   $db_arr = queryDatabaseForPublicGames();
