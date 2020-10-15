@@ -4,6 +4,13 @@
   require 'auth.php';
   require 'getDB.php';
 
+  if(!isset($_SESSION["current_game_id"]))
+  {
+    header("location: ./home.php");
+    exit;
+  }
+
+
   function queryDatabaseForMessages($database)
   {
     try
