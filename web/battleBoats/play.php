@@ -344,16 +344,17 @@
       <div id="gameMessages">
         <h3>Messages:</h3>
         <div id="gameMessageWindow">
+        <?php
+              foreach($messages as $message)
+              {
+                echo "<p><strong>" . $message["sent_by"] . "</strong>: " . $message["body"] . "</p>";
+              }
+            ?>
         </div> 
         <br>
         <form>
           <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
-            <?php
-              foreach($messages as $message)
-              {
-                
-              }
-            ?>
+            
           </textarea>
           <br>
           <button type="submit"  class="btn btn-success" id="sendMessageBtn">Send</button>
