@@ -36,10 +36,10 @@
 
     echo "<tr>\n";
     $count = 1;
-    
+    /*
     for($array as $item)
     {
-      /*if(!empty($item))
+      if(!empty($item))
       {
         if($item == '/')
         {
@@ -63,8 +63,8 @@
         {
           echo "<td class='hitSpace'></td>";
         }
-      }*/
-    }
+      }
+    }*/
 
     echo "</tr>\n";
 
