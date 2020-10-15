@@ -26,10 +26,6 @@
       $isValid = FALSE;
     } else {
       $username = test_input($_POST["username"]);
-  
-      if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
-        $usernameErr = "Only letters and white space allowed";
-        $isValid = FALSE;
       }
     }
   }
@@ -43,11 +39,6 @@
     } else 
     {
       $passwd = test_input($_POST["password"]);
-
-      if (!preg_match("/^[a-zA-Z-' ]*$/", $passwd)) 
-      {
-        $passwdErr = "Only letters and white space allowed";
-        $isValid = FALSE;
       }
     }
   }
