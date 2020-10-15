@@ -49,7 +49,6 @@
       AND g.is_active = 1
       ORDER BY g.date_created
       ";
-      echo $query;
 
       $stmt = $database->prepare($query);
       $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
@@ -67,7 +66,7 @@
       die();
     }
 
-    //return $results;
+    return $rows;
     
   }
 
@@ -143,24 +142,28 @@
             <tr>
               <th>Game Name</th>
               <th>Date Created</th>
+              <th>Type</th>
               <th>Owner</th>
-              <th>Join game</th>
+              <th>Opponent</th>
+              <th>Play Game</th>
             </tr>
             <?php
-              /*
+              
               foreach($user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
-                echo "<td>" .  $row["display_name"] . "</td>\n";
+                echo "<td>" .  $row["game_type"] . "</td>\n";
+                echo "<td>" .  $row["player1"] . "</td>\n";
+                echo "<td>" .  $row["player2"] . "</td>\n";
                 echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
+                echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }*/
+              }
 
             ?>  
           </table> 
@@ -193,7 +196,7 @@
                 echo "<td>" .  $row["display_name"] . "</td>\n";
                 echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden value='" . $row["id"] . "'>";
+                echo "<input hidden name='joinGame' id='joinGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
