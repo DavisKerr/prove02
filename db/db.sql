@@ -157,8 +157,8 @@ INSERT INTO public.game
 VALUES
 ( 1
 , 3
-, 'Battle Boats 2.5'
-, 'ABCD3FG'
+, 'Battles!'
+, '2FGH59KJD'
 , 'PUBLIC'
 , 
 '/ * * * * * * * * * * 
@@ -171,7 +171,7 @@ VALUES
  / * V V V V V * * * * 
  / * * * * * * * * * *  
  / * * * * * * * * * * '
-, 
+,
 '/ * * X V V V * * * * 
  / * * * * * * * * * *  
  / * * O * * * * * * *  
@@ -198,11 +198,11 @@ INSERT INTO public.game
 , date_created
 )
 VALUES
-( 3
-, 2
-, 'Battle Boats 2.0'
-, 'CDEF574389'
-, 'PRIVATE'
+( 2
+, 3
+, 'Battles 1!'
+, '2FGH59KJ'
+, 'PUBLIC'
 , 
 '/ * * * * * * * * * * 
  / * * * * * * * * * *  
@@ -214,7 +214,7 @@ VALUES
  / * V V V V V * * * * 
  / * * * * * * * * * *  
  / * * * * * * * * * * '
-, 
+,
 '/ * * X V V V * * * * 
  / * * * * * * * * * *  
  / * * O * * * * * * *  
@@ -228,6 +228,8 @@ VALUES
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
+
+
 
 INSERT INTO public.game
 ( game_owner

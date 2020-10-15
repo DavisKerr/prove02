@@ -52,7 +52,7 @@
         </form>
         <hr>
         <p class="btnLabel">Already have an account?</p>
-        <a href="./login.html" class="btn btn-info" id="changeBtn">Log in</a>
+        <a href="./login.php" class="btn btn-info" id="changeBtn">Log in</a>
       </div>
     </div>
 
