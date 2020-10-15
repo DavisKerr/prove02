@@ -106,7 +106,8 @@
 
   if(isset($_POST["myGameSearch"]) && $allowSearch)
   {
-    $user_data = queryDatabaseFormySearch($db, $myGameSearch);
+    echo "Searching<br>";
+    $user_data = queryDatabaseForMySearch($db, $myGameSearch);
     $public_data = queryDatabaseForPublicGames($db);
   }
   elseif(isset($_POST["publicGameSearch"]) && $allowSearch)
