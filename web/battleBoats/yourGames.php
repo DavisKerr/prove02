@@ -2,8 +2,7 @@
   session_start();
 
   require 'getDB.php';
-  echo $_SESSION["user_id"];
-/*
+
 
   function queryDatabaseForPendingUserGames($database)
   {
@@ -34,7 +33,7 @@
     
   }
 
-  function queryDatabaseForActiveUserGames($database)
+ /* function queryDatabaseForActiveUserGames($database)
   {
     try
     {
@@ -64,7 +63,7 @@
 
     return $rows;
     
-  }
+  }*/
 
 
   if(isset($_SESSION["loggedIn"]))
@@ -77,8 +76,7 @@
   }
 
   $pending_user_data = queryDatabaseForPendingUserGames($db);
-  $active_user_data = queryDatabaseForActiveUserGames($db);
-*/
+  //$active_user_data = queryDatabaseForActiveUserGames($db);
 ?>
 
 <!DOCTYPE html>
