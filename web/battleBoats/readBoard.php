@@ -31,15 +31,15 @@
 
     for($i = 1; $i <= 10; $i++ )
     {
-      echo "<th>" . $i . "/<th>\n";
+      echo "<th>" . $i . "</th>\n";
     }
 
     echo "<tr>\n";
     $count = 1;
-    /*
+    
     for($array as $item)
     {
-      if(!empty($item))
+      /*if(!empty($item))
       {
         if($item == '/')
         {
@@ -63,10 +63,10 @@
         {
           echo "<td class='hitSpace'></td>";
         }
-      }
+      }*/
     }
 
-    echo "</tr>\n";*/
+    echo "</tr>\n";
 
     echo "</table>\n";
   ?>
