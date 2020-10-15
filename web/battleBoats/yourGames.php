@@ -36,7 +36,7 @@
         $isValid = FALSE;
       } else 
       {
-        $pendingGameSearch = test_input($_POST["pendingGameSearch"]);
+        $pendingGameSearch = . "%" . test_input($_POST["pendingGameSearch"]) . "%";
       }
     }
   }
@@ -100,7 +100,7 @@
     
   }
 
-  function queryDatabaseForActiveUserGames($database)
+  function queryDatabaseForActiveUserGames($database, $search)
   {
     try
     {
@@ -114,11 +114,12 @@
       WHERE g.opponent = :player_id
       or g.game_owner = :player_id
       AND g.is_active = 1
+      AND LOWER(g.game_name) LIKE :search
       ORDER BY g.date_created
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
     }
@@ -143,7 +144,7 @@
   }
 
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
-  $active_user_data = queryDatabaseForActiveUserGames($db);
+  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
 ?>
 
 <!DOCTYPE html>
@@ -189,9 +190,9 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="activeGameSearch" name="activeGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
         </form>
@@ -230,9 +231,9 @@
 
       <div class="gameSearchWindow">
         <h3>Your Pending Private Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pendingGameSearch", name="pendingGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
         </form>
@@ -268,9 +269,9 @@
 
       <div class="gameSearchWindow">
         <h3>Your Finished Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="finishedGameSearch" name="finishedGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
         </form>
