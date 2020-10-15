@@ -143,7 +143,12 @@
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
-                echo "<td>" .  $row["game_owner"] . "</td>\n";
+                echo "<td>" .  $row["display_name"] . "</td>\n";
+                echo "<td>";
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<input hidden value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success' type='submit'>Join Game</button>";
+                echo "</form>"; 
                 echo "</tr>\n";
               }
 
