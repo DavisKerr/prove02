@@ -22,7 +22,6 @@
       } else 
       {
         $activeGameSearch = '%' . test_input($_POST["activeGameSearch"]) . '%';
-        echo $activeGameSearch;
       }
     }
   }
@@ -82,7 +81,7 @@
       ON g.game_owner = u.id
       WHERE g.game_owner = :player_id
       AND g.is_active = 0
-      AND LOWER(g.game_name) LIKE :search
+      AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";
 
@@ -115,7 +114,7 @@
       WHERE g.opponent = :player_id
       or g.game_owner = :player_id
       AND g.is_active = 1
-      AND LOWER(g.game_name) LIKE :search
+      AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";
 
