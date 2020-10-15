@@ -247,10 +247,8 @@
             <tr>
               <th>Game Name</th>
               <th>Date Created</th>
-              <th>Type</th>
               <th>Owner</th>
-              <th>Opponent</th>
-              <th>Play Game</th>
+              <th>Join</th>
             </tr>
             <?php
               

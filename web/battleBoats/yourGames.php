@@ -6,7 +6,71 @@
   require 'gameRequest.php';
 
 
-  function queryDatabaseForPendingUserGames($database)
+  $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
+  $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
+  $isValid = TRUE;
+  $allowSearch = FALSE;
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
+    if(isset($_POST["activeGameSearch"]))
+    {
+      if (empty($_POST["activeGameSearch"])) 
+      {
+        $activeGameSearchErr  = "Nothing Searched";
+        $isValid = FALSE;
+      } else 
+      {
+        $activeGameSearch = '%' . test_input($_POST["activeGameSearch"]) . '%';
+      }
+    }
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
+    if(isset($_POST["pendingGameSearch"]))
+    {
+      if (empty($_POST["pendingGameSearch"])) 
+      {
+        $pendingGameSearchErr  = "Nothing Searched";
+        $isValid = FALSE;
+      } else 
+      {
+        $pendingGameSearch = test_input($_POST["pendingGameSearch"]);
+      }
+    }
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
+    if(isset($_POST["finishedGameSearch"]))
+    {
+      if (empty($_POST["finishedGameSearch"])) 
+      {
+        $finishedGameSearchErr  = "Nothing Searched";
+        $isValid = FALSE;
+      } else 
+      {
+        $finishedGameSearch = '%' . test_input($_POST["finishedGameSearch"]) . '%';
+      }
+    }
+  }
+
+  function test_input($data) 
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
+  {
+    $allowSearch = True;
+  }
+
+
+  function queryDatabaseForPendingUserGames($database, $search)
   {
     try
     {
@@ -17,11 +81,12 @@
       ON g.game_owner = u.id
       WHERE g.game_owner = :player_id
       AND g.is_active = 0
+      AND LOWER(g.game_name) LIKE :search
       ORDER BY g.date_created
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
     }
@@ -77,7 +142,7 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  $pending_user_data = queryDatabaseForPendingUserGames($db);
+  $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db);
 ?>
 
