@@ -118,14 +118,14 @@
               <th>Join game</th>
             </tr>
             <?php
-              foreach(queryDatabaseForPublicGames() as $row)
+              /*foreach(queryDatabaseForPublicGames() as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"]; . "</td>\n";
                 echo "<td>" .  $row["game_owner"]; . "</td>\n";
                 echo "</tr>\n";
-              }
+              }*/
 
             ?>  
           </table>
