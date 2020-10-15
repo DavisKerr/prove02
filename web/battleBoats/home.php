@@ -3,6 +3,7 @@
 
   require 'getDB.php';
   require 'auth.php';
+  require 'gameRequest.php';
 
 
   function queryDatabaseForPublicGames($database)
