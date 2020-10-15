@@ -430,6 +430,6 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       WHERE g.opponent = 1
       or g.game_owner = 1
       AND g.is_active = 1
-      AND g.game_name = battle boats 2.0
+      AND LOWER(g.game_name) LIKE LOWER('%battle boats 2.0%')
       ORDER BY g.date_created;
 
