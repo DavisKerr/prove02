@@ -53,7 +53,7 @@
       WHERE g.opponent = 1
       or g.game_owner = :player_id
       AND g.is_active = :player_id
-      AND LOWER(g.game_name) LIKE LOWER(:search)
+      AND LOWER(g.game_name) = LOWER(:search)
       ORDER BY g.date_created
       ";
 
