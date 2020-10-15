@@ -16,4 +16,12 @@ if(!isset($_SESSION["loggedIn"]))
   header("location: ./landing.php");
   exit;
 }
+else
+{
+  if(!$_SESSION["loggedIn"])
+  {
+    header("location: ./landing.php");
+    exit;
+  }
+}
 ?>
