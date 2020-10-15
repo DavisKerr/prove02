@@ -5,12 +5,12 @@
   require 'auth.php';
   require 'gameRequest.php';
 
-/*
+
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
   $isValid = TRUE;
   $allowSearch = FALSE;
-
+/*
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
     if(isset($_POST["activeGameSearch"]))
