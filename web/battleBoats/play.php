@@ -4,6 +4,32 @@
   require 'auth.php';
   require 'getDB.php';
 
+  function queryDatabaseForMessages($database)
+  {
+    try
+    {
+      $query = "    
+      SELECT body, sent_by, time_sent
+      FROM public.messages
+      WHERE game_id =:game_id
+      ORDER BY time_sent
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id'=>$_SESSION['current_game_id']));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $rows;
+  }
+  
+  $messages = queryDatabaseForMessages($db);
   
 ?>
 

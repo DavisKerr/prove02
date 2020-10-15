@@ -414,3 +414,8 @@ SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.d
       AND g.is_active = 1
       ORDER BY g.date_created;
 
+SELECT body, sent_by, time_sent
+FROM public.messages
+WHERE game_id = 1 
+ORDER BY time_sent;
+

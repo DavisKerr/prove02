@@ -178,7 +178,7 @@
               <th>Date Created</th>
               <th>Type</th>
               <th>Owner</th>
-              <th>Play Game</th>
+              <!--<th>Play Game</th>-->
             </tr>
             <?php
               
