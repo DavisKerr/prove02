@@ -13,5 +13,4 @@ Your Games:
 
 Game page:
   Add game move processing to the games.
-  Add message processing to game.
   Not now - Add a notification for what your opponent's last move was.

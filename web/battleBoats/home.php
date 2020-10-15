@@ -4,7 +4,7 @@
   require 'getDB.php';
   require 'auth.php';
   require 'gameRequest.php';
-
+  require 'processSearch.php';
 
   function queryDatabaseForPublicGames($database)
   {
@@ -118,9 +118,9 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="myGameSearch" name="myGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
         </form>
@@ -161,7 +161,7 @@
         <h3>Public Games:</h3>
         <form class="form-inline my-2 my-lg-0 gameSearch">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="publicGameSearch" name="publicGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </div>
         </form>
@@ -198,7 +198,7 @@
         <h3>Enter Private Game Code:</h3>
         <form class="form-inline my-2 my-lg-0 gameSearch">
           <div id="searchField">
-            <input class="form-control mr-sm-2" type="search" placeholder="Game Code" aria-label="Game Code">
+            <input class="form-control mr-sm-2" type="search" placeholder="Game Code" aria-label="Game Code" id="privateGameSearch" name="privateGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
           </div>
         </form>
