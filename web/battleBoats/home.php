@@ -20,6 +20,12 @@
 
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach($results as $row)
+      {
+        print_r($row);
+        echo "<br>";
+      }
     }
     catch (Exception $ex)
     {
