@@ -1,5 +1,5 @@
 <?php 
-$board = '
+/*$board = '
 * * * * * * * * * * /
 * * * * * * * * * * / 
 * * * * * * * * * * / 
@@ -11,13 +11,15 @@ $board = '
 * * * * * * * * * * / 
 * * * * * * * * * * /
 ';
-$array = str_split($board);
+$array = str_split($board);*/
 echo "<table>\n";
 echo "<tr>\n";
 for($i = 1; $i <= 10, $i++ )
 {
-  echo "<th>" . $i . "/<th>";
+  echo "<th>" . $i . "/<th>\n";
 }
+
+echo "</table>\n"
 
 
 
