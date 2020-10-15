@@ -23,8 +23,8 @@ CREATE TABLE public.game
 , game_code VARCHAR(100) NOT NULL UNIQUE
 , game_type VARCHAR(10) NOT NULL
 , opponent INT
-, grid_owner VARCHAR(100) NOT NULL
-, grid_opponent VARCHAR(100) NOT NULL
+, grid_owner VARCHAR(256) NOT NULL
+, grid_opponent VARCHAR(256) NOT NULL
 , is_active INT NOT NULL
 , date_created TIMESTAMP NOT NULL
 , CONSTRAINT fk_game_owner FOREIGN KEY(game_owner) REFERENCES public.user(id)
@@ -48,7 +48,6 @@ CREATE TABLE public.moves
 , time_sent TIMESTAMP NOT NULL
 , move_number INT NOT NULL
 , board_update_sent_by VARCHAR(100) NOT NULL
-, board_update_recieved_by VARCHAR(100) NOT NULL
 , CONSTRAINT fk_sent_by FOREIGN KEY(sent_by) REFERENCES public.user(id)
 , CONSTRAINT fk_game_id FOREIGN KEY(game_id) REFERENCES public.game(id)
 );
@@ -118,8 +117,28 @@ VALUES
 , 'Battle Boats 2.0'
 , '2FGH59KJD3'
 , 'PUBLIC'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
+, 
+'* * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * / 
+ * * O * * X * * * * / 
+ * * * * * V * * * * /
+ * * O * * V * * * * / 
+ * * * * * * * * * * / 
+ * V V V V V * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
+,
+'* * X V V V * * * * /
+ * * * * * * * * * * / 
+ * * O * * * * * * * / 
+ * * O * * * * * * * / 
+ * * * * * V * * * * /
+ * * * * * V * * * * / 
+ * * * * * V * * * * / 
+ * * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
@@ -141,8 +160,28 @@ VALUES
 , 'Battle Boats 2.5'
 , 'ABCD3FG'
 , 'PUBLIC'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
+, 
+'* * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * / 
+ * * O * * X * * * * / 
+ * * * * * V * * * * /
+ * * O * * V * * * * / 
+ * * * * * * * * * * / 
+ * V V V V V * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
+, 
+'* * X V V V * * * * /
+ * * * * * * * * * * / 
+ * * O * * * * * * * / 
+ * * O * * * * * * * / 
+ * * * * * V * * * * /
+ * * * * * V * * * * / 
+ * * * * * V * * * * / 
+ * * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
@@ -164,8 +203,28 @@ VALUES
 , 'Battle Boats 2.0'
 , 'CDEF574389'
 , 'PRIVATE'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
+, 
+'* * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * / 
+ * * O * * X * * * * / 
+ * * * * * V * * * * /
+ * * O * * V * * * * / 
+ * * * * * * * * * * / 
+ * V V V V V * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
+, 
+'* * X V V V * * * * /
+ * * * * * * * * * * / 
+ * * O * * * * * * * / 
+ * * O * * * * * * * / 
+ * * * * * V * * * * /
+ * * * * * V * * * * / 
+ * * * * * V * * * * / 
+ * * * * * * * * * * /
+ * * * * * * * * * * / 
+ * * * * * * * * * * /'
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
@@ -292,33 +351,28 @@ INSERT INTO public.moves
 , time_sent
 , move_number
 , board_update_sent_by
-, board_update_recieved_by
 )
 VALUES
 ( 1
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 , 1
-, '* * * * * * * V V *'
-, '* * * * * * * * * *'
+, "(1, 3)"
 );
 
 INSERT INTO public.moves
-( 
-  sent_by
+( sent_by
 , game_id
 , time_sent
 , move_number
 , board_update_sent_by
-, board_update_recieved_by
 )
 VALUES
 ( 2
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 , 2
-, '* * * * * * * V V *'
-, '* * * * * * * * * *'
+, "(4, 3)"
 );
 
 INSERT INTO public.moves
@@ -327,32 +381,13 @@ INSERT INTO public.moves
 , time_sent
 , move_number
 , board_update_sent_by
-, board_update_recieved_by
 )
 VALUES
 ( 1
-, 2
-, (SELECT CURRENT_TIMESTAMP)
 , 1
-, '* * * * * * * V V *'
-, '* * * * * * * * * *'
-);
-
-INSERT INTO public.moves
-( sent_by
-, game_id
-, time_sent
-, move_number
-, board_update_sent_by
-, board_update_recieved_by
-)
-VALUES
-( 3
-, 2
 , (SELECT CURRENT_TIMESTAMP)
-, 2
-, '* * * * * * * V V *'
-, '* * * * * * * * * *'
+, 3
+, "(3, 3)"
 );
 
 /* Query the database to test foreign keys */
@@ -432,4 +467,10 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       AND g.is_active = 1
       AND LOWER(g.game_name) LIKE LOWER('Battle Boats 2.0')
       ORDER BY g.date_created;
+
+SELECT grid_owner, grid_opponent
+FROM public.game
+WHERE id = 1;
+
+
 

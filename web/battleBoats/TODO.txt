@@ -1,13 +1,10 @@
-Home Page
-  Add searchbar functionality to home.
-  Add searchbar for private games.
+Home Page:
   Not now - Add an item telling you if it is your turn or not.
 
 How to play:
   Not now -Add information about how to play.
 
 Your Games:
-  Add searchbar functionality to home.
   Not now - Add an item telling you if it is your turn or not.
   Not now - Add finished/archived games.
 

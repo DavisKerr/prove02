@@ -266,6 +266,7 @@
           </div>
         </form>
         <div class="gameFinderArea">
+        Not implemented yet.
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
