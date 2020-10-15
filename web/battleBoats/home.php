@@ -243,6 +243,33 @@
           </div>
         </form>
         <div class="gameFinderArea">
+          <table class="gameTable">
+            <tr>
+              <th>Game Name</th>
+              <th>Date Created</th>
+              <th>Type</th>
+              <th>Owner</th>
+              <th>Opponent</th>
+              <th>Play Game</th>
+            </tr>
+            <?php
+              
+              foreach($private_data as $row)
+              {
+                echo "<tr>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["date_created"] . "</td>\n";
+                echo "<td>" .  $row["display_name"] . "</td>\n";
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<input hidden name='joinGame' id='joinGame' value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
+                echo "</form>"; 
+                echo "</tr>\n";
+              }
+
+            ?>  
+          </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
