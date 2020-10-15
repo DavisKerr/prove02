@@ -20,8 +20,9 @@
 
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      echo "YAY!";
     }
-    catch (PDOException $ex)
+    catch (Exception $ex)
     {
       echo 'Error!: ' . $ex->getMessage();
       die();
