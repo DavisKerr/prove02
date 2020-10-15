@@ -71,7 +71,7 @@
 
 
   function queryDatabaseForPendingUserGames($database, $search)
-  {/*
+  {
     try
     {
       $query = "
@@ -96,13 +96,13 @@
       die();
     }
 
-    return $rows;*/
+    return $rows;
     
   }
 
   function queryDatabaseForActiveUserGames($database, $search)
   {
-    /*try
+    try
     {
       $query = "
       SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -129,12 +129,12 @@
       die();
     }
 
-    return $rows;*/
+    return $rows;
     
   }
 
-  /*$pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
-  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);*/
+  $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
+  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
 ?>
 
 <!DOCTYPE html>
