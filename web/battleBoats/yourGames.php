@@ -139,7 +139,7 @@
               <th>Play Game</th>
             </tr>
             <?php
-              /*
+              
               foreach($active_user_data as $row)
               {
                 echo "<tr>\n";
@@ -154,7 +154,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }*/
+              }
 
             ?>  
           </table>
@@ -179,7 +179,7 @@
               <th>Play Game</th>
             </tr>
             <?php
-              /*
+              
               foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
@@ -193,7 +193,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }*/
+              }
             ?>  
           </table> 
         </div> <!--End game finder area-->
