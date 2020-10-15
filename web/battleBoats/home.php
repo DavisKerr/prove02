@@ -113,6 +113,9 @@
               <th>Owner</th>
               <th>Join game</th>
             </tr>
+            <?php
+              
+            ?>
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
