@@ -141,7 +141,7 @@
           </div>
         </form>
         <hr>
-        <a href="register.html" class="btn btn-info" id="changeBtn">Register</a>
+        <a href="register.php" class="btn btn-info" id="changeBtn">Register</a>
       </div>
     </div>
 

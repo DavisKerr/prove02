@@ -166,7 +166,7 @@
             <a class="nav-link" href="./home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./howto.html">How to Play</a>
+            <a class="nav-link" href="./howto.php">How to Play</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./profile.php">Account</a>
