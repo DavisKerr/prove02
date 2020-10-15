@@ -9,6 +9,7 @@
   $public_data = array();
   $private_data = array();
   $user_data = array();
+  $search = '%';
 
   function queryDatabaseForPublicGames($database)
   {
@@ -39,7 +40,7 @@
   }
 
 
-  function queryDatabaseForUserGames($database)
+  function queryDatabaseForUserGames($database, $search)
   {
     try
     {
@@ -53,11 +54,12 @@
       WHERE g.opponent =:player_id
       or g.game_owner =:player_id
       AND g.is_active = 1
+      AND LOWER(g.game_name) like LOWER(:search)
       ORDER BY g.date_created
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'],)':search'=>$search);
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
     }
@@ -72,7 +74,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db);
-  $user_data = queryDatabaseForUserGames($db);
+  $user_data = queryDatabaseForUserGames($db, $search);
 
 ?>
 
