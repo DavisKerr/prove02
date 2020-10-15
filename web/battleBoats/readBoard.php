@@ -13,22 +13,9 @@
   </head>
   <body>
   <?php 
-    $is_player_board = FALSE;
-    $board = '
-        / * * * * * * * * * *
-        / * * * * * * * * * * 
-        / * * * * * * * * * * 
-        / * * O * * X * * * * 
-        / * * * * * V * * * *
-        / * * O * * V * * * * 
-        / * * * * * * * * * * 
-        / * V V V V V * * * *
-        / * * * * * * * * * * 
-        / * * * * * * * * * *
-        ';
         $array = str_split($board);
-        echo "<table class='opponentBoard'>\n";
-        echo "<tr> <th colspan='11'><h3>Enemy Board</h3></th></tr>";
+        echo "<table class='" . $type . "'>\n";
+        echo "<tr> <th colspan='11'><h3>" . $name . "</h3></th></tr>";
         echo "<tr>\n";
       echo "<td></td>";
         for($i = 1; $i <= 10; $i++ )

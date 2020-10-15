@@ -118,27 +118,27 @@ VALUES
 , '2FGH59KJD3'
 , 'PUBLIC'
 , 
-'* * * * * * * * * * /
- * * * * * * * * * * / 
- * * * * * * * * * * / 
- * * O * * X * * * * / 
- * * * * * V * * * * /
- * * O * * V * * * * / 
- * * * * * * * * * * / 
- * V V V V V * * * * /
- * * * * * * * * * * / 
- * * * * * * * * * * /'
+'/ * * * * * * * * * * 
+ / * * * * * * * * * *  
+ / * * * * * * * * * *  
+ / * * O * * X * * * *  
+ / * * * * * V * * * * 
+ / * * O * * V * * * *  
+ / * * * * * * * * * *  
+ / * V V V V V * * * * 
+ / * * * * * * * * * *  
+ / * * * * * * * * * * '
 ,
-'* * X V V V * * * * /
- * * * * * * * * * * / 
- * * O * * * * * * * / 
- * * O * * * * * * * / 
- * * * * * V * * * * /
- * * * * * V * * * * / 
- * * * * * V * * * * / 
- * * * * * * * * * * /
- * * * * * * * * * * / 
- * * * * * * * * * * /'
+'/ * * X V V V * * * * 
+ / * * * * * * * * * *  
+ / * * O * * * * * * *  
+ / * * O * * * * * * *  
+ / * * * * * V * * * * 
+ / * * * * * V * * * *  
+ / * * * * * V * * * *  
+ / * * * * * * * * * * 
+ / * * * * * * * * * *  
+ / * * * * * * * * * * '
 , 1
 , (SELECT CURRENT_TIMESTAMP)
 );
@@ -471,6 +471,10 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
 SELECT grid_owner, grid_opponent
 FROM public.game
 WHERE id = 1;
+
+SELECT grid_owner, grid_opponent, game_owner
+      FROM public.game
+      WHERE id = 1;
 
 
 

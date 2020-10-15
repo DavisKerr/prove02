@@ -10,6 +10,42 @@
     exit;
   }
 
+  function queryEnemyBoard($database)
+  {
+    $board="";
+    try
+    {
+      $query = "    
+      SELECT grid_owner, grid_opponent, game_owner
+      FROM public.game
+      WHERE id = :game_id
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach($rows as $row)
+      {
+        if($row["game_owner"] == $_SESSION["user_id"])
+        {
+          $board = $row["grid_opponent"];
+        }
+        else
+        {
+          $board = $row["grid_owner"];
+        }
+      }
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $board;
+  }
 
   function queryDatabaseForMessages($database)
   {
@@ -85,7 +121,17 @@
       <h1>Game Title</h1>
 
       <div id="gameBoard" class="d-flex flex-row align-items-center">
-        <table id="opponentBoard">
+
+      <?php
+        $type = "opponentBoard";
+        $name = "Enemy Board";
+        $is_player_board = FALSE;
+        $board = queryEnemyBoard($db);
+        require 'readBoard.php';
+
+
+        ?>
+        <!--<table id="opponentBoard">
           <tr>
             <th colspan="11"><h3>Enemy Board</h3></th>
           </tr>
@@ -193,7 +239,7 @@
             <td></td>
             <td></td>
           </tr>
-        </table>
+        </table>-->
 
         <table id="playerBoard">
           <tr>
