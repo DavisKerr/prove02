@@ -81,7 +81,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db);
-  $user_data = queryDatabaseForUserGames($db);
+  /*$user_data =*/ queryDatabaseForUserGames($db);
 
 ?>
 
