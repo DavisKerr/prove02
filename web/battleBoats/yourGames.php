@@ -63,7 +63,7 @@
 
     return $rows;
     
-  }*/
+  }
 
 
   if(isset($_SESSION["loggedIn"]))
