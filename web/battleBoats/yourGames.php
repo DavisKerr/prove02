@@ -14,7 +14,7 @@
       JOIN public.user AS u 
       ON g.game_owner = u.id
       WHERE  or g.game_owner = :player_id
-      WHERE g.is_active = 0
+      AND g.is_active = 0
       ORDER BY g.date_created
       ";
 
@@ -46,7 +46,7 @@
       ON g.opponent = u2.id
       WHERE g.opponent = :player_id
       or g.game_owner = :player_id
-      WHERE g.is_active = 1
+      AND g.is_active = 1
       ORDER BY g.date_created
       ";
 
@@ -63,7 +63,7 @@
 
     return $rows;
     
-  }
+  }*/
 
 
   if(isset($_SESSION["loggedIn"]))
