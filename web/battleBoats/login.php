@@ -26,7 +26,6 @@
       $isValid = FALSE;
     } else {
       $username = test_input($_POST["username"]);
-      }
     }
   }
   
@@ -39,7 +38,6 @@
     } else 
     {
       $passwd = test_input($_POST["password"]);
-      }
     }
   }
   
