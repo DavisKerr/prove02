@@ -16,7 +16,7 @@
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['current_game_id']));
+      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
