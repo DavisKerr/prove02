@@ -118,6 +118,7 @@
               <th>Join game</th>
             </tr>
             <?php
+              $db_arr = queryDatabaseForPublicGames();
               /*foreach(queryDatabaseForPublicGames() as $row)
               {
                 echo "<tr>\n";
