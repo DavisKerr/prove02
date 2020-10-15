@@ -75,7 +75,7 @@
     try
     {
       $query = "
-      SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1
+      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       FROM public.game AS g
       JOIN public.user AS u 
       ON g.game_owner = u.id
@@ -105,7 +105,7 @@
     try
     {
       $query = "
-      SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
       FROM public.game AS g
       JOIN public.user AS u 
       ON g.game_owner = u.id
