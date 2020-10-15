@@ -3,6 +3,7 @@
 
   require 'getDB.php';
   require 'auth.php';
+  require 'gameRequest.php';
 
 
   function queryDatabaseForPendingUserGames($database)
@@ -189,10 +190,10 @@
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
                 echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
-                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                /*echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
-                echo "</form>"; 
+                echo "</form>"; */
                 echo "</tr>\n";
               }
             ?>  

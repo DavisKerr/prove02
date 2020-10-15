@@ -1,6 +1,5 @@
 Home Page
   Add searchbar functionality to home.
-  Have buttons link to games.
   Add searchbar for private games.
   Not now - Add an item telling you if it is your turn or not.
 
