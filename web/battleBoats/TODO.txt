@@ -1,0 +1,23 @@
+Home Page
+  Add searchbar functionality to home.
+  Have buttons link to games.
+  Add searchbar for private games.
+  Add an item telling you if it is your turn or not.
+
+Account
+  Add user info to the page.
+  Have the logut button work.
+
+How to play:
+  Add information about how to play.
+
+Your Games:
+  Add searchbar functionality to home.
+  Have buttons link to games.
+  Add an item telling you if it is your turn or not.
+  Add finished/archived games.
+
+Game page:
+  Add game move processing to the games.
+  Add message processing to game.
+  Add a notification for what your opponent's last move was.

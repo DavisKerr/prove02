@@ -1,3 +1,48 @@
+<?php
+  session_start();
+
+  require 'getDB.php';
+
+
+  function queryDatabaseForUserInfo($database)
+  {
+    try
+    {
+      $query = "
+      SELECT username, display_name, date_created 
+      public.user 
+      WHERE id = :player_id 
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $rows;
+    
+  }
+
+
+  if(isset($_SESSION["loggedIn"]))
+  {
+    
+  }
+  else
+  {
+    $_SESSION["loggedIn"] = false;
+  }
+
+  $user_data = queryDatabaseForUserInfo($db);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -37,11 +82,17 @@
     </nav>
 
     <div id="page_body" class="d-flex flex-column align-items-center">
-
+  
       <h1>Your account info:</h1>
-      <p>Username:</p>
-      <p>Display Name:</p>
-      <p>Date Created:</p>
+      <?php
+        foreach($user_data as $row)
+        {
+          echo "<p>Username: " . $row["username"] . "</p>\n";
+          echo "<p>Display Name: " . $row["display_name"] . "</p>\n";
+          echo "<p>Date Created: " . $row["date_created"] . "</p>\n";
+        }
+        
+      ?>
       <form>
         <input hidden value="true" id="logout" name="logout">
         <button type="submit" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
