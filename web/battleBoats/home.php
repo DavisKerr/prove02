@@ -38,44 +38,6 @@
     
   }
 
-  function queryDatabaseForMySearch($database, $search)
-  {
-    echo $search;
-    try
-    {
-      $query = "
-      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
-      FROM public.game AS g
-      JOIN public.user AS u 
-      ON g.game_owner = u.id
-      JOIN public.user AS u2
-      ON g.opponent = u2.id
-      WHERE (g.opponent = 1
-      or g.game_owner = :player_id)
-      AND g.is_active = :player_id
-      AND LOWER(g.game_name) = LOWER(:search)
-      ORDER BY g.date_created
-      ";
-
-      echo "<br>" . $query;
-
-      $stmt = $database->prepare($query);
-      $stmt->bindValue(':search', $search, PDO::PARAM_STR);
-      $stmt->bindValue(':player_id', $_SESSION['user_id'], PDO::PARAM_STR);
-      $stmt->execute();
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-    catch (Exception $ex)
-    {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
-    }
-
-    return $results;
-    
-  }
-
 
   function queryDatabaseForUserGames($database)
   {
@@ -109,24 +71,8 @@
     
   }
 
-  if(isset($_POST["myGameSearch"]) && $allowSearch)
-  {
-    $user_data = queryDatabaseForMySearch($db, $myGameSearch);
-    $public_data = queryDatabaseForPublicGames($db);
-  }
-  elseif(isset($_POST["publicGameSearch"]) && $allowSearch)
-  {
-
-  }
-  elseif(isset($_POST["privateGameSearch"]))
-  {
-
-  }
-  else
-  {
-    $public_data = queryDatabaseForPublicGames($db);
-    $user_data = queryDatabaseForUserGames($db);
-  }
+  $public_data = queryDatabaseForPublicGames($db);
+  $user_data = queryDatabaseForUserGames($db);
 
 ?>
 
