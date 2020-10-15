@@ -33,9 +33,9 @@
   }
 
 
-  /*function queryDatabaseForUserGames($database)
+  function queryDatabaseForUserGames($database)
   {
-    try
+    /*try
     {
       $query = "
       SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -66,9 +66,9 @@
       die();
     }
 
-    return $results;
+    return $results;*/
     
-  }*/
+  }
 
 
   if(isset($_SESSION["loggedIn"]))
@@ -81,7 +81,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db);
-  //$user_data = queryDatabaseForUserGames($db);
+  $user_data = queryDatabaseForUserGames($db);
 
 ?>
 
