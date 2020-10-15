@@ -131,7 +131,7 @@
               <th>Join game</th>
             </tr>
             <?php
-              $data = queryDatabaseForPublicGames($db);
+
               foreach($data as $row)
               {
                 echo "<tr>\n";
