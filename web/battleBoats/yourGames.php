@@ -13,7 +13,7 @@
       FROM public.game AS g
       JOIN public.user AS u 
       ON g.game_owner = u.id
-      WHERE  or g.game_owner = :player_id
+      WHERE g.game_owner = :player_id
       AND g.is_active = 0
       ORDER BY g.date_created
       ";
@@ -33,7 +33,7 @@
     
   }
 
- /* function queryDatabaseForActiveUserGames($database)
+  function queryDatabaseForActiveUserGames($database)
   {
     try
     {
@@ -63,7 +63,7 @@
 
     return $rows;
     
-  }*/
+  }
 
 
   if(isset($_SESSION["loggedIn"]))
@@ -76,7 +76,7 @@
   }
 
   $pending_user_data = queryDatabaseForPendingUserGames($db);
-  //$active_user_data = queryDatabaseForActiveUserGames($db);
+  $active_user_data = queryDatabaseForActiveUserGames($db);
 ?>
 
 <!DOCTYPE html>
