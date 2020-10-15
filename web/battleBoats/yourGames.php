@@ -2,7 +2,8 @@
   session_start();
 
   require 'getDB.php';
-
+  echo $_SESSION["user_id"];
+/*
 
   function queryDatabaseForPendingUserGames($database)
   {
@@ -77,7 +78,7 @@
 
   $pending_user_data = queryDatabaseForPendingUserGames($db);
   $active_user_data = queryDatabaseForActiveUserGames($db);
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -140,7 +141,7 @@
               <th>Play Game</th>
             </tr>
             <?php
-              
+              /*
               foreach($active_user_data as $row)
               {
                 echo "<tr>\n";
@@ -155,7 +156,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }
+              }*/
 
             ?>  
           </table>
@@ -180,7 +181,7 @@
               <th>Play Game</th>
             </tr>
             <?php
-              
+              /*
               foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
@@ -194,7 +195,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }
+              }*/
             ?>  
           </table> 
         </div> <!--End game finder area-->
