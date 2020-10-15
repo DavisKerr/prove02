@@ -50,7 +50,7 @@
       ORDER BY g.date_created
       ";
       echo $query;
-/*
+    /*
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -81,7 +81,7 @@
   }
 
   $public_data = queryDatabaseForPublicGames($db);
-  /*$user_data =*/ queryDatabaseForUserGames($db);
+  $user_data = queryDatabaseForUserGames($db);
 
 ?>
 
