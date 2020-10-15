@@ -122,8 +122,8 @@
               foreach($db_arr as $row)
               {
                 echo "<tr>\n";
-                /*echo "<td>" .  $row["game_name"] . "</td>\n";
-                echo "<td>" .  $row["date_created"]; . "</td>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                /*echo "<td>" .  $row["date_created"]; . "</td>\n";
                 echo "<td>" .  $row["game_owner"]; . "</td>\n";*/
                 echo "</tr>\n";
               }
