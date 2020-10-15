@@ -27,11 +27,7 @@
       die();
     }
 
-    foreach($results as $row)
-    {
-      print_r($row);
-      echo "<br>";
-    }
+    return $results;
     
 
     /*$stmt->execute();
@@ -54,8 +50,7 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  queryDatabaseForPublicGames($db);
-
+  $data = queryDatabaseForPublicGames($db);
 
 
 ?>
@@ -137,14 +132,14 @@
             </tr>
             <?php
               
-              /*foreach($db_arr as $row)
+              foreach($data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"]; . "</td>\n";
                 echo "<td>" .  $row["game_owner"]; . "</td>\n";
                 echo "</tr>\n";
-              }*/
+              }
 
             ?>  
           </table>
