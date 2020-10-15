@@ -4,19 +4,17 @@
   require 'getDB.php';
 
 
-  function queryDatabaseForUserGames($database)
+  function queryDatabaseForPendingUserGames($database)
   {
     try
     {
       $query = "
-      SELECT g.game_name, g.date_created, g.game_type, g.is_active, u.display_name AS Player1, u2.display_name AS player2
+      SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       FROM public.game AS g
       JOIN public.user AS u 
       ON g.game_owner = u.id
-      JOIN public.user AS u2
-      ON g.opponent = u2.id
-      WHERE g.opponent = :player_id
-      or g.game_owner = :player_id
+      WHERE  or g.game_owner = :player_id
+      WHERE g.is_active = 0
       ORDER BY g.date_created
       ";
 
@@ -24,11 +22,38 @@
       $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
-      foreach($rows as $row)
-      {
-        print_r($row);
-        echo "<br>";
-      }
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $rows;
+    
+  }
+
+  function queryDatabaseForActiveUserGames($database)
+  {
+    try
+    {
+      $query = "
+      SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      FROM public.game AS g
+      JOIN public.user AS u 
+      ON g.game_owner = u.id
+      JOIN public.user AS u2
+      ON g.opponent = u2.id
+      WHERE g.opponent = :player_id
+      or g.game_owner = :player_id
+      WHERE g.is_active = 1
+      ORDER BY g.date_created
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
     }
     catch (Exception $ex)
     {
@@ -50,7 +75,8 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  $user_data = queryDatabaseForUserGames($db);
+  $pending_user_data = queryDatabaseForPendingUserGames($db);
+  $active_user_data = queryDatabaseForActiveUserGames($db);
 
 ?>
 
@@ -104,6 +130,35 @@
           </div>
         </form>
         <div class="gameFinderArea">
+        <table class="gameTable">
+            <tr>
+              <th>Game Name</th>
+              <th>Date Created</th>
+              <th>Type</th>
+              <th>Owner</th>
+              <th>Opponent</th>
+              <th>Play Game</th>
+            </tr>
+            <?php
+              
+              foreach($active_user_data as $row)
+              {
+                echo "<tr>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["date_created"] . "</td>\n";
+                echo "<td>" .  $row["game_type"] . "</td>\n";
+                echo "<td>" .  $row["player1"] . "</td>\n";
+                echo "<td>" .  $row["player2"] . "</td>\n";
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
+                echo "</form>"; 
+                echo "</tr>\n";
+              }
+
+            ?>  
+          </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
@@ -122,21 +177,17 @@
               <th>Date Created</th>
               <th>Type</th>
               <th>Owner</th>
-              <th>Opponent</th>
-              <th> Is an active game</th>
               <th>Play Game</th>
             </tr>
             <?php
               
-              foreach($user_data as $row)
+              foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
-                echo "<td>" .  $row["player2"] . "</td>\n";
-                echo "<td>" .  bool($row["is_active"]) . "</td>\n";
                 echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
