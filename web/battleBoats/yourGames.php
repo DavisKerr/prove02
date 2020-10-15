@@ -143,8 +143,8 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
-  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
+  /*$pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
+  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);*/
 ?>
 
 <!DOCTYPE html>
