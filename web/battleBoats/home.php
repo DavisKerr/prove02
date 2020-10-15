@@ -25,8 +25,9 @@
     AND g.game_type = 'PUBLIC' 
     ORDER BY g.date_created;
     ";
-    $stmt = $database->query($query);
-    /*$results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+    echo $query;
+    /*$stmt = $database->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 
     /*$stmt->execute();
 
