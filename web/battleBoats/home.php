@@ -34,7 +34,7 @@
 
 
   function queryDatabaseForUserGames($database)
-  {/*
+  {
     try
     {
       $query = "
@@ -44,14 +44,14 @@
       ON g.game_owner = u.id
       JOIN public.user AS u2
       ON g.opponent = u2.id
-      WHERE g.opponent = :player_id
-      or g.game_owner = :player_id
-      AND g.is_active = 1
+      WHERE g.opponent = " . $_SESSION["user_id"] .
+      "or g.game_owner = :player_id" . $_SESSION["user_id"] .
+      "AND g.is_active = 1
       ORDER BY g.date_created
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id' => $_SESSION["user_id"]))
+      $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       foreach($results as $row)
