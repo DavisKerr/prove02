@@ -20,12 +20,17 @@
 
       $stmt = $database->query($query);
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      echo "YAY!";
     }
     catch (Exception $ex)
     {
       echo 'Error!: ' . $ex->getMessage();
       die();
+    }
+
+    foreach($results as $row)
+    {
+      print_r($row);
+      echo "<br>";
     }
     
 
