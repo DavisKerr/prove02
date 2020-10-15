@@ -60,7 +60,9 @@
       echo "<br>" . $query;
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':search'=>$search, ':player_id'=>$_SESSION['user_id']));
+      $stmt->bindValue(':search', $search, PDO::PARAM_STR);
+      $stmt->bindValue(':player_id', $_SESSION['user_id'], PDO::PARAM_STR);
+      $stmt->execute();
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
