@@ -143,8 +143,8 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  /*$pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
-  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);*/
+  $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
+  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
 ?>
 
 <!DOCTYPE html>
@@ -190,7 +190,7 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="activeGameSearch" name="activeGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -210,7 +210,7 @@
               
               foreach($active_user_data as $row)
               {
-                echo "<tr>\n";
+                /*echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
@@ -221,7 +221,7 @@
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
-                echo "</tr>\n";
+                echo "</tr>\n";*/
               }
 
             ?>  
@@ -231,7 +231,7 @@
 
       <div class="gameSearchWindow">
         <h3>Your Pending Private Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pendingGameSearch", name="pendingGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -251,11 +251,11 @@
               foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
-                echo "<td>" .  $row["game_name"] . "</td>\n";
+                /*echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";*/
                 /*echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
@@ -269,7 +269,7 @@
 
       <div class="gameSearchWindow">
         <h3>Your Finished Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="finishedGameSearch" name="finishedGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

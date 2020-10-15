@@ -158,7 +158,7 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="myGameSearch" name="myGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
