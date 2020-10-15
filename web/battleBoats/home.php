@@ -7,7 +7,7 @@
 
   
 
-  function queryDatabaseForPublicGames()
+  function queryDatabaseForPublicGames($database)
   {
     $query = "
     SELECT g.id, g.game_name, g.date_created, u.display_name 
@@ -19,8 +19,8 @@
     ORDER BY g.date_created
     ";
 
-    $stmt = $db->query($query);
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $database->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 
     /*$stmt->execute();
 
@@ -42,7 +42,7 @@
     $_SESSION["loggedIn"] = false;
   }
 
-  queryDatabaseForPublicGames();
+  queryDatabaseForPublicGames($db);
 
 
 
