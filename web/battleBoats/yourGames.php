@@ -15,8 +15,8 @@
       ON g.game_owner = u.id
       JOIN public.user AS u2
       ON g.opponent = u2.id
-      WHERE g.opponent = 1
-      or g.game_owner = 1
+      WHERE g.opponent = :player_id
+      or g.game_owner = :player_id
       ORDER BY g.date_created
       ";
 
