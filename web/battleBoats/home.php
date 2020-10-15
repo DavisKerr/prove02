@@ -54,12 +54,12 @@
       $stmt = $database->prepare($query);
       $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      /*
-      foreach($results as $row)
+      
+      foreach($rows as $row)
       {
         print_r($row);
         echo "<br>";
-      }*/
+      }
     }
     catch (Exception $ex)
     {
