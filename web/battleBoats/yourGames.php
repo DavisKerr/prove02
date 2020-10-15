@@ -5,7 +5,7 @@
   require 'auth.php';
   require 'gameRequest.php';
 
-
+/*
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
   $isValid = TRUE;
@@ -67,11 +67,11 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
   {
     $allowSearch = True;
-  }
+  }*/
 
 
   function queryDatabaseForPendingUserGames($database, $search)
-  {
+  {/*
     try
     {
       $query = "
@@ -96,13 +96,13 @@
       die();
     }
 
-    return $rows;
+    return $rows;*/
     
   }
 
   function queryDatabaseForActiveUserGames($database, $search)
   {
-    try
+    /*try
     {
       $query = "
       SELECT g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -129,22 +129,12 @@
       die();
     }
 
-    return $rows;
+    return $rows;*/
     
   }
 
-
-  if(isset($_SESSION["loggedIn"]))
-  {
-    
-  }
-  else
-  {
-    $_SESSION["loggedIn"] = false;
-  }
-
-  $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
-  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
+  /*$pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
+  $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);*/
 ?>
 
 <!DOCTYPE html>
@@ -210,7 +200,7 @@
               
               foreach($active_user_data as $row)
               {
-                /*echo "<tr>\n";
+                echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
@@ -221,7 +211,7 @@
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
-                echo "</tr>\n";*/
+                echo "</tr>\n";
               }
 
             ?>  
@@ -251,11 +241,11 @@
               foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
-                /*echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";*/
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
                 /*echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
