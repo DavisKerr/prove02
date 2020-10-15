@@ -45,8 +45,8 @@
       JOIN public.user AS u2
       ON g.opponent = u2.id
       WHERE g.opponent = " . $_SESSION["user_id"] .
-      "or g.game_owner = :player_id" . $_SESSION["user_id"] .
-      "AND g.is_active = 1
+      " or g.game_owner = :player_id" . $_SESSION["user_id"] .
+      " AND g.is_active = 1
       ORDER BY g.date_created
       ";
 
