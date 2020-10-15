@@ -44,26 +44,26 @@
           echo "<td>" . $count . "</td>";
           $count++;
         }
-        if($item == '*')
+        elseif($item == '*')
         {
           echo "<td class='blankSpace'></td>";
         }
-        if($item == 'V')
+        elseif($item == 'V')
         {
           echo "<td class='shipSpace'></td>";
         }
-        if($item == 'O')
+        elseif($item == 'O')
         {
           echo "<td class='missSpace'></td>";
         }
-        if($item == 'X')
+        elseif($item == 'X')
         {
           echo "<td class='hitSpace'></td>";
         }
       }
     }
 
-    echo "</tr>\n"
+    echo "</tr>\n";
 
     echo "</table>\n";
   ?>
