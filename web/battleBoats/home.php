@@ -4,23 +4,29 @@
   require 'getDB.php';
 
 
-
-  
-
   function queryDatabaseForPublicGames($database)
   {
-    $query = "
-    SELECT g.id, g.game_name, g.date_created, u.display_name 
-    FROM public.game AS g 
-    JOIN public.user AS u 
-    ON g.game_owner = u.id 
-    WHERE g.is_active = 0 
-    AND g.game_type = 'PUBLIC' 
-    ORDER BY g.date_created
-    ";
+    try
+    {
+      $query = "
+      SELECT g.id, g.game_name, g.date_created, u.display_name 
+      FROM public.game AS g 
+      JOIN public.user AS u 
+      ON g.game_owner = u.id 
+      WHERE g.is_active = 0 
+      AND g.game_type = 'PUBLIC' 
+      ORDER BY g.date_created
+      ";
 
-    $stmt = $database->query($query);
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
+      $stmt = $database->query($query);
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch (PDOException $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+    
 
     /*$stmt->execute();
 
