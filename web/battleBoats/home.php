@@ -118,7 +118,17 @@
               <th>Join game</th>
             </tr>
             <?php
-              foreach()
+            $idArr = arra(""=>0);
+              foreach(queryDatabaseForPublicGames() as $row)
+              {
+                $idArr[$row["game_name"]] = $row["id"];
+                echo "<tr>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["date_created"]; . "</td>\n";
+                echo "<td>" .  $row["game_owner"]; . "</td>\n";
+                echo "</tr>\n";
+              }
+
             ?>  
           </table>
         </div> <!--End game finder area-->
