@@ -10,7 +10,7 @@
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
   $isValid = TRUE;
   $allowSearch = FALSE;
-/*
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
     if(isset($_POST["activeGameSearch"]))
@@ -40,7 +40,7 @@
       }
     }
   }
-
+/*
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
     if(isset($_POST["finishedGameSearch"]))
