@@ -10,6 +10,46 @@
     exit;
   }
 
+
+  function queryPlayerBoard($database)
+  {
+    $board="";
+    try
+    {
+      $query = "    
+      SELECT grid_owner, grid_opponent, game_owner
+      FROM public.game
+      WHERE id = :game_id
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach($rows as $row)
+      {
+        if($row["game_owner"] == $_SESSION["user_id"])
+        {
+          $board = $row["grid_owner"];
+        }
+        else
+        {
+          $board = $row["grid_opponent"];
+        }
+      }
+
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $board;
+  }
+
+
+
   function queryEnemyBoard($database)
   {
     $board="";
@@ -128,8 +168,6 @@
         $is_player_board = FALSE;
         $board = queryEnemyBoard($db);
         require 'readBoard.php';
-
-
         ?>
         <!--<table id="opponentBoard">
           <tr>
@@ -241,7 +279,15 @@
           </tr>
         </table>-->
 
-        <table id="playerBoard">
+        <?php
+        $type = "playerBoard";
+        $name = "Your Board";
+        $is_player_board = TRUE;
+        $board = queryPlayerBoard($db);
+        require 'readBoard.php';
+        ?>
+
+        <!--<table id="playerBoard">
           <tr>
             <th colspan="11"><h3>Your Board</h3></th>
           </tr>
@@ -350,7 +396,7 @@
             <td></td>
           </tr>
 
-        </table>
+        </table>-->
       </div>
 
       <div id="moveForm">
