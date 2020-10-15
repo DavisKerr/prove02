@@ -9,7 +9,7 @@
   $public_data = array();
   $private_data = array();
   $user_data = array();
-  $search = '%';
+  $search = '%Battle Boats 2.0%';
 
   function queryDatabaseForPublicGames($database)
   {
