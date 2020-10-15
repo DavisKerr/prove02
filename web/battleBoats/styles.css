@@ -121,7 +121,6 @@
   width: 50px;
   height: 50px;
   border: 1px solid #000000;
-  background-color: #21afc4;
 }
 
 #gameBoard table
@@ -197,6 +196,26 @@
 .gameTable td
 {
   border: 1px solid black;
+}
+
+.blankSpace
+{
+  background-color: #21afc4;
+}
+
+.hitSpace
+{
+  background-color: #a83e32;
+}
+
+.missSpace
+{
+  background-color: #fff41c;
+}
+
+.shipSpace
+{
+  background-color: #595959;
 }
 
 

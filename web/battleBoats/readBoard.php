@@ -27,7 +27,8 @@
         / * * * * * * * * * *
         ';
         $array = str_split($board);
-        echo "<table class='gameBoard'>\n";
+        echo "<table class='opponentBoard'>\n";
+        echo "<tr> <th colspan='11'><h3>Enemy Board</h3></th></tr>";
         echo "<tr>\n";
       echo "<td></td>";
         for($i = 1; $i <= 10; $i++ )
@@ -54,26 +55,26 @@
             }
             elseif($item == '*')
             {
-              echo "<td class='blankSpace'>*</td>";
+              echo "<td class='blankSpace'></td>";
             }
             elseif($item == 'V')
             {
               if($is_player_board)
                 {
-                  echo "<td class='shipSpace'>V</td>";
+                  echo "<td class='shipSpace'></td>";
                 }
                 else
                 {
-                  echo "<td class='blankSpace'>*</td>";
+                  echo "<td class='blankSpace'></td>";
                 }
             }
             elseif($item == 'O')
             {
-              echo "<td class='missSpace'>O</td>";
+              echo "<td class='missSpace'></td>";
             }
             elseif($item == 'X')
             {
-              echo "<td class='hitSpace'>X</td>";
+              echo "<td class='hitSpace'></td>";
             }
           }
         }
