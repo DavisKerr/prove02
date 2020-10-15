@@ -38,6 +38,8 @@
     return $db_data;*/
   }
 
+  $db_arr = queryDatabaseForPublicGames();
+
 
 
 ?>
@@ -118,7 +120,7 @@
               <th>Join game</th>
             </tr>
             <?php
-              $db_arr = queryDatabaseForPublicGames();
+              
               foreach($db_arr as $row)
               {
                 echo "<tr>\n";
