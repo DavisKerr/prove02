@@ -22,14 +22,13 @@
     AND g.game_type = 'PUBLIC'
     ORDER BY g.date_created;");
     $stmt->execute();
-    $db_data = array("id"=>'', "game_name"=>'', "date_created"=>'', "owner"=>'');
 
     foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-      echo "Game name" . $row["game_name"] . "\t";
-      echo "game created " . $row["date_created"] . "\t";
-      echo "Owned by " .  $row["display_name"] . "\t";
-      echo "Id is " . $row["id"] . "\n";
+      echo "Game name" . $row["g.game_name"] . "\t";
+      echo "game created " . $row["g.date_created"] . "\t";
+      echo "Owned by " .  $row["u.display_name"] . "\t";
+      echo "Id is " . $row["g.id"] . "\n";
     }
   }
 
