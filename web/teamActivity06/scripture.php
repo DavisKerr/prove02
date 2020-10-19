@@ -97,7 +97,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		<input type="submit" name="submit">
 
-	</form>
+  </form>
+  <div>
+    <h1>Scripture List:</h1>
+    <?php 
+
+    foreach ($db->query('SELECT scriptureid, book, chapter, verse, content FROM scripture') as $row)
+    {
+      echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
+      echo '<p/>';
+
+      $stmt = $db->prepare('SELECT t.topicname
+      FROM topic AS t 
+      INNER JOIN scripturetopic AS st 
+      ON st.topicid = t.id
+      WHERE st.scriptureid = :scripture;');
+      $stmt->bindValue(':scripture', $row['scriptureid'], PDO::PARAM_INT);
+      $stmt->execute();
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      foreach ($rows as $topic){
+          echo $topic['topicname'] . "<br>";
+      }
+    }
+
+
+    ?>
+  </div>
     <script>
       function addTopic()
       {
