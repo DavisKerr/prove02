@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
   if(isset($_POST["newTopic"]))
   {
-    /*insertNewTopic($db, $_POST["newTopic"]);
-    $lastTopic = $db->lastInsertId('topic_id_seq');
+    insertNewTopic($db, $_POST["newTopic"]);
+    /*$lastTopic = $db->lastInsertId('topic_id_seq');
     insertScriptureTopic($db, $lastScripture, $lastTopic);*/
   }
 	
