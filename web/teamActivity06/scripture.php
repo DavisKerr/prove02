@@ -33,11 +33,11 @@ function insertScriptureTopic($db, $scripture, $topic)
 	$statement->execute(array(':scripture' => $scripture, ':topic' => $topic));
 }
 
-/*function insertNewTopic($db, $topic)
+function insertNewTopic($db, $topic)
 {
 	$statement = $db->prepare('INSERT INTO topic(topicname) VALUES(:topic)');
 	$statement->execute(array(':topic' => $topic));
-}*/
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	insertScripture($db, $_POST['book'], $_POST['chapter'], $_POST['verse'], $_POST['content']);
