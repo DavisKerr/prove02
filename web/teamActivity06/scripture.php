@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   {
     insertNewTopic($db, $_POST["newTopic"]);
     $lastTopic = $db->lastInsertId('topic_id_seq');
-    /*insertScriptureTopic($db, $lastScripture, $lastTopic);*/
+    insertScriptureTopic($db, $lastScripture, $lastTopic);
   }
 	
 	header("location: ./ScriptureDetails.php?scriptureid=" . $lastScripture);
