@@ -47,13 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	foreach ($_POST['topics'] as $topic) {
 		insertScriptureTopic($db, $lastScripture, $topic);
   }
-  /*
+  
   if(isset($_POST["newTopic"]))
   {
-    insertNewTopic($db, $_POST["newTopic"]);
+    /*insertNewTopic($db, $_POST["newTopic"]);
     $lastTopic = $db->lastInsertId('topic_id_seq');
-    insertScriptureTopic($db, $lastScripture, $lastTopic);
-  }*/
+    insertScriptureTopic($db, $lastScripture, $lastTopic);*/
+  }
 	
 	header("location: ./ScriptureDetails.php?scriptureid=" . $lastScripture);
   exit;
