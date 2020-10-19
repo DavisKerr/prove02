@@ -33,6 +33,12 @@ function insertScriptureTopic($db, $scripture, $topic)
 	$statement->execute(array(':scripture' => $scripture, ':topic' => $topic));
 }
 
+function insertNewTopic($db, $topic)
+{
+	$statement = $db->prepare('INSERT INTO topic(topicname) VALUES(:topic)');
+	$statement->execute(array(':topic' => $topic));
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	insertScripture($db, $_POST['book'], $_POST['chapter'], $_POST['verse'], $_POST['content']);
 
@@ -40,7 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	foreach ($_POST['topics'] as $topic) {
 		insertScriptureTopic($db, $lastScripture, $topic);
-	}
+  }
+  
+  if(isset($_POST["newTopic"]))
+  {
+    insertNewTopic($db, $_POST["newTopic"]);
+    $lastTopic = $db->lastInsertId('topic_id_seq');
+    insertScriptureTopic($db, $lastScripture, $lastTopic)
+  }
 	
 	header("location: ./ScriptureDetails.php?scriptureid=" . $lastScripture);
   	exit;
@@ -67,19 +80,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<label for="content">Book</label>
 		<textarea id="content" name="content" rows="4" cols="50"></textarea><br>
 
-
 		<?php
 
 			foreach ($db->query('SELECT topicname, id FROM topic') as $row)
 			{
 				echo '<input type="checkbox" name="topics[]" value="' . $row['id'] . '" id="' . $row['topicname'] . '">';
 				echo '<label for="' . $row['topicname'] . '">' . $row['topicname'] . '</label><br>';
-			}
+      }
+      
 		?>
+
+    <input type="checkbox" name="isnewTopic" id="isnewTopic" value="1" onchange="addTopic();">
+    <label for="newTopic">Other</label><br>
+
+    <span id="topicform"></span>
 
 		<input type="submit" name="submit">
 
 	</form>
-
-</body>
+    <script>
+      function addTopic()
+      {
+        var item = document.getElementById("isnewTopic");
+        area = document.getElementById("topicform");
+        if(item.checked)
+        {
+          area.innerHTML = "<label for='newTopic'> Specifiy: </label> ";
+          area.innerHTML += "<input type='text' id='newTopic' name='newTopic'><br>";
+        }
+        else
+        {
+          area.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
 </html>
