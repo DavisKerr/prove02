@@ -136,9 +136,9 @@ function insertRecord($data)
 {
   try
   {
-    $statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
+    /*$statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
     VALUES( :username, :password, :screenName, (SELECT CURRENT_TIMESTAMP))");
-    $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));
+    $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));*/
   }
   catch(Exception $e)
   {
