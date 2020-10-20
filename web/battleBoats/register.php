@@ -28,7 +28,7 @@ require "processRegister.php";
   }
 
   isLoggedIn();
-  $formData = isSubmit();
+  $formData = isSubmit($db);
 
 ?>
 

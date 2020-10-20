@@ -1,6 +1,6 @@
 <?php
 
-function isSubmit()
+function isSubmit($db)
 {
   try
   {
@@ -11,7 +11,7 @@ function isSubmit()
       $dataArr = validateForm($dataArr);
       if($dataArr["isValid"])
       {
-        if(insertRecord($dataArr))
+        if(insertRecord($dataArr, $db))
         {
           header("location: ./login.php");
           exit;
@@ -132,13 +132,13 @@ function test_input($data)
   return $data;
 }
 
-function insertRecord($data)
+function insertRecord($data, $db)
 {
   try
   {
-    /*$statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
+    $statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
     VALUES( :username, :password, :screenName, (SELECT CURRENT_TIMESTAMP))");
-    $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));*/
+    $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));
   }
   catch(Exception $e)
   {
