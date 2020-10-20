@@ -1,6 +1,6 @@
 <?php
   require "getDB.php";
-  require "processRegister.php";
+  //require "processRegister.php";
 
   function isLoggedIn()
   {
