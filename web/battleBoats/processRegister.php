@@ -78,6 +78,6 @@ function insertRecord()
   {
     echo "ERROR: " . $e . "\n";
   }
-}*/
+}
 
 ?>
