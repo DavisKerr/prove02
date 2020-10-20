@@ -480,3 +480,4 @@ SELECT grid_owner, grid_opponent, game_owner
 
 
 
+

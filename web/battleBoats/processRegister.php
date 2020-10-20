@@ -9,6 +9,14 @@ function isSubmit()
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
       "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
       $dataArr = validateForm($dataArr);
+      if($dataArr["isValid"])
+      {
+        if(insertRecord($dataArr))
+        {
+          header("location: ./login.php");
+          exit;
+        }
+      }
       return $dataArr;
     }
   }
@@ -124,16 +132,21 @@ function test_input($data)
   return $data;
 }
 
-function insertRecord()
+function insertRecord($data)
 {
   try
   {
-
+    $statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
+    VALUES( :username, :password, :screenName, (SELECT CURRENT_TIMESTAMP))");
+    $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));
   }
   catch(Exception $e)
   {
     echo "ERROR: " . $e . "\n";
+    return FALSE;
   }
 }
+
+
 
 ?>
