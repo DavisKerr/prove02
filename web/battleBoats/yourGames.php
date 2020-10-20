@@ -270,6 +270,30 @@
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
+      <div id="login_menu">
+        <h2 id="formTitle">Create a game</h2>
+        <span class="error" ><?php //echo $formData["dbErr"]; ?></span>
+        <form method="POST" action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+          <div class="d-flex flex-column justify-content-center flex-wrap">
+            <div class="fieldContainer">
+              <label for="gameName" class="fieldLabel">Username:</label>
+              <input type="text" name="gameName" id="gameName" placeholder="Game name" class="loginField"><br>
+              <span class="error" ><?php //echo $formData["usernameErr"]; ?></span>
+            </div>
+            <div class="fieldContainer">
+              <label for="screen_name" class="fieldLabel">Screen Name:</label>
+              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField"><br>
+              <span class="error" ><?php //echo $formData["screenNameErr"]; ?></span>
+            </div>
+            <button type="submit" class="btn btn-success" id="confirmBtn">Create Game</button>
+          </div>
+        </form>
+        <hr>
+        <p class="btnLabel">Already have an account?</p>
+        <a href="./login.php" class="btn btn-info" id="changeBtn">Log in</a>
+      </div>
+    </div>
+
 
     </div>
 

@@ -20,7 +20,7 @@ CREATE TABLE public.game
 ( id SERIAL NOT NULL PRIMARY KEY
 , game_owner INT NOT NULL
 , game_name VARCHAR(100) NOT NULL
-, game_code VARCHAR(100) NOT NULL UNIQUE
+, game_code VARCHAR(100) NOT NULL
 , game_type VARCHAR(10) NOT NULL
 , opponent INT
 , grid_owner VARCHAR(256) NOT NULL
