@@ -9,6 +9,11 @@ function isSubmit()
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
       "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
       $dataArr = validateForm($dataArr);
+
+      foreach($dataArr as $data)
+      {
+        echo "<br>" . $data . "<br>";
+      }
     }
   }
   catch(Exception $e)
