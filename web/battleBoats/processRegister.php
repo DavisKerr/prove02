@@ -7,7 +7,7 @@ function isSubmit($db)
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
-      "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
+      "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE, "dbErr"="");
       $dataArr = validateForm($dataArr);
       if($dataArr["isValid"])
       {
@@ -15,6 +15,10 @@ function isSubmit($db)
         {
           header("location: ./login.php");
           exit;
+        }
+        else
+        {
+          $dataArr["dbErr"] = "There was an error creating your account!";
         }
       }
       return $dataArr;
@@ -139,6 +143,7 @@ function insertRecord($data, $db)
     $statement = $db->prepare("INSERT INTO public.user( username, password, display_name, date_created)
     VALUES( :username, :password, :screenName, (SELECT CURRENT_TIMESTAMP))");
     $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));
+    return TRUE;
   }
   catch(Exception $e)
   {

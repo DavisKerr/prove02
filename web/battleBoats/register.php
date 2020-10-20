@@ -67,6 +67,7 @@ require "processRegister.php";
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Register</h2>
+        <span class="error" ><?php echo $formData["dbErr"]; ?></span>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
