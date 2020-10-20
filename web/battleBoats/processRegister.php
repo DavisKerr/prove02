@@ -1,6 +1,6 @@
 <?php
 
-function isSubmit():
+/*function isSubmit():
 {
   try
   {
@@ -78,6 +78,6 @@ function insertRecord()
   {
     echo "ERROR: " . $e . "\n";
   }
-}
+}*/
 
 ?>
