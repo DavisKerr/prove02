@@ -7,7 +7,7 @@ function isSubmit($db)
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
-      "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE, "dbErr"="");
+      "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE, "dbErr"=>"");
       $dataArr = validateForm($dataArr);
       if($dataArr["isValid"])
       {
@@ -24,7 +24,7 @@ function isSubmit($db)
       return $dataArr;
     }
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   }
@@ -40,7 +40,7 @@ function validateForm($data)
      return $data;
     
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
@@ -62,7 +62,7 @@ function validateUsername($data)
 
     return $data;
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
@@ -84,7 +84,7 @@ function validateScreenName($data)
 
     return $data;
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
@@ -122,7 +122,7 @@ function validatePasswords($data)
 
     return $data;
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
@@ -145,7 +145,7 @@ function insertRecord($data, $db)
     $statement->execute(array(':username' => $data["username"], ':password' => $data["password"], ':screenName' => $data["screenName"]));
     return TRUE;
   }
-  catch(Error $e)
+  catch(Exception $e)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
