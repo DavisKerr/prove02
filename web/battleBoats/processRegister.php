@@ -22,6 +22,7 @@ function validateForm($data)
   try
   {
      $data = validateUsername($data);
+     return $data;
     
   }
   catch(Exception $e)
