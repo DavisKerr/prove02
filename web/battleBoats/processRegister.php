@@ -1,6 +1,6 @@
 <?php
 
-/*function isSubmit():
+function isSubmit()
 {
   try
   {
