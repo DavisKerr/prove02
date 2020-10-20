@@ -27,6 +27,7 @@ function validateForm($data)
   try
   {
      $data = validateUsername($data);
+     $data = validateScreenName($data);
      return $data;
     
   }
@@ -42,7 +43,7 @@ function validateUsername($data)
   {
     if(empty($_POST["username"]))
     {
-      $data["usernameErr"] = "Username cannot be blank";
+      $data["usernameErr"] = "Screen name cannot be blank";
       $data["isValid"] = FALSE;
     }
     else
@@ -58,11 +59,21 @@ function validateUsername($data)
   } 
 }
 
-function validateScreenName()
+function validateScreenName($data)
 {
   try
   {
+    if(empty($_POST["screen_name"]))
+    {
+      $data["screenNameErr"] = "Username cannot be blank";
+      $data["isValid"] = FALSE;
+    }
+    else
+    {
+      $data["screenName"] = test_input($_POST["screen_name"]);
+    }
 
+    return $data;
   }
   catch(Exception $e)
   {
