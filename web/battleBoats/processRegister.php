@@ -28,6 +28,7 @@ function validateForm($data)
   {
      $data = validateUsername($data);
      $data = validateScreenName($data);
+     $data = validatePasswords($data);
      return $data;
     
   }
@@ -43,7 +44,7 @@ function validateUsername($data)
   {
     if(empty($_POST["username"]))
     {
-      $data["usernameErr"] = "Screen name cannot be blank";
+      $data["usernameErr"] = "Username name cannot be blank";
       $data["isValid"] = FALSE;
     }
     else
@@ -65,7 +66,7 @@ function validateScreenName($data)
   {
     if(empty($_POST["screen_name"]))
     {
-      $data["screenNameErr"] = "Username cannot be blank";
+      $data["screenNameErr"] = "Screen name cannot be blank";
       $data["isValid"] = FALSE;
     }
     else
@@ -85,7 +86,33 @@ function validatePasswords()
 {
   try
   {
+    if(empty($_POST["password"]))
+    {
+      $data["passwordErr"] = "Password cannot be blank";
+      $data["isValid"] = FALSE;
+    }
+    else
+    {
+      $data["password"] = test_input($_POST["password"]);
+    }
 
+    if(empty($_POST["confirmPassword"]))
+    {
+      $data["confirmPasswordErr"] = "Confirm password cannot be blank";
+      $data["isValid"] = FALSE;
+    }
+    else
+    {
+      $data["confirmPassword"] = test_input($_POST["confirmPassword"]);
+    }
+
+    if($data["password"] != $data["confirmPassword"])
+    {
+      $data["confirmPasswordErr"] = "Passwords must match";
+      $data["isValid"] = FALSE;
+    }
+
+    return $data;
   }
   catch(Exception $e)
   {
