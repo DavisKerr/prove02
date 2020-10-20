@@ -55,19 +55,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     insertScriptureTopic($db, $lastScripture, $lastTopic);
   }
 	
-	header("location: ./ScriptureDetails.php?scriptureid=" . $lastScripture);
-  exit;
+	/*header("location: ./ScriptureDetails.php?scriptureid=" . $lastScripture);
+  exit;*/
 }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<title>Scripture</title>
 </head>
 <body>
 
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="scriptureForm">
 		<label for="book">Book</label>
 		<input type="text" name="book" id="book"><br>
 
@@ -139,6 +140,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           area.innerHTML = "";
         }
       }
+
+/* attach a submit handler to the form */
+$("#scriptureForm").submit(function(event) {
+
+/* stop form from submitting normally */
+event.preventDefault();
+
+/* get the action attribute from the <form action=""> element */
+var $form = $(this),
+  url = $form.attr('action');
+
+/* Send the data using post with element id name and name2*/
+var posting = $.post(url, {
+  name: $('#name').val(),
+  name2: $('#name2').val()
+  name: $('#name').val(),
+  name2: $('#name2').val()
+});
+
+/* Alerts the results */
+posting.done(function(data) {
+  $('#result').text('success');
+});
+posting.fail(function() {
+  $('#result').text('failed');
+});
+});
     </script>
   </body>
 </html>

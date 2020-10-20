@@ -31,25 +31,23 @@
 
         foreach ($db->query('SELECT scriptureid, book, chapter, verse, content FROM scripture') as $row)
         {
-            if($_GET['scriptureid'] == $row['scriptureid'])
-            {
-                echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
-                echo '<p/>';
 
-                $stmt = $db->prepare('SELECT t.topicname
-                FROM topic AS t 
-                INNER JOIN scripturetopic AS st 
-                ON st.topicid = t.id
-                WHERE st.scriptureid = :scripture;');
-                $stmt->bindValue(':scripture', $row['scriptureid'], PDO::PARAM_INT);
-                $stmt->execute();
-                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
+          echo '<p/>';
 
-                foreach ($rows as $topic){
-                    echo $topic['topicname'] . "<br>";
-                }
+          $stmt = $db->prepare('SELECT t.topicname
+          FROM topic AS t 
+          INNER JOIN scripturetopic AS st 
+          ON st.topicid = t.id
+          WHERE st.scriptureid = :scripture;');
+          $stmt->bindValue(':scripture', $row['scriptureid'], PDO::PARAM_INT);
+          $stmt->execute();
+          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+          foreach ($rows as $topic){
+              echo $topic['topicname'] . "<br>";
+          }
                 
-            }
         }
 
 

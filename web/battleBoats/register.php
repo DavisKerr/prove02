@@ -1,3 +1,36 @@
+<?php
+  require "getDB.php";
+  require "processRegister.php";
+
+  function isLoggedIn()
+  {
+    try
+    {
+      if(isset($_SESSION["loggedIn"]))
+      {
+        if($_SESSION["loggedIn"])
+        {
+          header("location: ./home.php");
+          exit;
+        }
+        
+      }
+      else
+      {
+        $_SESSION["loggedIn"] = false;
+      }
+    }
+    catch(Exception $e)
+    {
+      echo "ERROR: " . $e . "\n";
+    }
+  }
+
+  isLoggedIn();
+  isSubmit();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -33,11 +66,15 @@
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Register</h2>
-        <form>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
             <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+            </div>
+            <div class="fieldContainer">
+              <label for="screen_name" class="fieldLabel">Screen Name:</label>
+            <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField">
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
