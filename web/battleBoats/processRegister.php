@@ -22,7 +22,7 @@ function isSubmit()
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
   }
 }
 
@@ -38,7 +38,7 @@ function validateForm($data)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
 
@@ -60,7 +60,7 @@ function validateUsername($data)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
 
@@ -82,7 +82,7 @@ function validateScreenName($data)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
 
@@ -120,7 +120,7 @@ function validatePasswords($data)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
 
@@ -142,7 +142,7 @@ function insertRecord($data)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
 }

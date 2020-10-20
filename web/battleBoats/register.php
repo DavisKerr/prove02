@@ -23,7 +23,7 @@ require "processRegister.php";
     }
     catch(Exception $e)
     {
-      echo "ERROR: " . $e . "\n";
+      echo "ERROR: " . $e->getMessage() . "\n";
     }
   }
 
