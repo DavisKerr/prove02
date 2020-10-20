@@ -4,7 +4,12 @@ function isSubmit()
 {
   try
   {
-    echo "YE?";
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+      $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
+      "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
+      $dataArr = validateForm($dataArr);
+    }
   }
   catch(Exception $e)
   {
@@ -12,11 +17,12 @@ function isSubmit()
   }
 }
 
-function validateForm()
+function validateForm($data)
 {
   try
   {
-
+    
+    
   }
   catch(Exception $e)
   {
