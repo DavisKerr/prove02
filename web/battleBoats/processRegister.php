@@ -9,6 +9,11 @@ function isSubmit()
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
       "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
       $dataArr = validateForm($dataArr);
+
+      for($dataArr as $data)
+      {
+        echo $data . "<br>";
+      }
     }
   }
   catch(Exception $e)
@@ -21,7 +26,7 @@ function validateForm($data)
 {
   try
   {
-    
+     $data = validateUsername($data);
     
   }
   catch(Exception $e)
@@ -30,11 +35,21 @@ function validateForm($data)
   } 
 }
 
-function validateUsername()
+function validateUsername($data)
 {
   try
   {
+    if(empty($_POST["username"]))
+    {
+      $data["usernameErr"] = "Username cannot be blank";
+      $data["isValid"] = FALSE;
+    }
+    else
+    {
+      $data["username"] = test_input($_POST["username"]);
+    }
 
+    return $data;
   }
   catch(Exception $e)
   {
