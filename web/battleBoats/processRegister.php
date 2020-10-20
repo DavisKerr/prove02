@@ -4,7 +4,7 @@ function isSubmit():
 {
   try
   {
-
+    echo "YE?";
   }
   catch(Exception $e)
   {

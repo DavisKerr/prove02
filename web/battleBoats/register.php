@@ -1,7 +1,7 @@
 <?php
 session_start();
   require "getDB.php";
-  //require "processRegister.php";
+  require "processRegister.php";
 
   function isLoggedIn()
   {
@@ -28,7 +28,7 @@ session_start();
   }
 
   isLoggedIn();
-  //isSubmit();
+  isSubmit();
 
 ?>
 
