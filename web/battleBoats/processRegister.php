@@ -18,7 +18,7 @@ function isSubmit($db)
         }
         else
         {
-          $dataArr["dbErr"] = "There was an error creating your account!";
+          $dataArr["dbErr"] = "That username is already in use!";
         }
       }
       return $dataArr;
@@ -147,7 +147,7 @@ function insertRecord($data, $db)
   }
   catch(Exception $e)
   {
-    echo "ERROR: " . $e->getMessage() . "\n";
+    //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
 }
