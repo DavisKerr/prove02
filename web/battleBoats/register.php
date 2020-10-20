@@ -1,6 +1,6 @@
 <?php
-  /*require "getDB.php";
-  require "processRegister.php";
+  require "getDB.php";
+  //require "processRegister.php";
 
   function isLoggedIn()
   {
@@ -27,7 +27,7 @@
   }
 
   isLoggedIn();
-  isSubmit();*/
+  //isSubmit();
 
 ?>
 
