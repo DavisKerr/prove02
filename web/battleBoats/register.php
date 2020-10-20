@@ -72,22 +72,22 @@ require "processRegister.php";
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
               <input type="text" name="username" id="username" placeholder="Username" class="loginField">
-              <span class="error" ><?php/* echo $formData["usernameErr"]; */?></span>
+              <span class="error" ><?php echo $formData["usernameErr"]; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="screen_name" class="fieldLabel">Screen Name:</label>
               <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField">
-              <span class="error" ><?php /*echo $formData["screenNameErr"]; */?></span>
+              <span class="error" ><?php echo $formData["screenNameErr"]; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
               <input type="password" name="password" id="password" placeholder="Password" class="loginField">
-              <span class="error" ><?php/* echo $formData["passwordErr"]; */?></span>
+              <span class="error" ><?php echo $formData["passwordErr"]; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="confirmPassword" class="fieldLabel">Retype Password:</label>
               <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Retype Password" class="loginField">
-              <span class="error" ><?php/* echo $formData["confirmPasswordErr"];*/?></span>
+              <span class="error" ><?php echo $formData["confirmPasswordErr"]; ?></span>
             </div>
             <button type="submit" class="btn btn-success" id="confirmBtn">Register</button>
           </div>

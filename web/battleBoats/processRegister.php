@@ -9,7 +9,7 @@ function isSubmit()
       $dataArr = array("username"=>'', "screenName"=>'', "password"=>'', "confirmPassword"=>'',  
       "usernameErr"=>'', "screenNameErr"=>'', "passwordErr"=>'', "confirmPasswordErr"=>'', "isValid"=>TRUE);
       $dataArr = validateForm($dataArr);
-      return $dataArr
+      return $dataArr;
     }
   }
   catch(Exception $e)
