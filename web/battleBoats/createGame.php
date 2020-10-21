@@ -84,7 +84,7 @@ function validateCode($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-*/
+
 function test_input($data) 
 {
   $data = trim($data);
@@ -139,7 +139,7 @@ function insertRecord($data, $db)
     //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
-}
+}*/
 
 
 
