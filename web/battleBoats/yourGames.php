@@ -6,6 +6,8 @@
   require 'gameRequest.php';
   require 'createGame.php';
 
+  $formGameData = isNewGame($db);
+
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
   $isValid = TRUE;
