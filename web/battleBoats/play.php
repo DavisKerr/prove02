@@ -3,6 +3,7 @@
 
   require 'auth.php';
   require 'getDB.php';
+  require 'sendMessage.php';
 
   if(!isset($_SESSION["current_game_id"]))
   {
@@ -113,7 +114,7 @@
 
     return $rows;
   }
-
+  sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
 ?>
