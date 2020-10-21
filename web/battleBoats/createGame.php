@@ -130,7 +130,7 @@ function insertRecord($data, $db)
   }
   catch(Exception $e)
   {
-    //echo "ERROR: " . $e->getMessage() . "\n";
+    echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
 }
