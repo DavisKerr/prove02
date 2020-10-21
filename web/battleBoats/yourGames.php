@@ -277,7 +277,7 @@
         <h2>Create a game</h2>
         <form method="POST", action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <label for="gameName">Game Name</label>
-          <input type="text" name="gameName:" id="gameName">
+          <input type="text" name="gameName" id="gameName">
           <br>
           <input type="checkbox" value="TRUE" id="private" name="private" onchange="addCode()">
           <label for="private">Private Game</label>

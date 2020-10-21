@@ -4,7 +4,6 @@ function isNewGame($db)
 {
   try
   {
-    echo $_POST["gameName"];
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["gameName"]))
     {
       echo "YEET!";
