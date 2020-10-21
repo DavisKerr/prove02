@@ -1,5 +1,5 @@
 <?php
-/*
+
 function isNewGame($db)
 {
   try
@@ -20,7 +20,7 @@ function isNewGame($db)
     echo "ERROR: " . $e->getMessage() . "\n";
   }
 }
-
+/*
 function validateForm($data)
 {
   try
