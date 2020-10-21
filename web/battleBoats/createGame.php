@@ -62,7 +62,7 @@ function validategameName($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-/*
+
 function validateCode($data)
 {
   try
@@ -83,16 +83,16 @@ function validateCode($data)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
-}*/
-
+}
+/*
 function test_input($data) 
 {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
-}
-/*
+}*/
+
 function insertRecord($data, $db)
 {
   try
@@ -139,7 +139,7 @@ function insertRecord($data, $db)
     //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
-}*/
+}
 
 
 
