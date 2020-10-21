@@ -20,7 +20,7 @@ function isNewGame($db)
     echo "ERROR: " . $e->getMessage() . "\n";
   }
 }
-/*
+
 function validateForm($data)
 {
   try
@@ -39,7 +39,7 @@ function validateForm($data)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
-}
+}/*
 
 function validategameName($data)
 {
