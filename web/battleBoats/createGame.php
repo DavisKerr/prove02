@@ -62,12 +62,12 @@ function validategameName($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-
+/*
 function validateCode($data)
 {
   try
   {
-    /*if(empty($_POST["gameCode"]))
+    if(empty($_POST["gameCode"]))
     {
       $data["codeErr"] = "Code for a private game cannot be blank";
       $data["isValid"] = FALSE;
@@ -75,7 +75,7 @@ function validateCode($data)
     else
     {
       $data["code"] = test_input($_POST["gameCode"]);
-    }*/
+    }
 
     return $data;
   }
@@ -84,7 +84,7 @@ function validateCode($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-
+*/
 function test_input($data) 
 {
   $data = trim($data);
@@ -92,7 +92,7 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
-/*
+
 function insertRecord($data, $db)
 {
   try
@@ -139,7 +139,7 @@ function insertRecord($data, $db)
     //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
-}*/
+}
 
 
 
