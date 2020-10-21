@@ -110,7 +110,7 @@
     
   }
 
-  joinGame();
+  joinGame($db);
   $public_data = queryDatabaseForPublicGames($db, $publicGameSearch);
   $private_data = queryDatabaseForPrivateGames($db, $privateGameSearch);
   $user_data = queryDatabaseForUserGames($db, $myGameSearch);

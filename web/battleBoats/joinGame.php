@@ -1,11 +1,15 @@
 <?php
 
 
-  function joinGame()
+  function joinGame($db)
   {
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-
+      if(isset($_POST["joinGame"]))
+      {
+        $game_id = $_POST["joinGame"];
+        updateRecord($db, $game_id)
+      }
     }
   }
 
