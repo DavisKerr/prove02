@@ -228,9 +228,9 @@
         </div> 
         <br>
         <form method="POST" action=" <?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-          <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
+          <textarea id="newMessage" placeholder="Enter Message" name="newMessage" row="2" col="100">
             
-          </textarea>
+          </textarea><br>
           <span class="error"><?php echo $messageErr["messageErr"]; ?></span><br>
           <br>
           <button type="submit"  class="btn btn-success" id="sendMessageBtn">Send</button>

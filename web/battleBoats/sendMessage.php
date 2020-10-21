@@ -1,11 +1,13 @@
 <?php
   function sendMessage($db)
-  { $dataArr = array("message"=>'', "messageErr"=>'', "isValid"=>TRUE);
+  { 
+    $dataArr = array("message"=>'', "messageErr"=>'', "isValid"=>TRUE);
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
       if(isset($_POST["newMessage"]))
       {
         $dataArr = validateForm($data);
+        echo "Testing";
         if($dataArr["isValid"])
         {
           insertMessage($db, $dataArr["message"]);
@@ -70,7 +72,7 @@ function validateMessage($data)
   {
     if(empty($_POST["newMessage"]))
     {
-      $data["messageErr"] = "Message name cannot be blank";
+      $data["messageErr"] = "Message cannot be blank";
       $data["isValid"] = FALSE;
     }
     else
@@ -78,7 +80,7 @@ function validateMessage($data)
       $data["message"] = test_input($_POST["newMessage"]);
       if(preg_match("/^ *$/", $data["message"]))
       {
-        $data["messageErr"] = "Message name cannot be blank";
+        $data["messageErr"] = "Message cannot be blank";
         $data["isValid"] = FALSE;
       }
     }
