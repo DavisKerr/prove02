@@ -11,8 +11,9 @@
           insertMessage($db, $dataArr["message"]);
         }
       }
-      return $data;
+      
     }
+    return $dataArr;
   }
 
   function insertMessage($db, $message)
