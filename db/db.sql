@@ -482,6 +482,19 @@ UPDATE public.game
 SET opponent = 2, is_active = 1
 WHERE id = 9;
 
+INSERT INTO public.messages
+( sent_by
+, game_id
+, body
+, time_sent
+)
+VALUES
+( 1
+, 1
+, 'YEET!'
+, (SELECT CURRENT_TIMESTAMP)
+);
+
 
 
 
