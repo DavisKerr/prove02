@@ -67,7 +67,7 @@ function validateCode($data)
 {
   try
   {
-    if(empty($_POST["gameCode"]))
+    /*if(empty($_POST["gameCode"]))
     {
       $data["codeErr"] = "Code for a private game cannot be blank";
       $data["isValid"] = FALSE;
@@ -75,7 +75,7 @@ function validateCode($data)
     else
     {
       $data["code"] = test_input($_POST["gameCode"]);
-    }
+    }*/
 
     return $data;
   }
