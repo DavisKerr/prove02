@@ -39,7 +39,7 @@ function validateForm($data)
   {
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
-}/*
+}
 
 function validategameName($data)
 {
@@ -62,7 +62,7 @@ function validategameName($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-
+/*
 function validateCode($data)
 {
   try
