@@ -6,7 +6,7 @@
       if(isset($_POST["newMessage"]))
       {
         $dataArr = validateForm($data);
-        if($data["isValid"])
+        if($dataArr["isValid"])
         {
           insertMessage($db, $dataArr["message"]);
         }
