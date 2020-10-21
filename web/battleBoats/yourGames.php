@@ -281,6 +281,7 @@
           <label for="private">Private Game</label>
           <br>
           <span id="gameCodeField"></span>
+          <button type="submit" class="btn btn-success" id="confirmBtn">Create</button>
         </form>
       </div>
 
