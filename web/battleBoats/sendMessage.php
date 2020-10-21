@@ -5,10 +5,10 @@
     {
       if(isset($_POST["newMessage"]))
       {
-        $data = validateForm($data);
+        $dataArr = validateForm($data);
         if($data["isValid"])
         {
-          insertMessage($db, $data["message"]);
+          insertMessage($db, $dataArr["message"]);
         }
       }
       return $data;
