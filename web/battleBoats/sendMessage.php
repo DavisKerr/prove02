@@ -54,6 +54,11 @@ function validateMessage($data)
     else
     {
       $data["message"] = test_input($_POST["newMessage"]);
+      if(preg_match("/^ *$/", $data["message"]))
+      {
+        $data["messageErr"] = "Message name cannot be blank";
+        $data["isValid"] = FALSE;
+      }
     }
 
     return $data;
