@@ -77,7 +77,7 @@
     try
     {
       $query = "
-      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
+      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name, g.game_code AS Player1
       FROM public.game AS g
       JOIN public.user AS u 
       ON g.game_owner = u.id
@@ -223,7 +223,7 @@
       </div><!--End game search window-->
 
       <div class="gameSearchWindow">
-        <h3>Your Pending Private Games:</h3>
+        <h3>Your Pending Games:</h3>
         <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pendingGameSearch", name="pendingGameSearch">
@@ -248,11 +248,7 @@
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
-                /*echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
-                echo "</form>"; */
+                echo "<td>" . $row["game_code"] . "</td>\n";
                 echo "</tr>\n";
               }
             ?>  
