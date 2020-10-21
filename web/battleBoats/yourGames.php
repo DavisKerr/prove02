@@ -4,7 +4,7 @@
   require 'getDB.php';
   require 'auth.php';
   require 'gameRequest.php';
-
+  require 'createGame.php'
 
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
@@ -148,6 +148,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="functions.js"></script>
     <title>My Games</title>
   </head>
   <body>
@@ -270,29 +271,18 @@
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
-      <div id="login_menu">
-        <h2 id="formTitle">Create a game</h2>
-        <span class="error" ><?php //echo $formData["dbErr"]; ?></span>
-        <form method="POST" action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-          <div class="d-flex flex-column justify-content-center flex-wrap">
-            <div class="fieldContainer">
-              <label for="gameName" class="fieldLabel">Username:</label>
-              <input type="text" name="gameName" id="gameName" placeholder="Game name" class="loginField"><br>
-              <span class="error" ><?php //echo $formData["usernameErr"]; ?></span>
-            </div>
-            <div class="fieldContainer">
-              <label for="screen_name" class="fieldLabel">Screen Name:</label>
-              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField"><br>
-              <span class="error" ><?php //echo $formData["screenNameErr"]; ?></span>
-            </div>
-            <button type="submit" class="btn btn-success" id="confirmBtn">Create Game</button>
-          </div>
+      <div id="createGame">
+        <h2>Create a game</h2>
+        <form method="POST", action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+          <label for="gameName">Game Name</label>
+          <input type="text" name="gameName:" id="gameName">
+          <br>
+          <input type="checkbox" value="TRUE" id="private" name="private" onchange="addCode()">
+          <label for="private">Private Game</label>
+          <br>
+          <span id="gameCodeField"></span>
         </form>
-        <hr>
-        <p class="btnLabel">Already have an account?</p>
-        <a href="./login.php" class="btn btn-info" id="changeBtn">Log in</a>
       </div>
-    </div>
 
 
     </div>
