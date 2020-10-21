@@ -447,7 +447,7 @@
             ?>
         </div> 
         <br>
-        <form>
+        <form method="POST" action=" <?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
             
           </textarea>
