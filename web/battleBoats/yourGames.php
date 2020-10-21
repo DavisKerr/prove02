@@ -6,7 +6,7 @@
   require 'gameRequest.php';
   require 'createGame.php';
 
-  $formGameData = isNewGame($db);
+  
 
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
@@ -134,7 +134,7 @@
     return $rows;
     
   }
-
+  $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
 ?>
