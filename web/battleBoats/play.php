@@ -206,7 +206,7 @@
 
       <div id="moveForm">
       <?php 
-        if($hasPlaced != 1)
+        if($hasPlaced == 1)
         {
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves'>";
@@ -215,14 +215,14 @@
           echo "<select name='x-coord' id='x-coord'>";
           for($i = 1; $i <= 10; $i++)
           {
-            echo "<option value='" . $i > "'>" . $i . "</option>";
+            echo "<option value='" . $i . "'>" . $i . "</option>";
           }
           echo "</select>";
           echo "<label for='y-coord'>y-Coordinate:</label>";
           echo "<select name='y-coord' id='y-coord'>";
           for($i = 1; $i <= 10; $i++)
           {
-            echo "<option value='" . $i > "'>" . $i . "</option>";
+            echo "<option value='" . $i . "'>" . $i . "</option>";
           }
           echo "</select>";
           echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
