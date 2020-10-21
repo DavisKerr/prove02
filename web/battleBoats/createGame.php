@@ -62,7 +62,7 @@ function validategameName($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-/*
+
 function validateCode($data)
 {
   try
@@ -92,7 +92,7 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
-
+/*
 function insertRecord($data, $db)
 {
   try
