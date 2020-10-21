@@ -4,7 +4,7 @@
   require 'getDB.php';
   require 'auth.php';
   require 'gameRequest.php';
-  require 'createGame.php'
+  require 'createGame.php';
 
   $activeGameSearchErr = $pendingGameSearchErr = $finishedGameSearchErr = "";
   $activeGameSearch = $pendingGameSearch =  $finishedGameSearch = "%";
