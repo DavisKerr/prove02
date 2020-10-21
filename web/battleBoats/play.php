@@ -16,10 +16,10 @@
   {
     $is_placed = '';
     $query = "SELECT player_1_ready, player_2_ready, game_owner FROM public.game WHERE id = :game_id";
-    /*$statment = $db->prepare($query);
+    $statment = $db->prepare($query);
     $statment->execute(array(":game_id"=> $_SESSION["current_game_id"]));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($rows as $row)
+    /*foreach($rows as $row)
     {
       if($row["game_owner"] == $_SESSION["user_id"])
       {
