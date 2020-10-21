@@ -14,8 +14,9 @@
 
   function queryNewGame($db)
   {
+    
     $is_placed = '';
-    $query = "SELECT player_1_ready, player_2_ready, game_owner FROM public.game WHERE id = :game_id";
+    /*$query = "SELECT player_1_ready, player_2_ready, game_owner FROM public.game WHERE id = :game_id";
     $statment = $db->prepare($query);
     $statment->execute(array(":game_id"=> $_SESSION["current_game_id"]));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +30,8 @@
       {
         $is_placed = $row["player_2_ready"];
       }
-    }
+    }*/
+    return $is_placed;
   }
 
   function queryPlayerBoard($database)
@@ -204,9 +206,6 @@
       <div id="moveForm">
         <h4>It's your turn! Where would you like to strike?</h4>
         <form id="moves">
-        <?php
-          
-        ?>
           <div>
             <label for="x-coord">X-Coordinate:</label>
             <select name="x-coord" id="x-coord">
