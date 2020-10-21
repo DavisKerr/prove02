@@ -102,6 +102,8 @@ function insertRecord($data, $db)
     , grid_owner
     , grid_opponent
     , is_active
+    , player_1_ready
+    , player_2_ready
     , date_created
     )
     VALUES
@@ -111,6 +113,8 @@ function insertRecord($data, $db)
     , :type
     , :board
     , :board
+    , 0
+    , 0
     , 0
     , (SELECT CURRENT_TIMESTAMP)
     )");

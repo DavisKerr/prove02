@@ -26,6 +26,8 @@ CREATE TABLE public.game
 , grid_owner VARCHAR(256) NOT NULL
 , grid_opponent VARCHAR(256) NOT NULL
 , is_active INT NOT NULL
+, player_1_ready INT NOT NULL
+, player_2_ready INT NOT NULL
 , date_created TIMESTAMP NOT NULL
 , CONSTRAINT fk_game_owner FOREIGN KEY(game_owner) REFERENCES public.user(id)
 , CONSTRAINT fk_opponent FOREIGN KEY(opponent) REFERENCES public.user(id)
@@ -97,200 +99,6 @@ VALUES
 ( 'myusername3'
 , 'mypassword3'
 , 'mydisplayname3'
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-INSERT INTO public.game
-( game_owner
-, opponent
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 1
-, 2
-, 'Battle Boats 2.0'
-, '2FGH59KJD3'
-, 'PUBLIC'
-, 
-'/ * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * *  
- / * * O * * X * * * *  
- / * * * * * V * * * * 
- / * * O * * V * * * *  
- / * * * * * * * * * *  
- / * V V V V V * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-,
-'/ * * X V V V * * * * 
- / * * * * * * * * * *  
- / * * O * * * * * * *  
- / * * O * * * * * * *  
- / * * * * * V * * * * 
- / * * * * * V * * * *  
- / * * * * * V * * * *  
- / * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-, 1
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-INSERT INTO public.game
-( game_owner
-, opponent
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 1
-, 3
-, 'Battles!'
-, '2FGH59KJD'
-, 'PUBLIC'
-, 
-'/ * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * *  
- / * * O * * X * * * *  
- / * * * * * V * * * * 
- / * * O * * V * * * *  
- / * * * * * * * * * *  
- / * V V V V V * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-,
-'/ * * X V V V * * * * 
- / * * * * * * * * * *  
- / * * O * * * * * * *  
- / * * O * * * * * * *  
- / * * * * * V * * * * 
- / * * * * * V * * * *  
- / * * * * * V * * * *  
- / * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-, 1
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-INSERT INTO public.game
-( game_owner
-, opponent
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 2
-, 3
-, 'Battles 1!'
-, '2FGH59KJ'
-, 'PUBLIC'
-, 
-'/ * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * *  
- / * * O * * X * * * *  
- / * * * * * V * * * * 
- / * * O * * V * * * *  
- / * * * * * * * * * *  
- / * V V V V V * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-,
-'/ * * X V V V * * * * 
- / * * * * * * * * * *  
- / * * O * * * * * * *  
- / * * O * * * * * * *  
- / * * * * * V * * * * 
- / * * * * * V * * * *  
- / * * * * * V * * * *  
- / * * * * * * * * * * 
- / * * * * * * * * * *  
- / * * * * * * * * * * '
-, 1
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-
-
-INSERT INTO public.game
-( game_owner
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 2
-, 'Battle Boats 5.0'
-, 'QDEF574389'
-, 'PUBLIC'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
-, 0
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-INSERT INTO public.game
-( game_owner
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 1
-, 'Battle Boats 3.0'
-, 'CODE7'
-, 'PRIVATE'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
-, 0
-, (SELECT CURRENT_TIMESTAMP)
-);
-
-INSERT INTO public.game
-( game_owner
-, game_name
-, game_code
-, game_type
-, grid_owner
-, grid_opponent
-, is_active
-, date_created
-)
-VALUES
-( 2
-, 'Battle Boats 4.0'
-, 'CODE75'
-, 'PUBLIC'
-, '* * * * * * * * * *'
-, '* * * * * * * * * *'
-, 0
 , (SELECT CURRENT_TIMESTAMP)
 );
 
@@ -495,6 +303,7 @@ VALUES
 , (SELECT CURRENT_TIMESTAMP)
 );
 
-
+SELECT player_1_ready, player_2_ready FROM public.game
+WHERE id = :game_id;
 
 
