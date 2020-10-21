@@ -478,7 +478,9 @@ SELECT grid_owner, grid_opponent, game_owner
       FROM public.game
       WHERE id = 1;
 
-
+UPDATE public.game
+SET opponent = 2, is_active = 1
+WHERE id = 9;
 
 
 
