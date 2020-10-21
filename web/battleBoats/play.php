@@ -114,7 +114,7 @@
 
     return $rows;
   }
-  sendMessage($db);
+  $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
 ?>
@@ -451,6 +451,7 @@
           <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
             
           </textarea>
+          <span class="error"><?php echo $messageErr["messageErr"]; ?></span><br>
           <br>
           <button type="submit"  class="btn btn-success" id="sendMessageBtn">Send</button>
         </form>
