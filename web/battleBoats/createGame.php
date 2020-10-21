@@ -1,5 +1,5 @@
 <?php
-
+/*
 function isNewGame($db)
 {
   try
@@ -108,7 +108,7 @@ function insertRecord($data, $db)
     / * * * * * * * * * * 
     / * * * * * * * * * *  
     / * * * * * * * * * *";
-    
+
     $statement = $db->prepare("
     INSERT INTO public.game
     ( game_owner
@@ -139,7 +139,7 @@ function insertRecord($data, $db)
     //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
-}
+}*/
 
 
 
