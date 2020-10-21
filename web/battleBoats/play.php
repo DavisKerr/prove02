@@ -140,7 +140,6 @@
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   $hasPlaced = queryNewGame($db);
-  echo $hasPlaced;
   
 ?>
 
@@ -206,39 +205,36 @@
       </div>
 
       <div id="moveForm">
-        <h4>It's your turn! Where would you like to strike?</h4>
-        <form id="moves">
-          <div>
-            <label for="x-coord">X-Coordinate:</label>
-            <select name="x-coord" id="x-coord">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-            <label for="y-coord">y-Coordinate:</label>
-            <select name="y-coord" id="y-coord">
-              <option value="1">A</option>
-              <option value="2">B</option>
-              <option value="3">C</option>
-              <option value="4">D</option>
-              <option value="5">E</option>
-              <option value="6">F</option>
-              <option value="7">G</option>
-              <option value="8">H</option>
-              <option value="9">I</option>
-              <option value="10">J</option>
-            </select>
-          </div>
-          
-          <button type="submit" class="btn btn-danger" id="fireBtn">Fire!</button>
-        </form>
+      <?php 
+        if($hasPlaced != 1)
+        {
+          echo "<h4>It's your turn! Where would you like to strike?</h4>";
+          echo "<form id='moves'>";
+          echo "<div>";
+          echo "<label for='x-coord'>X-Coordinate:</label>";
+          echo "<select name='x-coord' id='x-coord'>";
+          for($i = 1; $i <= 10; $i++)
+          {
+            echo "<option value='" . $i > "'>" . $i . "</option>";
+          }
+          echo "</select>";
+          echo "<label for='y-coord'>y-Coordinate:</label>";
+          echo "<select name='y-coord' id='y-coord'>";
+          for($i = 1; $i <= 10; $i++)
+          {
+            echo "<option value='" . $i > "'>" . $i . "</option>";
+          }
+          echo "</select>";
+          echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
+          echo "</div>";
+          echo "</form>";
+        }
+        else
+        {
+          //Code here to generate ships.
+        }
+      ?>
+            
       </div>
 
       <div id="gameMessages">
