@@ -1,5 +1,13 @@
 <?php
 
+function test_input($data) 
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 function isNewGame($db)
 {
   try
@@ -84,8 +92,6 @@ function validateCode($data)
     echo "ERROR: " . $e->getMessage() . "\n";
   } 
 }
-
-
 
 
 function insertRecord($data, $db)
