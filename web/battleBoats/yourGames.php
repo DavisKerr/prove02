@@ -237,6 +237,7 @@
               <th>Date Created</th>
               <th>Type</th>
               <th>Owner</th>
+              <th>Game Code</th>
               <!--<th>Play Game</th>-->
             </tr>
             <?php

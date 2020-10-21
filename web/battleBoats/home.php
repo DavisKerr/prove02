@@ -24,11 +24,12 @@
       WHERE g.is_active = 0 
       AND g.game_type = 'PUBLIC' 
       AND LOWER(g.game_name) LIKE LOWER(:search)
+      AND g.game_owner <> :user_id
       ORDER BY g.date_created
       ";
 
       $stmt = $database->prepare($query);
-      $stmt->execute(array(':search'=>$search));
+      $stmt->execute(array(':search'=>$search, ':user_id'=>$_SESSION["user_id"]));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
