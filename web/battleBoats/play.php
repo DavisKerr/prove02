@@ -14,10 +14,22 @@
 
   function queryNewGame($db)
   {
+    $is_placed = '';
     $query = "SELECT player_1_ready, player_2_ready, game_owner FROM public.game WHERE id = :game_id";
     $statment = $db->prepare($query);
     $statment->execute(array(":game_id"=> $_SESSION["current_game_id"]));
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($rows as $row)
+    {
+      if($row["game_owner"] == $_SESSION["user_id"])
+      {
+        $is_placed = $row["player_1_ready"];
+      }
+      else
+      {
+        $is_placed = $row["player_2_ready"];
+      }
+    }
   }
 
   function queryPlayerBoard($database)
@@ -124,6 +136,7 @@
   }
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
+  $newGameData = queryNewGame($db);
   
 ?>
 
