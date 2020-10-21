@@ -10,7 +10,7 @@ function isNewGame($db)
       $dataArr = validateForm($dataArr);
       if($dataArr["isValid"])
       {
-        insertRecord($dataArr, $db)
+        insertRecord($dataArr, $db);
       }
       return $dataArr;
     }
@@ -20,7 +20,7 @@ function isNewGame($db)
     echo "ERROR: " . $e->getMessage() . "\n";
   }
 }
-/*
+
 function validateForm($data)
 {
   try
@@ -139,7 +139,7 @@ function insertRecord($data, $db)
     //echo "ERROR: " . $e->getMessage() . "\n";
     return FALSE;
   }
-}*/
+}
 
 
 
