@@ -107,8 +107,7 @@ function generateSpace($len, $occupiedSpaces)
         if(sizeof($finalNumbers) == $len)
         {
         	$valid = TRUE;
-            echo "<br>";
-            $occupiedSpaces = array_merge($occupiedSpaces, $finalNumbers);
+          $occupiedSpaces = array_merge($occupiedSpaces, $finalNumbers);
         }
     }
 	return $occupiedSpaces;
@@ -149,6 +148,7 @@ function generateBoard($occupiedSpaces)
         	$board .= "/ ";
         }
     }
+    echo $board . "<br>";
     return $board;
 }
 
