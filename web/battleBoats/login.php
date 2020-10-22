@@ -15,7 +15,7 @@
     return $db_data;
   }
   
-  $usernameErr = $passwdErr =  "";
+  $usernameErr = $passwdErr = $wrongErr  "";
   $username = $passwd =  "";
   $isValid = TRUE;
   $isloggedIn = FALSE;
@@ -33,7 +33,7 @@
   {
     if (empty($_POST["password"])) 
     {
-      $passwdErr = "Street Address is required";
+      $passwdErr = " Password is required";
       $isValid = FALSE;
     } else 
     {
@@ -59,6 +59,10 @@
       $_SESSION["loggedIn"] = TRUE;
       $_SESSION["username"] = $db_data["db_username"];
       $_SESSION["user_id"] = $db_data["db_id"];
+    }
+    else
+    {
+      $wrongErr = "Incorrect username or password.";
     }
 
   }
@@ -114,11 +118,12 @@
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
+        <span class="error"><?php echo $wrongErr; ?></span>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php $username ?>">
               <span><?php echo $usernameErr; ?></span>
             </div>
             <div class="fieldContainer">
