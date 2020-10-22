@@ -187,7 +187,7 @@
   $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
-  $finished_user_games = function queryDatabaseForFinishedUserGames($database, $finishedGameSearch)
+  //$finished_user_games = function queryDatabaseForFinishedUserGames($database, $finishedGameSearch)
 ?>
 
 <!DOCTYPE html>
@@ -328,7 +328,7 @@
             </tr>
             <?php
               
-              foreach($finished_user_data as $row)
+              /*foreach($finished_user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
@@ -341,7 +341,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>";
                 echo "</tr>\n";
-              }
+              }*/
             ?>  
           </table> 
         </div> <!--End game finder area-->
