@@ -322,3 +322,6 @@ VALUES
 , 3
 , "(3, 3)"
 );
+
+
+SELECT * FROM public.moves WHERE game_id = :game_id;
