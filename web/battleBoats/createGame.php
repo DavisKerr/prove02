@@ -93,7 +93,8 @@ function insertRecord($data, $db)
 {
   try
   {
-    $board = getBoard();
+    $board1 = getBoard();
+    $board2 = getBoard();
 
     $statement = $db->prepare("
     INSERT INTO public.game
@@ -111,13 +112,13 @@ function insertRecord($data, $db)
     , :gameName
     , :code
     , :type
-    , :board
-    , :board
+    , :board1
+    , :board2
     , 0
     , (SELECT CURRENT_TIMESTAMP)
     )");
     $statement->execute(array(':user_id'=>$_SESSION["user_id"], ':code'=>$data["code"], 
-    ':gameName'=>$data["gameName"], ':type'=>$data["type"], ':board'=>$board));
+    ':gameName'=>$data["gameName"], ':type'=>$data["type"], ':board1'=>$board1, ':board2'=>$board2 ));
     return TRUE;
   }
   catch(Exception $e)
