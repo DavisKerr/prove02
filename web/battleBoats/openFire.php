@@ -1,7 +1,7 @@
 <?php
 
 
-function isFiring($db)
+function isFiring($db, $enemyData)
 {
   if($_SERVER["REQUEST_METHOd"] == "POST")
   {
@@ -9,14 +9,14 @@ function isFiring($db)
     {
       if(isset($_POST["y-coord"]))
       {
-        $board = fire($_POST["x-coord"], $_POST["y-coord"]);
+        $board = fire($_POST["x-coord"], $_POST["y-coord"], $enemyData["board"]);
         if($board == "ERROR")
         {
           return "ERROR: ALREADY TRIED THERE!";
         }
         else
         {
-          //Query!
+          updateBoard($db, $board, $enemyData["which"]);
         }
       }
     }
@@ -24,9 +24,8 @@ function isFiring($db)
   
 }
 
-function fire($x, $y)
+function fire($x, $y, $board)
 {
-  $board = "/*****V*V**/*****V*V**/*****V*V**/*******V**/*******V**/VV********/*********V/**V******V/**V******V/**V******V";
   $board = str_split($board); 
   $coord = intval(strval($y - 1) . strval($x - 1));
   
@@ -59,9 +58,13 @@ function fire($x, $y)
   return $board;
 }
 
-function updateBoard($db, $board)
+function updateBoard($db, $board, $which)
 {
-
+  $query = "UPDATE public.game
+  SET :userBoard = :newBoard
+  WHERE id = :game_id";
+  $statement = $db->prepare($query);
+  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":userBoard"=>$which, ":newBoard"=>$board));
 }
 
 ?>

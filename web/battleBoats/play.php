@@ -116,8 +116,8 @@
 
     return $rows;
   }
-
-  $fireError = isFiring($db);
+  $enemyData = queryEnemyBoard($db);
+  $fireError = isFiring($db, $enemyData);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
