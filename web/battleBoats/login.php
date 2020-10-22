@@ -123,13 +123,13 @@
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php $username ?>">
-              <span><?php echo $usernameErr; ?></span>
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+              <span class="error"><?php echo $usernameErr; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
               <input type="password" name="password" id="password" placeholder="Password" class="loginField">
-              <span><?php echo $passwdErr; ?></span>
+              <span class="error"><?php echo $passwdErr; ?></span>
             </div>
             <button type="submit" class="btn btn-success" id="confirmBtn">Login</button>
           </div>
