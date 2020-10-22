@@ -187,7 +187,8 @@
   $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
-  $finished_user_games = function queryDatabaseForFinishedUserGames($database, $finishedGameSearch);
+  echo $finishedGameSearch;
+  //$finished_user_games = function queryDatabaseForFinishedUserGames($database, $finishedGameSearch);
 ?>
 
 <!DOCTYPE html>
