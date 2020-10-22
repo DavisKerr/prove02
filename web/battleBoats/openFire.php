@@ -16,7 +16,7 @@ function isFiring($db)
         }
         else
         {
-
+          //Query!
         }
       }
     }
@@ -61,7 +61,7 @@ function fire($x, $y)
 
 function updateBoard($db, $board)
 {
-  
+
 }
 
 ?>
