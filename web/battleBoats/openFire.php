@@ -64,7 +64,7 @@ function updateBoard($db, $board, $which)
 {
   try
   {
-    $query = "UPDATE public.game SET" . $which . "= :newBoard WHERE id = :game_id";
+    $query = "UPDATE public.game SET " . $which . " = :newBoard WHERE id = :game_id";
     $statement = $db->prepare($query);
     $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":newBoard"=>$board));
   }
