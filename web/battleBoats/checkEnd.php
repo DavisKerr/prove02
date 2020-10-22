@@ -15,7 +15,7 @@
     if($counter == 17)
     {
       return TRUE;
-      finishGame($db);
+      //finishGame($db);
     }
     else
     {
@@ -29,7 +29,7 @@
     {
       $query = "UPDATE public.game
       SET is_active = 0, game_type = 'FINISHED'
-      WHERE id = :game_id;";
+      WHERE id = :game_id";
       $statement = $db->prepare($query);
       $statement->execute(array(':game_id'=>$_SESSION["current_game_id"]));
     }

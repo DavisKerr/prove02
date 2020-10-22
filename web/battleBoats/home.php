@@ -23,7 +23,7 @@
       JOIN public.user AS u 
       ON g.game_owner = u.id 
       WHERE g.is_active = 0 
-      AND g.game_type = 'PUBLIC' 
+      AND g.game_type LIKE 'PUBLIC' 
       AND LOWER(g.game_name) LIKE LOWER(:search)
       AND g.game_owner <> :user_id
       ORDER BY g.date_created
@@ -54,7 +54,7 @@
       JOIN public.user AS u 
       ON g.game_owner = u.id 
       WHERE g.is_active = 0 
-      AND g.game_type = 'PRIVATE' 
+      AND g.game_type LIKE 'PRIVATE' 
       AND LOWER(g.game_code) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";

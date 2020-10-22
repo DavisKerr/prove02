@@ -101,7 +101,7 @@
       WHERE g.opponent = :player_id
       or g.game_owner = :player_id
       AND g.is_active = 0
-      AND g.game_type = 'FINISHED'
+      AND g.game_type LIKE 'FINISHED'
       AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";
@@ -132,7 +132,7 @@
       ON g.game_owner = u.id
       WHERE g.game_owner = :player_id
       AND g.is_active = 0
-      AND NOT g.game_type = 'FINISHED'
+      AND NOT g.game_type LIKE 'FINISHED'
       AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";

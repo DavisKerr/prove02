@@ -23,6 +23,11 @@ function isFiring($db, $enemyData, $moveData)
             $move = 0;
           }
           insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $move);
+
+          if(checkEnd($db, $board))
+          {
+            finishGame($db);
+          }
         }
       }
     }
