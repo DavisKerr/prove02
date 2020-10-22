@@ -61,10 +61,10 @@ function fire($x, $y, $board)
 function updateBoard($db, $board, $which)
 {
   $query = "UPDATE public.game
-  SET :userBoard = :newBoard
+  SET" . $which . "= :newBoard
   WHERE id = :game_id";
   $statement = $db->prepare($query);
-  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":userBoard"=>$which, ":newBoard"=>$board));
+  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":newBoard"=>$board));
 }
 
 ?>

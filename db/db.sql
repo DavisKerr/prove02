@@ -305,7 +305,7 @@ SELECT player_1_ready, player_2_ready FROM public.game
 WHERE id = :game_id;
 
 UPDATE public.game
-SET :userBoard = :newBoard
-WHERE id = :game_id;
+SET 'grid_owner' = '***'
+WHERE id = 1;
 
 
