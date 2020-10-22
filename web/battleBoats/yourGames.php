@@ -328,7 +328,7 @@
             </tr>
             <?php
               
-              foreach($pending_user_data as $row)
+              foreach($finished_user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
