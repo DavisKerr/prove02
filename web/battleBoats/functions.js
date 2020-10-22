@@ -12,3 +12,30 @@ function addCode()
     area.innerHTML = "";
   }
 }
+
+
+var num_clicks = 0;
+function selectLocation()
+{
+  if(num_clicks % 2 == 0)
+  {
+    //start
+  }
+  else
+  {
+    //end
+  }
+  num_clicks++;
+}
+
+function activeShip()
+{
+
+}
+
+function validateShip()
+{
+  
+}
+
+

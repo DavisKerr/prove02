@@ -154,6 +154,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="functions.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -188,12 +189,20 @@
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
       <?php
+      if($hasPlaced == 1)
+      {
         $type = "opponentBoard";
         $name = "Enemy Board";
         $is_player_board = FALSE;
         $board = queryEnemyBoard($db);
         require 'readBoard.php';
-        ?>
+      }
+      else
+      {
+        //Use this space for ship generation.
+      }
+        
+      ?>
 
         <?php
         $type = "playerBoard";
@@ -231,9 +240,78 @@
         }
         else
         {
-          //Code here to generate ships.
+          $shipValues = array(2, 3, 3, 4, 5);
+          $shipNames = array('destroyer', 'submarine', 'cruiser', 'battleship', 'carrier');
+
+
+          echo "<h4>Where would you like to place your ships?</h4>";
+          echo "<form id='ships'>";
+          echo "<div>";
+          for($i = 0; $i < 5; $i++)
+          {
+            echo "<h5> Place " . $shipNames[$i] . " </h5><br>";
+            echo "<label for='" . $shipNames[$i] . "starting-x-coord'>Starting X-Coordinate:</label>";
+            echo "<select name='" . $shipNames[$i] ."starting-x-coord' id='" . $shipNames[$i] ."starting-x-coord'>";
+            for($i = 1; $i <= 10; $i++)
+            {
+              echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+
+            echo "<label for='" . $shipNames[$i] . "starting-y-coord'>Starting Y-Coordinate:</label>";
+            echo "<select name='" . $shipNames[$i] ."starting-y-coord' id='" . $shipNames[$i] ."starting-y-coord'>";
+            for($i = 1; $i <= 10; $i++)
+            {
+              echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+
+            echo "<label for='" . $shipNames[$i] . "ending-x-coord'>Starting X-Coordinate:</label>";
+            echo "<select name='" . $shipNames[$i] ."ending-x-coord' id='" . $shipNames[$i] ."ending-x-coord'>";
+            for($i = 1; $i <= 10; $i++)
+            {
+              echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+
+            echo "<label for='" . $shipNames[$i] . "ending-y-coord'>Ending Y-Coordinate:</label>";
+            echo "<select name='" . $shipNames[$i] ."ending-y-coord' id='" . $shipNames[$i] ."ending-y-coord'>";
+            for($i = 1; $i <= 10; $i++)
+            {
+              echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+            
+          }
+          
+         
+          
+          echo "</select>";
+          echo "<label for='starting-y-coord'>Starting y-Coordinate:</label>";
+          echo "<select name='starting-y-coord' id='starting-y-coord'>";
+          for($i = 1; $i <= 10; $i++)
+          {
+            echo "<option value='" . $i . "'>" . $i . "</option>";
+          }
+          echo "</select>";
+          echo "<br>";
+
+          echo "<label for='len_2'>Ending Coordinates:</label>"
+          echo "<label for='ending-x-coord'>Ending X-Coordinate:</label>";
+          echo "<select name='ending-x-coord' id='starting-x-coord'>";
+          for($i = 1; $i <= 10; $i++)
+          {
+            echo "<option value='" . $i . "'>" . $i . "</option>";
+          }
+          echo "</select>";
+          echo "<label for='ending-y-coord'>Ending y-Coordinate:</label>";
+          echo "<select name='ending-y-coord' id='starting-y-coord'>";
+          for($i = 1; $i <= 10; $i++)
+          {
+            echo "<option value='" . $i . "'>" . $i . "</option>";
+          }
+          echo "</select>";
+          echo "<br>";
+          
         }
       ?>
+
             
       </div>
 
