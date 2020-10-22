@@ -17,7 +17,12 @@ function isFiring($db, $enemyData, $moveData)
         else
         {
           updateBoard($db, $board, $enemyData["which"]);
-          insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $moveData["move_number"]);
+          $move = $moveData["move_number"];
+          if(empty($moveData))
+          {
+            $move = 0;
+          }
+          insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $move);
         }
       }
     }
