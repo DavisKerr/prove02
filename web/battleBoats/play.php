@@ -4,6 +4,7 @@
   require 'auth.php';
   require 'getDB.php';
   require 'sendMessage.php';
+  require 'openFire.php';
 
   if(!isset($_SESSION["current_game_id"]))
   {
@@ -54,6 +55,7 @@
   function queryEnemyBoard($database)
   {
     $board="";
+    $column = '';
     try
     {
       $query = "    
@@ -71,10 +73,12 @@
         if($row["game_owner"] == $_SESSION["user_id"])
         {
           $board = $row["grid_opponent"];
+          $column = "grid_opponent";
         }
         else
         {
           $board = $row["grid_owner"];
+          $column = "grid_owner";
         }
       }
 
@@ -85,7 +89,7 @@
       die();
     }
 
-    return $board;
+    return array($board, $column);
   }
 
   function queryDatabaseForMessages($database)
@@ -114,6 +118,9 @@
 
     return $rows;
   }
+
+  $board = queryEnemyBoard($database);
+  $fireError = openFire($db, $board[1]);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
@@ -201,7 +208,8 @@
           {
             echo "<option value='" . $i . "'>" . $i . "</option>";
           }
-          echo "</select>";
+          echo "</select><br>";
+          echo "<span class='error'>" . $fireError . "</span><br>";
           echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
           echo "</div>";
           echo "</form>";
