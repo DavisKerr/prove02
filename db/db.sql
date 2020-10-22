@@ -325,3 +325,7 @@ VALUES
 
 
 SELECT * FROM public.moves WHERE game_id = :game_id;
+
+UPDATE public.game
+SET is_active = 0, game_type = 'FINISHED'
+WHERE id = :game_id;

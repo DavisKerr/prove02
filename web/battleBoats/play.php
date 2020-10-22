@@ -6,6 +6,7 @@
   require 'sendMessage.php';
   require 'openFire.php';
   require 'turnCount.php';
+  require 'checkEnd.php';
 
   if(!isset($_SESSION["current_game_id"]))
   {
@@ -123,6 +124,9 @@
   $fireError = isFiring($db, $enemyData, $turnInfo);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
+
+  $defeat = FALSE;
+  $victory = FALSE;
   
   
 ?>
@@ -178,6 +182,7 @@
         $is_player_board = FALSE;
         $enemyData = queryEnemyBoard($db);
         $board = $enemyData["board"];
+        $victory = checkEnd($db, $board);
         require 'readBoard.php';
         
       ?>
@@ -187,13 +192,14 @@
         $name = "Your Board";
         $is_player_board = TRUE;
         $board = queryPlayerBoard($db);
+        $defeat = checkEnd($db, $board); 
         require 'readBoard.php';
         ?>
       </div>
 
       <div id="moveForm">
       <?php 
-        if(isPlayerTurn($db))
+        if(isPlayerTurn($db) && !$defeat && !$victory)
         {
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves' method='POST' action=". htmlspecialchars($_SERVER["PHP_SELF"]) . ">";
@@ -217,9 +223,17 @@
           echo "</div>";
           echo "</form>";
         }
+        elseif($victory)
+        {
+          echo "<h4> Congratulations, you won!</h4>";
+        }
+        elseif($defeat)
+        {
+          echo "<h4> You lost. Better luck next time!</h4>";
+        }
         else
         {
-          echo "It is not your turn right now. Check back again soon!";
+          echo "<h4>It is not your turn right now. Check back again soon!</h4>";
         }
       
       ?>

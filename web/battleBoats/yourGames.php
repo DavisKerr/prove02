@@ -30,6 +30,21 @@
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
   {
+    if(isset($_POST["finishedGameSearch"]))
+    {
+      if (empty($_POST["finishedGameSearch"])) 
+      {
+        $finishedGameSearchErr  = "Nothing Searched";
+        $isValid = FALSE;
+      } else 
+      {
+        $finishedGameSearch = '%' . test_input($_POST["finishedGameSearch"]) . '%';
+      }
+    }
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
     if(isset($_POST["pendingGameSearch"]))
     {
       if (empty($_POST["pendingGameSearch"])) 
@@ -72,6 +87,40 @@
   }
 
 
+  function queryDatabaseForFinishedUserGames($database, $search)
+  {
+    try
+    {
+      $query = "
+      SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
+      FROM public.game AS g
+      JOIN public.user AS u 
+      ON g.game_owner = u.id
+      JOIN public.user AS u2
+      ON g.opponent = u2.id
+      WHERE g.opponent = :player_id
+      or g.game_owner = :player_id
+      AND g.is_active = 0
+      AND g.game_type = 'FINISHED'
+      AND LOWER(g.game_name) LIKE LOWER(:search)
+      ORDER BY g.date_created
+      ";
+
+      $stmt = $database->prepare($query);
+      $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
+    }
+    catch (Exception $ex)
+    {
+      echo 'Error!: ' . $ex->getMessage();
+      die();
+    }
+
+    return $rows;
+    
+  }
+
   function queryDatabaseForPendingUserGames($database, $search)
   {
     try
@@ -83,6 +132,7 @@
       ON g.game_owner = u.id
       WHERE g.game_owner = :player_id
       AND g.is_active = 0
+      AND NOT g.game_type = 'FINISHED'
       AND LOWER(g.game_name) LIKE LOWER(:search)
       ORDER BY g.date_created
       ";
@@ -137,6 +187,7 @@
   $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
+  $finished_user_games = function queryDatabaseForFinishedUserGames($database, $finishedGameSearch)
 ?>
 
 <!DOCTYPE html>
@@ -266,7 +317,33 @@
           </div>
         </form>
         <div class="gameFinderArea">
-        Not implemented yet.
+          <table class="gameTable">
+            <tr>
+              <th>Game Name</th>
+              <th>Date Created</th>
+              <th>Type</th>
+              <th>Owner</th>
+              <th>View Game</th>
+              <!--<th>Play Game</th>-->
+            </tr>
+            <?php
+              
+              foreach($pending_user_data as $row)
+              {
+                echo "<tr>\n";
+                echo "<td>" .  $row["game_name"] . "</td>\n";
+                echo "<td>" .  $row["date_created"] . "</td>\n";
+                echo "<td>" .  $row["game_type"] . "</td>\n";
+                echo "<td>" .  $row["player1"] . "</td>\n";
+                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
+                echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
+                echo "</form>";
+                echo "</tr>\n";
+              }
+            ?>  
+          </table> 
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
