@@ -80,13 +80,13 @@ function insertMoves($db, $x, $y, $moveNum)
 {
   $moveNum++;
   $coords = "(" . $x . ", " . $y . ")";
-
-  $query = "INSERT INTO public.moves
+  try
+  {
+    $query = "INSERT INTO public.moves
   ( sent_by
   , game_id
   , time_sent
   , move_number
-  , board_update_sent_by
   , coords
   )
   VALUES
@@ -98,6 +98,12 @@ function insertMoves($db, $x, $y, $moveNum)
   )";
   $statement = $db->prepare($query);
   $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":moveNum"=>$moveNum, ":coords"=>$coords));
+  }
+  catch(Exception $e)
+  {
+    echo "ERROR: " . $e->getMessage();
+  }
+  
 }
 
 ?>
