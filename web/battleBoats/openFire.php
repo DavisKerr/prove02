@@ -29,9 +29,9 @@ function fire($x, $y, $board)
 {
   
   $board = str_split($board); 
-  $coord = intval(strval($y - 1) . strval($x - 1));
+  $coord = intval(strval($y - 1) . strval($x - 1)) + 1;
   
-  $counter = 1;
+  $counter = 0;
   for($i = 0; $i < sizeof($board); $i++)
   {
   	if($board[$i] != "/")
