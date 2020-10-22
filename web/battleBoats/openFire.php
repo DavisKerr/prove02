@@ -10,6 +10,7 @@ function isFiring($db, $enemyData)
       if(isset($_POST["y-coord"]))
       {
         $board = fire($_POST["x-coord"], $_POST["y-coord"], $enemyData["board"]);
+        echo $board;
         if($board == "ERROR")
         {
           return "ERROR: ALREADY TRIED THERE!";
@@ -60,7 +61,6 @@ function fire($x, $y, $board)
 
 function updateBoard($db, $board, $which)
 {
-  echo $board;
   $query = "UPDATE public.game
   SET" . $which . "= :newBoard
   WHERE id = :game_id";
