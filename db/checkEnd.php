@@ -15,7 +15,7 @@
     if($counter == 17)
     {
       return TRUE;
-      finishGame($db);
+      //finishGame($db);
     }
     else
     {
