@@ -15,7 +15,7 @@
     return $db_data;
   }
   
-  $usernameErr = $passwdErr = $wrongErr  "";
+  $usernameErr = $passwdErr = $wrongErr = "";
   $username = $passwd =  "";
   $isValid = TRUE;
   $isloggedIn = FALSE;
