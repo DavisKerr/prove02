@@ -1,7 +1,5 @@
 <?php
-$board = "/ * * * * * * * * * * / * * * * * * * * * *  / * * * * * * * * * *  / * * * * * * * * * *  / * * * * * * * * * * / * * * * * * * * * *  / * * * * * * * * * *  / * * * * * * * * * * / * * * * * * * * * * / * * * * * * * * * *";
 
-$occupiedSpaces = array();
 
 function checkValidSpaces($occupiedSpaces, $numbers)
 {
@@ -118,6 +116,7 @@ function generateSpace($len, $occupiedSpaces)
 
 function getBoard()
 {
+  $occupiedSpaces = array();
   $occupiedSpaces = generateSpace(5, $occupiedSpaces);
   $occupiedSpaces = generateSpace(4, $occupiedSpaces);
   $occupiedSpaces = generateSpace(3, $occupiedSpaces);
