@@ -154,7 +154,6 @@ function generateBoard($occupiedSpaces)
         	$board .= "/";
         }
     }
-    echo $board . "<br>";
     return $board;
 }
 

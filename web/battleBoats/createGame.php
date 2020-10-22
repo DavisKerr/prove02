@@ -8,7 +8,6 @@ function isNewGame($db)
   {
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["gameName"]))
     {
-      echo "YEET!";
       $dataArr = array("gameName"=>'', "type"=>'PUBLIC', "code"=>'', "gameNameErr"=>'', "codeErr"=>'', "isValid"=>TRUE);
       $dataArr = validateForm($dataArr);
       if($dataArr["isValid"])

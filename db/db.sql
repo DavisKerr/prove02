@@ -305,7 +305,7 @@ SELECT player_1_ready, player_2_ready FROM public.game
 WHERE id = :game_id;
 
 UPDATE public.game
-SET 'grid_owner' = '***'
+SET 'grid_owner' = :grid
 WHERE id = 1;
 
 

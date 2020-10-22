@@ -6,10 +6,12 @@ function isFiring($db, $enemyData)
   print_r($enemyData);
   if($_SERVER["REQUEST_METHOd"] == "POST")
   {
+    echo $_POST["x-coord"] . ", " . $_POST["y-coord"] . "<br>";
     if(isset($_POST["x-coord"]))
     {
       if(isset($_POST["y-coord"]))
       {
+        echo "Passed.";
         $board = fire($_POST["x-coord"], $_POST["y-coord"], $enemyData["board"]);
         if($board == "ERROR")
         {
