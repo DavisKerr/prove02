@@ -121,6 +121,7 @@
   $fireError = isFiring($db, $enemyData);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
+  $turnInfo = getMoves($db);
   
 ?>
 
@@ -190,7 +191,8 @@
 
       <div id="moveForm">
       <?php 
-        
+        if(isPlayerTurn($db, $turnInfo))
+        {
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves' method='POST' action=". htmlspecialchars($_SERVER["PHP_SELF"]) . ">";
           echo "<div>";
@@ -212,7 +214,7 @@
           echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
           echo "</div>";
           echo "</form>";
-        
+        }
       
       ?>
 
