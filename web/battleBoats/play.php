@@ -4,7 +4,7 @@
   require 'auth.php';
   require 'getDB.php';
   require 'sendMessage.php';
-  require 'openFire.php';
+  //require 'openFire.php';
 
   if(!isset($_SESSION["current_game_id"]))
   {
@@ -116,7 +116,7 @@
     return $rows;
   }
 
-  $fireError = openFire();
+  //$fireError = openFire();
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
