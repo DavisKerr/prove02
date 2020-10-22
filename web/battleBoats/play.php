@@ -239,7 +239,7 @@
           echo "</form>";
         }
         else
-        {
+        {/*
           $shipValues = array(2, 3, 3, 4, 5);
           $shipNames = array('destroyer', 'submarine', 'cruiser', 'battleship', 'carrier');
 
@@ -282,33 +282,7 @@
           
          
           
-          echo "</select>";
-          echo "<label for='starting-y-coord'>Starting y-Coordinate:</label>";
-          echo "<select name='starting-y-coord' id='starting-y-coord'>";
-          for($i = 1; $i <= 10; $i++)
-          {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          echo "</select>";
-          echo "<br>";
-
-          echo "<label for='len_2'>Ending Coordinates:</label>"
-          echo "<label for='ending-x-coord'>Ending X-Coordinate:</label>";
-          echo "<select name='ending-x-coord' id='starting-x-coord'>";
-          for($i = 1; $i <= 10; $i++)
-          {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          echo "</select>";
-          echo "<label for='ending-y-coord'>Ending y-Coordinate:</label>";
-          echo "<select name='ending-y-coord' id='starting-y-coord'>";
-          for($i = 1; $i <= 10; $i++)
-          {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          echo "</select>";
-          echo "<br>";
-          
+         */ 
         }
       ?>
 
