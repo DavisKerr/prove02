@@ -10,6 +10,7 @@ function isFiring($db, $enemyData)
       if(isset($_POST["y-coord"]))
       {
         $board = fire($_POST["x-coord"], $_POST["y-coord"], $enemyData["board"]);
+        echo $board;
         if($board == "ERROR")
         {
           return "ERROR: ALREADY TRIED THERE!";
@@ -26,11 +27,11 @@ function isFiring($db, $enemyData)
 
 function fire($x, $y, $board)
 {
-  echo $board;
+  
   $board = str_split($board); 
   $coord = intval(strval($y - 1) . strval($x - 1));
   
-  $counter = 0;
+  $counter = 1;
   for($i = 0; $i < sizeof($board); $i++)
   {
   	if($board[$i] != "/")
