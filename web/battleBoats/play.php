@@ -117,7 +117,7 @@
 
     return $rows;
   }
-  
+
   $turnInfo = getMoves($db);
   $enemyData = queryEnemyBoard($db);
   $fireError = isFiring($db, $enemyData, $turnInfo);
@@ -193,7 +193,7 @@
 
       <div id="moveForm">
       <?php 
-        if(isPlayerTurn($db, $turnInfo))
+        if(isPlayerTurn($db))
         {
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves' method='POST' action=". htmlspecialchars($_SERVER["PHP_SELF"]) . ">";
@@ -216,6 +216,10 @@
           echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
           echo "</div>";
           echo "</form>";
+        }
+        else
+        {
+          echo "It is not your turn right now. Check back again soon!";
         }
       
       ?>

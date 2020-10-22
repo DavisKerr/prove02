@@ -31,8 +31,9 @@
     return $owner;
   }
 
-  function isPlayerTurn($db, $turnData)
+  function isPlayerTurn($db)
   {
+    $turnData = getMoves($db);
     $owner = queryGameOwner($db) == $_SESSION["user_id"];
 
     if(empty($turnData) && $owner)
