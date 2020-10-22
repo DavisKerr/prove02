@@ -60,6 +60,7 @@ function fire($x, $y, $board)
 
 function updateBoard($db, $board, $which)
 {
+  echo $board;
   $query = "UPDATE public.game
   SET" . $which . "= :newBoard
   WHERE id = :game_id";
