@@ -2,7 +2,7 @@
 
   function checkEnd($db, $board)
   {
-    $board = str_split($board);
+    /*$board = str_split($board);
     $counter = 0;
     foreach($board as $square)
     {
@@ -20,7 +20,7 @@
     else
     {
       return FALSE;
-    }
+    }*/
   }
 
   /*function finishGame($db)
