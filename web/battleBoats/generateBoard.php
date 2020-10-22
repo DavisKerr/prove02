@@ -1,7 +1,7 @@
 <?php
 
 
-function checkValidSpaces($occupiedSpaces, $numbers)
+function checkValidSpaces($occupiedSpaces, $number)
 {
 	foreach($occupiedSpaces as $space)
     {
@@ -16,101 +16,107 @@ function checkValidSpaces($occupiedSpaces, $numbers)
 
 function generateSpace($len, $occupiedSpaces)
 {
-	$valid = FALSE;
-	while(!$valid)
+  $valid = FALSE;
+  while(!$valid)
+  {
+    $finalNumbers = array();
+    $start = rand(1,100);
+    if(checkValidSpaces($occupiedSpaces, $start))
     {
-    	$finalNumbers = array();
-    	$start = rand(1,100);
-        array_push($finalNumbers, $start);
-    	$direction = rand(1, 4);
-		for($i = 1; $i <= $len; $i++)
-        {
-        	if($direction == 1)
-            {
-            	$newNum = $start + $i;
-                if($newNum % 10 == 0 && $i < $len + 1)
-                {
-                	break;
-                }
-                else
-                {
-                	if(checkValidSpaces($occupiedSpaces, $newNum))
-                    {
-                    	array_push($finalNumbers, $newNum);
-                    }
-                    else
-                    {
-                    	break;
-                    }
-                	
-                }
-            }
-            elseif($direction == 2)
-            {
-            	$newNum = $start - $i;
-                if(($newNum) % 10 == 0)
-                {
-                	break;
-                }
-                else
-                {
-                	if(checkValidSpaces($occupiedSpaces, $newNum))
-                    {
-                    	array_push($finalNumbers, $newNum);
-                    }
-                    else
-                    {
-                    	break;
-                    }
-                }
-            }
-            elseif($direction == 3)
-            {
-            	$newNum = $start + $i * 10;
-                if($newNum > 100)
-                {
-                	break;
-                }
-                else
-                {
-                	if(checkValidSpaces($occupiedSpaces, $newNum))
-                    {
-                    	array_push($finalNumbers, $newNum);
-                    }
-                    else
-                    {
-                    	break;
-                    }
-                }
-            }
-            else
-            {
-            	$newNum = $start - $i * 10;
-                if($newNum < 0)
-                {
-                	break;
-                }
-                else
-                {
-                	if(checkValidSpaces($occupiedSpaces, $newNum))
-                    {
-                    	array_push($finalNumbers, $newNum);
-                    }
-                    else
-                    {
-                    	break;
-                    }
-                }
-            }
-        }
-        
-        if(sizeof($finalNumbers) == $len)
-        {
-        	$valid = TRUE;
-          $occupiedSpaces = array_merge($occupiedSpaces, $finalNumbers);
-        }
+      array_push($finalNumbers, $start);
     }
-	return $occupiedSpaces;
+    else
+    {
+      continue;
+    }
+    $direction = rand(1, 4);
+    for($i = 1; $i <= $len; $i++)
+    {
+      if($direction == 1)
+      {
+        $newNum = $start + $i;
+        if($newNum % 10 == 0 && $i < $len + 1)
+        {
+          break;
+        }
+        else
+        {
+          if(checkValidSpaces($occupiedSpaces, $newNum))
+          {
+            array_push($finalNumbers, $newNum);
+          }
+          else
+          {
+            break;
+          }
+        }
+      }
+      elseif($direction == 2)
+      {
+        $newNum = $start - $i;
+        if(($newNum) % 10 == 0)
+        {
+          break;
+        }
+        else
+        {
+          if(checkValidSpaces($occupiedSpaces, $newNum))
+          {
+          array_push($finalNumbers, $newNum);
+          }
+          else
+          {
+            break;
+          }
+        }
+      } 
+      elseif($direction == 3)
+      {
+        $newNum = $start + $i * 10;
+        if($newNum > 100)
+        {
+          break;
+        }
+        else
+        {
+          if(checkValidSpaces($occupiedSpaces, $newNum))
+          {
+            array_push($finalNumbers, $newNum);
+          }
+          else
+          {
+            break;
+          }
+        }
+      } 
+      elseif($direction == 4)
+      {
+        $newNum = $start - $i * 10;
+        if($newNum <= 0)
+        {
+          break;
+        }
+        else
+        {
+          if(checkValidSpaces($occupiedSpaces, $newNum))
+          {
+            array_push($finalNumbers, $newNum);
+          }
+          else
+          {
+            break;
+          }
+        }
+      } //
+    } 
+
+    if(sizeof($finalNumbers) == $len)
+    {
+    $valid = TRUE;
+    $occupiedSpaces = array_merge($occupiedSpaces, $finalNumbers);
+    }
+  }
+  return $occupiedSpaces;
 }
 
 function getBoard()
