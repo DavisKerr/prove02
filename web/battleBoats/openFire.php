@@ -75,4 +75,26 @@ function updateBoard($db, $board, $which)
   
 }
 
+function insertMoves($db, $x, $y, $moveNum)
+{
+  $moveNum++;
+  $coords = "(" . $x . ", " . $y . ")";
+
+  $query = "INSERT INTO public.moves
+  ( sent_by
+  , game_id
+  , time_sent
+  , move_number
+  , board_update_sent_by
+  , coords
+  )
+  VALUES
+  ( :user_id
+  , :game_id
+  , (SELECT CURRENT_TIMESTAMP)
+  , :moveNum
+  , :coords
+  )";
+}
+
 ?>

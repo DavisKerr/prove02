@@ -47,7 +47,7 @@ CREATE TABLE public.moves
 , game_id INT NOT NULL
 , time_sent TIMESTAMP NOT NULL
 , move_number INT NOT NULL
-, board_update_sent_by VARCHAR(100) NOT NULL
+, coords VARCHAR(100) NOT NULL
 , CONSTRAINT fk_sent_by FOREIGN KEY(sent_by) REFERENCES public.user(id)
 , CONSTRAINT fk_game_id FOREIGN KEY(game_id) REFERENCES public.game(id)
 );
@@ -308,4 +308,17 @@ UPDATE public.game
 SET 'grid_owner' = :grid
 WHERE id = 1;
 
-
+INSERT INTO public.moves
+( sent_by
+, game_id
+, time_sent
+, move_number
+, coords
+)
+VALUES
+( 1
+, 1
+, (SELECT CURRENT_TIMESTAMP)
+, 3
+, "(3, 3)"
+);
