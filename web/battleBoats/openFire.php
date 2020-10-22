@@ -97,7 +97,7 @@ function insertMoves($db, $x, $y, $moveNum)
   , :coords
   )";
   $statement = $db->prepare($query);
-  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":moveNum"=>$moveNum, ":coords"=>$coords));
+  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":moveNum"=>$moveNum, ":coords"=>$coords, ":user_id"=> $_SESSION["user_id"]));
   }
   catch(Exception $e)
   {
