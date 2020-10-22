@@ -72,12 +72,12 @@ require "processRegister.php";
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField"><br>
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php echo $formData["username"]; ?>"><br>
               <span class="error" ><?php echo $formData["usernameErr"]; ?></span>
             </div>
             <div class="fieldContainer">
               <label for="screen_name" class="fieldLabel">Screen Name:</label>
-              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField"><br>
+              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField" value="<?php echo $formData["screenName"]; ?>"><br>
               <span class="error" ><?php echo $formData["screenNameErr"]; ?></span>
             </div>
             <div class="fieldContainer">
