@@ -23,7 +23,7 @@
     }
   }
 
-  function finishGame($db)
+  /*function finishGame($db)
   {
     try
     {
@@ -37,6 +37,6 @@
     {
       echo "ERROR: " . $e->getMessage();
     }
-  }
+  }*/
 
 ?>
