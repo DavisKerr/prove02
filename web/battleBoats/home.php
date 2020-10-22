@@ -86,8 +86,8 @@
       ON g.game_owner = u.id
       JOIN public.user AS u2
       ON g.opponent = u2.id
-      WHERE g.opponent =:player_id
-      or g.game_owner =:player_id
+      WHERE (g.opponent =:player_id
+      or g.game_owner =:player_id)
       AND g.is_active = 1
       AND LOWER(g.game_name) like LOWER(:search)
       ORDER BY g.date_created
