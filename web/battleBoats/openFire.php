@@ -26,7 +26,7 @@ function isFiring($db, $enemyData)
 
 function fire($x, $y, $board)
 {
-  
+  echo $board;
   $board = str_split($board); 
   $coord = intval(strval($y - 1) . strval($x - 1));
   
