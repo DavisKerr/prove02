@@ -54,8 +54,7 @@
 
   function queryEnemyBoard($database)
   {
-    $board="";
-    $column = '';
+    $enemyData = array("board"=>'', "which"=>'');
     try
     {
       $query = "    
@@ -72,13 +71,11 @@
       {
         if($row["game_owner"] == $_SESSION["user_id"])
         {
-          $board = $row["grid_opponent"];
-          $column = "grid_opponent";
+          $enemyData["board"] = $row["grid_opponent"];
         }
         else
         {
-          $board = $row["grid_owner"];
-          $column = "grid_owner";
+          $enemyData["board"] = $row["grid_owner"];
         }
       }
 
@@ -89,7 +86,7 @@
       die();
     }
 
-    return array($board, $column);
+    return $enemyData;
   }
 
   function queryDatabaseForMessages($database)
@@ -119,8 +116,7 @@
     return $rows;
   }
 
-  $board = queryEnemyBoard($database);
-  $fireError = openFire($db, $board[1]);
+  $fireError = openFire();
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
@@ -175,7 +171,8 @@
         $type = "opponentBoard";
         $name = "Enemy Board";
         $is_player_board = FALSE;
-        $board = queryEnemyBoard($db);
+        $enemyData = queryEnemyBoard($db);
+        $board = $enemyData["board"];
         require 'readBoard.php';
         
       ?>
