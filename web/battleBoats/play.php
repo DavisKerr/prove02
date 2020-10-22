@@ -117,7 +117,7 @@
     return $rows;
   }
 
-  $fireError = openFire();
+  $fireError = isFiring($db);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
   
