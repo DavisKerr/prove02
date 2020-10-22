@@ -2,7 +2,7 @@
 
   function checkEnd($db, $board)
   {
-    /*$board = str_split($board);
+    $board = str_split($board);
     $counter = 0;
     foreach($board as $square)
     {
@@ -15,15 +15,15 @@
     if($counter == 17)
     {
       return TRUE;
-      //finishGame($db);
+      finishGame($db);
     }
     else
     {
       return FALSE;
-    }*/
+    }
   }
 
-  /*function finishGame($db)
+  function finishGame($db)
   {
     try
     {
@@ -37,6 +37,6 @@
     {
       echo "ERROR: " . $e->getMessage();
     }
-  }*/
+  }
 
 ?>

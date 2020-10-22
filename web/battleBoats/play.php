@@ -6,7 +6,7 @@
   require 'sendMessage.php';
   require 'openFire.php';
   require 'turnCount.php';
-  //require 'checkEnd.php';
+  require 'checkEnd.php';
 
   if(!isset($_SESSION["current_game_id"]))
   {
