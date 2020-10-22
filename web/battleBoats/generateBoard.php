@@ -135,23 +135,23 @@ function getBoard()
 
 function generateBoard($occupiedSpaces)
 {
-	$board = "/ ";
+	$board = "/";
     $counter = 0;
 	for($i=1; $i <= 100; $i++)
     {
     	if($occupiedSpaces[$counter] == $i)
         {
-        	$board .= "V ";
+        	$board .= "V";
             $counter++;
         }
         else
         {
-        	$board .= "* ";
+        	$board .= "*";
         }
         
         if($i % 10 == 0 && $i != 100)
         {
-        	$board .= "/ ";
+        	$board .= "/";
         }
     }
     echo $board . "<br>";
