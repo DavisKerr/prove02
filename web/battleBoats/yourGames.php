@@ -187,7 +187,7 @@
   $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
-  $finished_user_games = queryDatabaseForFinishedUserGames($db, $finishedGameSearch);
+  $finished_user_data = queryDatabaseForFinishedUserGames($db, $finishedGameSearch);
 ?>
 
 <!DOCTYPE html>
@@ -323,6 +323,7 @@
               <th>Date Created</th>
               <th>Type</th>
               <th>Owner</th>
+              <th> Opponent </th>
               <th>View Game</th>
               <!--<th>Play Game</th>-->
             </tr>
@@ -335,11 +336,12 @@
                 echo "<td>" .  $row["date_created"] . "</td>\n";
                 echo "<td>" .  $row["game_type"] . "</td>\n";
                 echo "<td>" .  $row["player1"] . "</td>\n";
+                echo "<td>" .  $row["player2"] . "</td>\n";
                 echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
-                echo "</form>";
+                echo "</form>"; 
                 echo "</tr>\n";
               }
             ?>  
