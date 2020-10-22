@@ -35,7 +35,9 @@ function activeShip()
 
 function validateShip()
 {
-  
+
 }
+
+
 
 

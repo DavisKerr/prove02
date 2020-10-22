@@ -189,18 +189,11 @@
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
       <?php
-      if($hasPlaced == 1)
-      {
         $type = "opponentBoard";
         $name = "Enemy Board";
         $is_player_board = FALSE;
         $board = queryEnemyBoard($db);
         require 'readBoard.php';
-      }
-      else
-      {
-        //Use this space for ship generation.
-      }
         
       ?>
 
@@ -215,8 +208,7 @@
 
       <div id="moveForm">
       <?php 
-        if($hasPlaced == 1)
-        {
+        
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves'>";
           echo "<div>";
@@ -237,53 +229,8 @@
           echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
           echo "</div>";
           echo "</form>";
-        }
-        else
-        {/*
-          $shipValues = array(2, 3, 3, 4, 5);
-          $shipNames = array('destroyer', 'submarine', 'cruiser', 'battleship', 'carrier');
-
-
-          echo "<h4>Where would you like to place your ships?</h4>";
-          echo "<form id='ships'>";
-          echo "<div>";
-          for($i = 0; $i < 5; $i++)
-          {
-            echo "<h5> Place " . $shipNames[$i] . " </h5><br>";
-            echo "<label for='" . $shipNames[$i] . "starting-x-coord'>Starting X-Coordinate:</label>";
-            echo "<select name='" . $shipNames[$i] ."starting-x-coord' id='" . $shipNames[$i] ."starting-x-coord'>";
-            for($i = 1; $i <= 10; $i++)
-            {
-              echo "<option value='" . $i . "'>" . $i . "</option>";
-            }
-
-            echo "<label for='" . $shipNames[$i] . "starting-y-coord'>Starting Y-Coordinate:</label>";
-            echo "<select name='" . $shipNames[$i] ."starting-y-coord' id='" . $shipNames[$i] ."starting-y-coord'>";
-            for($i = 1; $i <= 10; $i++)
-            {
-              echo "<option value='" . $i . "'>" . $i . "</option>";
-            }
-
-            echo "<label for='" . $shipNames[$i] . "ending-x-coord'>Starting X-Coordinate:</label>";
-            echo "<select name='" . $shipNames[$i] ."ending-x-coord' id='" . $shipNames[$i] ."ending-x-coord'>";
-            for($i = 1; $i <= 10; $i++)
-            {
-              echo "<option value='" . $i . "'>" . $i . "</option>";
-            }
-
-            echo "<label for='" . $shipNames[$i] . "ending-y-coord'>Ending Y-Coordinate:</label>";
-            echo "<select name='" . $shipNames[$i] ."ending-y-coord' id='" . $shipNames[$i] ."ending-y-coord'>";
-            for($i = 1; $i <= 10; $i++)
-            {
-              echo "<option value='" . $i . "'>" . $i . "</option>";
-            }
-            
-          }
-          
-         
-          
-         */ 
-        }
+        
+      
       ?>
 
             

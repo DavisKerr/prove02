@@ -26,8 +26,6 @@ CREATE TABLE public.game
 , grid_owner VARCHAR(256) NOT NULL
 , grid_opponent VARCHAR(256) NOT NULL
 , is_active INT NOT NULL
-, player_1_ready INT NOT NULL
-, player_2_ready INT NOT NULL
 , date_created TIMESTAMP NOT NULL
 , CONSTRAINT fk_game_owner FOREIGN KEY(game_owner) REFERENCES public.user(id)
 , CONSTRAINT fk_opponent FOREIGN KEY(opponent) REFERENCES public.user(id)
