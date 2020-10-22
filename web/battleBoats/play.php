@@ -182,7 +182,7 @@
         $is_player_board = FALSE;
         $enemyData = queryEnemyBoard($db);
         $board = $enemyData["board"];
-        $victory = checkEnd($db, $board);
+        //$victory = checkEnd($db, $board);
         require 'readBoard.php';
         
       ?>
@@ -192,7 +192,7 @@
         $name = "Your Board";
         $is_player_board = TRUE;
         $board = queryPlayerBoard($db);
-        $defeat = checkEnd($db, $board); 
+        //$defeat = checkEnd($db, $board); 
         require 'readBoard.php';
         ?>
       </div>
