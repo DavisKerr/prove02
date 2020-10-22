@@ -15,10 +15,11 @@
     return $db_data;
   }
   
-  $usernameErr = $passwdErr = $wrongErr = "";
-  $username = $passwd =  "";
-  $isValid = TRUE;
-  $isloggedIn = FALSE;
+  
+    $usernameErr = $passwdErr = $wrongErr = "";
+    $username = $passwd =  "";
+    $isValid = TRUE;
+    $isloggedIn = FALSE;
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
@@ -123,7 +124,7 @@
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField">
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php echo $username; ?>">
               <span class="error"><?php echo $usernameErr; ?></span>
             </div>
             <div class="fieldContainer">
