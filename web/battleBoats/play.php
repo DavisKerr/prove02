@@ -72,10 +72,12 @@
         if($row["game_owner"] == $_SESSION["user_id"])
         {
           $enemyData["board"] = $row["grid_opponent"];
+          $enemyData["which"] = "grid_opponent";
         }
         else
         {
           $enemyData["board"] = $row["grid_owner"];
+          $enemyData["which"] = "grid_owner";
         }
       }
 
@@ -85,7 +87,7 @@
       echo 'Error!: ' . $ex->getMessage();
       die();
     }
-
+    print_r($enemyData);
     return $enemyData;
   }
 
