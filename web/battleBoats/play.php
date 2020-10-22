@@ -87,7 +87,6 @@
       echo 'Error!: ' . $ex->getMessage();
       die();
     }
-    print_r($enemyData);
     return $enemyData;
   }
 

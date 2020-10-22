@@ -1,6 +1,5 @@
 <?php 
         
-        $board = $board[0];
         $array = str_split($board);
         echo "<table class='" . $type . "'>\n";
         echo "<tr> <th colspan='11'><h3>" . $name . "</h3></th></tr>";
