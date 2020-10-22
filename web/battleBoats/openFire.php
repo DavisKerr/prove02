@@ -1,7 +1,7 @@
 <?php
 
 
-function isFiring($db, $enemyData)
+function isFiring($db, $enemyData, $moveData)
 {
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
@@ -17,6 +17,7 @@ function isFiring($db, $enemyData)
         else
         {
           updateBoard($db, $board, $enemyData["which"]);
+          insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $moveData["move_number"]);
         }
       }
     }
@@ -95,6 +96,8 @@ function insertMoves($db, $x, $y, $moveNum)
   , :moveNum
   , :coords
   )";
+  $statement = $db->prepare($query);
+  $statement->execute(array(':game_id'=>$_SESSION["current_game_id"], ":moveNum"=>$moveNum, ":coords"=>$coords));
 }
 
 ?>

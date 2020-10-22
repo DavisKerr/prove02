@@ -117,11 +117,13 @@
 
     return $rows;
   }
+  
+  $turnInfo = getMoves($db);
   $enemyData = queryEnemyBoard($db);
-  $fireError = isFiring($db, $enemyData);
+  $fireError = isFiring($db, $enemyData, $turnInfo);
   $messageErr = sendMessage($db);
   $messages = queryDatabaseForMessages($db);
-  $turnInfo = getMoves($db);
+  
   
 ?>
 
