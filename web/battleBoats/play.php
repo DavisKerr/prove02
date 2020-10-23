@@ -56,11 +56,11 @@
 
   function queryEnemyBoard($database)
   {
-    $enemyData = array("board"=>'', "which"=>'');
+    $enemyData = array("board"=>'', "which"=>'', 'game_name'=>'');
     try
     {
       $query = "    
-      SELECT grid_owner, grid_opponent, game_owner
+      SELECT grid_owner, grid_opponent, game_owner, game_name
       FROM public.game
       WHERE id = :game_id
       ";
@@ -71,6 +71,7 @@
 
       foreach($rows as $row)
       {
+        $enemyData["game_name"] = $row["game_name"];
         if($row["game_owner"] == $_SESSION["user_id"])
         {
           $enemyData["board"] = $row["grid_opponent"];
@@ -172,7 +173,7 @@
 
     <div id="page_body" class="d-flex flex-column align-items-center">
 
-      <h1>Game Title</h1>
+      <h1><?php echo $enemyData["game_name"]; ?></h1>
 
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
