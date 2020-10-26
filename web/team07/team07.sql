@@ -1,0 +1,6 @@
+CREATE TABLE team_user
+(
+id SERIAL NOT NULL PRIMARY KEY,
+username VARCHAR(300) NOT NULL,
+userpassword VARCHAR(300) NOT NULL
+);
