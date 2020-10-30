@@ -1,7 +1,7 @@
 <?php
   //session_start();
   //require '../database/getDB.php';
- /*
+ 
   function queryDatabase($v_username, $v_passwrd, $database)
   {
     $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
@@ -82,5 +82,5 @@
   else
   {
     $_SESSION["loggedIn"] = false;
-  }*/
+  }
 ?>
