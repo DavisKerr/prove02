@@ -7,8 +7,8 @@
   try
   {
     require '../database/getDB.php';
-    require '../database/queryUsers.php';
-    require '../Util/test_input.php';
+    //require '../database/queryUsers.php';
+    //require '../Util/test_input.php';
   }
   catch(Exception $e)
   {
@@ -17,10 +17,10 @@
 
   echo json_encode($returnArr); 
  
-  if($_SERVER["REQUEST_METHOD"] == "POST")
+  /*if($_SERVER["REQUEST_METHOD"] == "POST")
   {
 
-  }
+  }*/
 
 
 
