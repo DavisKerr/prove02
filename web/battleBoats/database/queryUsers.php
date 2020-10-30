@@ -14,7 +14,7 @@
         $db_data["db_password"] = $row["password"];
         $db_data["db_id"] = $row["id"];
       }*/
-      return $db_data;
+      return $rows;
     }
     catch(PDOException $e)
     {
