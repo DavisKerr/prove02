@@ -30,6 +30,7 @@
     // Check that the username is valid.
     $dbInfo = queryUsers($username, $password, $db);
     echo json_encode($dbInfo);
+    
     /*if(!empty($dbInfo['db_err']))
     {
       $returnArr['serverError'] .= $dbInfo["db_error"] . 'q\n'; 
@@ -40,54 +41,11 @@
       {
         $returnArr["isValid"] = true;
       }
-    }
+    }*/
   }
 
-  echo json_encode($returnArr);*/
-
-
- /*
+  echo json_encode($returnArr);
   
 
-  
-  
-  function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-  
-  if ($_SERVER["REQUEST_METHOD"] == "POST" && $isValid )
-  {
-    $_SESSION["username"] = $username;
-    $db_data = queryDatabase($username, $passwd, $db);
-    if (!empty($db_data["db_username"]) && !empty($db_data["db_password"]))
-    {
-      echo "We are working!";
-      $_SESSION["loggedIn"] = TRUE;
-      $_SESSION["username"] = $db_data["db_username"];
-      $_SESSION["user_id"] = $db_data["db_id"];
-    }
-    else
-    {
-      $wrongErr = "Incorrect username or password.";
-    }
 
-  }
-
-
-  if(isset($_SESSION["loggedIn"]))
-  {
-    if($_SESSION["loggedIn"])
-    {
-      header("location: ./home.php");
-      exit;
-    }
-    
-  }
-  else
-  {
-    $_SESSION["loggedIn"] = false;
-  }*/
 ?>
