@@ -24,6 +24,8 @@
     // Initialize and sanitize the input
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $returnArr['username'] = $username;
+    $returnArr['password'] = $password;
 
     // Check that the username is valid.
     $dbInfo = queryUsers($username, $password, $db);

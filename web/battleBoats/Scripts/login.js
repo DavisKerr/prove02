@@ -73,6 +73,8 @@ function processData(data)
   else
   {
     alert(data.isValid);
+    console.log(data.username);
+    console.log(data.password);
   }
   
 }
