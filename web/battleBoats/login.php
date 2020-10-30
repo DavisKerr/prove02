@@ -1,6 +1,5 @@
 <?php
   session_start();
-  require 'getDB.php';
   require './account/processLogin.php'
 ?>
 
