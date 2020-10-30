@@ -1,8 +1,8 @@
 <?php
-session_start();
-  require "getDB.php";
+  session_start();
+  require "./getDB.php";
   
-  
+
 
   /*
   function isSubmit($db)
