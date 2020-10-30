@@ -2,8 +2,9 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('invalid'=>true, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
+  $returnArr = array('isValid'=>true, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
 
+  // Import the needed files
   try
   {
     require '../database/getDB.php';
@@ -17,41 +18,23 @@
 
   echo json_encode($returnArr); 
  
-  /*if($_SERVER["REQUEST_METHOD"] == "POST")
+  //Process the input
+  if($_SERVER["REQUEST_METHOD"] == "POST")
   {
+    // Initialize and sanitize the input
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-  }*/
+    // Check that the username is valid.
+    $dbInfo = queryUsers($username, $password, $db);
+
+  }
 
 
 
  /*
   
-  
-    $usernameErr = $passwdErr = $wrongErr = "";
-    $username = $passwd =  "";
-    $isValid = TRUE;
-    $isloggedIn = FALSE;
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["username"])) {
-      $usernameErr = "Username is required";
-      $isValid = FALSE;
-    } else {
-      $username = test_input($_POST["username"]);
-    }
-  }
-  
-  if ($_SERVER["REQUEST_METHOD"] == "POST") 
-  {
-    if (empty($_POST["password"])) 
-    {
-      $passwdErr = " Password is required";
-      $isValid = FALSE;
-    } else 
-    {
-      $passwd = test_input($_POST["password"]);
-    }
-  }
   
   
   function test_input($data) {
