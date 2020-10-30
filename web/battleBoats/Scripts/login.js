@@ -11,7 +11,15 @@ $(document).ready(function(){
      },
      function(data, status)
      { 
-       processData(data)
+       if(status == 202)
+       {
+        processData(data);
+       }
+       else
+       {
+         alert("Oops! Something happened!");
+       }
+       
      }); 
     }
   });
@@ -60,7 +68,7 @@ function processData(data)
 {
   if(data.error != '')
   {
-    alert(data.error);
+    alert(data.serverError);
   }
   else
   {

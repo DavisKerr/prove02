@@ -2,11 +2,13 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'error'=>'');
+  $returnArr = array('invalid'=>true, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
 
   try
   {
     require '../database/getDB.php';
+    require '../database/queryUsers.php';
+    require '../Util/test_input.php';
   }
   catch(Exception $e)
   {
@@ -15,21 +17,14 @@
 
   echo json_encode($returnArr); 
  
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+
+  }
+
+
 
  /*
-  function queryDatabase($v_username, $v_passwrd, $database)
-  {
-    $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
-    $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
-    $db_data = array("db_username"=>'', "db_password"=>'', "db_id"=>'');
-    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
-    {
-      $db_data["db_username"] = $row["username"];
-      $db_data["db_password"] = $row["password"];
-      $db_data["db_id"] = $row["id"];
-    }
-    return $db_data;
-  }
   
   
     $usernameErr = $passwdErr = $wrongErr = "";

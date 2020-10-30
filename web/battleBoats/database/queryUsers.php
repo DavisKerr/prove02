@@ -1,5 +1,6 @@
 <?php
-  function queryDatabase($v_username, $v_passwrd, $database)
+
+  function queryUsers($v_username, $v_passwrd, $database)
   {
     try
     {
