@@ -16,6 +16,7 @@ $(document).ready(function(){
      { 
        if(status == 'success')
        {
+          alert(JSON.stringify(data));
           processData(data);
        }
        else
@@ -121,7 +122,7 @@ function processData(data)
 {
   if(data.serverError != '')
   {
-    //alert(data.serverError);
+    alert(data.serverError);
   }
   else if(data.nameErr != '')
   {
