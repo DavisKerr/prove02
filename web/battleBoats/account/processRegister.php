@@ -2,7 +2,7 @@
   session_start();
 
 
-  try
+  /*try
   {
     require '../database/getDB.php';
     require '../database/queryRegister.php';
@@ -11,7 +11,7 @@
   catch(Exception $e)
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
-  }
+  }*/
   
 
 

@@ -1,6 +1,6 @@
 <?php
 
-  function queryUsers($username, $database)
+  /*function queryUsers($username, $database)
   {
     try
     {
@@ -13,5 +13,5 @@
     {
       return $db_data['db_err'] = $e->getMessage();
     }
-  }
+  }*/
 ?>
