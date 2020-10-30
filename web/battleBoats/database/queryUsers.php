@@ -11,7 +11,7 @@
     }
     catch(PDOException $e)
     {
-      return $db_data['db_err'] = $e->getMessage();
+      return $e->getMessage();
     }
   }
 ?>
