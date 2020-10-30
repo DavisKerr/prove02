@@ -11,8 +11,7 @@ $(document).ready(function(){
      },
      function(data, status)
      { 
-       alert(status);
-       if(status == 202)
+       if(status == 'success')
        {
         processData(data);
        }
