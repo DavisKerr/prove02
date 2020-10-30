@@ -1,6 +1,7 @@
 <?php
   session_start();
-  header('Content-type: application/json');
+  //header('Content-type: application/json');
+  echo "Working!"; 
   /*require '../database/getDB.php';
 
  

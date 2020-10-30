@@ -11,7 +11,7 @@ $(document).ready(function(){
      },
      function(data, status)
      { 
-       alert('Ye');
+       alert(data);
       /*if(data == 'true')
       {
         window.location.replace("./sign-in.php");
