@@ -14,6 +14,22 @@
     $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
 
+  //Process the input
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+    // Initialize and sanitize the input
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $screenName = filter_input(INPUT_POST, 'screenName', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    
+    $used = queryUsers($username, $db);
+
+    if(!empty('used'))
+    {
+      $returnArr['nameErr'] = "That username is already chosen";
+    }
+  }
+
   echo $returnArr;
   
 

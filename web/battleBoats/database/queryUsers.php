@@ -1,10 +1,10 @@
 <?php
 
-  /*function queryUsers($username, $database)
+  function queryUsers($username, $database)
   {
     try
     {
-      $stmt = $database->prepare('SELECT username FROM public.user WHERE username=:username AND password=:password');
+      $stmt = $database->prepare('SELECT username FROM public.user WHERE username=:username');
       $stmt->execute(array(':username' => $username));
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       return $row['username'];
@@ -13,5 +13,5 @@
     {
       return $db_data['db_err'] = $e->getMessage();
     }
-  }*/
+  }
 ?>

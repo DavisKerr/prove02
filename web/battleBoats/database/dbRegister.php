@@ -1,6 +1,6 @@
 <?php 
 
-  /*
+  
   function dbRegister($username, $screenName, $password, $db)
   {
     try
@@ -15,6 +15,6 @@
       //echo "ERROR: " . $e->getMessage() . "\n";
       return FALSE;
     }
-  }*/
+  }
 
 ?>
