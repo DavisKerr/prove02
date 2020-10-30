@@ -11,6 +11,7 @@ $(document).ready(function(){
      },
      function(data, status)
      { 
+       alert(status);
        if(status == 202)
        {
         processData(data);
