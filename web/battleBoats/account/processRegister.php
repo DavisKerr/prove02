@@ -1,6 +1,17 @@
 <?php
   session_start();
-  require "./getDB.php";
+
+
+  try
+  {
+    require '../database/getDB.php';
+    require '../database/queryRegister.php';
+    require '../database/queryUsers.php';
+  }
+  catch(Exception $e)
+  {
+    $returnArr['serverError'] .= 'There was an error in the file system\n';
+  }
   
 
 
