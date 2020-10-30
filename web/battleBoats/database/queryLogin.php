@@ -1,6 +1,6 @@
 <?php
 
-  function queryUsers($username, $password, $database)
+  function queryLogin($username, $password, $database)
   {
     $db_data = array(/*"db_username"=>'', "db_password"=>'', "db_id"=>'',*/ "db_err"=>'');
     try

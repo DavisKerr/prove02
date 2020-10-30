@@ -1,35 +1,7 @@
 <?php
-session_start();
-require "getDB.php";
-require "processRegister.php";
+  session_start();
 
-  function isLoggedIn()
-  {
-    try
-    {
-      if(isset($_SESSION["loggedIn"]))
-      {
-        if($_SESSION["loggedIn"])
-        {
-          header("location: ./home.php");
-          exit;
-        }
-        
-      }
-      else
-      {
-        $_SESSION["loggedIn"] = false;
-      }
-    }
-    catch(Exception $e)
-    {
-      echo "ERROR: " . $e->getMessage() . "\n";
-    }
-  }
-
-  isLoggedIn();
-  $formData = isSubmit($db);
-
+  require '../Util/notAuth.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +15,7 @@ require "processRegister.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Scripts/register.js"></script>
     <title>Register</title>
   </head>
   <body>
@@ -67,30 +40,30 @@ require "processRegister.php";
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Register</h2>
-        <span class="error" ><?php echo $formData["dbErr"]; ?></span>
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <span class="error" id="formErr"></span>
+        <form method="POST" action="">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php echo $formData["username"]; ?>"><br>
-              <span class="error" ><?php echo $formData["usernameErr"]; ?></span>
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value=""><br>
+              <span class="error" id="usernameErr"></span>
             </div>
             <div class="fieldContainer">
               <label for="screen_name" class="fieldLabel">Screen Name:</label>
-              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField" value="<?php echo $formData["screenName"]; ?>"><br>
-              <span class="error" ><?php echo $formData["screenNameErr"]; ?></span>
+              <input type="text" name="screen_name" id="screen_name" placeholder="Screen Name" class="loginField" value=""><br>
+              <span class="error" id="screen_nameErr"></span>
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
               <input type="password" name="password" id="password" placeholder="Password" class="loginField"><br>
-              <span class="error" ><?php echo $formData["passwordErr"]; ?></span>
+              <span class="error" id="passwordErr"></span>
             </div>
             <div class="fieldContainer">
               <label for="confirmPassword" class="fieldLabel">Retype Password:</label>
               <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Retype Password" class="loginField"><br>
-              <span class="error" ><?php echo $formData["confirmPasswordErr"]; ?></span>
+              <span class="error" id="passwordConfErr"></span>
             </div>
-            <button type="submit" class="btn btn-success" id="confirmBtn">Register</button>
+            <button type="button" class="btn btn-success" id="confirmBtn">Register</button>
           </div>
         </form>
         <hr>

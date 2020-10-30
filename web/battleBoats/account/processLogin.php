@@ -8,7 +8,7 @@
   try
   {
     require '../database/getDB.php';
-    require '../database/queryUsers.php';
+    require '../database/queryLogin.php';
     require '../Util/test_input.php';
   }
   catch(Exception $e)
@@ -26,7 +26,7 @@
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     // Check that the username is valid.
-    $dbInfo = queryUsers($username, $password, $db);
+    $dbInfo = queryLogin($username, $password, $db);
     
     if(isset($dbInfo['db_err']))
     {

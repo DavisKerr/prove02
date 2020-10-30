@@ -57,7 +57,7 @@ function isValid(username, password)
 
   if(pattern2.test(username))
   {
-    usernameErr.innerHTML = "Username must only contain letters and numbers."
+    usernameErr.innerHTML = "Username cannot be blank."
     valid = false;
   }
 
