@@ -32,11 +32,11 @@
     
     if(isset($dbInfo['db_err']))
     {
-      $returnArr['serverError'] .= $dbInfo["db_error"] . 'q\n'; 
+      $returnArr['serverError'] .= $dbInfo["db_error"] . '\n'; 
     }
     else
     {
-      if($username == $dbInfo["db_username"] && $password == $dbInfo["db_password"] && !empty($dbInfo["username"]))
+      if(($username == $dbInfo["username"]) && ($password == $dbInfo["password"]) && !empty($dbInfo["username"]))
       {
         $returnArr["isValid"] = true;
       }
