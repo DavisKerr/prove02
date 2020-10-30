@@ -1,8 +1,9 @@
 <?php
   session_start();
 
+  $returnArr = array('isValid'=>false, 'serverError'=>'', 'nameErr'=>'' );
 
-  /*try
+  try
   {
     require '../database/getDB.php';
     require '../database/queryRegister.php';
@@ -11,7 +12,7 @@
   catch(Exception $e)
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
-  }*/
+  }
   
 
 
