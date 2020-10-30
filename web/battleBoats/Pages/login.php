@@ -1,7 +1,5 @@
 <?php
   session_start();
-  require '../account/processLogin.php';
-  require '../database/getDB.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Scripts/login.js"></script>
     <title>Login</title>
   </head>
   <body>
@@ -39,20 +38,20 @@
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
-        <span class="error"><?php echo $wrongErr; ?></span>
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <span class="error"></span>
+        <form method="POST" action="">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="<?php echo $username; ?>">
-              <span class="error"><?php echo $usernameErr; ?></span>
+              <input type="text" name="username" id="username" placeholder="Username" class="loginField" value="">
+              <span class="error" id="usrnmErr"></span>
             </div>
             <div class="fieldContainer">
               <label for="password" class="fieldLabel">Password:</label>
               <input type="password" name="password" id="password" placeholder="Password" class="loginField">
-              <span class="error"><?php echo $passwdErr; ?></span>
+              <span class="error" id="passwdErr"></span>
             </div>
-            <button type="submit" class="btn btn-success" id="confirmBtn">Login</button>
+            <button type="button" class="btn btn-success" id="confirmBtn">Login</button>
           </div>
         </form>
         <hr>
