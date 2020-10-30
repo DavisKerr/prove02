@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require '../Util/notAuth.php';
 ?>
 
 <!DOCTYPE html>

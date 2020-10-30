@@ -13,8 +13,7 @@ $(document).ready(function(){
      { 
        if(status == 'success')
        {
-         alert(JSON.stringify(data));
-        processData(data);
+          processData(data);
        }
        else
        {
