@@ -31,11 +31,11 @@
     $dbInfo = queryUsers($username, $password, $db);
     if(!empty($dbInfo['db_err']))
     {
-      $returnArr['serverError'] .= $dbInfo["db_error"] . '\n'; 
+      $returnArr['serverError'] .= $dbInfo["db_error"] . 'q\n'; 
     }
     else
     {
-      if($username == $dbInfo["db_username"] && $password == $dbInfo["db_password"] && !empty($dbInfo["username"]))
+      if(/*$username == $dbInfo["db_username"] && $password == $dbInfo["db_password"] &&*/ !empty($dbInfo["username"]))
       {
         $returnArr["isValid"] = true;
       }
