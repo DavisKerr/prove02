@@ -33,7 +33,7 @@
     }
   }
 
-  echo $returnArr;
+  echo json_encode($returnArr);
   
 
 
