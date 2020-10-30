@@ -345,3 +345,5 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       AND g.is_active = 1
       AND LOWER(g.game_name) like LOWER('%')
       ORDER BY g.date_created;
+
+SELECT id, username, password FROM public.user WHERE username='myusername' AND password='mypassword';
