@@ -4,7 +4,7 @@
   
   $returnArr = array('invalid'=>true, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
 
-  try
+  /*try
   {
     require '../database/getDB.php';
     //require '../database/queryUsers.php';
@@ -13,7 +13,7 @@
   catch(Exception $e)
   {
     $returnArr['error'] = 'There was an error in the file system';
-  }
+  }*/
 
   echo json_encode($returnArr); 
  

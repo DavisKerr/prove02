@@ -66,7 +66,7 @@ function isValid(username, password)
 
 function processData(data)
 {
-  if(data.error != '')
+  if(data.serverError != '')
   {
     alert(data.serverError);
   }
