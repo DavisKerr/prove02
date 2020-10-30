@@ -6,13 +6,15 @@
   try
   {
     require '../database/getDB.php';
-    require '../database/queryRegister.php';
+    require '../database/dbRegister.php';
     require '../database/queryUsers.php';
   }
   catch(Exception $e)
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
+
+  echo $returnArr;
   
 
 
