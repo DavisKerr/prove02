@@ -121,7 +121,7 @@ function processData(data)
 {
   if(data.serverError != '')
   {
-    alert(data.serverError);
+    //alert(data.serverError);
   }
   else if(data.nameErr != '')
   {
