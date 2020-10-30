@@ -6,6 +6,7 @@ $(document).ready(function(){
     var screenName = document.getElementById("screen_name").value
     if(isValid(username, password, passwordConf, screenName))
     {
+      alert("working");
      $.post("../account/processRegister.php",
      {
       username: username,

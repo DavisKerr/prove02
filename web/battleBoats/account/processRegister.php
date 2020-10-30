@@ -1,10 +1,10 @@
 <?php
   session_start();
-  
+
   header('Content-type: application/json');
 
 
-  $returnArr = array('isValid'=>false, 'serverError'=>'', 'nameErr'=>'' );
+  $returnArr = array('isValid'=>false, 'serverError'=>'', 'nameErr'=>'');
 
   try
   {
