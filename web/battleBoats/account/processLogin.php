@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('isValid'=>true, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
+  $returnArr = array('isValid'=>false, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
 
   // Import the needed files
   try
@@ -13,10 +13,10 @@
   }
   catch(Exception $e)
   {
-    $returnArr['serverError'] = 'There was an error in the file system';
+    $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
 
-  echo json_encode($returnArr); 
+   
  
   //Process the input
   if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -29,10 +29,18 @@
     $dbInfo = queryUsers($username, $password, $db);
     if(!empty($dbInfo['db_err']))
     {
-      $returnArr['serverError'] = $dbInfo["db_error"];
+      $returnArr['serverError'] .= $dbInfo["db_error"] . '\n'; 
+    }
+    else
+    {
+      if($username == $dbInfo["db_username"] && $passord == $dbInfo["db_password"])
+      {
+        $returnArr["isValid"] = true;
+      }
     }
   }
 
+  echo json_encode($returnArr);
 
 
  /*

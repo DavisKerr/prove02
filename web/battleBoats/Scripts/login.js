@@ -72,7 +72,7 @@ function processData(data)
   }
   else
   {
-    alert('All good!');
+    alert(data.isValid);
   }
   
 }
