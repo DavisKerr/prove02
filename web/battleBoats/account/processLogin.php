@@ -29,9 +29,8 @@
 
     // Check that the username is valid.
     $dbInfo = queryUsers($username, $password, $db);
-    echo json_encode($dbInfo);
     
-    /*if(!empty($dbInfo['db_err']))
+    if(isset($dbInfo['db_err']))
     {
       $returnArr['serverError'] .= $dbInfo["db_error"] . 'q\n'; 
     }
@@ -41,10 +40,10 @@
       {
         $returnArr["isValid"] = true;
       }
-    }*/
+    }
   }
 
-  //echo json_encode($returnArr);
+  echo json_encode($returnArr);
   
 
 
