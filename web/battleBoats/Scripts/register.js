@@ -123,6 +123,10 @@ function processData(data)
   {
     alert(data.serverError);
   }
+  else if(data.nameErr != '')
+  {
+    document.getElementById("usernameErr").innerHTML = data.nameErr;
+  }
   else
   {
     window.location.replace("./login.php");
