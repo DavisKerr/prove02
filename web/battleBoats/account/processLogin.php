@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('isValid'=>false, 'userErr'=>'', 'passErr'=>'', 'username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'serverError'=>'');
+  $returnArr = array('isValid'=>false, 'serverError'=>'');
 
   // Import the needed files
   try
@@ -24,8 +24,6 @@
     // Initialize and sanitize the input
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    $returnArr['username'] = $username;
-    $returnArr['password'] = $password;
 
     // Check that the username is valid.
     $dbInfo = queryUsers($username, $password, $db);
@@ -39,6 +37,8 @@
       if(($username == $dbInfo["username"]) && ($password == $dbInfo["password"]) && !empty($dbInfo["username"]))
       {
         $returnArr["isValid"] = true;
+        $_SESSION["loggedIn"] = true;
+        $_SESSION["user_id"] = $dbInfo["id"];
       }
     }
   }

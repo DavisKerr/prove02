@@ -73,9 +73,7 @@ function processData(data)
   }
   else
   {
-    alert(data.isValid);
-    console.log(data.username);
-    console.log(data.password);
+    window.location.replace("./home.php");
   }
   
 }
