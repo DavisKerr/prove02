@@ -10,7 +10,7 @@ $(document).ready(function(){
       password: password
      },
      function(data, status)
-     {  
+     { 
        alert('Ye');
       /*if(data == 'true')
       {

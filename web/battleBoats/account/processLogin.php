@@ -1,7 +1,7 @@
 <?php
   session_start();
   header('Content-type: application/json');
-  require '../database/getDB.php';
+  /*require '../database/getDB.php';
 
  
   function queryDatabase($v_username, $v_passwrd, $database)
@@ -84,5 +84,5 @@
   else
   {
     $_SESSION["loggedIn"] = false;
-  }
+  }*/
 ?>
