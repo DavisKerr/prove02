@@ -26,7 +26,7 @@
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     // Check that the username is valid.
-    $dbInfo = queryUsers($username, $password, $db);
+    //$dbInfo = queryUsers($username, $password, $db);
 
   }
 
