@@ -13,7 +13,7 @@
   }
   catch(Exception $e)
   {
-    $returnArr['error'] = 'There was an error in the file system';
+    $returnArr['serverError'] = 'There was an error in the file system';
   }
 
   echo json_encode($returnArr); 
@@ -26,8 +26,11 @@
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     // Check that the username is valid.
-    //$dbInfo = queryUsers($username, $password, $db);
-
+    $dbInfo = queryUsers($username, $password, $db);
+    if(!empty($dbInfo['db_err']))
+    {
+      $returnArr['serverError'] = $dbInfo["db_error"];
+    }
   }
 
 

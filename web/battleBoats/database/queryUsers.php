@@ -1,12 +1,12 @@
 <?php
 
-  function queryUsers($v_username, $v_passwrd, $database)
+  function queryUsers($username, $password, $database)
   {
+    $db_data = array("db_username"=>'', "db_password"=>'', "db_id"=>'', "db_err"=>'');
     try
     {
       $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
-      $stmt->execute(array(':username' => $v_username, ':password' => $v_passwrd));
-      $db_data = array("db_username"=>'', "db_password"=>'', "db_id"=>'');
+      $stmt->execute(array(':username' => $username, ':password' => $password));
       foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
       {
         $db_data["db_username"] = $row["username"];
@@ -17,7 +17,7 @@
     }
     catch(PDOException $e)
     {
-      echo json_encode(array("error"=>$e->getMessage));
+      return $db_data['db_err'] = $e->getMessage();
     }
     
   }
