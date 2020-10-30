@@ -1,6 +1,6 @@
 <?php
   session_start();
-  //require './account/processLogin.php';
+  require './account/processLogin.php';
 ?>
 
 <!DOCTYPE html>
