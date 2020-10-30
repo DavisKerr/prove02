@@ -58,6 +58,6 @@ function isValid(username, password)
 
 function processData(data)
 {
-  var results = JSON.parse(data);
-  alert(results.number);
+  var results = JSON.stringify(data);
+  alert(results);
 }
