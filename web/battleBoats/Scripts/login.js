@@ -11,11 +11,7 @@ $(document).ready(function(){
      },
      function(data, status)
      { 
-       alert(data);
-      /*if(data == 'true')
-      {
-        window.location.replace("./sign-in.php");
-      }*/
+       processData(data)
      }); 
     }
   });
@@ -58,6 +54,10 @@ function isValid(username, password)
   }
 
   return valid;
+}
 
-
+function processData(data)
+{
+  var results = JSON.parse(data);
+  alert(results.number);
 }

@@ -1,7 +1,7 @@
 <?php
   session_start();
   header('Content-type: application/json');
-  echo json_encode(array('Number'=>5)); 
+  echo json_encode(array('number'=>5)); 
   /*require '../database/getDB.php';
 
  
