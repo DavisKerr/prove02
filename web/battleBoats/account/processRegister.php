@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $returnArr = array('isValid'=>false, 'serverError'=>'', 'nameErr'=>'' );
+  $returnArr = array('isValid'=>false, /*'serverError'=>'',*/ 'nameErr'=>'' );
 
   try
   {
@@ -11,7 +11,7 @@
   }
   catch(Exception $e)
   {
-    $returnArr['serverError'] .= 'There was an error in the file system\n';
+    $returnArr['serverError'] = 'There was an error in the file system\n';
   }
 
   //Process the input
