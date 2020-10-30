@@ -1,7 +1,7 @@
 <?php
   session_start();
-  require './account/processLogin.php';
-  require './database/getDB.php';
+  require '../account/processLogin.php';
+  require '../database/getDB.php';
 ?>
 
 <!DOCTYPE html>
