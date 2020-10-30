@@ -1,10 +1,22 @@
 <?php
   session_start();
   header('Content-type: application/json');
-  echo json_encode(array('number'=>5)); 
-  /*require '../database/getDB.php';
+  
+  $returnArr = array('username'=>'', 'user_id'=>'', 'password'=>'', 'success'=>false, 'error'=>'');
 
+  try
+  {
+    require '../database/getDB.php';
+  }
+  catch(Exception $e)
+  {
+    $returnArr['error'] = 'There was an error in the file system';
+  }
+
+  echo json_encode($returnArr); 
  
+
+ /*
   function queryDatabase($v_username, $v_passwrd, $database)
   {
     $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
