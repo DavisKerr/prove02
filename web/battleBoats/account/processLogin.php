@@ -33,7 +33,7 @@
     }
     else
     {
-      if($username == $dbInfo["db_username"] && $passord == $dbInfo["db_password"])
+      if($username == $dbInfo["db_username"] && $password == $dbInfo["db_password"] && !empty($dbInfo["username"]))
       {
         $returnArr["isValid"] = true;
       }

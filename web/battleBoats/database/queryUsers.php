@@ -7,6 +7,7 @@
     {
       $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
       $stmt->execute(array(':username' => $username, ':password' => $password));
+      
       foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row)
       {
         $db_data["db_username"] = $row["username"];
