@@ -23,6 +23,7 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
       }
 
       if($type == 2) # 2 means it is a public game that is joinable.
@@ -41,6 +42,7 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
       }
 
       if($type == 3) # 3 means it is a private game that is joinable.
@@ -59,6 +61,7 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
       }
       
 
@@ -85,8 +88,6 @@
       echo 'Error!: ' . $ex->getMessage();
       die();
     }
-
-    return $rows;
     
   }
 ?>

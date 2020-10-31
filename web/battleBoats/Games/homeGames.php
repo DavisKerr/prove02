@@ -20,7 +20,7 @@
 
   if($_SERVER["REQUEST_METHOD"] == 'POST')
   {
-    $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
+    $search = '%' . filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING) . '%';
     $type = $_POST['type'];
 
     if($type != 0)
