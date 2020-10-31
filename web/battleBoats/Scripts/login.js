@@ -72,7 +72,7 @@ function processData(data)
   }
   else
   {
-    window.location.replace("./home.php");
+    //window.location.replace("./home.php");
   }
   
 }
