@@ -1,5 +1,6 @@
 <?php
-
+  session_start();
+  header('Content-type: application/json');
 
   function joinGame($db)
   {
@@ -30,4 +31,5 @@
       echo "ERROR: " . $e->getMessage();
     }
   }
+
 ?>

@@ -131,7 +131,7 @@ function updateActive(data)
   }
   else
   {
-    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    var table = "<tr><th>Game Name</th><th>Date Created</th> <th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th></tr>";
     table = table + data.active;
     document.getElementById('activeGames').innerHTML = table;
   }
@@ -145,7 +145,7 @@ function updatePublic(data)
   }
   else
   {
-    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    var table = "<tr><th>Game Name</th><th>Date Created</th><th>Owner</th><th>Join game</th></tr>";
     table = table + data.public;
     document.getElementById('publicGames').innerHTML = table;
   }
@@ -159,7 +159,7 @@ function updatePrivate(data)
   }
   else
   {
-    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    var table = "<tr> <th>Game Name</th><th>Date Created</th><th>Owner</th><th>Join</th></tr>";
     table = table + data.private;
     document.getElementById('privateGames').innerHTML = table;
   }
@@ -177,7 +177,7 @@ function updateAll(data)
     table = table + data.active;
     document.getElementById('activeGames').innerHTML = table;
 
-    table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = "<tr><th>Game Name</th><th>Date Created</th><th>Owner</th><th>Join game</th></tr>";
     table = table + data.public;
     document.getElementById('publicGames').innerHTML = table;
   }

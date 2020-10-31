@@ -59,14 +59,7 @@
         </form>
         <div class="gameFinderArea">
           <table class="gameTable" id="activeGames">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Type</th>
-              <th>Owner</th>
-              <th>Opponent</th>
-              <th>Play Game</th>
-            </tr>
+            
           </table> 
         </div> <!--End game finder area-->
       </div><!--End game search window-->
@@ -82,12 +75,7 @@
         </form>
         <div class="gameFinderArea">
           <table class="gameTable" id="publicGames">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Owner</th>
-              <th>Join game</th>
-            </tr>
+            
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
@@ -103,12 +91,7 @@
         </form>
         <div class="gameFinderArea">
           <table class="gameTable" id="privateGames">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Owner</th>
-              <th>Join</th>
-            </tr>
+            
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
