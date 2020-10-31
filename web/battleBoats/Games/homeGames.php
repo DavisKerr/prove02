@@ -3,7 +3,7 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('isValid'=>false, 'serverError'=>'');
+  $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
 
   // Import the needed files
   try

@@ -1,8 +1,6 @@
 <?php
   session_start();
   require '../Util/auth.php';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Scripts/homeGames.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -51,10 +50,11 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <span class="error" id="activeGameErr"></span>
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="myGameSearch" name="myGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="activeSearch">Search</button>
           </div>
         </form>
         <div class="gameFinderArea">
@@ -67,35 +67,17 @@
               <th>Opponent</th>
               <th>Play Game</th>
             </tr>
-            <?php
-              
-              foreach($user_data as $row)
-              {
-                echo "<tr>\n";
-                echo "<td>" .  $row["game_name"] . "</td>\n";
-                echo "<td>" .  $row["date_created"] . "</td>\n";
-                echo "<td>" .  $row["game_type"] . "</td>\n";
-                echo "<td>" .  $row["player1"] . "</td>\n";
-                echo "<td>" .  $row["player2"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
-                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden name='playGame' id='playGame' value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
-                echo "</form>"; 
-                echo "</tr>\n";
-              }
-
-            ?>  
           </table> 
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
       <div class="gameSearchWindow">
         <h3>Public Games:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <span class="error" id="publicGameErr"></span>
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="publicGameSearch" name="publicGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="publicSearch">Search</button>
           </div>
         </form>
         <div class="gameFinderArea">
@@ -106,33 +88,17 @@
               <th>Owner</th>
               <th>Join game</th>
             </tr>
-            <?php
-
-              foreach($public_data as $row)
-              {
-                echo "<tr>\n";
-                echo "<td>" .  $row["game_name"] . "</td>\n";
-                echo "<td>" .  $row["date_created"] . "</td>\n";
-                echo "<td>" .  $row["display_name"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
-                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden name='joinGame' id='joinGame' value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
-                echo "</form>"; 
-                echo "</tr>\n";
-              }
-
-            ?>  
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
 
       <div class="gameSearchWindow">
         <h3>Enter Private Game Code:</h3>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+        <span class="error" id="privateGameErr"></span>
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Game Code" aria-label="Game Code" id="privateGameSearch" name="privateGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="privateSearch">Enter</button>
           </div>
         </form>
         <div class="gameFinderArea">
@@ -143,23 +109,6 @@
               <th>Owner</th>
               <th>Join</th>
             </tr>
-            <?php
-              
-              foreach($private_data as $row)
-              {
-                echo "<tr>\n";
-                echo "<td>" .  $row["game_name"] . "</td>\n";
-                echo "<td>" .  $row["date_created"] . "</td>\n";
-                echo "<td>" .  $row["display_name"] . "</td>\n";
-                echo "<td class='d-flex flex-column align-items-center justify-content-center'>";
-                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
-                echo "<input hidden name='joinGame' id='joinGame' value='" . $row["id"] . "'>";
-                echo "<button class='btn btn-success joinBtn'  type='submit'>Join Game</button>";
-                echo "</form>"; 
-                echo "</tr>\n";
-              }
-
-            ?>  
           </table>
         </div> <!--End game finder area-->
       </div><!--End game search window-->
