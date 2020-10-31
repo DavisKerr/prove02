@@ -2,6 +2,29 @@
   session_start();
   header('Content-type: application/json');
 
+  $returnArr = array('isValid'=>false, 'serverError'=>'', 'success'=>true);
+  // Get required files.
+  try
+  {
+    require '../database/getDB.php';
+    require '../database/insertGame.php';
+  }
+  catch(Exception $e)
+  {
+    $returnArr['serverError'] .= 'There was an error in the file system\n';
+  }
+
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+    $gameName = filter_input(INPUT_POST, 'gameName', FILTER_SANITIZE_STRING);
+    $private = htmlspecialchars($_POST["private"]);
+    $gameCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
+
+    $returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
+  }
+
+  echo json_encode($returnArr);
+
 /*
   function isNewGame($db)
   {
