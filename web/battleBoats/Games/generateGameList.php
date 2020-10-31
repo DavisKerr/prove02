@@ -4,10 +4,12 @@
   function generateGameList($rows, $joinable)
   {
     $result = '';
-    if(!empty($rows))
+    foreach($rows as $row)
     {
-      foreach($rows as $row)
+      if(!empty($row['game_name'])
       {
+
+      
         $result .= "<tr>\n";
         $result .= "<td>" .  $row["game_name"] . "</td>\n";
         $result .= "<td>" .  $row["date_created"] . "</td>\n";
@@ -32,8 +34,9 @@
         $result .= "</form>"; 
         $result .= "</tr>\n";
       }
-      return $result;
     }
+
+    return $result;
   }
 /*
   foreach($user_data as $row)
