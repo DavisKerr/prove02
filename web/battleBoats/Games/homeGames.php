@@ -3,7 +3,6 @@
   header('Content-type: application/json');
   
   $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
-  $search = '%';
   // Import the needed files
   try
   {
@@ -18,25 +17,28 @@
 
   if($_SERVER["REQUEST_METHOD"] == 'POST')
   {
-    $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING) . '%';
-    $type = htmlspecialchars($_POST['type']); 
-
-    if($type != 0)
+    $search = '%' . filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
+    if($search != '%')
     {
-      $result = searchGames($db, $search, $type);
-      if(!isset($result['error']))
-      {
-        $returnArr['active'] = generateGameList($result['active'], false);
-        $returnArr['public'] = generateGameList($result['public'], true);
-        $returnArr['private'] = generateGameList($result['private'], true);
-        
-      }
-      else
-      {
-        $returnArr['serverError'] .= $result['error'] . "\n";
-      }
+      $search .= '%';
+    }
+    
+
+
+    $result = searchGames($db, $search);
+    if(!isset($result['error']))
+    {
+      $returnArr['active'] = generateGameList($result['active'], false);
+      $returnArr['public'] = generateGameList($result['public'], true);
+      $returnArr['private'] = generateGameList($result['private'], true);
       
     }
+    else
+    {
+      $returnArr['serverError'] .= $result['error'] . "\n";
+    }
+      
+    
   }
 
   echo json_encode($returnArr);

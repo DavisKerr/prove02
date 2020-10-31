@@ -1,5 +1,22 @@
 $(document).ready(function(){
 
+  $.post("../Games/homeGames.php",
+  {
+  search: ''
+  },
+  function(data, status)
+  { 
+    if(status == 'success')
+    {
+      updateAll(data);
+    }
+    else
+    {
+      alert("Oops! Something happened!");
+    }
+    
+  }); 
+
   $("#activeSearch").click(function(){
     var search = document.getElementById("myGameSearch").value;
 
@@ -143,6 +160,28 @@ function updatePrivate(data)
   else
   {
     var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.private;
+    document.getElementById('privateGames').innerHTML = table;
+  }
+}
+
+function updateAll(data)
+{
+  if(data.serverError != '')
+  {
+    alert(data.serverError);
+  }
+  else
+  {
+    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.active;
+    document.getElementById('activeGames').innerHTML = table;
+
+    table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.public;
+    document.getElementById('publicGames').innerHTML = table;
+
+    table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
     table = table + data.private;
     document.getElementById('privateGames').innerHTML = table;
   }
