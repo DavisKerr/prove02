@@ -13,7 +13,7 @@ function checkTurn()
   { 
     if(status == 'success')
     {
-      if(data.isValid)
+      if(data.success)
       {
         alert(JSON.stringify(data));
         //processData(data);
