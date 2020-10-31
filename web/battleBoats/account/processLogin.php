@@ -34,7 +34,7 @@
     }
     else
     {
-      if(($username == $dbInfo["username"]) && ($password == $dbInfo["password"]) && !empty($dbInfo["username"]))
+      if(password_verify($password, $returnArr['password']))
       {
         $returnArr["isValid"] = true;
         $_SESSION["loggedIn"] = true;
