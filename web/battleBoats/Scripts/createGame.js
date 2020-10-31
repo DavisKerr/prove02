@@ -91,6 +91,7 @@ function processData(data)
     document.getElementById("formErr").innerHTML = 'Game was successfully made!';
     document.getElementById("gameName").value = '';
     document.getElementById("private").checked = false;
+    addCode();
   }
   
 }

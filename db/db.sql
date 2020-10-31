@@ -375,6 +375,6 @@ JOIN public.user AS u
 ON g.game_owner = u.id 
 WHERE g.is_active = 0 
 AND g.game_type LIKE 'PUBLIC' 
-AND LOWER(g.game_name) LIKE LOWER('%')
+AND LOWER(g.game_name) LIKE LOWER('%yeet%')
 AND g.game_owner <> 2
 ORDER BY g.date_created
