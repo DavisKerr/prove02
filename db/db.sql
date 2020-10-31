@@ -382,3 +382,9 @@ ORDER BY g.date_created
 DELETE FROM board;
 DELETE FROM game;
 
+SELECT m.body, m.time_sent, u.display_name
+      FROM public.messages AS m
+      JOIN public.user AS u
+      ON m.sent_by = u.id
+      WHERE game_id = 9
+      ORDER BY time_sent;

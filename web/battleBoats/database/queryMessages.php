@@ -19,10 +19,9 @@
     }
     catch (Exception $ex)
     {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
+      //echo 'Error!: ' . $ex->getMessage();
+      return array('error'=>$ex->getMessage());
     }
-
     return $rows;
   }
 ?>

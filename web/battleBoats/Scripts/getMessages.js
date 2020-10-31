@@ -13,7 +13,7 @@ function getMessages()
   { 
     if(status == 'success')
     {
-      document.getElementById('gameMessageWindow').innerHTML = data.getMessages;
+      document.getElementById('gameMessageWindow').innerHTML = data.messages;
     }
     else
     {

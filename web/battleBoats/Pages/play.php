@@ -245,12 +245,6 @@
       <div id="gameMessages">
         <h3>Messages:</h3>
         <div id="gameMessageWindow">
-        <?php
-              /*foreach($messages as $message)
-              {
-                echo "<p><strong>" . $message["display_name"] . "</strong>: " . $message["body"] . "</p>";
-              }*/
-            ?>
         </div> 
         <br>
         <form method="POST" action=" <?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
