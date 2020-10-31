@@ -28,5 +28,20 @@ function joinGame(button)
 
 function processRefresh()
 {
-  refreshList();
+  $.post("../Games/homeGames.php",
+  {
+  search: ''
+  },
+  function(data, status)
+  { 
+    if(status == 'success')
+    {
+      updateAll(data);
+    }
+    else
+    {
+      alert("Oops! Something happened!");
+    }
+    
+  });
 }
