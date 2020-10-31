@@ -11,7 +11,7 @@ function joinGame(button)
     {
       if(data.success)
       {
-        refresh();
+        refreshList();
       }
       else
       {

@@ -180,11 +180,14 @@ function updateAll(data)
     table = "<tr><th>Game Name</th><th>Date Created</th><th>Owner</th><th>Join game</th></tr>";
     table = table + data.public;
     document.getElementById('publicGames').innerHTML = table;
+
+    document.getElementById('privateGames').innerHTML = '';
   }
 }
 
-function refresh()
+function refreshList()
 {
+  alert("Refreshing");
   $.post("../Games/homeGames.php",
   {
   search: ''
