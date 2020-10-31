@@ -130,7 +130,7 @@ function processData(data)
   else
   {
     alert(data.success);
-    if(data.success == 'TRUE')
+    if(data.success == true)
     {
       window.location.replace("./login.php");
     }
