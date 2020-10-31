@@ -41,7 +41,7 @@
     <div id="page_body" class="d-flex flex-row justify-content-center flex-wrap">
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
-        <span class="error"></span>
+        <span class="error" id="formErr"></span>
         <form method="POST">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">

@@ -76,6 +76,10 @@ function processData(data)
   {
     alert(data.serverError);
   }
+  else if(data.isValid == false)
+  {
+    document.getElementById("formErr") = 'Username or Password are invalid';
+  }
   else
   {
     window.location.replace("./home.php");
