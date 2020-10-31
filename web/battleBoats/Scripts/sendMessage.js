@@ -40,14 +40,14 @@ function isValid(message)
 {
   var valid = true;
   var messageErr = document.getElementById("messageErr");
-  var pattern1 = RegExp('^[0-9A-z ]+$');
-  var pattern2 = RegExp(' ');
+  var pattern1 = RegExp('^[0-9A-z !.?]+$');
+  var pattern2 = RegExp('^ +$');
 
   messageErr.innerHTML = '';
 
   if(!pattern1.test(message))
   {
-    messageErr.innerHTML = "Message must only contain letters, numbers, and spaces";
+    messageErr.innerHTML = "Message must only contain punctuation, letters, numbers, and spaces";
     valid = false;
   }
 
