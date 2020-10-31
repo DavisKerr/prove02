@@ -32,7 +32,7 @@
     }
     else
     {
-      if(password_verify($password, $returnArr['password']))
+      if(password_verify($password, $dbInfo['password']))
       {
         $returnArr["isValid"] = true;
         $_SESSION["loggedIn"] = TRUE;
