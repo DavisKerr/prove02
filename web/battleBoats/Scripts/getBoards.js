@@ -15,6 +15,7 @@ function getBoards()
     {
       if(data.success == true)
       {
+        alert(JSON.stringify(data));
         displayBoards(data)
       }
       else

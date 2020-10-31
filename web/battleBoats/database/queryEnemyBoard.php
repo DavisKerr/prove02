@@ -14,7 +14,7 @@
 
       $stmt = $database->prepare($query);
       $stmt->execute(array(':game_id'=>$_SESSION['current_game_id'], ':user_id'=>$_SESSION['user_id']));
-      $board = ($stmt->fetch(PDO::FETCH_ASSOC))['grid'];
+      $board = ($stmt->fetch(PDO::FETCH_ASSOC));
 
     }
     catch (Exception $ex)
