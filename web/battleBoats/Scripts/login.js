@@ -84,6 +84,7 @@ function processData(data)
   else
   {
     //window.location.replace("./home.php");
+    alert(data.isValid)
     return data.isValid;
   }
   
