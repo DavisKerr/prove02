@@ -92,6 +92,7 @@ function processData(data)
     document.getElementById("gameName").value = '';
     document.getElementById("private").checked = false;
     addCode();
+    refresh();
   }
   
 }

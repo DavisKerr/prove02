@@ -187,3 +187,23 @@ function updateAll(data)
 
   }
 }
+
+function refresh()
+{
+  $.post("../Games/userGames.php",
+  {
+  search: ''
+  },
+  function(data, status)
+  { 
+    if(status == 'success')
+    {
+      updateAll(data);
+    }
+    else
+    {
+      alert("Oops! Something happened!");
+    }
+    
+  }); 
+}

@@ -21,7 +21,7 @@
 
         if($showCode)
         {
-          $result .= "<td>" .  $row["code"] . "</td>\n";
+          $result .= "<td>" .  $row["game_code"] . "</td>\n";
         }
 
         $result .= "<td class='d-flex flex-column align-items-center justify-content-center'>";
