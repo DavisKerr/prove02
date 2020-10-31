@@ -34,7 +34,7 @@
           else
           {
             $result .= "<form method='POST' action='" . htmlspecialchars('../Games/gameRequest.php') . "'>";
-            $result .= "<input type='number' hidden value='" . $row["id"] . "'>";
+            $result .= "<input id='playGame' name='playGame' type='number' hidden value='" . $row["id"] . "'>";
             $result .= "<button class='btn btn-success joinBtn' type='submit'>Play Game</button>";
             $result .= "</form>";
           }
