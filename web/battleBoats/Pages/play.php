@@ -2,8 +2,6 @@
   session_start();
   require '../Util/auth.php';
   /*
-  require 'getDB.php';
-  require 'sendMessage.php';
   require 'openFire.php';
   require 'turnCount.php';
   require 'checkEnd.php';
@@ -15,83 +13,8 @@
   }
 
 
-  function queryPlayerBoard($database)
-  {
-    $board="";
-    try
-    {
-      $query = "    
-      SELECT grid_owner, grid_opponent, game_owner
-      FROM public.game
-      WHERE id = :game_id
-      ";
 
-      $stmt = $database->prepare($query);
-      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      foreach($rows as $row)
-      {
-        if($row["game_owner"] == $_SESSION["user_id"])
-        {
-          $board = $row["grid_owner"];
-        }
-        else
-        {
-          $board = $row["grid_opponent"];
-        }
-      }
-
-    }
-    catch (Exception $ex)
-    {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
-    }
-
-    return $board;
-  }
-
-
-
-  function queryEnemyBoard($database)
-  {
-    $enemyData = array("board"=>'', "which"=>'', 'game_name'=>'');
-    try
-    {
-      $query = "    
-      SELECT grid_owner, grid_opponent, game_owner, game_name
-      FROM public.game
-      WHERE id = :game_id
-      ";
-
-      $stmt = $database->prepare($query);
-      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-      foreach($rows as $row)
-      {
-        $enemyData["game_name"] = $row["game_name"];
-        if($row["game_owner"] == $_SESSION["user_id"])
-        {
-          $enemyData["board"] = $row["grid_opponent"];
-          $enemyData["which"] = "grid_opponent";
-        }
-        else
-        {
-          $enemyData["board"] = $row["grid_owner"];
-          $enemyData["which"] = "grid_owner";
-        }
-      }
-
-    }
-    catch (Exception $ex)
-    {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
-    }
-    return $enemyData;
-  }
+  
 
   
 
@@ -119,6 +42,7 @@
     <script src="../Scripts/getMessages.js"></script>
     <script src="../Scripts/sendMessage.js"></script>
     <script src="../Scripts/getBoards.js"></script>
+    <script src="../Scripts/turns.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -152,25 +76,6 @@
 
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
-      <?php
-        /*$type = "opponentBoard";
-        $name = "Enemy Board";
-        $is_player_board = FALSE;
-        $enemyData = queryEnemyBoard($db);
-        $board = $enemyData["board"];
-        $victory = checkEnd($db, $board);
-        require 'readBoard.php';*/
-        
-      ?>
-
-        <?php
-        /*$type = "playerBoard";
-        $name = "Your Board";
-        $is_player_board = TRUE;
-        $board = queryPlayerBoard($db);
-        $defeat = checkEnd($db, $board); 
-        require 'readBoard.php';*/
-        ?>
       </div>
 
       <div id="moveForm">
