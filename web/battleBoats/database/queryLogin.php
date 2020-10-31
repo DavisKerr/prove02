@@ -1,12 +1,12 @@
 <?php
 
-  function queryLogin($username, $password, $database)
+  function queryLogin($username, $database)
   {
     $db_data = array(/*"db_username"=>'', "db_password"=>'', "db_id"=>'',*/ "db_err"=>'');
     try
     {
-      $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username AND password=:password');
-      $stmt->execute(array(':username' => $username, ':password' => $password));
+      $stmt = $database->prepare('SELECT id, username, password FROM public.user WHERE username=:username');
+      $stmt->execute(array(':username' => $username));
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       return $row;
     }
