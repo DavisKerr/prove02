@@ -1,8 +1,5 @@
 $(document).ready(function(){
 
-
-
-
   $("#activeSearch").click(function(){
     var search = document.getElementById("myGameSearch").value;
 

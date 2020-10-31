@@ -3,7 +3,9 @@
   header('Content-type: application/json');
   
   $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
-
+  $private = '';
+  $public = '';
+  $active = '';
   // Import the needed files
   try
   {
@@ -13,6 +15,29 @@
   catch(Exception $e)
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
+  }
+
+  if($_SERVER["REQUEST_METHOD"] == 'POST')
+  {
+    $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
+    $type = $_POST['type'];
+
+    if($type != 0)
+    {
+      $result = searchGames($db, $search, $type);
+      switch($type)
+      {
+        case 1:
+          $returnArr['active'] = $result;
+        break;
+        case 2:
+          $returnArr['public'] = $result;
+        break;
+        case 3:
+          $returnArr['private'] = $result;
+        break;
+      }
+    }
   }
 
   echo json_encode($returnArr);
