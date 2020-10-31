@@ -15,8 +15,6 @@
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
-
-   
  
   //Process the input
   if($_SERVER["REQUEST_METHOD"] == "POST")
