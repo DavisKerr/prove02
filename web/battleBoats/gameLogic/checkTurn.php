@@ -16,7 +16,7 @@
     $returnArr['success'] = false;
   }
 
-  $turnData = getMoves($db);
+  $turnData = queryMoves($db);
   $owner = queryGameOwner($db) == $_SESSION["user_id"];
 
   if(empty($turnData) && $owner)
