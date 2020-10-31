@@ -2,13 +2,11 @@ $(document).ready(function(){
   getBoards();
 });
 
-
 function getBoards() 
 {
-  alert('Working');
   $.post("../gameLogic/getBoards.php",
   {
-
+    item: 1
   },
   function(data, status)
   { 
