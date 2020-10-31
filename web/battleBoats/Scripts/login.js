@@ -13,6 +13,7 @@ $(document).ready(function(){
       { 
         if(status == 'success')
         {
+          alert(data.isValid);
           processData(data);
         }
         else
