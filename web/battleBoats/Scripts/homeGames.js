@@ -14,8 +14,7 @@ $(document).ready(function(){
      { 
        if(status == 'success')
        {
-         alert(JSON.stringify(data));
-          processData(data);
+          updateActive(data);
        }
        else
        {
@@ -40,7 +39,7 @@ $(document).ready(function(){
      { 
        if(status == 'success')
        {
-          processData(data);
+          updatePublic(data, 2);
        }
        else
        {
@@ -65,7 +64,7 @@ $(document).ready(function(){
      { 
        if(status == 'success')
        {
-          processData(data);
+          updatePrivate(data);
        }
        else
        {
@@ -107,7 +106,7 @@ function isValid(search, errMsg)
   return valid;
 }
 
-function processData(data)
+function updateActive(data)
 {
   if(data.serverError != '')
   {
@@ -115,7 +114,36 @@ function processData(data)
   }
   else
   {
-    alert(JSON.stringify(data));
+    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.active;
+    document.getElementById('activeGames').innerHTML = table;
   }
-  
+}
+
+function updatePublic(data)
+{
+  if(data.serverError != '')
+  {
+    alert(data.serverError);
+  }
+  else
+  {
+    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.public;
+    document.getElementById('publicGames').innerHTML = table;
+  }
+}
+
+function updatePrivate(data)
+{
+  if(data.serverError != '')
+  {
+    alert(data.serverError);
+  }
+  else
+  {
+    var table = "<tr><br><th>Game Name</th><th>Date Created</th><th>Type</th><th>Owner</th><th>Opponent</th><th>Play Game</th><br></tr><br>";
+    table = table + data.private;
+    document.getElementById('privateGames').innerHTML = table;
+  }
 }

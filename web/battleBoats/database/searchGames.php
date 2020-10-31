@@ -1,6 +1,7 @@
 <?php
   function searchGames($database, $search, $type)
   {
+    $tableData = array("active"=>'', "public"=>'', "private"=>'');
     try
     {
       $query = '';
@@ -23,7 +24,7 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
+        $tableData["active"] = $rows;
       }
 
       if($type == 2) // 2 means it is a public game that is joinable.
@@ -42,7 +43,7 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':user_id'=>$_SESSION['user_id'], ':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
+        $tableData["public"] = $rows;
       }
 
       if($type == 3) // 3 means it is a private game that is joinable.
@@ -62,13 +63,8 @@
         $stmt = $database->prepare($query);
         $stmt->execute(array(':search'=>$search, ':user_id'=>$_SESSION['user_id']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
+        $tableData["private"] = $rows;
       }
-      
-
-      
-      
-      
 
       /*
       $query = "
@@ -82,6 +78,7 @@
       AND g.game_owner <> :user_id
       ORDER BY g.date_created
       ";*/
+      return $tableData;
 
     }
     catch (Exception $ex)
