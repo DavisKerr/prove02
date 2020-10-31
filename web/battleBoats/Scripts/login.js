@@ -20,7 +20,7 @@ $(document).ready(function(){
         else
         {
           alert("Oops! Something happened!");
-          return = false;
+          return false;
         }
       
       }); 
