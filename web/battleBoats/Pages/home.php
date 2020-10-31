@@ -1,6 +1,7 @@
 <?php
   session_start();
   require '../Util/auth.php';
+  require '../Games/gameRequest.php';
 ?>
 
 <!DOCTYPE html>

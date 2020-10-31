@@ -6,6 +6,7 @@
   $returnArr = array('isValid'=>false, 'serverError'=>'');
   $_SESSION["loggedIn"] = FALSE;
   $_SESSION["user_id"] = '';
+  $_SESSION["current_game_id"] == 'none';
 
   // Import the needed files
   try
