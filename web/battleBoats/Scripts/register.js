@@ -1,33 +1,40 @@
 $(document).ready(function(){
   $("#confirmBtn").click(function(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var passwordConf = document.getElementById("confirmPassword").value;
-    var screenName = document.getElementById("screen_name").value
-    if(isValid(username, password, passwordConf, screenName))
-    {
-     $.post("../account/processRegister.php",
-     {
-      username: username,
-      screenName: screenName,
-      password: password
-     },
-     function(data, status)
-     { 
-       if(status == 'success')
-       {
-          processData(data);
-       }
-       else
-       {
-         alert("Oops! Something happened!");
-       }
-       
-     }); 
-    }
+    
   });
   
 });
+
+
+function register()
+{
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var passwordConf = document.getElementById("confirmPassword").value;
+  var screenName = document.getElementById("screen_name").value
+  if(isValid(username, password, passwordConf, screenName))
+  {
+    $.post("../account/processRegister.php",
+    {
+    username: username,
+    screenName: screenName,
+    password: password
+    },
+    function(data, status)
+    { 
+      if(status == 'success')
+      {
+        return processData(data);
+      }
+      else
+      {
+        alert("Oops! Something happened!");
+        return false;
+      }
+      
+    }); 
+  }
+}
 
 function isValid(username, password, passwordConf, screenName)
 {
@@ -122,20 +129,23 @@ function processData(data)
   if(data.serverError != '')
   {
     alert(data.serverError);
+    return false;
   }
   else if(data.nameErr != '')
   {
     document.getElementById("usernameErr").innerHTML = data.nameErr;
+    return false;
   }
   else
   {
     if(data.success == true)
     {
-      window.location.replace("./login.php");
+      return true;
     }
     else
     {
       alert("Something went wrong when creating your account! Try again later.");
+      return false;
     }
     
   }

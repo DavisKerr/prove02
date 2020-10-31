@@ -3,6 +3,12 @@
   
   require '../Util/notAuth.php';
   echo 'The user is logged in: ' . $_SESSION["loggedIn"];
+
+  if($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+    header("Location: ./home.php");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,7 @@
       <div id="login_menu">
         <h2 id="formTitle">Register</h2>
         <span class="error" id="formErr"></span>
-        <form method="POST" action="">
+        <form method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="register()">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
