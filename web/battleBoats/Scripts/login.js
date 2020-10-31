@@ -81,6 +81,10 @@ function processData(data)
     alert(data.serverError);
     return false;
   }
+  else if(data.isValid == false)
+  {
+    return false;
+  }
   else
   {
     //window.location.replace("./home.php");
