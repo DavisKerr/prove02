@@ -114,11 +114,6 @@ function isValid(search, errMsg)
     valid = false;
   }
 
-  if(pattern2.test(search))
-  {
-    errMsg.innerHTML = "Search cannot be blank";
-    valid = false;
-  }
 
   return valid;
 }
