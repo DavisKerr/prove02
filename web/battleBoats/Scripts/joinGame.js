@@ -17,7 +17,6 @@ function joinGame(button)
       {
         alert("Failed to join game!");
       }
-      
     }
     else
     {
