@@ -156,8 +156,8 @@ INSERT INTO public.messages
 , time_sent
 )
 VALUES
-( 3
-, 2
+( 1
+, 9
 , 'You wish!'
 , (SELECT CURRENT_TIMESTAMP)
 );
