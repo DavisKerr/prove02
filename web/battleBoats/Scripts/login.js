@@ -78,7 +78,7 @@ function processData(data)
   }
   else if(data.isValid == false)
   {
-    document.getElementById("formErr") = 'Username or Password are invalid';
+    document.getElementById("formErr").innerHTML = 'Username or Password are invalid';
   }
   else
   {
