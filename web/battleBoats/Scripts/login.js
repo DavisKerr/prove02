@@ -1,37 +1,39 @@
 $(document).ready(function(){
-  
-  
+  $('#loginForm').submit(function(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(isValid(username, password))
+    {
+      $.post("../account/processLogin.php",
+      {
+      username: username,
+      password: password
+      },
+      function(data, status)
+      { 
+        if(status == 'success')
+        {
+          return processData(data);
+        }
+        else
+        {
+          alert("Oops! Something happened!");
+          return false;
+        }
+      
+      }); 
+    }
+    else
+    {
+      return false;
+    }
+  });
+
 });
 
-function loggin()
+function login()
 {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  if(isValid(username, password))
-  {
-    $.post("../account/processLogin.php",
-    {
-    username: username,
-    password: password
-    },
-    function(data, status)
-    { 
-      if(status == 'success')
-      {
-        return processData(data);
-      }
-      else
-      {
-        alert("Oops! Something happened!");
-        return false;
-      }
-      
-    }); 
-  }
-  else
-  {
-    return false;
-  }
+  
 }
 
 function isValid(username, password)

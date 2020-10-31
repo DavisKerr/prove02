@@ -49,7 +49,7 @@
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
         <span class="error"></span>
-        <form method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="loggin()">
+        <form method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginForm">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
