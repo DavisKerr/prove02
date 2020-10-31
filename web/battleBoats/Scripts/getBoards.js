@@ -13,7 +13,14 @@ function getBoards()
   { 
     if(status == 'success')
     {
-      document.getElementById('gameBoard').innerHTML = data.enemyBoard + data.playerBoard;
+      if(data.success == true)
+      {
+        displayBoards(data)
+      }
+      else
+      {
+        alert("Error! Could not load game!");
+      }
       
     }
     else
@@ -22,4 +29,9 @@ function getBoards()
     }
     
     }); 
+}
+
+function displayBoards(data)
+{
+  document.getElementById('gameBoard').innerHTML = data.enemyBoard + data.playerBoard;
 }

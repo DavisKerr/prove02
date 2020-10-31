@@ -23,7 +23,7 @@
     $enemyBoard = queryEnemyBoard($db);
 
     $returnArr['userBoard'] = readBoard($board, 'playerBoard', 'Your Board', true);
-    $returnArr['enemyBoard'] = readBoard($board, 'opponentBoard', 'Enemy Board', true);
+    $returnArr['enemyBoard'] = readBoard($board, 'opponentBoard', 'Enemy Board', false);
     $returnArr['success'] = true;
   }
   catch(Exception $e)
