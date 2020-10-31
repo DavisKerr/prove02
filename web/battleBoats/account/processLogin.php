@@ -37,7 +37,7 @@
       if(password_verify($password, $returnArr['password']))
       {
         $returnArr["isValid"] = true;
-        $_SESSION["loggedIn"] = true;
+        $_SESSION["loggedIn"] = TRUE;
         $_SESSION["user_id"] = $dbInfo["id"];
       }
     }
