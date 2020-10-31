@@ -58,13 +58,13 @@ function isValid(gameName, private, code)
 
   if(!codePattern1.test(code) && private)
   {
-    usernameErr.innerHTML = "Code must only contain letters and numbers."
+    codeErr.innerHTML = "Code must only contain letters and numbers."
     valid = false;
   }
 
-  if(pattern2.test(username) && private)
+  if(pattern2.test(code) && private)
   {
-    usernameErr.innerHTML = "Code for a private game cannot be blank."
+    codeErr.innerHTML = "Code for a private game cannot be blank."
     valid = false;
   }
 
