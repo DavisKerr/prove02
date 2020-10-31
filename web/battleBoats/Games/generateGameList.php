@@ -6,7 +6,7 @@
     $result = '';
     foreach($rows as $row)
     {
-      if(!empty($row['game_name'])
+      if(!empty($row['game_name']))
       {
 
       
