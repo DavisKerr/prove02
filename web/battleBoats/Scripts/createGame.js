@@ -5,7 +5,7 @@ $(document).ready(function(){
     var code = '';
     if(private)
     {
-      code = document.getElementById("code").value;
+      code = document.getElementById("gameCode").value;
     }
     if(isValid(gameName, private, code))
     {
