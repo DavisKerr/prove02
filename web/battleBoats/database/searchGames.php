@@ -40,7 +40,7 @@
         ORDER BY g.date_created";
 
         $stmt = $database->prepare($query);
-        $stmt->execute(array(':player_id'=>$_SESSION['user_id'], ':search'=>$search));
+        $stmt->execute(array(':user_id'=>$_SESSION['user_id'], ':search'=>$search));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
       }
@@ -55,11 +55,12 @@
         WHERE g.is_active = 0 
         AND g.game_type LIKE 'PRIVATE' 
         AND LOWER(g.game_code) LIKE LOWER(:search)
+        AND g.game_owner <> :user_id
         ORDER BY g.date_created
         ";
 
         $stmt = $database->prepare($query);
-        $stmt->execute(array(':search'=>$search));
+        $stmt->execute(array(':search'=>$search, ':user_id'=>$_SESSION['user_id']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
       }
