@@ -11,6 +11,7 @@
   {
     require '../database/getDB.php';
     require '../database/searchGames.php';
+    require './generateGameList.php';
   }
   catch(Exception $e)
   {
@@ -28,13 +29,13 @@
       switch($type)
       {
         case 1:
-          $returnArr['active'] = $result;
+          $returnArr['active'] = generateGameList($result, false);
         break;
         case 2:
-          $returnArr['public'] = $result;
+          $returnArr['public'] = generateGameList($result, true);;
         break;
         case 3:
-          $returnArr['private'] = $result;
+          $returnArr['private'] = generateGameList($result, true);
         break;
       }
     }

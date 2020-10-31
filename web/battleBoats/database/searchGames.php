@@ -28,7 +28,7 @@
       if($type == 2) # 2 means it is a public game that is joinable.
       {
         $query = " 
-        SELECT g.id, g.game_name, g.date_created, u.display_name 
+        SELECT g.id, g.game_name, g.date_created, u.display_name AS Player1 
         FROM public.game AS g 
         JOIN public.user AS u 
         ON g.game_owner = u.id 
@@ -46,7 +46,7 @@
       if($type == 3) # 3 means it is a private game that is joinable.
       {
         $query = "
-        SELECT g.id, g.game_name, g.date_created, u.display_name 
+        SELECT g.id, g.game_name, g.date_created, u.display_name As Player1
         FROM public.game AS g 
         JOIN public.user AS u 
         ON g.game_owner = u.id 
