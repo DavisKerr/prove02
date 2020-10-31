@@ -1,36 +1,21 @@
 <?php
   session_start();
-
-  require '../database/getDB.php';
   header('Content-type: application/json');
+
 
   $returnArr = array('success'=>false, 'serverError'=>'', 'userInfo'=>'');
 
-  function queryDatabaseForUserInfo($database)
+  try
   {
-    try
-    {
-      $query = "
-      SELECT username, display_name, date_created 
-      FROM public.user 
-      WHERE id = :player_id 
-      ";
-
-      $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-    catch (Exception $ex)
-    {
-      return array('error'=>$ex->getMessage());
-    }
-
-    return $rows;
-    
+    require '../database/getDB.php';
+    require '../database/queryUserInfo.php';
+  }
+  catch(Exception $e)
+  {
+    $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
 
-  $user_data = queryDatabaseForUserInfo($db);
+  $user_data = queryUserInfo($db);
 
   if(isset($user_data['error']))
   {

@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $('#logoutBtn').click(function(){
-    alert('CLICKED!');
     $.post("../Util/logout.php",
     {
       logout: true
