@@ -237,7 +237,7 @@
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
         <span class="error" id="activeGameErr"></span>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" >
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="activeGameSearch" name="activeGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="activeSearch">Search</button>
@@ -272,7 +272,7 @@
       <div class="gameSearchWindow">
         <h3>Your Pending Games:</h3>
         <span class="error" id="pendingGameErr"></span>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pendingGameSearch", name="pendingGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="pendingSearch">Search</button>
@@ -301,7 +301,7 @@
       <div class="gameSearchWindow">
         <h3>Your Finished Games:</h3>
         <span class="error" id="finishedGameErr"></span>
-        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form class="form-inline my-2 my-lg-0 gameSearch" method="POST">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="finishedGameSearch" name="finishedGameSearch">
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="finishedSearch">Search</button>
