@@ -47,7 +47,7 @@
     }
   }
 
-  //echo json_encode($returnArr);
+  echo json_encode($returnArr);
 
   /*
   require 'getDB.php';
