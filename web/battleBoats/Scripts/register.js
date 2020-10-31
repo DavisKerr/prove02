@@ -129,7 +129,16 @@ function processData(data)
   }
   else
   {
-    window.location.replace("./login.php");
+    alert(data.success);
+    if(data.success == 'TRUE')
+    {
+      window.location.replace("./login.php");
+    }
+    else
+    {
+      alert("Something went wrong when creating your account! Try again later.");
+    }
+    
   }
   
 }

@@ -4,7 +4,7 @@
   header('Content-type: application/json');
 
 
-  $returnArr = array('isValid'=>false, 'serverError'=>'', 'nameErr'=>'');
+  $returnArr = array('success'=>false, 'serverError'=>'', 'nameErr'=>'');
 
   try
   {
@@ -20,16 +20,28 @@
   //Process the input
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
+    $valid = TRUE;
     // Initialize and sanitize the input
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $screenName = filter_input(INPUT_POST, 'screenName', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    
-    $used = queryUsers($username, $db);
 
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    
+    // Check if the username is already in use.
+    $used = queryUsers($username, $db);
     if(!empty($used))
     {
       $returnArr['nameErr'] = "That username is already chosen";
+      $valid = FALSE;
+    }
+
+    
+
+    if($valid)
+    {
+      $returnArr['success'] = dbRegister($username, $screenName, $hashedPassword, $db);
     }
   }
 
