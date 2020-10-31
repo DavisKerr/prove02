@@ -29,16 +29,13 @@
     if(!isset($result['error']))
     {
       $returnArr['active'] = generateGameList($result['active'], false, false);
-      $returnArr['pending'] = generateGameList($result['public'], true, true);
-      $returnArr['finished'] = generateGameList($result['private'], true, false);
-      
+      $returnArr['pending'] = generateGameList($result['pending'], true, true);
+      $returnArr['finished'] = generateGameList($result['finished'], true, false);
     }
     else
     {
       $returnArr['serverError'] .= $result['error'] . "\n";
     }
-      
-    
   }
 
   echo json_encode($returnArr);
