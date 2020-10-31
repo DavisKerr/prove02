@@ -81,7 +81,7 @@
           </div>
         </form>
         <div class="gameFinderArea">
-          <table class="gameTable" id="privateGames">
+          <table class="gameTable" id="publicGames">
             <tr>
               <th>Game Name</th>
               <th>Date Created</th>
