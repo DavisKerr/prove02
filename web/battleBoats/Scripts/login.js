@@ -75,12 +75,10 @@ function processData(data)
   if(data.serverError != '')
   {
     alert(data.serverError);
-    return false;
   }
   else
   {
-    //window.location.replace("./home.php");
-    return data.isValid;
+    window.location.replace("./home.php");
   }
   
 }

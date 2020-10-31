@@ -2,7 +2,9 @@
   session_start();
   header('Content-type: application/json');
   
+  // Get variables ready.
   $returnArr = array('isValid'=>false, 'serverError'=>'');
+  $_SESSION["loggedIn"] = FALSE;
 
   // Import the needed files
   try

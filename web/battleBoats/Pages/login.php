@@ -3,16 +3,6 @@
   
   require '../Util/notAuth.php';
   echo 'The user is logged in: ' . $_SESSION["loggedIn"];
-
-  if($_SERVER["REQUEST_METHOD"] == "POST")
-  {
-    if($_SESSION["loggedIn"] == true)
-    {
-      header("Location: ./home.php");
-      exit();
-    }
-    //$_SESSION["loggedIn"] = true;
-  }
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +42,7 @@
       <div id="login_menu">
         <h2 id="formTitle">Login</h2>
         <span class="error"></span>
-        <form method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginForm">
+        <form method="POST">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>
@@ -64,7 +54,7 @@
               <input type="password" name="password" id="password" placeholder="Password" class="loginField">
               <span class="error" id="passwdErr"></span>
             </div>
-            <button type="submit" class="btn btn-success" id="confirmBtn">Login</button>
+            <button type="button" class="btn btn-success" id="confirmBtn">Login</button>
           </div>
         </form>
         <hr>
