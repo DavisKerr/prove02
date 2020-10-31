@@ -93,38 +93,11 @@
     return $enemyData;
   }
 
-  function queryDatabaseForMessages($database)
-  {
-    try
-    {
-      $query = "    
-      SELECT m.body, m.time_sent, u.display_name
-      FROM public.messages AS m
-      JOIN public.user AS u
-      ON m.sent_by = u.id
-      WHERE game_id =:game_id
-      ORDER BY time_sent;
-      ";
-
-      $stmt = $database->prepare($query);
-      $stmt->execute(array(':game_id'=>$_SESSION['current_game_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-    catch (Exception $ex)
-    {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
-    }
-
-    return $rows;
-  }
+  
 
   $turnInfo = getMoves($db);
   $enemyData = queryEnemyBoard($db);
   $fireError = isFiring($db, $enemyData, $turnInfo);
-  $messageErr = sendMessage($db);
-  $messages = queryDatabaseForMessages($db);
 
   $defeat = FALSE;
   $victory = FALSE;*/
@@ -138,13 +111,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../Scripts/getMessages.js"></script>
     <script src="../Scripts/sendMessage.js"></script>
+    <script src="../Scripts/getBoards.js"></script>
     <title>Home</title>
   </head>
   <body>

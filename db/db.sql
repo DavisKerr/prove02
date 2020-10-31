@@ -383,8 +383,20 @@ DELETE FROM board;
 DELETE FROM game;
 
 SELECT m.body, m.time_sent, u.display_name
-      FROM public.messages AS m
-      JOIN public.user AS u
-      ON m.sent_by = u.id
-      WHERE game_id = 9
-      ORDER BY time_sent;
+FROM public.messages AS m
+JOIN public.user AS u
+ON m.sent_by = u.id
+WHERE game_id = 9
+ORDER BY time_sent;
+
+SELECT grid
+FROM public.board
+WHERE game_id = 9
+AND
+board_owner = 1;
+
+SELECT grid
+FROM public.board
+WHERE game_id = 9
+AND
+board_owner <> 1;

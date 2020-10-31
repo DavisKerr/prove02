@@ -68,6 +68,7 @@ function processData(data)
   }
   else
   { 
+    document.getElementById("newMessage").value = '';
     getMessages();
   }
   
