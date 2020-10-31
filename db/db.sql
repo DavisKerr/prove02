@@ -356,3 +356,14 @@ SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1
       ORDER BY g.date_created;
 
 SELECT id, username, password FROM public.user WHERE username='myusername' AND password='mypassword';
+
+INSERT INTO board
+( board_owner
+, game_id
+, grid
+)
+VALUES
+( 1
+, 1
+, '****'
+);

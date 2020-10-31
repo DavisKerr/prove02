@@ -3,6 +3,7 @@
   {
     try
     {
+      /*
       $query = "
       INSERT INTO board
       ( board_owner
@@ -17,6 +18,7 @@
       ";
       $statement = $db->prepare($query);
       $statement->execute(array(':user_id'=>$_SESSION["user_id"], ':game_id'=>$game, ':board'=>$board));
+      */
       return TRUE;
     }
     catch(PDOException $e)
