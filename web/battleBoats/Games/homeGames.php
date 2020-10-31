@@ -3,7 +3,7 @@
   header('Content-type: application/json');
   
   $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
-
+  $search = '%';
   // Import the needed files
   try
   {
@@ -18,7 +18,7 @@
 
   if($_SERVER["REQUEST_METHOD"] == 'POST')
   {
-    $search = '%' . filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING) . '%';
+    $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING) . '%';
     $type = htmlspecialchars($_POST['type']); 
 
     if($type != 0)

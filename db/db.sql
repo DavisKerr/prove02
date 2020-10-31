@@ -367,3 +367,14 @@ VALUES
 , 1
 , '****'
 );
+
+
+SELECT g.id, g.game_name, g.date_created, u.display_name AS Player1 
+FROM public.game AS g 
+JOIN public.user AS u 
+ON g.game_owner = u.id 
+WHERE g.is_active = 0 
+AND g.game_type LIKE 'PUBLIC' 
+AND LOWER(g.game_name) LIKE LOWER('%')
+AND g.game_owner <> 2
+ORDER BY g.date_created

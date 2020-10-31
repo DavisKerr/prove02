@@ -5,7 +5,7 @@
     {
       $query = '';
 
-      if($type == 1) # 1 means it is an active game.
+      if($type == 1) // 1 means it is an active game.
       {
         $query = " 
         SELECT g.id, g.game_name, g.date_created, g.game_type, u.display_name AS Player1, u2.display_name AS player2
@@ -26,7 +26,7 @@
         return $rows;
       }
 
-      if($type == 2) # 2 means it is a public game that is joinable.
+      if($type == 2) // 2 means it is a public game that is joinable.
       {
         $query = " 
         SELECT g.id, g.game_name, g.date_created, u.display_name AS Player1 
@@ -45,7 +45,7 @@
         return $rows;
       }
 
-      if($type == 3) # 3 means it is a private game that is joinable.
+      if($type == 3) // 3 means it is a private game that is joinable.
       {
         $query = "
         SELECT g.id, g.game_name, g.date_created, u.display_name As Player1

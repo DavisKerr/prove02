@@ -3,7 +3,7 @@
   function insertGame($gameName, $private, $code,  $db)
   {
     $type = 'PUBLIC';
-    if($private)
+    if($private == 'true')
     {
       $type = 'PRIVATE';
     }
