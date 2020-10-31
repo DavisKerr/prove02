@@ -26,18 +26,26 @@
     if($type != 0)
     {
       $result = searchGames($db, $search, $type);
-      switch($type)
+      if(!isset($result['error']))
       {
-        case 1:
-          $returnArr['active'] = generateGameList($result, false);
-        break;
-        case 2:
-          $returnArr['public'] = generateGameList($result, true);;
-        break;
-        case 3:
-          $returnArr['private'] = generateGameList($result, true);
-        break;
+        switch($type)
+        {
+          case 1:
+            $returnArr['active'] = generateGameList($result, false);
+          break;
+          case 2:
+            $returnArr['public'] = generateGameList($result, true);;
+          break;
+          case 3:
+            $returnArr['private'] = generateGameList($result, true);
+          break;
+        }
       }
+      else
+      {
+        $returnArr['serverError'] .= 'There was an error with the database!\n';
+      }
+      
     }
   }
 

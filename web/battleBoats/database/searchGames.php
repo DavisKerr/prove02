@@ -85,9 +85,8 @@
     }
     catch (Exception $ex)
     {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
+      return array('error'=>$ex->getMessage());
     }
-    
+    return array('error'=>'DATABASE FAILED!');
   }
 ?>
