@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('#loginForm').submit(function(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    var submit = true;
     if(isValid(username, password))
     {
       $.post("../account/processLogin.php",
@@ -13,12 +14,12 @@ $(document).ready(function(){
       { 
         if(status == 'success')
         {
-          return false;//processData(data);
+          submit = processData(data);
         }
         else
         {
           alert("Oops! Something happened!");
-          return false;
+          submit = false;
         }
       
       }); 
@@ -27,6 +28,8 @@ $(document).ready(function(){
     {
       return false;
     }
+
+    return submit;
   });
 
 });
@@ -84,8 +87,7 @@ function processData(data)
   else
   {
     //window.location.replace("./home.php");
-    alert(data.isValid)
-    return data.isValid == 'true';
+    return data.isValid;
   }
   
 }
