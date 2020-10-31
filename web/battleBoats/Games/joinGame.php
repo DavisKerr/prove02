@@ -18,8 +18,10 @@
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
     $game_id = htmlspecialchars($_POST["id"]);
-    $returnArr["success"] == insertJoin($db, $game_id);
+    $returnArr["success"] = insertJoin($db, $game_id);
   }
+
+  echo json_encode($returnArr);
 
 
 ?>

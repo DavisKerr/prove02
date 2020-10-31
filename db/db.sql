@@ -378,3 +378,7 @@ AND g.game_type LIKE 'PUBLIC'
 AND LOWER(g.game_name) LIKE LOWER('%yeet%')
 AND g.game_owner <> 2
 ORDER BY g.date_created
+
+DELETE FROM board;
+DELETE FROM game;
+
