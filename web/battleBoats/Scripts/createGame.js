@@ -3,12 +3,13 @@ $(document).ready(function(){
     var gameName = document.getElementById("gameName").value;
     var private = document.getElementById("private").value;
     var code = '';
-    if(isValid(gameName, private))
+    if(isValid(gameName, private, code))
     {
       $.post("../Games/createGame.php",
       {
-      gameName: username,
-      private: password
+      gameName: gameName,
+      private: private,
+      code: code
       },
       function(data, status)
       { 
