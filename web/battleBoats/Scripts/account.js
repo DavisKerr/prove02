@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('#logoutBtn').click(function(){
     alert('CLICKED!');
-    $.post("../util/logout.php",
+    $.post("../Util/logout.php",
     {
       logout: true
     },
@@ -28,7 +28,7 @@ $(document).ready(function(){
     if(status == 'success')
     {
       alert(JSON.stringify(data));
-      processUserInfo($data);
+      processUserInfo(data);
     }
     else
     {
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 });
 
-function processUserInfo($data)
+function processUserInfo(data)
 {
 
 }
