@@ -46,18 +46,15 @@
   
       <h1>Your account info:</h1>
       <?php
-        foreach($user_data as $row)
+        /*foreach($user_data as $row)
         {
           echo "<p>Username: " . $row["username"] . "</p>\n";
           echo "<p>Display Name: " . $row["display_name"] . "</p>\n";
           echo "<p>Date Created: " . $row["date_created"] . "</p>\n";
-        }
+        }*/
         
       ?>
-      <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <input hidden value="true" id="logout" name="logout">
-        <button type="button" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
-      </form>
+      <button type="button" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
 
     </div>
 
