@@ -1,8 +1,7 @@
 $(document).ready(function(){
   $('#sendMessageBtn').click(function(){
-    var message = document.getElementById("newMessage").value;
-    alert(message);
-    if(isValid(gameName, private, code))
+    var message = document.getElementById("newMessage").value.trim();
+    if(isValid(message))
     {
       $.post("../Util/sendMessage.php",
       {
