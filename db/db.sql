@@ -1,10 +1,11 @@
 /* Conditionally drop tables */
 
+DROP TABLE IF EXISTS public.board;
 DROP TABLE IF EXISTS public.messages;
 DROP TABLE IF EXISTS public.moves;
 DROP TABLE IF EXISTS public.game;
 DROP TABLE IF EXISTS public.user;
-DROP TABLE IF EXISTS public.board;
+
 
 
 /* Create the tables */

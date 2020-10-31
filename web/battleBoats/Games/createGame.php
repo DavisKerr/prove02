@@ -23,9 +23,10 @@
     $private = htmlspecialchars($_POST["private"]);
     $gameCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
     $board = getBoard();
-    /*$returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
+    $returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
     $game_id = getLastGameInsert($db);
-    $returnArr["success"] = insertBoard($board, $game_id, $db);
+    $returnArr["serverErr"] = $game_id;
+    /*$returnArr["success"] = insertBoard($board, $game_id, $db);
     */
   }
 
