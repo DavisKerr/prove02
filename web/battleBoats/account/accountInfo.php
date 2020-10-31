@@ -1,6 +1,10 @@
 <?php
+  session_start();
+
   require '../database/getDB.php';
-  
+  header('Content-type: application/json');
+
+  $returnArr = array('success'=>false, 'serverError'=>'', 'userInfo'=>'');
 
   function queryDatabaseForUserInfo($database)
   {
@@ -19,8 +23,7 @@
     }
     catch (Exception $ex)
     {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
+      return array('error'=>$ex->getMessage());
     }
 
     return $rows;
@@ -28,4 +31,24 @@
   }
 
   $user_data = queryDatabaseForUserInfo($db);
+
+  if(isset($user_data['error']))
+  {
+    $returnArr['serverError'] = $user_data['error'];
+    echo $returnArr;
+    die();
+  }
+  else
+  {
+    foreach($user_data as $row)
+    {
+      $returnArr['userInfo'] .= "<p>Username: " . $row["username"] . "</p>\n";
+      $returnArr['userInfo'] .= $row["display_name"] . "</p>\n";
+      $returnArr['userInfo'] .= $row["date_created"] . "</p>\n";
+    }
+
+    echo json_encode($returnArr);
+  }
+
+  
 ?>
