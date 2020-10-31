@@ -1,30 +1,38 @@
 $(document).ready(function(){
-  $("#confirmBtn").click(function(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if(isValid(username, password))
-    {
-     $.post("../account/processLogin.php",
-     {
-      username: username,
-      password: password
-     },
-     function(data, status)
-     { 
-       if(status == 'success')
-       {
-          processData(data);
-       }
-       else
-       {
-         alert("Oops! Something happened!");
-       }
-       
-     }); 
-    }
-  });
+  
   
 });
+
+function loggin()
+{
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  if(isValid(username, password))
+  {
+    $.post("../account/processLogin.php",
+    {
+    username: username,
+    password: password
+    },
+    function(data, status)
+    { 
+      if(status == 'success')
+      {
+        return processData(data);
+      }
+      else
+      {
+        alert("Oops! Something happened!");
+        return false;
+      }
+      
+    }); 
+  }
+  else
+  {
+    return false;
+  }
+}
 
 function isValid(username, password)
 {
@@ -69,10 +77,12 @@ function processData(data)
   if(data.serverError != '')
   {
     alert(data.serverError);
+    return false;
   }
   else
   {
     //window.location.replace("./home.php");
+    return true;
   }
   
 }

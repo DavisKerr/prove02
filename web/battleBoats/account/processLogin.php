@@ -39,8 +39,6 @@
         $returnArr["isValid"] = true;
         $_SESSION["loggedIn"] = TRUE;
         $_SESSION["user_id"] = $dbInfo["id"];
-        header("Location: ./home.php");
-        exit();
       }
     }
   }
