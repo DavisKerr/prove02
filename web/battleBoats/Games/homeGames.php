@@ -28,9 +28,9 @@
     $result = searchHomeGames($db, $search);
     if(!isset($result['error']))
     {
-      $returnArr['active'] = generateGameList($result['active'], false);
-      $returnArr['public'] = generateGameList($result['public'], true);
-      $returnArr['private'] = generateGameList($result['private'], true);
+      $returnArr['active'] = generateGameList($result['active'], false, false);
+      $returnArr['public'] = generateGameList($result['public'], true, false);
+      $returnArr['private'] = generateGameList($result['private'], true, false);
       
     }
     else

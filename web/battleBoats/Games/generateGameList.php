@@ -1,7 +1,7 @@
 <?php
 
 
-  function generateGameList($rows, $joinable)
+  function generateGameList($rows, $joinable, $showCode)
   {
     $result = '';
     foreach($rows as $row)
@@ -17,6 +17,11 @@
         if(isset($row["player2"]))
         {
           $result .= "<td>" .  $row["player2"] . "</td>\n";
+        }
+
+        if($showCode)
+        {
+          $result .= "<td>" .  $row["code"] . "</td>\n";
         }
 
         $result .= "<td class='d-flex flex-column align-items-center justify-content-center'>";

@@ -25,12 +25,12 @@
     
 
 
-    $result = searchHomeGames($db, $search);
+    $result = searchUserGames($db, $search);
     if(!isset($result['error']))
     {
-      $returnArr['active'] = generateGameList($result['active'], false);
-      $returnArr['public'] = generateGameList($result['public'], true);
-      $returnArr['private'] = generateGameList($result['private'], true);
+      $returnArr['active'] = generateGameList($result['active'], false, false);
+      $returnArr['pending'] = generateGameList($result['public'], true, true);
+      $returnArr['finished'] = generateGameList($result['private'], true, false);
       
     }
     else
