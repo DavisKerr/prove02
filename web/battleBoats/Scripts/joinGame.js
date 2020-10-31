@@ -1,7 +1,6 @@
 function joinGame(button)
 {
   var game_id = button.value;
-  alert(game_id);
   $.post("../Games/joinGame.php",
   {
     id: game_id
@@ -10,7 +9,15 @@ function joinGame(button)
   { 
     if(status == 'success')
     {
-      //window.location.replace("./landing.php");
+      if(data.success)
+      {
+        refresh();
+      }
+      else
+      {
+        alert("Failed to join game!");
+      }
+      
     }
     else
     {
