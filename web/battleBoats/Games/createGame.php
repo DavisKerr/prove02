@@ -18,6 +18,7 @@
 
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
+    /*
     $gameName = filter_input(INPUT_POST, 'gameName', FILTER_SANITIZE_STRING);
     $private = htmlspecialchars($_POST["private"]);
     $gameCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
@@ -25,6 +26,7 @@
     $returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
     $game_id = getLastGameInsert($db);
     $returnArr["success"] = insertBoard($board, $game_id, $db);
+    */
   }
 
   echo json_encode($returnArr);
