@@ -5,7 +5,7 @@ $(document).ready(function(){
     var submit = true;
     if(isValid(username, password))
     {
-      $.post("../account/processLogin.php",
+      submit = $.post("../account/processLogin.php",
       {
       username: username,
       password: password
@@ -15,12 +15,12 @@ $(document).ready(function(){
         alert(submit);
         if(status == 'success')
         {
-          submit = processData(data);
+          return processData(data);
         }
         else
         {
           alert("Oops! Something happened!");
-          submit = false;
+          return = false;
         }
       
       }); 
