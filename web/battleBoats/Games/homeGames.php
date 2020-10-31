@@ -24,8 +24,7 @@
     if($type != 0)
     {
       $result = searchGames($db, $search, $type);
-      echo json_encode($result[0]);
-      /*if(!isset($result['error']))
+      if(!isset($result['error']))
       {
         switch($type)
         {
@@ -43,7 +42,7 @@
       else
       {
         $returnArr['serverError'] .= $result['error'] . "\n";
-      }*/
+      }
       
     }
   }
