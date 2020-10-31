@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require '../Util/auth.php';
+  //require '../Util/auth.php';
 ?>
 
 <!DOCTYPE html>
