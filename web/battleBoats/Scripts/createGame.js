@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('#confirmBtn').click(function(){
     var gameName = document.getElementById("gameName").value;
-    var private = document.getElementById("private").value == 'TRUE';
+    var private = document.getElementById("private").checked;
     alert(private);
     var code = '';
     if(isValid(gameName, private, code))
