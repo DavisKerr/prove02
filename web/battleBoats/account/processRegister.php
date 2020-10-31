@@ -27,7 +27,7 @@
     
     $used = queryUsers($username, $db);
 
-    if(!empty('used'))
+    if(!empty($used))
     {
       $returnArr['nameErr'] = "That username is already chosen";
     }
