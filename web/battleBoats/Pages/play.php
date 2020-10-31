@@ -1,7 +1,7 @@
 <?php
   session_start();
-
   require 'auth.php';
+  /*
   require 'getDB.php';
   require 'sendMessage.php';
   require 'openFire.php';
@@ -127,7 +127,7 @@
   $messages = queryDatabaseForMessages($db);
 
   $defeat = FALSE;
-  $victory = FALSE;
+  $victory = FALSE;*/
   
   
 ?>
@@ -178,29 +178,29 @@
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
       <?php
-        $type = "opponentBoard";
+        /*$type = "opponentBoard";
         $name = "Enemy Board";
         $is_player_board = FALSE;
         $enemyData = queryEnemyBoard($db);
         $board = $enemyData["board"];
         $victory = checkEnd($db, $board);
-        require 'readBoard.php';
+        require 'readBoard.php';*/
         
       ?>
 
         <?php
-        $type = "playerBoard";
+        /*$type = "playerBoard";
         $name = "Your Board";
         $is_player_board = TRUE;
         $board = queryPlayerBoard($db);
         $defeat = checkEnd($db, $board); 
-        require 'readBoard.php';
+        require 'readBoard.php';*/
         ?>
       </div>
 
       <div id="moveForm">
       <?php 
-        if(isPlayerTurn($db) && !$defeat && !$victory)
+        /*if(isPlayerTurn($db) && !$defeat && !$victory)
         {
           echo "<h4>It's your turn! Where would you like to strike?</h4>";
           echo "<form id='moves' method='POST' action=". htmlspecialchars($_SERVER["PHP_SELF"]) . ">";
@@ -235,7 +235,7 @@
         else
         {
           echo "<h4>It is not your turn right now. Check back again soon!</h4>";
-        }
+        }*/
       
       ?>
 
@@ -246,10 +246,10 @@
         <h3>Messages:</h3>
         <div id="gameMessageWindow">
         <?php
-              foreach($messages as $message)
+              /*foreach($messages as $message)
               {
                 echo "<p><strong>" . $message["display_name"] . "</strong>: " . $message["body"] . "</p>";
-              }
+              }*/
             ?>
         </div> 
         <br>
