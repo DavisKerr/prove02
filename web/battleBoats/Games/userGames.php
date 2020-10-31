@@ -28,9 +28,9 @@
     $result = searchUserGames($db, $search);
     if(!isset($result['error']))
     {
-      $returnArr['active'] = generateGameList($result['active'], false, false);
-      $returnArr['pending'] = generateGameList($result['pending'], true, true);
-      $returnArr['finished'] = generateGameList($result['finished'], true, false);
+      $returnArr['active'] = generateGameList($result['active'], true, false, false);
+      $returnArr['pending'] = generateGameList($result['pending'], false, true, true);
+      $returnArr['finished'] = generateGameList($result['finished'], false,true, false);
     }
     else
     {

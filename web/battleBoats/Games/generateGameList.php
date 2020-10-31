@@ -1,7 +1,7 @@
 <?php
 
 
-  function generateGameList($rows, $joinable, $showCode)
+  function generateGameList($rows, $buttonNeeded, $joinable, $showCode)
   {
     $result = '';
     foreach($rows as $row)
@@ -25,14 +25,18 @@
         }
 
         $result .= "<td class='d-flex flex-column align-items-center justify-content-center'>";
-        if($joinable)
+        if($buttonNeeded)
         {
-          $result .= "<button class='btn btn-success joinBtn' value='". $row["id"] ."' type='button' onclick='joinGame(this)'>Join Game</button>";
+          if($joinable)
+          {
+            $result .= "<button class='btn btn-success joinBtn' value='". $row["id"] ."' type='button' onclick='joinGame(this)'>Join Game</button>";
+          }
+          else
+          {
+            $result .= "<button class='btn btn-success joinBtn'  type='button'>Play Game</button>";
+          }
         }
-        else
-        {
-          $result .= "<button class='btn btn-success joinBtn'  type='button'>Play Game</button>";
-        }
+        
         
         $result .= "</tr>\n";
       }
