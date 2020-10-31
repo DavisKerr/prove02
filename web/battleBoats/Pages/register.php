@@ -48,7 +48,7 @@
       <div id="login_menu">
         <h2 id="formTitle">Register</h2>
         <span class="error" id="formErr"></span>
-        <form method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="register()">
+        <form method="POST" action="">
           <div class="d-flex flex-column justify-content-center flex-wrap">
             <div class="fieldContainer">
               <label for="username" class="fieldLabel">Username:</label>

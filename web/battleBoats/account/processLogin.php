@@ -5,6 +5,7 @@
   // Get variables ready.
   $returnArr = array('isValid'=>false, 'serverError'=>'');
   $_SESSION["loggedIn"] = FALSE;
+  $_SESSION["user_id"] = '';
 
   // Import the needed files
   try

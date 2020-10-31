@@ -1,40 +1,35 @@
 $(document).ready(function(){
   $("#confirmBtn").click(function(){
-    
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var passwordConf = document.getElementById("confirmPassword").value;
+    var screenName = document.getElementById("screen_name").value
+    if(isValid(username, password, passwordConf, screenName))
+    {
+      $.post("../account/processRegister.php",
+      {
+      username: username,
+      screenName: screenName,
+      password: password
+      },
+      function(data, status)
+      { 
+        if(status == 'success')
+        {
+          return processData(data);
+        }
+        else
+        {
+          alert("Oops! Something happened!");
+          return false;
+        }
+        
+      }); 
+    }
   });
   
 });
 
-
-function register()
-{
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  var passwordConf = document.getElementById("confirmPassword").value;
-  var screenName = document.getElementById("screen_name").value
-  if(isValid(username, password, passwordConf, screenName))
-  {
-    $.post("../account/processRegister.php",
-    {
-    username: username,
-    screenName: screenName,
-    password: password
-    },
-    function(data, status)
-    { 
-      if(status == 'success')
-      {
-        return processData(data);
-      }
-      else
-      {
-        alert("Oops! Something happened!");
-        return false;
-      }
-      
-    }); 
-  }
-}
 
 function isValid(username, password, passwordConf, screenName)
 {
@@ -140,7 +135,7 @@ function processData(data)
   {
     if(data.success == true)
     {
-      return true;
+      window.location.replace("./home.php");
     }
     else
     {
