@@ -10,6 +10,7 @@
     require '../Util/generateBoard.php';
     require '../database/insertGame.php';
     require '../database/getLastGameInsert.php';
+    require '../database/insertBoard.php';
   }
   catch(ErrorException $e)
   {
