@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 function getMessages() 
 {
-  $.post("../Util/logout.php",
+  $.post("../Util/getMessages.php",
   {
     logout: true
   },

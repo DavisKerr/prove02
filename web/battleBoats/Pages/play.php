@@ -247,13 +247,13 @@
         <div id="gameMessageWindow">
         </div> 
         <br>
-        <form method="POST" action=" <?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="POST">
           <textarea id="newMessage" placeholder="Enter Message" name="newMessage">
             
           </textarea><br>
-          <span class="error"><?php echo $messageErr["messageErr"]; ?></span><br>
+          <span class="error" id="messageErr"></span><br>
           <br>
-          <button type="submit"  class="btn btn-success" id="sendMessageBtn">Send</button>
+          <button type="button"  class="btn btn-success" id="sendMessageBtn">Send</button>
         </form>
       </div>
 
