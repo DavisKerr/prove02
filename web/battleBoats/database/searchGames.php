@@ -1,5 +1,5 @@
 <?php
-  function searchGames($database, $search)
+  function searchHomeGames($database, $search)
   {
     $tableData = array("active"=>'', "public"=>'', "private"=>'');
     try

@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
+  $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'pending'=>'', 'finished'=>'');
   // Import the needed files
   try
   {

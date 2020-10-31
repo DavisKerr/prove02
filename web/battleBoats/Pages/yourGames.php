@@ -235,22 +235,16 @@
 
       <div class="gameSearchWindow">
         <h3>Your Active Games:</h3>
+        <span class="error" id="activeGameErr"></span>
         <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="activeGameSearch" name="activeGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="activeSearch">Search</button>
           </div>
         </form>
         <div class="gameFinderArea">
-        <table class="gameTable">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Type</th>
-              <th>Owner</th>
-              <th>Opponent</th>
-              <th>Play Game</th>
-            </tr>
+        <table class="gameTable" id="activeGames">
+            
             <?php
               /*
               foreach($active_user_data as $row)
@@ -276,22 +270,16 @@
 
       <div class="gameSearchWindow">
         <h3>Your Pending Games:</h3>
+        <span class="error" id="pendingGameErr"></span>
         <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="pendingGameSearch", name="pendingGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="pendingSearch">Search</button>
           </div>
         </form>
         <div class="gameFinderArea">
-        <table class="gameTable">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Type</th>
-              <th>Owner</th>
-              <th>Game Code</th>
-              <!--<th>Play Game</th>-->
-            </tr>
+        <table class="gameTable" id="pendingGames">
+            
             <?php
               
               /*foreach($pending_user_data as $row)
@@ -311,23 +299,16 @@
 
       <div class="gameSearchWindow">
         <h3>Your Finished Games:</h3>
+        <span class="error" id="finishedGameErr"></span>
         <form class="form-inline my-2 my-lg-0 gameSearch" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div id="searchField">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="finishedGameSearch" name="finishedGameSearch">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="finishedSearch">Search</button>
           </div>
         </form>
         <div class="gameFinderArea">
-          <table class="gameTable">
-            <tr>
-              <th>Game Name</th>
-              <th>Date Created</th>
-              <th>Type</th>
-              <th>Owner</th>
-              <th> Opponent </th>
-              <th>View Game</th>
-              <!--<th>Play Game</th>-->
-            </tr>
+          <table class="gameTable" id="finishedGames">
+            
             <?php
               
               /*foreach($finished_user_data as $row)
