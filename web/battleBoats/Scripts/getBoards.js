@@ -12,7 +12,6 @@ function getBoards()
   { 
     if(status == 'success')
     {
-      alert(JSON.stringify(data));
       displayBoards(data)
     }
     else

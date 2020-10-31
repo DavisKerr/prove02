@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
   
-  $returnArr = array('success'=>false, 'serverError'=>'', 'userBoard'=>'', 'enemyBoard'=>'', 'demo'=>'');
+  $returnArr = array('success'=>false, 'serverError'=>'', 'userBoard'=>'', 'enemyBoard'=>'');
 
   try
   {
@@ -21,10 +21,9 @@
   {
     $playerBoard = queryPlayerBoard($db)['grid'];
     $enemyBoard = queryEnemyBoard($db)['grid'];
-    $returnArr['demo'] = $playerBoard;
 
-    $returnArr['userBoard'] = readBoard($board, 'playerBoard', 'Your Board', true);
-    $returnArr['enemyBoard'] = readBoard($board, 'opponentBoard', 'Enemy Board', false);
+    $returnArr['userBoard'] = readBoard($playerBoard, 'playerBoard', 'Your Board', true);
+    $returnArr['enemyBoard'] = readBoard($enemyBoard, 'opponentBoard', 'Enemy Board', false);
     $returnArr['success'] = true;
   }
   catch(Exception $e)
