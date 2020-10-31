@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 
-function getMessages() 
+function getBoards() 
 {
   $.post("../gameLogic/getBoards.php",
   {
