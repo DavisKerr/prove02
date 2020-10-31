@@ -33,7 +33,7 @@
           }
           else
           {
-            $result .= "<form method='POST' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
+            $result .= "<form method='POST' action='" . htmlspecialchars('../Games/gameRequest.php') . "'>";
             $result .= "<input type='number' hidden value='" . $row["id"] . "'>";
             $result .= "<button class='btn btn-success joinBtn' type='submit'>Play Game</button>";
             $result .= "</form>";
