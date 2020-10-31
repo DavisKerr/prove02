@@ -1,8 +1,8 @@
 <?php
   session_start();
 
-  require 'getDB.php';
-  require 'auth.php';
+  require '../database/getDB.php';
+  require '../Util/auth.php';
  
 
 
@@ -30,9 +30,6 @@
     return $rows;
     
   }
-
-
-  
 
   $user_data = queryDatabaseForUserInfo($db);
 
