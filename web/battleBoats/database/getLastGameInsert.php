@@ -7,7 +7,7 @@
     }
     catch(PDOException $e)
     {
-      return 'ERROR GETTING LAST GAME!';
+      return -1;
     }
     
   }

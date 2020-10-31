@@ -13,7 +13,7 @@
   }
   catch(ErrorException $e)
   {
-    $returnArr['serverError'] .= 'There was an error in the file system\n';
+    $returnArr['serverError'] .= "There was an error in the file system\n";
   }
 
   if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -25,9 +25,16 @@
     $board = getBoard();
     $returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
     $game_id = getLastGameInsert($db);
-    $returnArr["serverErr"] = $game_id;
-    /*$returnArr["success"] = insertBoard($board, $game_id, $db);
-    */
+    if($game_id < 1)
+    {
+      $returnArr["serverError"] .= "There was an error creating the game\n";
+    }
+    else
+    {
+      $returnArr["success"] = insertBoard($board, $game_id, $db);
+    }
+    
+    
   }
 
   echo json_encode($returnArr);
