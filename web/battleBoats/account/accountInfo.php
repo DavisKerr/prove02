@@ -40,6 +40,7 @@
   }
   else
   {
+    $returnArr['success'] = TRUE;
     foreach($user_data as $row)
     {
       $returnArr['userInfo'] .= "<p>Username: " . $row["username"] . "</p>\n";

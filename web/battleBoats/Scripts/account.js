@@ -41,6 +41,6 @@ $(document).ready(function(){
 
 function processUserInfo(data)
 {
-
+  document.getElementById("userData").innerHTML = data.userInfo;
 }
 

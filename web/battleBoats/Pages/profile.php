@@ -46,6 +46,8 @@
     <div id="page_body" class="d-flex flex-column align-items-center">
   
       <h1>Your account info:</h1>
+      <div id="userData" class="d-flex flex-column align-items-center">
+      </div>
       <?php
         /*foreach($user_data as $row)
         {
