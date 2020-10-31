@@ -1,8 +1,9 @@
 <?php
   session_start();
-
+  require '../Util/auth.php';
+/*
   require 'getDB.php';
-  require 'auth.php';
+  
   require 'gameRequest.php';
   require 'createGame.php';
 
@@ -187,7 +188,7 @@
   $formGameData = isNewGame($db);
   $pending_user_data = queryDatabaseForPendingUserGames($db, $pendingGameSearch);
   $active_user_data = queryDatabaseForActiveUserGames($db, $activeGameSearch);
-  $finished_user_data = queryDatabaseForFinishedUserGames($db, $finishedGameSearch);
+  $finished_user_data = queryDatabaseForFinishedUserGames($db, $finishedGameSearch);*/
 ?>
 
 <!DOCTYPE html>
@@ -201,7 +202,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="functions.js"></script>
+    <script src="../Scripts/createGame.js"></script>
     <title>My Games</title>
   </head>
   <body>
@@ -251,7 +252,7 @@
               <th>Play Game</th>
             </tr>
             <?php
-              
+              /*
               foreach($active_user_data as $row)
               {
                 echo "<tr>\n";
@@ -266,7 +267,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>Play Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }
+              }*/
 
             ?>  
           </table>
@@ -293,7 +294,7 @@
             </tr>
             <?php
               
-              foreach($pending_user_data as $row)
+              /*foreach($pending_user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
@@ -302,7 +303,7 @@
                 echo "<td>" .  $row["player1"] . "</td>\n";
                 echo "<td>" . $row["game_code"] . "</td>\n";
                 echo "</tr>\n";
-              }
+              }*/
             ?>  
           </table> 
         </div> <!--End game finder area-->
@@ -329,7 +330,7 @@
             </tr>
             <?php
               
-              foreach($finished_user_data as $row)
+              /*foreach($finished_user_data as $row)
               {
                 echo "<tr>\n";
                 echo "<td>" .  $row["game_name"] . "</td>\n";
@@ -343,7 +344,7 @@
                 echo "<button class='btn btn-success joinBtn'  type='submit'>View Game</button>";
                 echo "</form>"; 
                 echo "</tr>\n";
-              }
+              }*/
             ?>  
           </table> 
         </div> <!--End game finder area-->
@@ -351,17 +352,17 @@
 
       <div id="createGame">
         <h2>Create a game</h2>
-        <form method="POST", action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="POST">
           <label for="gameName">Game Name</label>
           <input type="text" name="gameName" id="gameName"><br>
-          <span class="error"><?php echo $formGameData["gameNameErr"]; ?></span><br>
+          <span class="error"></span><br>
           <br>
           <input type="checkbox" value="TRUE" id="private" name="private" onchange="addCode()">
           <label for="private">Private Game</label>
           <br>
           <span id="gameCodeField"></span><br>
-          <span class="error"><?php echo $formGameData["codeErr"]; ?></span><br>
-          <button type="submit" class="btn btn-success" id="confirmBtn">Create</button>
+          <span class="error"></span><br>
+          <button type="button" class="btn btn-success" id="confirmBtn">Create</button>
         </form>
       </div>
 

@@ -48,15 +48,6 @@
       <h1>Your account info:</h1>
       <div id="userData" class="d-flex flex-column align-items-center">
       </div>
-      <?php
-        /*foreach($user_data as $row)
-        {
-          echo "<p>Username: " . $row["username"] . "</p>\n";
-          echo "<p>Display Name: " . $row["display_name"] . "</p>\n";
-          echo "<p>Date Created: " . $row["date_created"] . "</p>\n";
-        }*/
-        
-      ?>
       <button type="button" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
 
     </div>
