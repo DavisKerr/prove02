@@ -1,17 +1,18 @@
 <?php 
   function readBoard($board, $type, $name, $is_player_board)
   {
+    $finalBoard = '';
     $array = str_split($board);
-    echo "<table class='" . $type . "'>\n";
-    echo "<tr> <th colspan='11'><h3>" . $name . "</h3></th></tr>";
-    echo "<tr>\n";
-    echo "<td></td>";
+    $finalBoard .= "<table class='" . $type . "'>\n";
+    $finalBoard .= "<tr> <th colspan='11'><h3>" . $name . "</h3></th></tr>";
+    $finalBoard .= "<tr>\n";
+    $finalBoard .= "<td></td>";
     for($i = 1; $i <= 10; $i++ )
     {
-      echo "<th>" . $i . "</th>\n";
+      $finalBoard .= "<th>" . $i . "</th>\n";
     }
     
-    echo "</tr>";
+    $finalBoard .= "</tr>";
 
     $count = 1;
     foreach($array as $item)
@@ -22,41 +23,43 @@
         {
           if($count != 1)
             {
-              echo "</tr>\n";
+              $finalBoard .= "</tr>\n";
             }
 
-          echo "<td>" . $count . "</td>";
+            $finalBoard .= "<td>" . $count . "</td>";
           $count++;
         }
         elseif($item == '*')
         {
-          echo "<td class='blankSpace'></td>";
+          $finalBoard .= "<td class='blankSpace'></td>";
         }
         elseif($item == 'V')
         {
           if($is_player_board)
             {
-              echo "<td class='shipSpace'></td>";
+              $finalBoard .= "<td class='shipSpace'></td>";
             }
             else
             {
-              echo "<td class='blankSpace'></td>";
+              $finalBoard .= "<td class='blankSpace'></td>";
             }
         }
         elseif($item == 'O')
         {
-          echo "<td class='missSpace'></td>";
+          $finalBoard .="<td class='missSpace'></td>";
         }
         elseif($item == 'X')
         {
-          echo "<td class='hitSpace'></td>";
+          $finalBoard .= "<td class='hitSpace'></td>";
         }
       }
     }
 
-    echo "</tr>\n";
+    $finalBoard .= "</tr>\n";
 
-    echo "</table>\n";
+    $finalBoard .= "</table>\n";
+
+    return $finalBoard;
   }
       
 ?>

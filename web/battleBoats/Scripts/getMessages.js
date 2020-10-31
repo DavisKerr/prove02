@@ -7,7 +7,7 @@ function getMessages()
 {
   $.post("../Util/getMessages.php",
   {
-    logout: true
+    item: true
   },
   function(data, status)
   { 
