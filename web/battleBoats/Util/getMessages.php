@@ -16,8 +16,9 @@
   }
 
   $messages = queryMessages($db);
-  
+
   $returnArr['messages'] = generateMessageTable($messages);
-  return json_encode($returnArr);
+
+  echo json_encode($returnArr);
 
 ?>
