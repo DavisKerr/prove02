@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('#loginForm').submit(function(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var submit = false;
+    var submit = true;
     if(isValid(username, password))
     {
       $.post("../account/processLogin.php",
@@ -14,22 +14,19 @@ $(document).ready(function(){
       { 
         if(status == 'success')
         {
-          
+          processData(data);
         }
         else
         {
-          
+          alert("Oops! Something happened!");
         }
       
-      });
+      }); 
     }
     else
     {
       return false;
     }
-
-    return true;
-   
   });
 
 });
@@ -87,6 +84,7 @@ function processData(data)
   else
   {
     //window.location.replace("./home.php");
+    alert(data.isValid)
     return data.isValid;
   }
   
