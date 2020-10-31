@@ -11,7 +11,7 @@ function joinGame(button)
     {
       if(data.success)
       {
-        processRefresh();
+        alert('Joined!');
       }
       else
       {
@@ -26,22 +26,3 @@ function joinGame(button)
   }); 
 }
 
-function processRefresh()
-{
-  $.post("../Games/homeGames.php",
-  {
-  search: ''
-  },
-  function(data, status)
-  { 
-    if(status == 'success')
-    {
-      updateAll(data);
-    }
-    else
-    {
-      alert("Oops! Something happened!");
-    }
-    
-  });
-}
