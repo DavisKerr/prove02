@@ -1,6 +1,6 @@
 <?php
   session_start();
-  echo $_SESSION["loggedIn"];
+  echo 'The user is logged in: ' . $_SESSION["loggedIn"];
   //require '../Util/auth.php';
 ?>
 

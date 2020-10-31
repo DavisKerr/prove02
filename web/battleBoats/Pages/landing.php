@@ -1,7 +1,7 @@
 <?php
   session_start();
   require '../Util/notAuth.php';
-  echo isset($_SESSION["loggedIn"]);
+  echo 'The user is logged in: ' . $_SESSION["loggedIn"];
 ?>
 
 <!DOCTYPE html>
