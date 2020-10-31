@@ -1,37 +1,6 @@
 <?php
   session_start();
-
-  require '../database/getDB.php';
   require '../Util/auth.php';
- 
-
-
-  function queryDatabaseForUserInfo($database)
-  {
-    try
-    {
-      $query = "
-      SELECT username, display_name, date_created 
-      FROM public.user 
-      WHERE id = :player_id 
-      ";
-
-      $stmt = $database->prepare($query);
-      $stmt->execute(array(':player_id'=>$_SESSION['user_id']));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-    catch (Exception $ex)
-    {
-      echo 'Error!: ' . $ex->getMessage();
-      die();
-    }
-
-    return $rows;
-    
-  }
-
-  $user_data = queryDatabaseForUserInfo($db);
 
 ?>
 
@@ -87,7 +56,7 @@
       ?>
       <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <input hidden value="true" id="logout" name="logout">
-        <button type="submit" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
+        <button type="button" name="logoutBtn" id="logoutBtn" class="btn btn-danger">Logout</button>
       </form>
 
     </div>
