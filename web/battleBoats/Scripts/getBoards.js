@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 function getBoards() 
 {
+  alert('Working');
   $.post("../gameLogic/getBoards.php",
   {
 
