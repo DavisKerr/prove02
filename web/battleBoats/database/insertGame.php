@@ -2,7 +2,7 @@
 
   try
   {
-    require '../Util/generateBoeard.php';
+    require '../Util/generateBoard.php';
   }
   catch(Exception $e)
   {
@@ -50,7 +50,7 @@
       ':gameName'=>$gameName, ':type'=>$type, ':board1'=>$board1, ':board2'=>$board2 ));
       return TRUE;
     }
-    catch(Exception $e)
+    catch(PDOException $e)
     {
       echo "ERROR: " . $e->getMessage() . "\n";
       return FALSE;
