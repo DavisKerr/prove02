@@ -135,7 +135,7 @@ function processData(data)
   {
     if(data.success == true)
     {
-      window.location.replace("./home.php");
+      window.location.replace("./login.php");
     }
     else
     {
