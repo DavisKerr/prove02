@@ -12,6 +12,7 @@ $(document).ready(function(){
       },
       function(data, status)
       { 
+        alert(submit);
         if(status == 'success')
         {
           submit = processData(data);
@@ -28,7 +29,7 @@ $(document).ready(function(){
     {
       return false;
     }
-
+    
     return submit;
   });
 
