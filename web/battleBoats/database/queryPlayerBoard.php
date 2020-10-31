@@ -1,7 +1,6 @@
 <?php
   function queryPlayerBoard($database)
   {
-    $board="";
     try
     {
       $query = "    

@@ -1,7 +1,6 @@
 <?php
   function queryEnemyBoard($database)
   {
-    $board="";
     try
     {
       $query = "    
