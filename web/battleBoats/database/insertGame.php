@@ -2,7 +2,7 @@
 
   try
   {
-    require '../Util/generateBoard.php';
+    require '../Util/generateBoeard.php';
   }
   catch(Exception $e)
   {
