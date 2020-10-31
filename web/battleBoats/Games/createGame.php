@@ -2,14 +2,16 @@
   session_start();
   header('Content-type: application/json');
 
-  $returnArr = array('isValid'=>false, 'serverError'=>'', 'success'=>true);
+  $returnArr = array('serverError'=>'', 'success'=>false);
   // Get required files.
   try
   {
     require '../database/getDB.php';
+    require '../Util/generateBoard.php';
     require '../database/insertGame.php';
+    require '../database/getLastGameInsert.php';
   }
-  catch(Exception $e)
+  catch(ErrorException $e)
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
   }
@@ -19,8 +21,10 @@
     $gameName = filter_input(INPUT_POST, 'gameName', FILTER_SANITIZE_STRING);
     $private = htmlspecialchars($_POST["private"]);
     $gameCode = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_STRING);
-
+    $board = getBoard();
     $returnArr["success"] = insertGame($gameName, $private, $gameCode, $db);
+    $game_id = getLastGameInsert($db);
+    $returnArr["success"] = insertBoard($board, $game_id, $db);
   }
 
   echo json_encode($returnArr);

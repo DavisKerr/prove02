@@ -83,13 +83,13 @@ function processData(data)
   {
     alert(data.serverError);
   }
-  else if(data.isValid == false)
+  else if(data.success == false)
   {
-    document.getElementById("formErr").innerHTML = 'Username or Password are invalid';
+    //document.getElementById("formErr").innerHTML = 'Username or Password are invalid';
   }
   else
   {
-    window.location.replace("./home.php");
+    //window.location.replace("./home.php");
   }
   
 }
