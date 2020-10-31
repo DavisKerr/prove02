@@ -43,10 +43,10 @@
       else
       {
         $returnArr['serverError'] .= $result['error'] . "\n";
-      }
+      }*/
       
     }
-  }*/
+  }
 
   echo json_encode($returnArr);
 
