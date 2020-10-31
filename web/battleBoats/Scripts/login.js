@@ -14,12 +14,11 @@ $(document).ready(function(){
       { 
         if(status == 'success')
         {
-          return data;
+          
         }
         else
         {
-          alert("Oops! Something happened!");
-          return false;
+          
         }
       
       });
@@ -28,8 +27,9 @@ $(document).ready(function(){
     {
       return false;
     }
-    alert(JSON.stringify(data));
-    return false;
+
+    return true;
+   
   });
 
 });
