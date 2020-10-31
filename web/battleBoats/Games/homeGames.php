@@ -3,9 +3,7 @@
   header('Content-type: application/json');
   
   $returnArr = array('isValid'=>false, 'serverError'=>'', 'active'=>'', 'public'=>'', 'private'=>'');
-  $private = '';
-  $public = '';
-  $active = '';
+
   // Import the needed files
   try
   {
@@ -43,7 +41,7 @@
       }
       else
       {
-        $returnArr['serverError'] .= 'There was an error with the database!\n';
+        $returnArr['serverError'] .= $result['error'] . "\n";
       }
       
     }

@@ -87,6 +87,6 @@
     {
       return array('error'=>$ex->getMessage());
     }
-    return array('error'=>'DATABASE FAILED!');
+    return array('error'=>$ex->getMessage());
   }
 ?>
