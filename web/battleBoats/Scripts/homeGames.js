@@ -182,3 +182,23 @@ function updateAll(data)
     document.getElementById('publicGames').innerHTML = table;
   }
 }
+
+function refresh()
+{
+  $.post("../Games/homeGames.php",
+  {
+  search: ''
+  },
+  function(data, status)
+  { 
+    if(status == 'success')
+    {
+      updateAll(data);
+    }
+    else
+    {
+      alert("Oops! Something happened!");
+    }
+    
+  }); 
+}
