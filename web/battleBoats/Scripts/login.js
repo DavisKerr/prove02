@@ -5,7 +5,7 @@ $(document).ready(function(){
     var submit = false;
     if(isValid(username, password))
     {
-      /*data = $.post("../account/processLogin.php",
+      $.post("../account/processLogin.php",
       {
       username: username,
       password: password
@@ -22,16 +22,6 @@ $(document).ready(function(){
           return false;
         }
       
-      }); */
-      data = $.ajax({
-        type: "POST",
-        url: "../account/processLogin.php",
-        data: ({username: username, password: password}),
-        success: function(data)
-        {
-          return data
-        }
-        
       });
     }
     else
