@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
 
-  $returnArr = array('success'=>false, 'serverError'=>'', 'isUserTurn'=>true);
+  $returnArr = array('success'=>true, 'serverError'=>'', 'isUserTurn'=>true);
 
   try
   {
