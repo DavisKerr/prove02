@@ -19,8 +19,8 @@
 
   try
   {
-    $playerBoard = queryPlayerBoard($db);
-    $enemyBoard = queryEnemyBoard($db);
+    $playerBoard = queryPlayerBoard($db)['grid'];
+    $enemyBoard = queryEnemyBoard($db)['grid'];
 
     $returnArr['userBoard'] = readBoard($board, 'playerBoard', 'Your Board', true);
     $returnArr['enemyBoard'] = readBoard($board, 'opponentBoard', 'Enemy Board', false);
