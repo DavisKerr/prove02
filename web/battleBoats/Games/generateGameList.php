@@ -27,7 +27,7 @@
         $result .= "<td class='d-flex flex-column align-items-center justify-content-center'>";
         if($joinable)
         {
-          $result .= "<button class='btn btn-success joinBtn' value='". $row["id"] ."type='button'>Join Game</button>";
+          $result .= "<button class='btn btn-success joinBtn' value='". $row["id"] ."' type='button'>Join Game</button>";
         }
         else
         {
