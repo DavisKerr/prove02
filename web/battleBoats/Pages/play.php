@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require 'auth.php';
+  require '../Util/auth.php';
   /*
   require 'getDB.php';
   require 'sendMessage.php';
