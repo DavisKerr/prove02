@@ -2,20 +2,19 @@ $(document).ready(function(){
   $('#loginForm').submit(function(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var submit = true;
+    var submit = false;
     if(isValid(username, password))
     {
-      submit = $.post("../account/processLogin.php",
+      data = $.post("../account/processLogin.php",
       {
       username: username,
       password: password
       },
       function(data, status)
       { 
-        alert(submit);
         if(status == 'success')
         {
-          return processData(data);
+          return data;
         }
         else
         {
@@ -29,7 +28,7 @@ $(document).ready(function(){
     {
       return false;
     }
-    
+    alert(JSON.stringify(data));
     return submit;
   });
 
