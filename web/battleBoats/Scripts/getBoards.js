@@ -25,5 +25,5 @@ function getBoards()
 
 function displayBoards(data)
 {
-  document.getElementById('gameBoard').innerHTML = data.enemyBoard + data.playerBoard;
+  document.getElementById('gameBoard').innerHTML = data.enemyBoard + data.userBoard;
 }
