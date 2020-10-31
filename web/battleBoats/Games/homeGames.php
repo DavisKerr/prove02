@@ -25,9 +25,9 @@
     {
       $result = searchGames($db, $search, $type);
       echo json_encode($result);
-      if(!isset($result['error']))
+      /*if(!isset($result['error']))
       {
-        /*switch($type)
+        switch($type)
         {
           case 1:
             $returnArr['active'] = generateGameList($result, false);
@@ -38,7 +38,7 @@
           case 3:
             $returnArr['private'] = generateGameList($result, true);
           break;
-        }*/
+        }
       }
       else
       {
@@ -46,7 +46,7 @@
       }
       
     }
-  }
+  }*/
 
   echo json_encode($returnArr);
 
