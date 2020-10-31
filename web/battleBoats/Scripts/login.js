@@ -85,7 +85,7 @@ function processData(data)
   {
     //window.location.replace("./home.php");
     alert(data.isValid)
-    return data.isValid;
+    return data.isValid == 'true';
   }
   
 }
