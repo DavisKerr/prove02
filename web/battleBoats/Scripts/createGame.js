@@ -84,11 +84,13 @@ function processData(data)
   }
   else if(data.success == false)
   {
-    //document.getElementById("formErr").innerHTML = 'Username or Password are invalid';
+    document.getElementById("formErr").innerHTML = 'Oops! There was an error!';
   }
   else
   {
-    //window.location.replace("./home.php");
+    document.getElementById("formErr").innerHTML = 'Game was successfully made!';
+    document.getElementById("gameName").value = '';
+    document.getElementById("private").checked = false;
   }
   
 }

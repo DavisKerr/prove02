@@ -352,6 +352,7 @@
 
       <div id="createGame">
         <h2>Create a game</h2>
+        <span class="error" id="formErr"></span>
         <form method="POST">
           <label for="gameName">Game Name</label>
           <input type="text" name="gameName" id="gameName"><br>
