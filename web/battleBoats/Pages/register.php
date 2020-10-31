@@ -1,7 +1,8 @@
 <?php
   session_start();
-  echo $_SESSION["loggedIn"];
+  
   require '../Util/notAuth.php';
+  echo $_SESSION["loggedIn"];
 ?>
 
 <!DOCTYPE html>
