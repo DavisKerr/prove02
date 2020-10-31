@@ -2,7 +2,6 @@ $(document).ready(function(){
   $('#loginForm').submit(function(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var submit = true;
     if(isValid(username, password))
     {
       $.post("../account/processLogin.php",
@@ -31,10 +30,6 @@ $(document).ready(function(){
 
 });
 
-function login()
-{
-  
-}
 
 function isValid(username, password)
 {
