@@ -27,7 +27,6 @@ $(document).ready(function(){
   { 
     if(status == 'success')
     {
-      alert(JSON.stringify(data));
       processUserInfo(data);
     }
     else
@@ -41,6 +40,14 @@ $(document).ready(function(){
 
 function processUserInfo(data)
 {
-  document.getElementById("userData").innerHTML = data.userInfo;
+  if(data.success)
+  { 
+    document.getElementById("userData").innerHTML = data.userInfo;
+  }
+  else
+  {
+    document.getElementById("userData").innerHTML = "<p> Unable to display data </p>";
+  }
+  
 }
 

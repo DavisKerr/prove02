@@ -44,8 +44,8 @@
     foreach($user_data as $row)
     {
       $returnArr['userInfo'] .= "<p>Username: " . $row["username"] . "</p>\n";
-      $returnArr['userInfo'] .= $row["display_name"] . "</p>\n";
-      $returnArr['userInfo'] .= $row["date_created"] . "</p>\n";
+      $returnArr['userInfo'] .= "<p>Display Name: " . $row["display_name"] . "</p>\n";
+      $returnArr['userInfo'] .= "<p>Date Created: " . $row["date_created"] . "</p>\n";
     }
 
     echo json_encode($returnArr);
