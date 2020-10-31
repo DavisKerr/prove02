@@ -355,13 +355,13 @@
         <form method="POST">
           <label for="gameName">Game Name</label>
           <input type="text" name="gameName" id="gameName"><br>
-          <span class="error"></span><br>
+          <span class="error" id="gameNameErr"></span><br>
           <br>
           <input type="checkbox" value="TRUE" id="private" name="private" onchange="addCode()">
           <label for="private">Private Game</label>
           <br>
           <span id="gameCodeField"></span><br>
-          <span class="error"></span><br>
+          <span class="error" id="codeErr"></span><br>
           <button type="button" class="btn btn-success" id="confirmBtn">Create</button>
         </form>
       </div>
