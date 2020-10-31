@@ -38,6 +38,10 @@
         $_SESSION["loggedIn"] = TRUE;
         $_SESSION["user_id"] = $dbInfo["id"];
       }
+      else
+      {
+        $_SESSION["loggedIn"] = FALSE;
+      }
     }
   }
 
