@@ -6,10 +6,7 @@
 
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
-    if(!isset($_SESSION["loggedIn"]))
-    {
-      $_SESSION["loggedIn"] = true;
-    }
+    $_SESSION["loggedIn"] = true;
     header("Location: ./home.php");
     exit();
   }
