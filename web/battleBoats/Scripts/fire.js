@@ -4,7 +4,14 @@ function prepFire()
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-    $.post("../gameLogic/fire.php",
+    alert("firing");
+    fire(x, y);
+  });
+}
+
+function fire(x, y)
+{
+  $.post("../gameLogic/fire.php",
     {
     x: x,
     y: y
@@ -23,7 +30,6 @@ function prepFire()
       }
       
     }); 
-  });
 }
 
 
