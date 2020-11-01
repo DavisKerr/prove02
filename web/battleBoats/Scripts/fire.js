@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-      $.post("../Util/sendMessage.php",
+      $.post("../gameLogic/fire.php",
       {
         x: x,
         y: y
