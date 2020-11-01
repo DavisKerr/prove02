@@ -11,6 +11,7 @@ function prepFire()
 
 function fire(x, y)
 {
+  alert("ye");
   $.post("../gameLogic/fire.php",
     {
     x: x,
