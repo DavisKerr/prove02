@@ -1,11 +1,11 @@
 $(document).ready(function(){
-  $('#sendMessageBtn').click(function(){
-    var message = document.getElementById("newMessage").value.trim();
-    if(isValid(message))
-    {
+  $('#fireBtn').click(function(){
+    var x = document.getElementById("x-coord").value;
+    var y = document.getElementById("y-coord").value;
       $.post("../Util/sendMessage.php",
       {
-        message: message
+        x: x,
+        y: y
       },
       function(data, status)
       { 
@@ -13,7 +13,7 @@ $(document).ready(function(){
         {
           if(data.isValid)
           {
-            processData(data);
+            processFire(data);
           }
           else
           {
@@ -27,49 +27,25 @@ $(document).ready(function(){
         }
       
       }); 
-    }
-    else
-    {
-      return false;
-    }
   });
 
 });
 
-function isValid(message)
-{
-  var valid = true;
-  var messageErr = document.getElementById("messageErr");
-  var pattern1 = RegExp('^[0-9A-z !.?]+$');
-  var pattern2 = RegExp('^ +$');
 
-  messageErr.innerHTML = '';
 
-  if(!pattern1.test(message))
-  {
-    messageErr.innerHTML = "Message must only contain punctuation, letters, numbers, and spaces";
-    valid = false;
-  }
-
-  if(pattern2.test(message) || message == '')
-  {
-    messageErr.innerHTML = "Message cannot be blank";
-    valid = false;
-  }
-
-  return valid;
-}
-
-function processData(data)
+function processFire(data)
 {
   if(data.serverError != '')
   {
     alert(data.serverError);
   }
+  else if(data.isValid == false)
+  {
+    document.getElementById("fireErr").innerHTML = 'Already tried there!';
+  }
   else
   { 
-    document.getElementById("newMessage").value = '';
-    getMessages();
+    checkGameEnd();
   }
   
 }

@@ -22,7 +22,7 @@
       }
       $form .= "</select><br>";
       $form .= "<span class='error' id='fireErr'></span><br>";
-      $form .= "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
+      $form .= "<button type='button' class='btn btn-danger' id='fireBtn'>Fire!</button>";
       $form .= "</div>";
       $form .= "</form>";
     }

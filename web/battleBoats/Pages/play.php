@@ -44,6 +44,7 @@
     <script src="../Scripts/getBoards.js"></script>
     <script src="../Scripts/turns.js"></script>
     <script src="../Scripts/checkGameEnd.js"></script>
+    <script src="../Scripts/fire.js"></script>
     <title>Home</title>
   </head>
   <body>
