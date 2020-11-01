@@ -20,7 +20,6 @@ function fire(x, y)
     alert("working...");
     if(status == 'success')
     {
-      alert(JSON.stringify(data));
       processFire(data);
     }
     else
@@ -44,6 +43,7 @@ function processFire(data)
   }
   else
   { 
+    getBoards();
     checkGameEnd();
     checkTurn();
   }
