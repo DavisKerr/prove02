@@ -29,19 +29,19 @@
 
     if(empty($turnData) && $owner)
     {
-      $isTurn = TRUE;
+      $isTurn = true;
     }
     elseif($turnData["move_number"] % 2 == 0 && $owner)
     {
-      $isTurn = TRUE;
+      $isTurn = true;
     }
     elseif($turnData["move_number"] % 2 != 0 && !$owner)
     {
-      $isTurn = TRUE;
+      $isTurn = true;
     }
     else
     {
-      $isTurn = FALSE;
+      $isTurn = false;
     }
 
     $returnArr['isUserTurn'] = $isTurn;
