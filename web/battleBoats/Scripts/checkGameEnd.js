@@ -1,7 +1,3 @@
-$(document).ready(function(){
-  checkGameEnd();
-});
-
 function checkGameEnd()
 {
   $.post("../gameLogic/checkGameEnd.php",

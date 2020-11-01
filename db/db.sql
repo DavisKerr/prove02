@@ -27,8 +27,10 @@ CREATE TABLE public.game
 , opponent INT
 , is_active INT NOT NULL
 , date_created TIMESTAMP NOT NULL
+, winner INT
 , CONSTRAINT fk_game_owner FOREIGN KEY(game_owner) REFERENCES public.user(id)
 , CONSTRAINT fk_opponent FOREIGN KEY(opponent) REFERENCES public.user(id)
+, CONSTRAINT fk_winner FOREIGN KEY(winner) REFERENCES public.user(id)
 );
 
 CREATE TABLE public.board

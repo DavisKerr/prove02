@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  checkTurn();
+});
+
 function checkTurn()
 {
   $.post("../gameLogic/checkTurn.php",
@@ -10,7 +14,6 @@ function checkTurn()
     {
       if(data.success)
       {
-        
         processData(data);
       }
       else
