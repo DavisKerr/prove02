@@ -19,7 +19,7 @@
   }
 
   $owner = queryGameOwner($db) == $_SESSION["user_id"];
-    $results = checkFinished($db);
+  $results = checkFinished($db);
   if($results['game_type'] != 'FINISHED')
   {
     $turnData = queryMoves($db);

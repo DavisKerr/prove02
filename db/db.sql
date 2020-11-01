@@ -402,3 +402,5 @@ FROM public.board
 WHERE game_id = 9
 AND
 board_owner <> 1;
+
+SELECT game_type, winner FROM public.game WHERE id = 1;
