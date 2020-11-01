@@ -38,7 +38,7 @@ function processFire(data)
   {
     alert(data.serverError);
   }
-  else if(data.isValid == false)
+  else if(data.isValidSpot == false)
   {
     document.getElementById("fireErr").innerHTML = 'Already tried there!';
   }
