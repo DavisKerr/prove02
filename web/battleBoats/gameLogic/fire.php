@@ -31,13 +31,13 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     if($board != "ERROR")
     {
       updateBoard($db, $board);
-      /*$move = $moveData["move_number"];
+      $move = $moveData["move_number"];
       if(empty($moveData))
       {
         $move = 0;
       }
       insertMoves($db, $x, $y, $move);
-      $returnArr['isValidSpot'] = true;*/
+      $returnArr['isValidSpot'] = true;
     }
     else
     {
