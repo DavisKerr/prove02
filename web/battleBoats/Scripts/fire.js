@@ -1,27 +1,21 @@
 $(document).ready(function(){
 
   $('#fireBtn').click(function(){
-    alert('firing');
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
     alert(x);
+    if(isValid(username, password))
+    {
       $.post("../gameLogic/fire.php",
       {
-        x: x,
-        y: y
+      x: x,
+      y: y
       },
       function(data, status)
       { 
-        if(status == 'success')
-        {
           processFire(data);
-        }
-        else
-        {
-          alert("Oops! Something happened!");
-        }
-      
       }); 
+    }
   });
 
 });
