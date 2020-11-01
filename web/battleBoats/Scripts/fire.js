@@ -11,15 +11,7 @@ $(document).ready(function(){
       { 
         if(status == 'success')
         {
-          if(data.isValid)
-          {
-            processFire(data);
-          }
-          else
-          {
-            alert("something went wrong!");
-          }
-          
+          processFire(data);
         }
         else
         {
