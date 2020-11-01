@@ -26,8 +26,8 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     $moveData = queryMoves($db);
     $returnArr['x'] = $x;
     $returnArr['y'] = $y;
-    /*$board = fire($x, $y, $enemyBoard);
-
+    $board = fire($x, $y, $enemyBoard);
+/*
     if($board != "ERROR")
     {
       updateBoard($db, $board);
@@ -42,7 +42,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     else
     {
       $returnArr["isValidSpot"] = false;
-    }
+    }*/
   
 
   function fire($x, $y, $board)
@@ -77,7 +77,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     }
     $board = implode("", $board);
     return $board;
-  }*/
+  }
 
   echo json_encode($returnArr);
 
