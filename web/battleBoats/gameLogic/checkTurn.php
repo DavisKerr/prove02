@@ -21,8 +21,8 @@
   $owner = queryGameOwner($db) == $_SESSION["user_id"];
   $results = checkFinished($db);
 
-  $returnArr['winner'] = $results['winner'];
-  $returnArr['finished'] = $results['game_type'];
+  $returnArr['winner'] = $_SESSION["user_id"];
+
   if($results['game_type'] != 'FINISHED')
   {
     $turnData = queryMoves($db);
