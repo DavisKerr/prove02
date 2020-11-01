@@ -16,9 +16,10 @@
   {
     $returnArr['serverError'] .= 'There was an error in the file system\n';
     $returnArr['success'] = false;
-    $owner = queryGameOwner($db) == $_SESSION["user_id"];
-    $results = checkFinished($db);
   }
+
+  $owner = queryGameOwner($db) == $_SESSION["user_id"];
+    $results = checkFinished($db);
   if($results['game_type'] != 'FINISHED')
   {
     $turnData = queryMoves($db);
