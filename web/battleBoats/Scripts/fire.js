@@ -3,7 +3,7 @@ function prepFire()
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-    alert(x);
+    alert(x + ', ' + y);
       $.post("../gameLogic/fire.php",
       {
       x: x,
@@ -11,6 +11,7 @@ function prepFire()
       },
       function(data, status)
       { 
+        alert(JSON.stringify(data));
         processFire(data);
       }); 
   });

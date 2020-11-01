@@ -3,7 +3,7 @@
 session_start();
 header('Content-type: application/json');
 
-$returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false);
+$returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x'=>'', 'y'=>'');
 
 try
 {
@@ -24,7 +24,8 @@ catch(Exception $e)
   $x = htmlspecialchars($_POST["x"]);
   $y = htmlspecialchars($_POST["y"]);
   $moveData = queryMoves($db);
-
+  $returnArr['x'] = $x;
+  $returnArr['y'] = $y;
   $board = fire($x, $y, $enemyBoard);
 
   if($board != "ERROR")
