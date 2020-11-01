@@ -3,7 +3,7 @@ function prepFire()
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-    alert("firing");
+    alert(x + ', ' + y);
     fire(x, y);
   });
 }
