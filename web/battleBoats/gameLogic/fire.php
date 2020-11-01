@@ -44,39 +44,39 @@ catch(Exception $e)
   echo json_encode($returnArr);
   
 
-function fire($x, $y, $board)
-{
-  $board = str_split($board); 
-  $coord = intval(strval($y - 1) . strval($x - 1)) + 1;
-  
-  $counter = 0;
-  for($i = 0; $i < sizeof($board); $i++)
+  function fire($x, $y, $board)
   {
-  	if($board[$i] != "/")
-    {
-    	$counter++;
-    }
+    $board = str_split($board); 
+    $coord = intval(strval($y - 1) . strval($x - 1)) + 1;
     
-    if($coord == $counter)
+    $counter = 0;
+    for($i = 0; $i < sizeof($board); $i++)
     {
-      if($board[$i] == "V")
+      if($board[$i] != "/")
       {
-        $board[$i] = 'X';
+        $counter++;
       }
-      elseif($board[$i] == "*")
+      
+      if($coord == $counter)
       {
-        $board[$i] = 'O';
+        if($board[$i] == "V")
+        {
+          $board[$i] = 'X';
+        }
+        elseif($board[$i] == "*")
+        {
+          $board[$i] = 'O';
+        }
+        else
+        {
+          return "ERROR";
+        }
+        break;
       }
-      else
-      {
-        return "ERROR";
-      }
-      break;
     }
+    $board = implode("", $board);
+    return $board;
   }
-  $board = implode("", $board);
-  return $board;
-}
 
 
 
