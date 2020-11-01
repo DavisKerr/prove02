@@ -12,6 +12,7 @@ try
   require './readBoard.php';
   require '../database/updateBoard.php';
   require '../database/insertMoves.php';
+  require '../database/queryMoves.php';
 }
 catch(Exception $e)
 {
@@ -22,6 +23,7 @@ catch(Exception $e)
   $enemyBoard = queryEnemyBoard($db); 
   $x = htmlspecialchars($_POST["x"]);
   $y = htmlspecialchars($_POST["y"]);
+  $moveData = queryMoves($db);
 
   $board = fire($x, $y, $enemyBoard);
 
