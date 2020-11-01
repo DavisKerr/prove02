@@ -13,24 +13,24 @@ function fire(x, y)
 {
   alert("ye");
   $.post("../gameLogic/fire.php",
+  {
+    xcoord: x,
+    ycoord: y
+  },
+  function(data, status)
+  { 
+    alert("working...");
+    if(status == 'success')
     {
-    x: x,
-    y: y
-    },
-    function(data, status)
-    { 
-      alert("working...");
-      if(status == 'success')
-      {
-        alert(JSON.stringify(data));
-        processFire(data);
-      }
-      else
-      {
-        alert("Something went wrong!");
-      }
-      
-    }); 
+      alert(JSON.stringify(data));
+      processFire(data);
+    }
+    else
+    {
+      alert("Something went wrong!");
+    }
+    
+  }); 
 }
 
 

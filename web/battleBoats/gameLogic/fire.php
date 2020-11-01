@@ -21,8 +21,8 @@ catch(Exception $e)
 }
 
   $enemyBoard = queryEnemyBoard($db); 
-  $x = htmlspecialchars($_POST["x"]);
-  $y = htmlspecialchars($_POST["y"]);
+  $x = htmlspecialchars($_POST["xcoord"]);
+  $y = htmlspecialchars($_POST["ycoord"]);
   $moveData = queryMoves($db);
   $returnArr['x'] = $x;
   $returnArr['y'] = $y;
