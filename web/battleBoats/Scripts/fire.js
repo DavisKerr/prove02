@@ -12,8 +12,8 @@ function fire(x, y)
 {
   $.get("../gameLogic/fire.php",
   {
-    xcoord: x,
-    ycoord: y
+    'xcoord': x,
+    'ycoord': y
   },
   function(data, status)
   { 
