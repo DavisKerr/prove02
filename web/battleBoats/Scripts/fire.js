@@ -4,7 +4,6 @@ function prepFire()
     document.getElementById("fireErr").innerHTML = '';
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-    alert(x + ', ' + y);
     fire(x, y);
   });
 }

@@ -30,7 +30,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
 
     if($board != "ERROR")
     {
-      $returnArr['serverError'] = updateBoard($db, $board);
+      updateBoard($db, $board);
       $move = $moveData["move_number"];
       if(empty($moveData))
       {
