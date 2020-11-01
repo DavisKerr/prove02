@@ -4,8 +4,6 @@ $(document).ready(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
     alert(x);
-    if(isValid(username, password))
-    {
       $.post("../gameLogic/fire.php",
       {
       x: x,
@@ -13,9 +11,8 @@ $(document).ready(function(){
       },
       function(data, status)
       { 
-          processFire(data);
+        processFire(data);
       }); 
-    }
   });
 
 });
