@@ -10,7 +10,7 @@ function prepFire()
 
 function fire(x, y)
 {
-  $.post("../gameLogic/fire.php",
+  $.get("../gameLogic/fire.php",
   {
     'xcoord': x,
     'ycoord': y
