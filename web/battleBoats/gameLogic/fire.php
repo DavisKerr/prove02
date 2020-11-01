@@ -20,7 +20,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     $returnArr['success'] = false;
   }
 
-    $enemyBoard = queryEnemyBoard($db); 
+    $enemyBoard = queryEnemyBoard($db)['grid']; 
     $x = htmlspecialchars($_POST["xcoord"]);
     $y = htmlspecialchars($_POST["ycoord"]);
     $moveData = queryMoves($db);
