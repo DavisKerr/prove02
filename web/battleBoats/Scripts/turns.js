@@ -15,7 +15,7 @@ function checkTurn()
       if(data.success)
       {
         alert(JSON.stringify(data));
-        processData(data);
+        changeForm(data);
       }
       else
       {
@@ -31,7 +31,7 @@ function checkTurn()
   });
 }
 
-function processData(data)
+function changeForm(data)
 {
   document.getElementById('moveForm').innerHTML = data.form;
 }
