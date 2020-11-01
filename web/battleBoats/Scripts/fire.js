@@ -11,8 +11,16 @@ function prepFire()
       },
       function(data, status)
       { 
-        alert(JSON.stringify(data));
-        processFire(data);
+        if(status == 'success')
+        {
+          alert(JSON.stringify(data));
+          processFire(data);
+        }
+        else
+        {
+          alert("Something went wrong!");
+        }
+        
       }); 
   });
 }

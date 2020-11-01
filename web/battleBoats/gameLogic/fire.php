@@ -44,7 +44,7 @@ catch(Exception $e)
     $returnArr["isValidSpot"] = false;
   }
 
-  echo json_encode($returnArr);
+  
   
 
   function fire($x, $y, $board)
@@ -81,7 +81,7 @@ catch(Exception $e)
     return $board;
   }
 
-
+  echo json_encode($returnArr);
 
 
 ?>
