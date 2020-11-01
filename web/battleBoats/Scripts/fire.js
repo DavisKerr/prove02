@@ -1,6 +1,5 @@
 function prepFire()
 {
-  alert('HELP!');
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
@@ -11,8 +10,7 @@ function prepFire()
 
 function fire(x, y)
 {
-  alert("ye");
-  $.post("../gameLogic/fire.php",
+  $.get("../gameLogic/fire.php",
   {
     xcoord: x,
     ycoord: y
