@@ -14,6 +14,7 @@ function checkTurn()
     {
       if(data.success)
       {
+        alert(JSON.stringify(data));
         processData(data);
       }
       else

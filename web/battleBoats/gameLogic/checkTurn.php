@@ -2,7 +2,7 @@
   session_start();
   header('Content-type: application/json');
 
-  $returnArr = array('success'=>true, 'serverError'=>'', 'isUserTurn'=>true, 'form'=>'');
+  $returnArr = array('success'=>true, 'serverError'=>'', 'isUserTurn'=>true, 'form'=>'', 'finished');
 
   try
   {
@@ -20,6 +20,7 @@
 
   $owner = queryGameOwner($db) == $_SESSION["user_id"];
   $results = checkFinished($db);
+  $returnArr9'finished' = $results['game_type'];
   if($results['game_type'] != 'FINISHED')
   {
     $turnData = queryMoves($db);
