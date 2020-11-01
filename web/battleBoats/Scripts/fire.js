@@ -11,6 +11,7 @@ function prepFire()
       },
       function(data, status)
       { 
+        alert("working...");
         if(status == 'success')
         {
           alert(JSON.stringify(data));
