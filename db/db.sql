@@ -37,7 +37,7 @@ CREATE TABLE public.board
 ( id SERIAL NOT NULL PRIMARY KEY
 , board_owner INT NOT NULL
 , game_id INT NOT NULL
-, grid VARCHAR(256) NOT NULL
+, grid VARCHAR(256)
 , CONSTRAINT fk_board_owner FOREIGN KEY(board_owner) REFERENCES public.user(id)
 , CONSTRAINT fk_game_id FOREIGN KEY(game_id) REFERENCES public.game
 );
