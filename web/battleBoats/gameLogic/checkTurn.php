@@ -52,7 +52,7 @@
   }
   else
   {
-    if($result['winner'] == $_SESSION['user_id'])
+    if($results['winner'] == $_SESSION['user_id'])
     {
       $returnArr['form'] = "<h4> Congratulations, you won!</h4>";
     }
