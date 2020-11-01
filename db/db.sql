@@ -404,3 +404,5 @@ AND
 board_owner <> 1;
 
 SELECT game_type, winner FROM public.game WHERE id = 1;
+
+UPDATE public.board SET grid = '**' WHERE game_id = 1 AND board_owner <> 1;
