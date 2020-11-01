@@ -5,7 +5,7 @@
     if($isTurn)
     {
       $form .= "<h4>It's your turn! Where would you like to strike?</h4>";
-      $form .= "<form id='moves' method='POST'";
+      $form .= "<form id='moves' method='POST'>";
       $form .= "<div>";
       $form .= "<label for='x-coord'>X-Coordinate:</label>";
       $form .= "<select name='x-coord' id='x-coord'>";
