@@ -1,8 +1,3 @@
-$(document).ready(function(){
-
-
-});
-
 function checkTurn()
 {
   $.post("../gameLogic/checkTurn.php",
@@ -15,8 +10,8 @@ function checkTurn()
     {
       if(data.success)
       {
-        alert(JSON.stringify(data));
-        //processData(data);
+        
+        processData(data);
       }
       else
       {
@@ -30,4 +25,9 @@ function checkTurn()
     }
   
   });
+}
+
+function processData(data)
+{
+  document.getElementById('moveForm').innerHTML = data.form;
 }
