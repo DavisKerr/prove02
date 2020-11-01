@@ -14,15 +14,16 @@
         $result .= "<td>" .  $row["game_name"] . "</td>\n";
         $result .= "<td>" .  $row["date_created"] . "</td>\n";
         $result .= "<td>" .  $row["player1"] . "</td>\n";
+        if($type)
+        {
+          $result .= "<td>" .  $row["game_type"] . "</td>\n";
+        }
         if(isset($row["player2"]))
         {
           $result .= "<td>" .  $row["player2"] . "</td>\n";
         }
 
-        if($type)
-        {
-          $result .= "<td>" .  $row["game_type"] . "</td>\n";
-        }
+        
 
         if($showCode)
         {
