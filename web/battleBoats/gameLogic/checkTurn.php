@@ -21,6 +21,7 @@
   $owner = queryGameOwner($db) == $_SESSION["user_id"];
   $results = checkFinished($db);
 
+  $returnArr['winner'] = $results['winner'];
   $returnArr['finished'] = $results['game_type'];
   if($results['game_type'] != 'FINISHED')
   {

@@ -17,7 +17,6 @@ function fire(x, y)
   },
   function(data, status)
   { 
-    alert("working...");
     if(status == 'success')
     {
       processFire(data);
