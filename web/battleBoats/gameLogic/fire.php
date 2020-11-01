@@ -4,47 +4,48 @@ session_start();
 header('Content-type: application/json');
 
 $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x'=>'', 'y'=>'');
-
-try
+if($_SERVER["REQUEST_METHOD"] == 'POST')
 {
-  require '../database/getDB.php';
-  require '../database/queryEnemyBoard.php';
-  require './readBoard.php';
-  require '../database/updateBoard.php';
-  require '../database/insertMoves.php';
-  require '../database/queryMoves.php';
-}
-catch(Exception $e)
-{
-  $returnArr['serverError'] .= 'There was an error in the file system\n';
-  $returnArr['success'] = false;
-}
-
-  $enemyBoard = queryEnemyBoard($db); 
-  $x = htmlspecialchars($_POST["xcoord"]);
-  $y = htmlspecialchars($_POST["ycoord"]);
-  $moveData = queryMoves($db);
-  $returnArr['x'] = $x;
-  $returnArr['y'] = $y;
-  $board = fire($x, $y, $enemyBoard);
-
-  if($board != "ERROR")
+  try
   {
-    updateBoard($db, $board);
-    $move = $moveData["move_number"];
-    if(empty($moveData))
+    require '../database/getDB.php';
+    require '../database/queryEnemyBoard.php';
+    require './readBoard.php';
+    require '../database/updateBoard.php';
+    require '../database/insertMoves.php';
+    require '../database/queryMoves.php';
+  }
+  catch(Exception $e)
+  {
+    $returnArr['serverError'] .= 'There was an error in the file system\n';
+    $returnArr['success'] = false;
+  }
+
+    $enemyBoard = queryEnemyBoard($db); 
+    $x = htmlspecialchars($_POST["xcoord"]);
+    $y = htmlspecialchars($_POST["ycoord"]);
+    $moveData = queryMoves($db);
+    $returnArr['x'] = $x;
+    $returnArr['y'] = $y;
+    $board = fire($x, $y, $enemyBoard);
+
+    if($board != "ERROR")
     {
-      $move = 0;
+      updateBoard($db, $board);
+      $move = $moveData["move_number"];
+      if(empty($moveData))
+      {
+        $move = 0;
+      }
+      insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $move);
+      $returnArr['isValidSpot'] = true;
     }
-    insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $move);
-    $returnArr['isValidSpot'] = true;
-  }
-  else
-  {
-    $returnArr["isValidSpot"] = false;
-  }
+    else
+    {
+      $returnArr["isValidSpot"] = false;
+    }
 
-  
+}
   
 
   function fire($x, $y, $board)
