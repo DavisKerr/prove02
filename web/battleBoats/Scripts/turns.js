@@ -15,7 +15,6 @@ function checkTurn()
     {
       if(data.success)
       {
-        alert(JSON.stringify(data));
         changeForm(data);
       }
       else

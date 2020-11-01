@@ -1,28 +1,28 @@
 function prepFire()
 {
+  alert('HELP!');
   $('#fireBtn').click(function(){
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
-    alert(x + ', ' + y);
-      $.post("../gameLogic/fire.php",
+    $.post("../gameLogic/fire.php",
+    {
+    x: x,
+    y: y
+    },
+    function(data, status)
+    { 
+      alert("working...");
+      if(status == 'success')
       {
-      x: x,
-      y: y
-      },
-      function(data, status)
-      { 
-        alert("working...");
-        if(status == 'success')
-        {
-          alert(JSON.stringify(data));
-          processFire(data);
-        }
-        else
-        {
-          alert("Something went wrong!");
-        }
-        
-      }); 
+        alert(JSON.stringify(data));
+        processFire(data);
+      }
+      else
+      {
+        alert("Something went wrong!");
+      }
+      
+    }); 
   });
 }
 
