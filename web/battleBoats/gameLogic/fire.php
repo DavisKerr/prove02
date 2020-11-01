@@ -27,22 +27,22 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     $returnArr['x'] = $x;
     $returnArr['y'] = $y;
     $board = fire($x, $y, $enemyBoard);
-/*
+
     if($board != "ERROR")
     {
-      updateBoard($db, $board);
+     /* updateBoard($db, $board);
       $move = $moveData["move_number"];
       if(empty($moveData))
       {
         $move = 0;
       }
       insertMoves($db, $x, $y, $move);
-      $returnArr['isValidSpot'] = true;
+      $returnArr['isValidSpot'] = true;*/
     }
     else
     {
       $returnArr["isValidSpot"] = false;
-    }*/
+    }
   
 
   function fire($x, $y, $board)
