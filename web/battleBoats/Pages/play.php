@@ -39,12 +39,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../Scripts/fire.js"></script>
     <script src="../Scripts/getMessages.js"></script>
     <script src="../Scripts/sendMessage.js"></script>
     <script src="../Scripts/getBoards.js"></script>
     <script src="../Scripts/turns.js"></script>
     <script src="../Scripts/checkGameEnd.js"></script>
+    <script src="../Scripts/fire.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -74,52 +74,13 @@
 
     <div id="page_body" class="d-flex flex-column align-items-center">
 
-      <h1><?php echo $enemyData["game_name"]; ?></h1>
+      <h1><?php /*echo $enemyData["game_name"];*/ ?></h1>
 
       <div id="gameBoard" class="d-flex flex-row align-items-center">
 
       </div>
 
       <div id="moveForm">
-      <?php 
-        /*if(isPlayerTurn($db) && !$defeat && !$victory)
-        {
-          echo "<h4>It's your turn! Where would you like to strike?</h4>";
-          echo "<form id='moves' method='POST' action=". htmlspecialchars($_SERVER["PHP_SELF"]) . ">";
-          echo "<div>";
-          echo "<label for='x-coord'>X-Coordinate:</label>";
-          echo "<select name='x-coord' id='x-coord'>";
-          for($i = 1; $i <= 10; $i++)
-          {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          echo "</select>";
-          echo "<label for='y-coord'>y-Coordinate:</label>";
-          echo "<select name='y-coord' id='y-coord'>";
-          for($i = 1; $i <= 10; $i++)
-          {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          echo "</select><br>";
-          echo "<span class='error'>" . $fireError . "</span><br>";
-          echo "<button type='submit' class='btn btn-danger' id='fireBtn'>Fire!</button>";
-          echo "</div>";
-          echo "</form>";
-        }
-        elseif($victory)
-        {
-          echo "<h4> Congratulations, you won!</h4>";
-        }
-        elseif($defeat)
-        {
-          echo "<h4> You lost. Better luck next time!</h4>";
-        }
-        else
-        {
-          echo "<h4>It is not your turn right now. Check back again soon!</h4>";
-        }*/
-      
-      ?>
 
             
       </div>
