@@ -17,7 +17,7 @@ header('Content-type: application/json');
     $returnArr['success'] = false;
   }
 
-  $board = queryEnemyBoard($db);
+  $board = queryEnemyBoard($db)['grid'];
 
   $board = str_split($board);
   $counter = 0;
