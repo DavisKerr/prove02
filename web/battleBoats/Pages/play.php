@@ -39,12 +39,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Scripts/fire.js"></script>
     <script src="../Scripts/getMessages.js"></script>
     <script src="../Scripts/sendMessage.js"></script>
     <script src="../Scripts/getBoards.js"></script>
     <script src="../Scripts/turns.js"></script>
     <script src="../Scripts/checkGameEnd.js"></script>
-    <script src="../Scripts/fire.js"></script>
     <title>Home</title>
   </head>
   <body>

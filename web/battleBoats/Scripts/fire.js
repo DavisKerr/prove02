@@ -1,5 +1,7 @@
 $(document).ready(function(){
+
   $('#fireBtn').click(function(){
+    alert('firing');
     var x = document.getElementById("x-coord").value;
     var y = document.getElementById("y-coord").value;
     alert(x);
