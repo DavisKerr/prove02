@@ -46,6 +46,7 @@ function processFire(data)
   else
   { 
     checkGameEnd();
+    checkTurn();
   }
   
 }
