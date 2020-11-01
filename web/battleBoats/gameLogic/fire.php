@@ -20,7 +20,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     $returnArr['success'] = false;
   }
 
-    $enemyBoard = queryEnemyBoard($db); 
+    /*$enemyBoard = queryEnemyBoard($db); 
     $x = htmlspecialchars($_POST["xcoord"]);
     $y = htmlspecialchars($_POST["ycoord"]);
     $moveData = queryMoves($db);
@@ -77,7 +77,7 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     }
     $board = implode("", $board);
     return $board;
-  }
+  }*/
 
   echo json_encode($returnArr);
 
