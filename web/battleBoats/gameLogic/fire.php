@@ -20,13 +20,13 @@ $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x
     $returnArr['success'] = false;
   }
 
-    /*$enemyBoard = queryEnemyBoard($db); 
+    $enemyBoard = queryEnemyBoard($db); 
     $x = htmlspecialchars($_POST["xcoord"]);
     $y = htmlspecialchars($_POST["ycoord"]);
     $moveData = queryMoves($db);
     $returnArr['x'] = $x;
     $returnArr['y'] = $y;
-    $board = fire($x, $y, $enemyBoard);
+    /*$board = fire($x, $y, $enemyBoard);
 
     if($board != "ERROR")
     {
