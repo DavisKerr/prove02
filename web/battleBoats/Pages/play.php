@@ -43,6 +43,7 @@
     <script src="../Scripts/sendMessage.js"></script>
     <script src="../Scripts/getBoards.js"></script>
     <script src="../Scripts/turns.js"></script>
+    <script src="../Scripts/checkGameEnd.js"></script>
     <title>Home</title>
   </head>
   <body>
