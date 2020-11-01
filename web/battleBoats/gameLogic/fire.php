@@ -4,8 +4,7 @@ session_start();
 header('Content-type: application/json');
 
 $returnArr = array('success'=>false, 'serverError'=>'', 'isValidSpot'=>false, 'x'=>'', 'y'=>'');
-if($_SERVER["REQUEST_METHOD"] == 'POST')
-{
+
   try
   {
     require '../database/getDB.php';
@@ -37,15 +36,13 @@ if($_SERVER["REQUEST_METHOD"] == 'POST')
       {
         $move = 0;
       }
-      insertMoves($db, $_POST["x-coord"], $_POST["y-coord"], $move);
+      insertMoves($db, $x, $y, $move);
       $returnArr['isValidSpot'] = true;
     }
     else
     {
       $returnArr["isValidSpot"] = false;
     }
-
-}
   
 
   function fire($x, $y, $board)
